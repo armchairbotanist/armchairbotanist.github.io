@@ -1,0 +1,14 @@
+# Ignore everything by default; this repository is meant to publish only the
+# static GitHub Pages runtime files plus lightweight project documentation.
+*
+# Keep repository config files.
+!.gitignore
+!.nojekyll
+# Keep the published site.
+!index.html
+!styles.css
+!app.bundle.js
+# Keep lightweight documentation.
+!README.md
+!DATA_SOURCE.md
+!PLAN.md

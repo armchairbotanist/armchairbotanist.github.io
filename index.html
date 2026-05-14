@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore an expandable top-down plant classification tree from World Flora Online.">
+    <title>Armchair Botanist</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%2329795c' d='M50 8C28 9 13 21 13 39c0 10 7 17 17 17 19 0 28-22 20-48Z'/%3E%3Cpath fill='%23eff7ea' d='M21 48C28 33 37 23 49 13 37 28 29 39 25 55Z'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main>
+      <div id="treeViewport" class="tree-viewport">
+        <div id="treeSizer" class="tree-sizer">
+          <div id="tree" class="tree" role="tree" aria-label="World Flora Online plant classification tree"></div>
+        </div>
+      </div>
+    </main>
+
+    <div class="zoom-controls" aria-label="Tree zoom controls">
+      <button id="zoomOut" type="button" aria-label="Zoom out" title="Zoom out">−</button>
+      <span id="zoomValue">100%</span>
+      <button id="zoomIn" type="button" aria-label="Zoom in" title="Zoom in">+</button>
+      <button id="zoomReset" type="button" aria-label="Reset zoom" title="Reset zoom">Reset</button>
+    </div>
+
+    <aside id="detailsPanel" class="details-panel" aria-live="polite" aria-label="Taxon details" hidden>
+      <button id="closeDetails" class="close-details" type="button" aria-label="Close details">×</button>
+      <div id="detailsContent"></div>
+    </aside>
+
+    <template id="nodeTemplate">
+      <li class="tree-item" role="treeitem">
+        <div class="node">
+          <button class="node-main" type="button">
+            <span class="twist" aria-hidden="true"></span>
+            <span class="node-text">
+              <span class="node-name"></span>
+              <span class="node-meta"></span>
+            </span>
+          </button>
+          <button class="info-button" type="button" aria-label="Show more details">i</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="./app.bundle.js?v=20260514-wfo-bundle"></script>
+  </body>
+</html>
