@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Explore an expandable top-down plant classification tree from World Flora Online.">
+    <meta name="description" content="Explore a source-cited, expandable plant clade tree.">
     <title>Armchair Botanist</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%2329795c' d='M50 8C28 9 13 21 13 39c0 10 7 17 17 17 19 0 28-22 20-48Z'/%3E%3Cpath fill='%23eff7ea' d='M21 48C28 33 37 23 49 13 37 28 29 39 25 55Z'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="./styles.css">
@@ -12,15 +12,37 @@
     <main>
       <div id="treeViewport" class="tree-viewport">
         <div id="treeSizer" class="tree-sizer">
-          <div id="tree" class="tree" role="tree" aria-label="World Flora Online plant classification tree"></div>
+          <div id="tree" class="tree" role="tree" aria-label="Source-cited plant clade tree"></div>
         </div>
       </div>
     </main>
+
+    <form class="search-panel" role="search">
+      <label for="searchInput">Search plant tree</label>
+      <div class="search-field">
+        <input id="searchInput" type="search" autocomplete="off" placeholder="Try Rosids, Poaceae, Rosales...">
+        <button id="clearSearch" type="button" aria-label="Clear search">×</button>
+      </div>
+      <div id="searchResults" class="search-results" aria-live="polite"></div>
+    </form>
+
+    <fieldset class="orientation-controls" aria-label="Tree orientation">
+      <legend>Orientation</legend>
+      <label>
+        <input type="radio" name="orientation" value="vertical" checked>
+        <span>Top ↓</span>
+      </label>
+      <label>
+        <input type="radio" name="orientation" value="horizontal">
+        <span>Left →</span>
+      </label>
+    </fieldset>
 
     <div class="zoom-controls" aria-label="Tree zoom controls">
       <button id="zoomOut" type="button" aria-label="Zoom out" title="Zoom out">−</button>
       <span id="zoomValue">100%</span>
       <button id="zoomIn" type="button" aria-label="Zoom in" title="Zoom in">+</button>
+      <button id="zoomFit" type="button" aria-label="Fit visible tree to screen" title="Fit visible tree">Fit</button>
       <button id="zoomReset" type="button" aria-label="Reset zoom" title="Reset zoom">Reset</button>
     </div>
 
@@ -44,6 +66,7 @@
       </li>
     </template>
 
-    <script src="./app.bundle.js?v=20260514-wfo-bundle"></script>
+    <script src="./plant-tree-data.js?v=20260514-verifiable"></script>
+    <script src="./app.js?v=20260514-verifiable"></script>
   </body>
 </html>

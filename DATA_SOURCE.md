@@ -1,38 +1,41 @@
 # Data Source
 
-## World Flora Online
+## Source Strategy
 
-This project uses World Flora Online as the source for plant classification data.
+This project now uses a curated, source-cited clade tree rather than a WFO snapshot.
 
-- Website: https://www.worldfloraonline.org/
-- Plant List: https://list.worldfloraonline.org/
-- GraphQL endpoint: https://list.worldfloraonline.org/gql.php
-- Configured classification release: `2025-06`
-- Root concept used by the app: `wfo-4100001250-2025-06` (`Plantae Haeckel`)
+The tree data lives in `plant-tree-data.js`. Every node points to a source key in the same file. The validator fails if a node is missing its source or if a source is missing citation metadata.
 
 ## What The Tree Represents
 
-The displayed tree is the WFO taxonomic classification. It is scientific, citable taxonomy from WFO, but it is not a branch-length phylogenetic tree.
+The displayed tree is an educational clade atlas. It is not a branch-length phylogenetic tree and it is not intended to be a complete taxonomic checklist.
 
-The checked-in data snapshot is generated from WFO `TaxonConcept.hasPart` relationships. The browser loads `app.bundle.js`, which contains the WFO snapshot and app code in one file, so it can work on GitHub Pages and when `index.html` is opened from disk.
+The structure follows:
 
-## Source Boundary
+```text
+Clade
+└── Subclade
+    └── Order
+        └── Family
+            └── Example genera
+```
 
-Tree structure and node metadata should come from WFO only:
+Orders and families are intended to be source-verifiable. Genera are included as recognizable examples under each family, not as exhaustive lists.
 
-- concept IDs
-- scientific names
-- author strings
-- ranks
-- parent/child relationships
-- WFO paths
-- WFO stable URLs
-- WFO citation text when available
+## Current Source Boundaries
 
-If photos, Wikipedia extracts, or other enrichment are added later, they should be treated as a separate non-taxonomic display layer and clearly labeled as not part of the WFO tree data.
+- Flowering plant clades, orders, and families: APG IV.
+- Lycophytes and ferns: PPG I.
+- Gymnosperms: Christenhusz et al. 2011.
+- Bryophytes: current seed scaffold uses Bryophyte Nomenclator plus broad botanical consensus and should be strengthened with more precise liverwort/hornwort references.
+- Wikipedia enrichment in the details panel is display-only and does not define the tree structure.
 
-## Published Bundle
+## Verification
 
-The GitHub Pages repository intentionally publishes only the browser-ready bundle, `app.bundle.js`, rather than intermediate JSON chunks or local generation scripts.
+Run:
 
-For this snapshot, the bundle includes the first 4 WFO levels below `Plantae`. Increasing the depth later will increase the bundle size.
+```sh
+node scripts/validate-plant-tree.mjs
+```
+
+Passing validation means the data is internally consistent and source-cited. It does not mean every scientific relationship has been independently audited by a botanist. The next quality step is to add per-edge source notes for the larger clade placements.

@@ -1,40 +1,75 @@
 # Armchair Botanist
 
-A static, GitHub Pages-friendly explorer for the World Flora Online plant classification.
+A static, GitHub Pages-friendly explorer for a source-cited plant clade tree.
 
-## Data Source
+## Data Model
 
-The checked-in tree snapshot is generated from the World Flora Online Plant List GraphQL API:
+The tree is defined in `plant-tree-data.js`. It is intentionally plain JavaScript data so the structure can be reviewed directly.
+
+Each node has:
+
+- `id`
+- `name`
+- `rank`
+- `source`
+- optional `description`
+- optional `children`
+
+The intended shape is:
 
 ```text
-https://list.worldfloraonline.org/gql.php
+Clade
+└── Subclade
+    └── Order
+        └── Family
+            └── Example genera
 ```
 
-Current configured release:
+The genera are examples, not complete family inventories.
 
-```text
-WFO Classification 2025-06
+## Verification
+
+Run:
+
+```sh
+node scripts/validate-plant-tree.mjs
 ```
 
-The app starts at the WFO concept `Plantae Haeckel`:
+The validator checks that:
 
-```text
-wfo-4100001250-2025-06
-```
+- every node has a valid rank and source
+- every source has a citation and URL
+- every child reference exists
+- the tree has no cycles
+- every node is reachable from the root
+- orders contain family examples
+- families contain example genera
+- genera do not contain children
 
-This is a WFO taxonomic classification tree, not an inferred branch-length phylogeny. See [DATA_SOURCE.md](./DATA_SOURCE.md) for source notes.
+## Sources
 
-## Updating WFO Data
+The current seed tree uses:
 
-The published site uses `app.bundle.js`, which contains the WFO snapshot and the app code in one file. The local generation scripts and intermediate JSON chunks are intentionally ignored by Git so the GitHub Pages repository stays small and focused.
+- APG IV for flowering plant clades, orders, and families.
+- PPG I for lycophytes and ferns.
+- Christenhusz et al. 2011 for gymnosperms.
+- Bryophyte Nomenclator and broad botanical consensus for the current bryophyte seed scaffold.
 
-To publish a newer snapshot later, regenerate `app.bundle.js` locally, then commit the updated bundle.
+See `SOURCES.md` for details.
+
+## Current Features
+
+- Expandable top-down plant tree.
+- Search across clades, orders, families, and example genera.
+- Zoom in, zoom out, reset, and fit-to-view controls.
+- Details panel with source citation and optional Wikipedia enrichment.
+- Static files only, suitable for GitHub Pages.
 
 ## Local Preview
 
-You can open `index.html` directly in a browser. The page loads `app.bundle.js`, which contains both the app code and the bundled WFO snapshot, so it does not need local JSON fetches.
+You can open `index.html` directly in a browser.
 
-For the most accurate GitHub Pages-style preview, run a small local server from this folder:
+For the most accurate GitHub Pages-style preview, run:
 
 ```sh
 python3 -m http.server 8000
@@ -54,7 +89,7 @@ For the username `armchairbotanist`, create a public repository named exactly:
 armchairbotanist.github.io
 ```
 
-Push these files to the repository root. GitHub Pages will serve the site at:
+Push the repository files to the root. GitHub Pages will serve the site at:
 
 ```text
 https://armchairbotanist.github.io/
@@ -64,6 +99,9 @@ https://armchairbotanist.github.io/
 
 - `index.html` contains the page structure.
 - `styles.css` contains the visual design.
-- `app.bundle.js` is the browser-loaded bundle containing the WFO snapshot plus app code.
-- `DATA_SOURCE.md` documents the WFO source boundary.
+- `plant-tree-data.js` contains the source-cited tree data.
+- `app.js` renders and searches the tree.
+- `scripts/validate-plant-tree.mjs` verifies the tree structure.
+- `SOURCES.md` explains the source strategy.
 - `PLAN.md` contains the working roadmap.
+- `REQUIREMENTS.md` summarizes product requirements.

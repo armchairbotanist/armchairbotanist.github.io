@@ -9647,13 +9647,161 @@ const DATA_BASE = `./data/wfo-${WFO_RELEASE}`;
 const MIN_ZOOM = 0.35;
 const MAX_ZOOM = 1.8;
 const ZOOM_STEP = 0.1;
+const FIT_PADDING = 80;
+const CLADE_ROOT_ID = "clade-embryophytes";
+
+const CLADE_DEFINITIONS = [
+  {
+    id: CLADE_ROOT_ID,
+    name: "Land plants",
+    rank: "clade",
+    description: "Embryophytes: the major land-plant lineage represented in the WFO classification snapshot.",
+    children: ["clade-bryophytes", "clade-vascular-plants"]
+  },
+  {
+    id: "clade-bryophytes",
+    name: "Bryophytes",
+    rank: "grade",
+    description: "Non-vascular land plant lineages, shown here as hornworts, mosses, and liverworts.",
+    children: ["Anthocerotophyta", "Bryophyta", "Marchantiophyta"]
+  },
+  {
+    id: "clade-vascular-plants",
+    name: "Vascular plants",
+    rank: "clade",
+    description: "Tracheophytes: plants with vascular tissues, including lycophytes, ferns, and seed plants.",
+    children: ["clade-lycophytes", "clade-ferns", "clade-seed-plants"]
+  },
+  {
+    id: "clade-lycophytes",
+    name: "Lycophytes",
+    rank: "clade",
+    description: "An early-diverging vascular plant lineage represented in WFO by Lycopodiophyta.",
+    children: ["Lycopodiophyta"]
+  },
+  {
+    id: "clade-ferns",
+    name: "Ferns and allies",
+    rank: "clade",
+    description: "Monilophyte lineages represented in this snapshot by Polypodiophyta.",
+    children: ["Polypodiophyta"]
+  },
+  {
+    id: "clade-seed-plants",
+    name: "Seed plants",
+    rank: "clade",
+    description: "Spermatophytes: gymnosperm lineages plus flowering plants.",
+    children: ["clade-gymnosperms", "Angiosperms"]
+  },
+  {
+    id: "clade-gymnosperms",
+    name: "Gymnosperms",
+    rank: "grade",
+    description: "Seed plants without flowers or enclosed fruits. The current WFO snapshot includes cycads, ginkgo, and conifers.",
+    children: ["Cycadophyta", "Ginkgophyta", "Pinophyta"]
+  },
+  {
+    id: "clade-early-angiosperms",
+    name: "Early angiosperms",
+    rank: "grade",
+    description: "Early-diverging flowering plant orders before the large magnoliid, monocot, and eudicot radiations.",
+    children: ["Amborellales", "Nymphaeales", "Austrobaileyales"]
+  },
+  {
+    id: "clade-magnoliids",
+    name: "Magnoliids",
+    rank: "clade",
+    description: "A major flowering plant clade including magnolias, laurels, peppers, and relatives.",
+    children: ["Canellales", "Laurales", "Magnoliales", "Piperales"]
+  },
+  {
+    id: "clade-monocots",
+    name: "Monocots",
+    rank: "clade",
+    description: "Flowering plants that include grasses, orchids, palms, lilies, sedges, and many aquatic lineages.",
+    children: ["Acorales", "Alismatales", "Arecales", "Asparagales", "Commelinales", "Dioscoreales", "Liliales", "Pandanales", "Petrosaviales", "Poales", "Zingiberales"]
+  },
+  {
+    id: "clade-chloranthales",
+    name: "Chloranthales",
+    rank: "clade",
+    description: "A small flowering plant lineage often treated separately from magnoliids, monocots, and eudicots.",
+    children: ["Chloranthales"]
+  },
+  {
+    id: "clade-eudicots",
+    name: "Eudicots",
+    rank: "clade",
+    description: "The large flowering plant clade that includes rosids, asterids, and many familiar temperate plant groups.",
+    children: ["clade-early-eudicots", "clade-core-eudicots"]
+  },
+  {
+    id: "clade-early-eudicots",
+    name: "Early eudicots",
+    rank: "grade",
+    description: "Early-diverging eudicot orders before the core eudicot radiation.",
+    children: ["Buxales", "Ceratophyllales", "Proteales", "Ranunculales", "Trochodendrales"]
+  },
+  {
+    id: "clade-core-eudicots",
+    name: "Core eudicots",
+    rank: "clade",
+    description: "The dominant eudicot radiation, including rosids, asterids, and several related orders.",
+    children: ["Gunnerales", "Dilleniales", "Saxifragales", "Berberidopsidales", "Caryophyllales", "Santalales", "clade-rosids", "clade-asterids"]
+  },
+  {
+    id: "clade-rosids",
+    name: "Rosids",
+    rank: "clade",
+    description: "A large core eudicot clade containing roses, legumes, oaks, brassicas, citrus relatives, and many trees.",
+    children: ["Vitales", "clade-fabids", "clade-malvids"]
+  },
+  {
+    id: "clade-fabids",
+    name: "Fabids",
+    rank: "clade",
+    description: "A major rosid branch including legumes, roses, oaks, cucurbits, spurges, and relatives.",
+    children: ["Celastrales", "Cucurbitales", "Fabales", "Fagales", "Malpighiales", "Oxalidales", "Rosales", "Zygophyllales"]
+  },
+  {
+    id: "clade-malvids",
+    name: "Malvids",
+    rank: "clade",
+    description: "A major rosid branch including brassicas, mallows, myrtles, citrus relatives, and maples.",
+    children: ["Brassicales", "Crossosomatales", "Geraniales", "Huerteales", "Malvales", "Myrtales", "Picramniales", "Sapindales"]
+  },
+  {
+    id: "clade-asterids",
+    name: "Asterids",
+    rank: "clade",
+    description: "A large core eudicot clade containing daisies, mints, nightshades, carrots, dogwoods, heathers, and relatives.",
+    children: ["Cornales", "Ericales", "clade-lamiids", "clade-campanulids"]
+  },
+  {
+    id: "clade-lamiids",
+    name: "Lamiids",
+    rank: "clade",
+    description: "An asterid branch including mints, olives, gentians, nightshades, borage relatives, and allies.",
+    children: ["Boraginales", "Garryales", "Gentianales", "Icacinales", "Lamiales", "Metteniusales", "Solanales", "Vahliales"]
+  },
+  {
+    id: "clade-campanulids",
+    name: "Campanulids",
+    rank: "clade",
+    description: "An asterid branch including daisies, carrots, hollies, honeysuckles, and relatives.",
+    children: ["Aquifoliales", "Apiales", "Asterales", "Bruniales", "Dipsacales", "Escalloniales", "Paracryphiales"]
+  }
+];
 
 const state = {
   byId: new Map(),
   childrenByParent: new Map(),
+  parentById: new Map(),
+  searchIndex: [],
+  wikiCache: new Map(),
   loadingChildren: new Set(),
   expanded: new Set(),
-  activeId: WFO_ROOT_ID,
+  activeId: CLADE_ROOT_ID,
   zoom: 1
 };
 
@@ -9663,8 +9811,12 @@ const els = {
   tree: document.querySelector("#tree"),
   zoomIn: document.querySelector("#zoomIn"),
   zoomOut: document.querySelector("#zoomOut"),
+  zoomFit: document.querySelector("#zoomFit"),
   zoomReset: document.querySelector("#zoomReset"),
   zoomValue: document.querySelector("#zoomValue"),
+  searchInput: document.querySelector("#searchInput"),
+  clearSearch: document.querySelector("#clearSearch"),
+  searchResults: document.querySelector("#searchResults"),
   nodeTemplate: document.querySelector("#nodeTemplate"),
   detailsPanel: document.querySelector("#detailsPanel"),
   detailsContent: document.querySelector("#detailsContent"),
@@ -9677,6 +9829,7 @@ async function init() {
   try {
     const root = window.WFO_SNAPSHOT?.root || await fetchJson(`${DATA_BASE}/root.json`);
     state.byId.set(root.id, root);
+    hydrateSnapshot();
     render();
   } catch (error) {
     console.error(error);
@@ -9686,8 +9839,16 @@ async function init() {
 
 function bindEvents() {
   els.closeDetails.addEventListener("click", closeDetails);
+  els.searchInput.addEventListener("input", renderSearchResults);
+  els.searchInput.addEventListener("focus", renderSearchResults);
+  els.clearSearch.addEventListener("click", () => {
+    els.searchInput.value = "";
+    closeSearch();
+    els.searchInput.focus();
+  });
   els.zoomIn.addEventListener("click", () => setZoom(state.zoom + ZOOM_STEP));
   els.zoomOut.addEventListener("click", () => setZoom(state.zoom - ZOOM_STEP));
+  els.zoomFit.addEventListener("click", fitTreeToViewport);
   els.zoomReset.addEventListener("click", () => setZoom(1));
 
   els.treeViewport.addEventListener("wheel", (event) => {
@@ -9700,10 +9861,159 @@ function bindEvents() {
     syncZoomSize();
     drawEdges();
   });
+
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".search-panel")) closeSearch();
+  });
+}
+
+function hydrateSnapshot() {
+  const snapshot = window.WFO_SNAPSHOT;
+  if (!snapshot) return;
+
+  const rawById = new Map();
+  const rawByName = new Map();
+  const rawChildrenByParent = new Map();
+
+  if (snapshot.root) {
+    rawById.set(snapshot.root.id, snapshot.root);
+    indexByName(rawByName, snapshot.root);
+  }
+  for (const [parentId, children] of Object.entries(snapshot.children || {})) {
+    const sortedChildren = [...children].sort(compareConcepts);
+    rawChildrenByParent.set(parentId, sortedChildren);
+    for (const child of sortedChildren) {
+      rawById.set(child.id, child);
+      indexByName(rawByName, child);
+    }
+  }
+
+  buildCladeTree(rawById, rawByName, rawChildrenByParent);
+  state.searchIndex = Array.from(state.byId.values()).sort(compareConcepts);
+}
+
+function buildCladeTree(rawById, rawByName, rawChildrenByParent) {
+  state.byId.clear();
+  state.childrenByParent.clear();
+  state.parentById.clear();
+
+  for (const concept of rawById.values()) {
+    state.byId.set(concept.id, cloneWfoConcept(concept));
+  }
+
+  for (const [parentId, children] of rawChildrenByParent.entries()) {
+    state.childrenByParent.set(parentId, children.map((child) => state.byId.get(child.id)).filter(Boolean));
+  }
+
+  for (const definition of CLADE_DEFINITIONS) {
+    state.byId.set(definition.id, makeCladeConcept(definition));
+  }
+
+  const angiosperms = findRawConcept(rawByName, "Angiosperms");
+  if (angiosperms) {
+    state.childrenByParent.set(angiosperms.id, resolveChildren([
+      "clade-early-angiosperms",
+      "clade-magnoliids",
+      "clade-monocots",
+      "clade-chloranthales",
+      "clade-eudicots"
+    ], rawByName));
+  }
+
+  for (const definition of CLADE_DEFINITIONS) {
+    state.childrenByParent.set(definition.id, resolveChildren(definition.children, rawByName));
+  }
+
+  updateCladePaths(CLADE_ROOT_ID, []);
+  recomputeParentsAndCounts();
+  state.expanded.add(CLADE_ROOT_ID);
+}
+
+function resolveChildren(childKeys, rawByName) {
+  return childKeys
+    .map((key, index) => {
+      const concept = state.byId.get(key) || findRawConcept(rawByName, key);
+      if (concept) concept.treeSort = index;
+      return concept;
+    })
+    .filter(Boolean)
+    .map((concept) => state.byId.get(concept.id) || concept);
+}
+
+function findRawConcept(rawByName, name) {
+  return rawByName.get(name.toLowerCase()) || null;
+}
+
+function cloneWfoConcept(concept) {
+  return {
+    ...concept,
+    hasName: { ...(concept.hasName || {}) },
+    wfoPathString: concept.pathString || ""
+  };
+}
+
+function makeCladeConcept(definition) {
+  return {
+    id: definition.id,
+    isSynthetic: true,
+    partsCount: definition.children.length,
+    comment: definition.description,
+    sourceNote: "This clade node is part of the curated browsing scaffold. Child taxa are matched to WFO concepts where available.",
+    hasName: {
+      id: definition.id,
+      rank: definition.rank,
+      nameString: definition.name,
+      fullNameStringPlain: definition.name,
+      fullNameStringNoAuthorsPlain: definition.name
+    }
+  };
+}
+
+function updateCladePaths(conceptId, ancestors) {
+  const concept = state.byId.get(conceptId);
+  if (!concept) return;
+
+  const nextAncestors = [...ancestors, displayName(concept)];
+  concept.pathString = nextAncestors.join(" / ");
+
+  for (const child of getChildren(conceptId)) {
+    updateCladePaths(child.id, nextAncestors);
+  }
+}
+
+function recomputeParentsAndCounts() {
+  state.parentById.clear();
+
+  for (const [parentId, children] of state.childrenByParent.entries()) {
+    const cleanChildren = [...new Map(children.map((child) => [child.id, child])).values()];
+    cleanChildren.sort(compareConcepts);
+    state.childrenByParent.set(parentId, cleanChildren);
+    for (const child of cleanChildren) {
+      state.parentById.set(child.id, parentId);
+    }
+  }
+
+  for (const [parentId, children] of state.childrenByParent.entries()) {
+    const parent = state.byId.get(parentId);
+    if (parent) parent.partsCount = children.length;
+  }
+}
+
+function indexByName(index, concept) {
+  const names = [
+    concept.hasName?.fullNameStringNoAuthorsPlain,
+    concept.hasName?.nameString,
+    concept.title
+  ].filter(Boolean);
+
+  for (const name of names) {
+    const key = name.toLowerCase();
+    if (!index.has(key)) index.set(key, concept);
+  }
 }
 
 function render() {
-  const rootConcept = state.byId.get(WFO_ROOT_ID);
+  const rootConcept = state.byId.get(CLADE_ROOT_ID);
   if (!rootConcept) return;
 
   const root = document.createElement("ul");
@@ -9793,9 +10103,18 @@ async function handleNodeClick(conceptId) {
 
 async function loadChildren(parentId) {
   try {
-    const children = window.WFO_SNAPSHOT?.children?.[parentId] || await fetchJson(`${DATA_BASE}/children/${parentId}.json`);
+    if (state.childrenByParent.has(parentId)) return;
+    const bundledChildren = window.WFO_SNAPSHOT?.children?.[parentId];
+    if (window.WFO_SNAPSHOT && !bundledChildren) {
+      state.childrenByParent.set(parentId, []);
+      return;
+    }
+    const children = bundledChildren || await fetchJson(`${DATA_BASE}/children/${parentId}.json`);
     children.sort(compareConcepts);
-    for (const child of children) state.byId.set(child.id, child);
+    for (const child of children) {
+      state.byId.set(child.id, child);
+      state.parentById.set(child.id, parentId);
+    }
     state.childrenByParent.set(parentId, children);
   } catch (error) {
     console.error(error);
@@ -9803,11 +10122,17 @@ async function loadChildren(parentId) {
   }
 }
 
-function openDetails(conceptId) {
+async function openDetails(conceptId) {
   const concept = state.byId.get(conceptId);
   if (!concept) return;
   els.detailsPanel.hidden = false;
   renderDetails(concept);
+  try {
+    const wiki = await fetchWikipediaDetails(concept);
+    if (state.activeId === conceptId) renderDetails(concept, wiki);
+  } catch (error) {
+    console.warn("Wikipedia details unavailable", error);
+  }
 }
 
 function closeDetails() {
@@ -9815,30 +10140,187 @@ function closeDetails() {
   els.detailsContent.replaceChildren();
 }
 
-function renderDetails(concept) {
+function renderDetails(concept, wiki = null) {
   const name = concept.hasName || {};
   const path = concept.pathString || "Not included in this snapshot";
+  const wfoPath = concept.wfoPathString && concept.wfoPathString !== path
+    ? `<div><dt>WFO path</dt><dd>${escapeHtml(concept.wfoPathString)}</dd></div>`
+    : "";
   const citation = name.citationMicro ? `<p>${escapeHtml(name.citationMicro)}</p>` : "";
   const comment = concept.comment ? `<p>${escapeHtml(concept.comment)}</p>` : "";
   const conceptLink = concept.stableUri || `https://list.worldfloraonline.org/${concept.id}`;
   const nameLink = name.stableUri || `https://list.worldfloraonline.org/${name.id || ""}`;
+  const wikiBlock = renderWikipediaBlock(wiki);
+  const identificationBlock = renderIdentificationBlock(concept, wiki);
+  const sourceLinks = concept.isSynthetic
+    ? ""
+    : `
+      <a href="${escapeHtml(conceptLink)}" target="_blank" rel="noopener">WFO concept</a>
+      <a href="${escapeHtml(nameLink)}" target="_blank" rel="noopener">WFO name</a>
+    `;
 
   els.detailsContent.innerHTML = `
-    <p class="details-kicker">WFO Classification ${escapeHtml(WFO_RELEASE)}</p>
+    <p class="details-kicker">${concept.isSynthetic ? "Curated clade scaffold" : `WFO Classification ${escapeHtml(WFO_RELEASE)}`}</p>
     <h2>${escapeHtml(displayName(concept))}</h2>
     <dl class="details-list">
       <div><dt>Rank</dt><dd>${escapeHtml(capitalize(name.rank || "unknown"))}</dd></div>
       <div><dt>Accepted subtaxa</dt><dd>${formatCount(concept.partsCount)}</dd></div>
-      <div><dt>Concept ID</dt><dd>${escapeHtml(concept.id)}</dd></div>
-      <div><dt>Name ID</dt><dd>${escapeHtml(name.id || "Unknown")}</dd></div>
-      <div><dt>Path</dt><dd>${escapeHtml(path)}</dd></div>
+      <div><dt>${concept.isSynthetic ? "Node ID" : "Concept ID"}</dt><dd>${escapeHtml(concept.id)}</dd></div>
+      ${concept.isSynthetic ? "" : `<div><dt>Name ID</dt><dd>${escapeHtml(name.id || "Unknown")}</dd></div>`}
+      <div><dt>Tree path</dt><dd>${escapeHtml(path)}</dd></div>
+      ${wfoPath}
     </dl>
-    <div class="details-copy">${comment}${citation || "<p>No WFO citation text is included for this node.</p>"}</div>
+    ${wikiBlock}
+    ${identificationBlock}
+    <div class="details-copy">${comment}${citation || `<p>${escapeHtml(concept.sourceNote || "No WFO citation text is included for this node.")}</p>`}</div>
     <div class="details-links">
-      <a href="${escapeHtml(conceptLink)}" target="_blank" rel="noopener">WFO concept</a>
-      <a href="${escapeHtml(nameLink)}" target="_blank" rel="noopener">WFO name</a>
+      ${sourceLinks}
+      ${wiki?.content_urls?.desktop?.page ? `<a href="${escapeHtml(wiki.content_urls.desktop.page)}" target="_blank" rel="noopener">Wikipedia</a>` : ""}
     </div>
   `;
+}
+
+function renderWikipediaBlock(wiki) {
+  if (!wiki) {
+    return `
+      <section class="details-section">
+        <h3>Overview</h3>
+        <p class="details-muted">Loading Wikipedia overview when available...</p>
+      </section>
+    `;
+  }
+
+  const image = wiki.thumbnail?.source
+    ? `<img class="details-image" src="${escapeHtml(wiki.thumbnail.source)}" alt="">`
+    : "";
+  const extract = wiki.extract
+    ? `<p>${escapeHtml(limitSentences(wiki.extract, 4))}</p>`
+    : `<p class="details-muted">No Wikipedia overview found for this taxon.</p>`;
+
+  return `
+    <section class="details-section">
+      <h3>Overview</h3>
+      <div class="details-copy">${extract}</div>
+      ${image}
+    </section>
+  `;
+}
+
+function renderIdentificationBlock(concept, wiki) {
+  const text = `${wiki?.extract || ""} ${concept.comment || ""}`;
+  const traits = inferIdentificationTraits(text);
+  const traitItems = traits.length
+    ? traits.map((trait) => `<li>${escapeHtml(trait)}</li>`).join("")
+    : "<li>No reliable identification traits found in the current sources.</li>";
+
+  return `
+    <section class="details-section">
+      <h3>Identification Notes</h3>
+      <ul class="trait-list">${traitItems}</ul>
+      <p class="details-muted">These notes are extracted from available prose and should be treated as clues, not a diagnostic key.</p>
+    </section>
+  `;
+}
+
+function renderSearchResults() {
+  const query = els.searchInput.value.trim().toLowerCase();
+  if (!query) {
+    closeSearch();
+    return;
+  }
+
+  const results = state.searchIndex
+    .map((concept) => ({ concept, score: scoreConcept(concept, query) }))
+    .filter((result) => result.score > 0)
+    .sort((a, b) => b.score - a.score || displayName(a.concept).localeCompare(displayName(b.concept)))
+    .slice(0, 12);
+
+  if (!results.length) {
+    const empty = document.createElement("p");
+    empty.className = "search-empty";
+    empty.textContent = "No matches in the bundled WFO snapshot yet.";
+    els.searchResults.replaceChildren(empty);
+    els.searchResults.classList.add("is-open");
+    return;
+  }
+
+  els.searchResults.replaceChildren(...results.map(({ concept }) => {
+    const button = document.createElement("button");
+    button.className = "search-result";
+    button.type = "button";
+    button.innerHTML = `
+      <strong>${escapeHtml(displayName(concept))}</strong>
+      <span>${escapeHtml(capitalize(concept.hasName?.rank || "taxon"))} / ${escapeHtml(concept.pathString || "WFO snapshot")}</span>
+    `;
+    button.addEventListener("click", () => {
+      els.searchInput.value = "";
+      closeSearch();
+      revealBundledNode(concept.id);
+    });
+    return button;
+  }));
+  els.searchResults.classList.add("is-open");
+}
+
+function closeSearch() {
+  els.searchResults.classList.remove("is-open");
+  els.searchResults.replaceChildren();
+}
+
+function revealBundledNode(conceptId) {
+  let currentId = conceptId;
+  while (state.parentById.has(currentId)) {
+    const parentId = state.parentById.get(currentId);
+    state.expanded.add(parentId);
+    currentId = parentId;
+  }
+
+  if (getChildren(conceptId).length) state.expanded.add(conceptId);
+  state.activeId = conceptId;
+  render();
+
+  requestAnimationFrame(() => {
+    const active = els.tree.querySelector(`[data-id="${CSS.escape(conceptId)}"] .node-main`);
+    active?.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+    active?.focus({ preventScroll: true });
+  });
+}
+
+function fitTreeToViewport() {
+  const bounds = measureTreeContent();
+  if (!bounds.width || !bounds.height) return;
+
+  const viewportWidth = Math.max(1, els.treeViewport.clientWidth - FIT_PADDING);
+  const viewportHeight = Math.max(1, els.treeViewport.clientHeight - FIT_PADDING);
+  const nextZoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, Math.min(
+    viewportWidth / bounds.width,
+    viewportHeight / bounds.height
+  )));
+
+  setZoom(nextZoom);
+  requestAnimationFrame(() => {
+    els.treeViewport.scrollTo({
+      left: Math.max(0, (els.treeSizer.offsetWidth - els.treeViewport.clientWidth) / 2),
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+}
+
+async function fetchWikipediaDetails(concept) {
+  const title = displayName(concept);
+  if (state.wikiCache.has(title)) return state.wikiCache.get(title);
+
+  const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`;
+  const response = await fetch(url);
+  if (!response.ok) {
+    state.wikiCache.set(title, null);
+    return null;
+  }
+
+  const data = await response.json();
+  state.wikiCache.set(title, data);
+  return data;
 }
 
 function setZoom(nextZoom) {
@@ -9858,10 +10340,20 @@ function applyZoom() {
 }
 
 function syncZoomSize() {
-  const width = els.tree.scrollWidth * state.zoom;
-  const height = els.tree.scrollHeight * state.zoom;
+  const bounds = measureTreeContent();
+  const width = bounds.width * state.zoom;
+  const height = bounds.height * state.zoom;
   els.treeSizer.style.width = `${width}px`;
   els.treeSizer.style.height = `${height}px`;
+}
+
+function measureTreeContent() {
+  const root = els.tree.querySelector(".tree-root");
+  if (!root) return { width: els.tree.scrollWidth, height: els.tree.scrollHeight };
+  return {
+    width: root.scrollWidth,
+    height: root.scrollHeight
+  };
 }
 
 function drawEdges() {
@@ -9938,7 +10430,54 @@ function nodeLabel(concept, isExpanded) {
   return `${name}, ${rank}, ${concept.partsCount} subtaxa, ${isExpanded ? "expanded" : "collapsed"}`;
 }
 
+function scoreConcept(concept, query) {
+  const noAuthors = displayName(concept).toLowerCase();
+  const fullName = (concept.hasName?.fullNameStringPlain || "").toLowerCase();
+  const rank = (concept.hasName?.rank || "").toLowerCase();
+  const path = (concept.pathString || "").toLowerCase();
+  const id = concept.id.toLowerCase();
+
+  if (noAuthors === query) return 120;
+  if (fullName === query) return 115;
+  if (noAuthors.startsWith(query)) return 95;
+  if (fullName.startsWith(query)) return 85;
+  if (id === query) return 80;
+  if (noAuthors.includes(query)) return 65;
+  if (fullName.includes(query)) return 55;
+  if (rank.includes(query)) return 35;
+  if (path.includes(query)) return 25;
+  return 0;
+}
+
+function inferIdentificationTraits(text) {
+  const clean = String(text || "").replace(/\s+/g, " ").trim();
+  if (!clean) return [];
+
+  const keywords = [
+    "flower", "flowers", "inflorescence", "petal", "petals", "sepal", "sepals",
+    "leaf", "leaves", "stem", "stems", "bark", "fruit", "fruits", "seed", "seeds",
+    "cone", "cones", "spore", "spores", "rhizome", "root", "roots", "habit",
+    "tree", "shrub", "herb", "vine", "grass", "aquatic", "woody", "evergreen",
+    "deciduous", "needle", "needles", "pollen"
+  ];
+
+  const sentences = clean.match(/[^.!?]+[.!?]+/g) || [clean];
+  return sentences
+    .map((sentence) => sentence.trim())
+    .filter((sentence) => keywords.some((keyword) => sentence.toLowerCase().includes(keyword)))
+    .slice(0, 5);
+}
+
+function limitSentences(text, limit) {
+  const sentences = String(text || "").match(/[^.!?]+[.!?]+/g);
+  if (!sentences) return String(text || "");
+  return sentences.slice(0, limit).join(" ").trim();
+}
+
 function compareConcepts(a, b) {
+  if (Number.isFinite(a.treeSort) || Number.isFinite(b.treeSort)) {
+    return (a.treeSort ?? 9999) - (b.treeSort ?? 9999);
+  }
   return rankWeight(a.hasName?.rank) - rankWeight(b.hasName?.rank) || displayName(a).localeCompare(displayName(b));
 }
 
