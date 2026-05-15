@@ -1,5 +1,5 @@
 window.PLANT_TREE_DATA = {
-  version: "2026-05-15-complete-vascular-backbones",
+  version: "2026-05-15-search-taxon-lookup",
   rootId: "land-plants",
   sources: {
     apg_iv: {
@@ -4189,7 +4189,8 @@ window.PLANT_TREE_DATA = {
       id: "adoxaceae",
       name: "Adoxaceae",
       rank: "family",
-      source: "apg_iv"
+      source: "apg_iv",
+      searchAliases: ["Viburnaceae"]
     },
     {
       id: "caprifoliaceae",

@@ -458,13 +458,14 @@ main {
   line-height: 1.35;
 }
 
+.search-result .search-match {
+  color: #6f4708;
+  font-weight: 800;
+}
+
 .search-empty {
   margin: 0;
   padding: 10px;
-}
-
-.orientation-note {
-  display: none;
 }
 
 .details-section {
@@ -521,26 +522,5 @@ main {
     top: 10px;
     left: 10px;
     width: min(330px, calc(100vw - 20px));
-  }
-}
-
-@media (max-width: 760px) and (orientation: portrait) {
-  .orientation-note {
-    position: fixed;
-    top: 58px;
-    left: 10px;
-    z-index: 24;
-    display: block;
-    width: min(330px, calc(100vw - 20px));
-    margin: 0;
-    border: 1px solid rgba(77, 70, 46, 0.22);
-    border-radius: 4px;
-    padding: 7px 9px;
-    background: rgba(255, 253, 240, 0.92);
-    color: #554a31;
-    box-shadow: 2px 3px 6px rgba(41, 44, 27, 0.1);
-    font-size: 0.82rem;
-    font-weight: 900;
-    line-height: 1.2;
   }
 }

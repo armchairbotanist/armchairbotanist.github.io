@@ -5,9 +5,8 @@ A static, GitHub Pages-friendly explorer for a source-cited plant clade tree.
 ## Features
 
 - Expandable left-to-right plant tree.
-- Search across clades, orders, families, and curated example genera.
+- Search across clades, orders, families, curated example genera, and broader taxon lookups for typed genus/species names.
 - Persistent right-side fact pane that updates only when a node's `i` button is clicked.
-- Portrait phone notice recommending landscape mode.
 - Wikipedia overview text when available.
 - Research-grade iNaturalist photos when an exact order, family, genus, or explicit `photoTaxon` match is available.
 - Node-specific cited facts only.
@@ -25,6 +24,7 @@ Each node can include:
 - optional `description`
 - optional node-specific `facts`
 - optional explicit `photoTaxon`
+- optional `searchAliases` for source-name mismatches
 - optional `children`
 
 The intended shape is:
