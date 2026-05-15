@@ -2,11 +2,20 @@
 
 A static, GitHub Pages-friendly explorer for a source-cited plant clade tree.
 
-## Data Model
+## Features
 
-The tree is defined in `plant-tree-data.js`. It is intentionally plain JavaScript data so the structure can be reviewed directly.
+- Expandable left-to-right plant tree.
+- Search across clades, orders, families, and example genera.
+- Persistent right-side fact pane that updates only when a node's `i` button is clicked.
+- Wikipedia overview text when available.
+- Research-grade iNaturalist photos when an exact order, family, genus, or audited `photoTaxon` match is available.
+- Node-specific cited facts only.
 
-Each node has:
+## Data
+
+The tree is defined in `plant-tree-data.js` as plain JavaScript data so the structure can be reviewed directly.
+
+Each node can include:
 
 - `id`
 - `name`
@@ -29,6 +38,31 @@ Clade
 
 The genera are examples, not complete family inventories.
 
+## Sources
+
+The structural tree currently uses:
+
+- APG IV for flowering plant clades, orders, and families.
+- PPG I for lycophytes and ferns.
+- Christenhusz et al. 2011 for gymnosperms.
+- Bryophyte Nomenclator and broad botanical consensus for the current bryophyte seed scaffold.
+
+The fact pane can also use Wikipedia summaries, iNaturalist photos, and explicitly cited node-specific facts from sources listed in `plant-tree-data.js`. These enrich the page but do not define the tree structure.
+
+## Fact Pane Rules
+
+The fact pane should show:
+
+- node name
+- rank
+- tree path
+- overview text
+- optional curated node-specific facts
+- optional photos
+- sources at the bottom
+
+The fact pane should not show internal data fields, parent/child debug metadata, inherited broad facts, generic textbook anatomy notes, heuristic identification text, or loose photo searches for informal clades.
+
 ## Verification
 
 Run:
@@ -47,27 +81,6 @@ The validator checks that:
 - orders contain family examples
 - families contain example genera
 - genera do not contain children
-
-## Sources
-
-The current seed tree uses:
-
-- APG IV for flowering plant clades, orders, and families.
-- PPG I for lycophytes and ferns.
-- Christenhusz et al. 2011 for gymnosperms.
-- Bryophyte Nomenclator and broad botanical consensus for the current bryophyte seed scaffold.
-
-See `SOURCES.md` for details.
-
-## Current Features
-
-- Expandable left-to-right plant tree.
-- Search across clades, orders, families, and example genera.
-- Persistent right-side fact pane that updates only when a node's `i` button is clicked.
-- Fact pane with name, rank, tree path, overview text, optional photos, and sources at the bottom.
-- Research-grade iNaturalist photos when an exact order, family, genus, or audited `photoTaxon` match is available.
-- Node-specific cited facts only; no inherited classroom anatomy notes and no heuristic identification text.
-- Static files only, suitable for GitHub Pages.
 
 ## Local Preview
 
@@ -101,12 +114,9 @@ https://armchairbotanist.github.io/
 
 ## Files
 
+- `.nojekyll` keeps GitHub Pages from running Jekyll processing.
 - `index.html` contains the page structure.
 - `styles.css` contains the visual design.
 - `plant-tree-data.js` contains the source-cited tree data.
 - `app.js` renders and searches the tree.
 - `scripts/validate-plant-tree.mjs` verifies the tree structure.
-- `SOURCES.md` explains the source strategy.
-- `FACT_PANE.md` defines what belongs in the fact pane.
-- `PLAN.md` contains the working roadmap.
-- `REQUIREMENTS.md` summarizes product requirements.

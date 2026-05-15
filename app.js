@@ -1,6 +1,3 @@
-const APP_STORAGE_VERSION = "2026-05-15-node-specific-facts-v1";
-const STORAGE_VERSION_KEY = "plantTreeStorageVersion";
-
 const state = {
   byId: new Map(),
   childrenByParent: new Map(),
@@ -15,18 +12,15 @@ const state = {
 
 const els = {
   treeViewport: document.querySelector("#treeViewport"),
-  treeSizer: document.querySelector("#treeSizer"),
   tree: document.querySelector("#tree"),
   searchInput: document.querySelector("#searchInput"),
   clearSearch: document.querySelector("#clearSearch"),
   searchResults: document.querySelector("#searchResults"),
   nodeTemplate: document.querySelector("#nodeTemplate"),
-  detailsPanel: document.querySelector("#detailsPanel"),
   detailsContent: document.querySelector("#detailsContent")
 };
 
 function init() {
-  resetStoredStateIfVersionChanged();
   bindEvents();
 
   try {
@@ -181,8 +175,7 @@ function scrollExpandedChildrenIntoView(nodeId) {
   requestAnimationFrame(() => {
     const item = els.tree.querySelector(`[data-id="${CSS.escape(nodeId)}"]`);
     const branch = item?.querySelector(":scope > .branch");
-    const firstChild = branch?.querySelector(":scope > .tree-item > .node");
-    const target = firstChild || branch || item;
+    const target = branch || item;
     if (!target) return;
 
     const viewportBox = els.treeViewport.getBoundingClientRect();
@@ -235,7 +228,7 @@ function renderDetails(node, wiki = null, photos = null) {
 }
 
 function renderFactsBlock(node) {
-  const facts = factsFor(node);
+  const facts = (node.facts || []).slice(0, 5);
   if (!facts.length) return "";
 
   return `
@@ -372,17 +365,6 @@ function revealNode(nodeId) {
     active?.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
     active?.focus({ preventScroll: true });
   });
-}
-
-function resetStoredStateIfVersionChanged() {
-  const dataVersion = window.PLANT_TREE_DATA?.version || "unknown-data";
-  const expectedVersion = `${APP_STORAGE_VERSION}:${dataVersion}`;
-  try {
-    if (localStorage.getItem(STORAGE_VERSION_KEY) === expectedVersion) return;
-    localStorage.setItem(STORAGE_VERSION_KEY, expectedVersion);
-  } catch {
-    // If localStorage is blocked, the app still runs with defaults.
-  }
 }
 
 async function fetchWikipediaDetails(node) {
@@ -535,10 +517,6 @@ function scoreNode(node, query) {
   if (rank.includes(query)) return 35;
   if (path.includes(query)) return 25;
   return 0;
-}
-
-function factsFor(node) {
-  return (node.facts || []).slice(0, 5);
 }
 
 function limitSentences(text, limit) {

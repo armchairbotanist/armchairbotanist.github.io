@@ -4,43 +4,36 @@ window.PLANT_TREE_DATA = {
   sources: {
     apg_iv: {
       label: "APG IV",
-      title: "An update of the Angiosperm Phylogeny Group classification for the orders and families of flowering plants: APG IV",
       citation: "Angiosperm Phylogeny Group. 2016. Botanical Journal of the Linnean Society 181: 1-20.",
       url: "https://academic.oup.com/botlinnean/article/181/1/1/2416499"
     },
     ppg_i: {
       label: "PPG I",
-      title: "A community-derived classification for extant lycophytes and ferns",
       citation: "Pteridophyte Phylogeny Group. 2016. Journal of Systematics and Evolution 54: 563-603.",
       url: "https://www.uvm.edu/~dbarring/209/ppgI2016.pdf"
     },
     gymnosperms_2011: {
       label: "Christenhusz et al. 2011",
-      title: "A new classification and linear sequence of extant gymnosperms",
       citation: "Christenhusz, Reveal, Farjon, Gardner, Mill & Chase. 2011. Phytotaxa 19: 55-70.",
       url: "https://phytotaxa.mapress.com/pt/article/view/phytotaxa.19.1.3"
     },
     bryophyta_nomenclator: {
       label: "Bryophyte Nomenclator",
-      title: "A Classification of the Bryophyta",
       citation: "Bryophyte Nomenclator classification, accessed for moss classification anchors.",
       url: "https://www.bryonames.org/nomenclator?group=Bryophyta"
     },
     broad_consensus: {
       label: "Broad botanical consensus",
-      title: "High-level land plant teaching scaffold",
-      citation: "Used only for broad educational groupings such as land plants, vascular plants, seed plants, bryophyte grade, and flowering plants.",
+      citation: "Encyclopaedia Britannica. Plant.",
       url: "https://www.britannica.com/plant/plant"
     },
     brit_asteraceae: {
       label: "Britannica Asteraceae",
-      title: "Flower",
       citation: "Encyclopaedia Britannica. Flower.",
       url: "https://www.britannica.com/science/flower"
     },
     brit_orchid: {
       label: "Britannica orchid morphology",
-      title: "Orchid characteristic morphological features",
       citation: "Encyclopaedia Britannica. Orchid: characteristic morphological features.",
       url: "https://www.britannica.com/plant/orchid/Characteristic-morphological-features"
     }

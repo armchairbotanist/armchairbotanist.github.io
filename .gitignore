@@ -16,8 +16,3 @@
 
 # Keep lightweight documentation.
 !README.md
-!DATA_SOURCE.md
-!PLAN.md
-!REQUIREMENTS.md
-!SOURCES.md
-!FACT_PANE.md
