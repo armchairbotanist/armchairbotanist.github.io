@@ -5,37 +5,44 @@ window.PLANT_TREE_DATA = {
     apg_iv: {
       label: "APG IV",
       citation: "Angiosperm Phylogeny Group. 2016. Botanical Journal of the Linnean Society 181: 1-20.",
-      url: "https://academic.oup.com/botlinnean/article/181/1/1/2416499"
+      url: "https://academic.oup.com/botlinnean/article/181/1/1/2416499",
+      scope: "Flowering plant clades, orders, and families."
     },
     ppg_i: {
       label: "PPG I",
       citation: "Pteridophyte Phylogeny Group. 2016. Journal of Systematics and Evolution 54: 563-603.",
-      url: "https://www.uvm.edu/~dbarring/209/ppgI2016.pdf"
+      url: "https://www.uvm.edu/~dbarring/209/ppgI2016.pdf",
+      scope: "Lycophyte and fern clades, orders, and families."
     },
     gymnosperms_2011: {
       label: "Christenhusz et al. 2011",
       citation: "Christenhusz, Reveal, Farjon, Gardner, Mill & Chase. 2011. Phytotaxa 19: 55-70.",
-      url: "https://phytotaxa.mapress.com/pt/article/view/phytotaxa.19.1.3"
+      url: "https://phytotaxa.mapress.com/pt/article/view/phytotaxa.19.1.3",
+      scope: "Current gymnosperm scaffold."
     },
     bryophyta_nomenclator: {
       label: "Bryophyte Nomenclator",
       citation: "Bryophyte Nomenclator classification, accessed for moss classification anchors.",
-      url: "https://www.bryonames.org/nomenclator?group=Bryophyta"
+      url: "https://www.bryonames.org/nomenclator?group=Bryophyta",
+      scope: "Current moss scaffold; liverwort and hornwort branches need stronger source coverage."
     },
     broad_consensus: {
       label: "Broad botanical consensus",
       citation: "Encyclopaedia Britannica. Plant.",
-      url: "https://www.britannica.com/plant/plant"
+      url: "https://www.britannica.com/plant/plant",
+      scope: "Broad educational grouping labels only."
     },
     brit_asteraceae: {
       label: "Britannica Asteraceae",
-      citation: "Encyclopaedia Britannica. Flower.",
-      url: "https://www.britannica.com/science/flower"
+      citation: "Encyclopaedia Britannica. Asteraceae: Physical characteristics.",
+      url: "https://www.britannica.com/plant/Asteraceae/Physical-characteristics",
+      scope: "Asteraceae fact-pane enrichment."
     },
     brit_orchid: {
       label: "Britannica orchid morphology",
       citation: "Encyclopaedia Britannica. Orchid: characteristic morphological features.",
-      url: "https://www.britannica.com/plant/orchid/Characteristic-morphological-features"
+      url: "https://www.britannica.com/plant/orchid/Characteristic-morphological-features",
+      scope: "Orchidaceae fact-pane enrichment."
     }
   },
   nodes: [

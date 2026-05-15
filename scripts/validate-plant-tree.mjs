@@ -35,6 +35,7 @@ for (const [sourceId, sourceRecord] of Object.entries(data.sources || {})) {
   if (!sourceRecord.label) fail(`Source ${sourceId} is missing label.`);
   if (!sourceRecord.citation) fail(`Source ${sourceId} is missing citation.`);
   if (!sourceRecord.url) fail(`Source ${sourceId} is missing url.`);
+  if (!sourceRecord.scope) fail(`Source ${sourceId} is missing scope.`);
 }
 
 for (const node of nodes.values()) {

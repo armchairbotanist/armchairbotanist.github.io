@@ -8,7 +8,7 @@ A static, GitHub Pages-friendly explorer for a source-cited plant clade tree.
 - Search across clades, orders, families, and example genera.
 - Persistent right-side fact pane that updates only when a node's `i` button is clicked.
 - Wikipedia overview text when available.
-- Research-grade iNaturalist photos when an exact order, family, genus, or audited `photoTaxon` match is available.
+- Research-grade iNaturalist photos when an exact order, family, genus, or explicit `photoTaxon` match is available.
 - Node-specific cited facts only.
 
 ## Data
@@ -23,7 +23,7 @@ Each node can include:
 - `source`
 - optional `description`
 - optional node-specific `facts`
-- optional audited `photoTaxon`
+- optional explicit `photoTaxon`
 - optional `children`
 
 The intended shape is:
@@ -81,6 +81,14 @@ The validator checks that:
 - orders contain family examples
 - families contain example genera
 - genera do not contain children
+
+## Fact Pane Links
+
+The fact pane should make displayed enrichment easy to verify:
+
+- Wikipedia overview text links to its Wikipedia page.
+- Photo thumbnails link to their iNaturalist observation pages.
+- Curated facts link to their source pages.
 
 ## Local Preview
 
