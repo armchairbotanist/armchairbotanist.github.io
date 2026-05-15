@@ -63,6 +63,8 @@ See `SOURCES.md` for details.
 - Search across clades, orders, families, and example genera.
 - Zoom in, zoom out, reset, and fit-to-view controls.
 - Details panel with source citation and optional Wikipedia enrichment.
+- Research-grade iNaturalist photos when available.
+- Cited anatomy notes for selected groups.
 - Static files only, suitable for GitHub Pages.
 
 ## Local Preview

@@ -26,17 +26,22 @@
       <div id="searchResults" class="search-results" aria-live="polite"></div>
     </form>
 
-    <fieldset class="orientation-controls" aria-label="Tree orientation">
-      <legend>Orientation</legend>
-      <label>
-        <input type="radio" name="orientation" value="vertical" checked>
-        <span>Top ↓</span>
-      </label>
-      <label>
-        <input type="radio" name="orientation" value="horizontal">
-        <span>Left →</span>
-      </label>
-    </fieldset>
+    <div class="settings">
+      <button id="settingsToggle" class="settings-toggle" type="button" aria-label="Open settings" aria-expanded="false" aria-controls="settingsPanel">⚙</button>
+      <div id="settingsPanel" class="settings-panel" hidden>
+        <fieldset class="orientation-controls" aria-label="Tree orientation">
+          <legend>Orientation</legend>
+          <label>
+            <input type="radio" name="orientation" value="horizontal" checked>
+            <span>Left →</span>
+          </label>
+          <label>
+            <input type="radio" name="orientation" value="vertical">
+            <span>Top ↓</span>
+          </label>
+        </fieldset>
+      </div>
+    </div>
 
     <div class="zoom-controls" aria-label="Tree zoom controls">
       <button id="zoomOut" type="button" aria-label="Zoom out" title="Zoom out">−</button>
@@ -66,7 +71,7 @@
       </li>
     </template>
 
-    <script src="./plant-tree-data.js?v=20260514-verifiable"></script>
-    <script src="./app.js?v=20260514-verifiable"></script>
+    <script src="./plant-tree-data.js?v=20260515-details"></script>
+    <script src="./app.js?v=20260515-details"></script>
   </body>
 </html>

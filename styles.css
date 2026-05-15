@@ -252,7 +252,7 @@ main {
 .details-panel {
   position: fixed;
   top: 80px;
-  left: 42px;
+  right: 42px;
   z-index: 30;
   width: min(460px, calc(100vw - 84px));
   max-height: calc(100vh - 120px);
@@ -381,6 +381,33 @@ main {
   color: #46240b;
   font-weight: 900;
   text-decoration-thickness: 2px;
+}
+
+.inline-source {
+  display: inline-flex;
+  margin-left: 6px;
+  font-size: 0.82em;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.photo-grid a {
+  display: block;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.78);
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.38);
+}
+
+.photo-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
 }
 
 .load-error {
@@ -546,20 +573,54 @@ main {
   padding: 10px;
 }
 
-.orientation-controls {
+.settings {
   position: fixed;
   top: 18px;
   right: 18px;
   z-index: 24;
+}
+
+.settings-toggle {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(77, 70, 46, 0.24);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #394129;
+  box-shadow: 2px 3px 6px rgba(41, 44, 27, 0.12);
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.settings-toggle:hover,
+.settings-toggle[aria-expanded="true"] {
+  background: #fff;
+}
+
+.settings-panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  border: 1px solid rgba(77, 70, 46, 0.24);
+  border-radius: 5px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 2px 3px 6px rgba(41, 44, 27, 0.12);
+}
+
+.settings-panel[hidden] {
+  display: none;
+}
+
+.orientation-controls {
   display: inline-flex;
   gap: 4px;
   align-items: center;
   margin: 0;
-  border: 1px solid rgba(77, 70, 46, 0.24);
-  border-radius: 5px;
-  padding: 8px;
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: 2px 3px 6px rgba(41, 44, 27, 0.12);
+  border: 0;
+  padding: 0;
 }
 
 .orientation-controls legend {
@@ -687,11 +748,13 @@ main {
     width: min(330px, calc(100vw - 20px));
   }
 
-  .orientation-controls {
+  .settings {
     top: 86px;
     right: 10px;
-    left: 10px;
-    justify-content: stretch;
+  }
+
+  .settings-panel {
+    right: 0;
   }
 
   .orientation-controls label {
