@@ -30,7 +30,8 @@ Orders and families are intended to be source-verifiable. Genera are included as
 - Bryophytes: current seed scaffold uses Bryophyte Nomenclator plus broad botanical consensus and should be strengthened with more precise liverwort/hornwort references.
 - Wikipedia enrichment in the details panel is display-only and does not define the tree structure.
 - iNaturalist photos are display-only enrichment from research-grade observations when available. Informal clade/grade labels do not use loose photo search; only orders, families, genera, or explicitly audited `photoTaxon` mappings may request photos.
-- Anatomy notes are display-only educational notes with explicit source links.
+- Curated facts are display-only notes stored in `plant-tree-data.js`. They must be specific to the selected node, cite a source that the validator can check, and must not be inherited from ancestor nodes.
+- Broad classroom anatomy notes, generic flower-part definitions, and heuristic identification notes are intentionally excluded from the fact pane.
 
 ## Verification
 

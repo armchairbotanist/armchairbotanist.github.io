@@ -13,6 +13,8 @@ Each node has:
 - `rank`
 - `source`
 - optional `description`
+- optional node-specific `facts`
+- optional audited `photoTaxon`
 - optional `children`
 
 The intended shape is:
@@ -59,12 +61,12 @@ See `SOURCES.md` for details.
 
 ## Current Features
 
-- Expandable top-down plant tree.
+- Expandable left-to-right plant tree.
 - Search across clades, orders, families, and example genera.
-- Zoom in, zoom out, reset, and fit-to-view controls.
-- Details panel with source citation and optional Wikipedia enrichment.
-- Research-grade iNaturalist photos when available.
-- Cited anatomy notes for selected groups.
+- Persistent right-side fact pane that updates only when a node's `i` button is clicked.
+- Fact pane with name, rank, tree path, overview text, optional photos, and sources at the bottom.
+- Research-grade iNaturalist photos when an exact order, family, genus, or audited `photoTaxon` match is available.
+- Node-specific cited facts only; no inherited classroom anatomy notes and no heuristic identification text.
 - Static files only, suitable for GitHub Pages.
 
 ## Local Preview
@@ -105,5 +107,6 @@ https://armchairbotanist.github.io/
 - `app.js` renders and searches the tree.
 - `scripts/validate-plant-tree.mjs` verifies the tree structure.
 - `SOURCES.md` explains the source strategy.
+- `FACT_PANE.md` defines what belongs in the fact pane.
 - `PLAN.md` contains the working roadmap.
 - `REQUIREMENTS.md` summarizes product requirements.

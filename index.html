@@ -9,52 +9,27 @@
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
-    <main>
-      <div id="treeViewport" class="tree-viewport">
-        <div id="treeSizer" class="tree-sizer">
-          <div id="tree" class="tree" role="tree" aria-label="Source-cited plant clade tree"></div>
+    <main class="app-shell">
+      <section class="tree-pane" aria-label="Plant tree explorer">
+        <div id="treeViewport" class="tree-viewport">
+          <div id="treeSizer" class="tree-sizer">
+            <div id="tree" class="tree" role="tree" aria-label="Source-cited plant clade tree"></div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <aside id="detailsPanel" class="details-panel" aria-live="polite" aria-label="Taxon details">
+        <div id="detailsContent"></div>
+      </aside>
     </main>
 
-    <form class="search-panel" role="search">
-      <label for="searchInput">Search plant tree</label>
+    <form class="search-panel" role="search" aria-label="Search plant tree">
       <div class="search-field">
         <input id="searchInput" type="search" autocomplete="off" placeholder="Try Rosids, Poaceae, Rosales...">
         <button id="clearSearch" type="button" aria-label="Clear search">×</button>
       </div>
       <div id="searchResults" class="search-results" aria-live="polite"></div>
     </form>
-
-    <div class="settings">
-      <button id="settingsToggle" class="settings-toggle" type="button" aria-label="Open settings" aria-expanded="false" aria-controls="settingsPanel">⚙</button>
-      <div id="settingsPanel" class="settings-panel" hidden>
-        <fieldset class="orientation-controls" aria-label="Tree orientation">
-          <legend>Orientation</legend>
-          <label>
-            <input type="radio" name="orientation" value="horizontal" checked>
-            <span>Left →</span>
-          </label>
-          <label>
-            <input type="radio" name="orientation" value="vertical">
-            <span>Top ↓</span>
-          </label>
-        </fieldset>
-      </div>
-    </div>
-
-    <div class="zoom-controls" aria-label="Tree zoom controls">
-      <button id="zoomOut" type="button" aria-label="Zoom out" title="Zoom out">−</button>
-      <span id="zoomValue">100%</span>
-      <button id="zoomIn" type="button" aria-label="Zoom in" title="Zoom in">+</button>
-      <button id="zoomFit" type="button" aria-label="Fit visible tree to screen" title="Fit visible tree">Fit</button>
-      <button id="zoomReset" type="button" aria-label="Reset zoom" title="Reset zoom">Reset</button>
-    </div>
-
-    <aside id="detailsPanel" class="details-panel" aria-live="polite" aria-label="Taxon details" hidden>
-      <button id="closeDetails" class="close-details" type="button" aria-label="Close details">×</button>
-      <div id="detailsContent"></div>
-    </aside>
 
     <template id="nodeTemplate">
       <li class="tree-item" role="treeitem">
@@ -71,7 +46,7 @@
       </li>
     </template>
 
-    <script src="./plant-tree-data.js?v=20260515-details"></script>
-    <script src="./app.js?v=20260515-details"></script>
+    <script src="./plant-tree-data.js?v=20260515-node-specific-facts"></script>
+    <script src="./app.js?v=20260515-node-specific-facts"></script>
   </body>
 </html>

@@ -18,7 +18,8 @@ Build a static GitHub Pages site for exploring plants through a source-cited cla
 - Render a curated seed tree from `plant-tree-data.js`.
 - Show the intended hierarchy: clade/subclade -> order -> family -> example genera.
 - Search across all included nodes.
-- Show source citation in the details panel.
+- Show source citation in the persistent right-side fact pane.
+- Keep fact-pane notes node-specific, cited, and free of broad inherited anatomy text.
 - Verify data with `scripts/validate-plant-tree.mjs`.
 
 ## Near-Term Improvements
@@ -29,7 +30,7 @@ Build a static GitHub Pages site for exploring plants through a source-cited cla
 - Mark incomplete branches clearly in the UI.
 - Add a generated source audit table.
 - Add keyboard navigation for tree traversal.
-- Improve mobile zoom and pan controls.
+- Improve phone ergonomics for wide left-to-right tree browsing.
 
 ## Publishing
 

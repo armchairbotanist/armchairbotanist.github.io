@@ -1,53 +1,5 @@
-const MIN_ZOOM = 0.35;
-const MAX_ZOOM = 1.8;
-const ZOOM_STEP = 0.1;
-const FIT_PADDING = 80;
-const ORIENTATION_STORAGE_KEY = "plantTreeOrientationV2";
-
-const ANATOMY_REFERENCES = {
-  flower: {
-    label: "Britannica: flower anatomy",
-    url: "https://www.britannica.com/science/flower"
-  },
-  angiosperm: {
-    label: "Britannica: angiosperm reproductive structures",
-    url: "https://www.britannica.com/plant/angiosperm/Reproductive-structures"
-  },
-  monocot: {
-    label: "UC Davis LibreTexts: monocots and eudicots",
-    url: "https://bio.libretexts.org/Courses/University_of_California_Davis/PLS_002%3A_Botany_and_physiology_of_cultivated_plants/03%3A_Origin_and_evolution_of_land_plants/3.02%3A_Biodiversity_%28Organismal_Groups%29/3.2.04%3A_Angiosperm_Diversity/3.2.4.01%3A_Monocots_and_Eudicots"
-  },
-  orchid: {
-    label: "Britannica: orchid morphology",
-    url: "https://www.britannica.com/plant/orchid/Characteristic-morphological-features"
-  }
-};
-
-const ANATOMY_NOTES = {
-  angiosperms: [
-    { text: "Flowers are reproductive shoots that may include sepals, petals, stamens, and pistils.", source: "flower" },
-    { text: "Stamens produce pollen; pistils contain ovules and include ovary, style, and stigma.", source: "angiosperm" }
-  ],
-  monocots: [
-    { text: "Monocots commonly have one cotyledon, parallel leaf venation, and floral parts in multiples of three.", source: "monocot" }
-  ],
-  eudicots: [
-    { text: "Eudicots commonly show netted leaf venation and flower parts in fours or fives, unlike many monocots.", source: "monocot" }
-  ],
-  orchidaceae: [
-    { text: "Orchid flowers often have a specialized petal called the lip, or labellum.", source: "orchid" },
-    { text: "In orchids, fertile stamens are positioned on one side of the flower opposite the lip.", source: "orchid" }
-  ],
-  asteraceae: [
-    { text: "Daisy-family heads are inflorescences of many small flowers; tubular florets can include united stamens and a pistil.", source: "angiosperm" }
-  ],
-  poaceae: [
-    { text: "Grasses are monocots, so look for parallel leaf veins and reduced wind-pollinated flowers.", source: "monocot" }
-  ],
-  gymnosperms: [
-    { text: "Gymnosperms produce seeds without flowers or enclosed fruits; cones are often the easiest reproductive structures to inspect.", source: "angiosperm" }
-  ]
-};
+const APP_STORAGE_VERSION = "2026-05-15-node-specific-facts-v1";
+const STORAGE_VERSION_KEY = "plantTreeStorageVersion";
 
 const state = {
   byId: new Map(),
@@ -58,40 +10,29 @@ const state = {
   photoCache: new Map(),
   expanded: new Set(),
   activeId: null,
-  rootId: null,
-  orientation: "horizontal",
-  zoom: 1
+  rootId: null
 };
 
 const els = {
   treeViewport: document.querySelector("#treeViewport"),
   treeSizer: document.querySelector("#treeSizer"),
   tree: document.querySelector("#tree"),
-  zoomIn: document.querySelector("#zoomIn"),
-  zoomOut: document.querySelector("#zoomOut"),
-  zoomFit: document.querySelector("#zoomFit"),
-  zoomReset: document.querySelector("#zoomReset"),
-  zoomValue: document.querySelector("#zoomValue"),
   searchInput: document.querySelector("#searchInput"),
   clearSearch: document.querySelector("#clearSearch"),
   searchResults: document.querySelector("#searchResults"),
-  settingsToggle: document.querySelector("#settingsToggle"),
-  settingsPanel: document.querySelector("#settingsPanel"),
-  orientationInputs: document.querySelectorAll("input[name='orientation']"),
   nodeTemplate: document.querySelector("#nodeTemplate"),
   detailsPanel: document.querySelector("#detailsPanel"),
-  detailsContent: document.querySelector("#detailsContent"),
-  closeDetails: document.querySelector("#closeDetails")
+  detailsContent: document.querySelector("#detailsContent")
 };
 
 function init() {
-  state.orientation = getSavedOrientation();
-  syncOrientationControls();
+  resetStoredStateIfVersionChanged();
   bindEvents();
 
   try {
     hydrateTree(window.PLANT_TREE_DATA);
     render();
+    refreshDetails(state.rootId);
   } catch (error) {
     console.error(error);
     renderLoadError(error);
@@ -99,7 +40,6 @@ function init() {
 }
 
 function bindEvents() {
-  els.closeDetails.addEventListener("click", closeDetails);
   els.searchInput.addEventListener("input", renderSearchResults);
   els.searchInput.addEventListener("focus", renderSearchResults);
   els.clearSearch.addEventListener("click", () => {
@@ -107,32 +47,13 @@ function bindEvents() {
     closeSearch();
     els.searchInput.focus();
   });
-  els.zoomIn.addEventListener("click", () => setZoom(state.zoom + ZOOM_STEP));
-  els.zoomOut.addEventListener("click", () => setZoom(state.zoom - ZOOM_STEP));
-  els.zoomFit.addEventListener("click", fitTreeToViewport);
-  els.zoomReset.addEventListener("click", () => setZoom(1));
-  els.settingsToggle.addEventListener("click", toggleSettings);
-  for (const input of els.orientationInputs) {
-    input.addEventListener("change", () => {
-      if (!input.checked) return;
-      setOrientation(input.value);
-    });
-  }
-
-  els.treeViewport.addEventListener("wheel", (event) => {
-    if (!event.ctrlKey && !event.metaKey) return;
-    event.preventDefault();
-    setZoom(state.zoom + (event.deltaY > 0 ? -ZOOM_STEP : ZOOM_STEP));
-  }, { passive: false });
 
   window.addEventListener("resize", () => {
-    syncZoomSize();
     drawEdges();
   });
 
   document.addEventListener("click", (event) => {
     if (!event.target.closest(".search-panel")) closeSearch();
-    if (!event.target.closest(".settings")) closeSettings();
   });
 }
 
@@ -188,10 +109,7 @@ function render() {
   root.className = "tree-root";
   root.setAttribute("role", "group");
   root.append(renderNode(rootNode, 1));
-  els.tree.classList.toggle("is-horizontal", state.orientation === "horizontal");
-  els.tree.classList.toggle("is-vertical", state.orientation === "vertical");
   els.tree.replaceChildren(root);
-  applyZoom();
   requestAnimationFrame(drawEdges);
 }
 
@@ -225,7 +143,7 @@ function renderNode(node, level) {
   infoButton.addEventListener("click", () => {
     state.activeId = node.id;
     render();
-    openDetails(node.id);
+    refreshDetails(node.id);
   });
 
   if (hasChildren && isExpanded) {
@@ -251,16 +169,40 @@ function handleNodeClick(nodeId) {
 
   if (state.expanded.has(nodeId)) {
     state.expanded.delete(nodeId);
+    render();
   } else {
     state.expanded.add(nodeId);
+    render();
+    scrollExpandedChildrenIntoView(nodeId);
   }
-  render();
 }
 
-async function openDetails(nodeId) {
+function scrollExpandedChildrenIntoView(nodeId) {
+  requestAnimationFrame(() => {
+    const item = els.tree.querySelector(`[data-id="${CSS.escape(nodeId)}"]`);
+    const branch = item?.querySelector(":scope > .branch");
+    const firstChild = branch?.querySelector(":scope > .tree-item > .node");
+    const target = firstChild || branch || item;
+    if (!target) return;
+
+    const viewportBox = els.treeViewport.getBoundingClientRect();
+    const targetBox = target.getBoundingClientRect();
+    const targetCenterX = targetBox.left + targetBox.width / 2;
+    const targetCenterY = targetBox.top + targetBox.height / 2;
+    const viewportCenterX = viewportBox.left + viewportBox.width * 0.54;
+    const viewportCenterY = viewportBox.top + viewportBox.height * 0.48;
+
+    els.treeViewport.scrollTo({
+      left: els.treeViewport.scrollLeft + targetCenterX - viewportCenterX,
+      top: els.treeViewport.scrollTop + targetCenterY - viewportCenterY,
+      behavior: "smooth"
+    });
+  });
+}
+
+async function refreshDetails(nodeId) {
   const node = state.byId.get(nodeId);
   if (!node) return;
-  els.detailsPanel.hidden = false;
   renderDetails(node);
 
   try {
@@ -274,66 +216,60 @@ async function openDetails(nodeId) {
   }
 }
 
-function closeDetails() {
-  els.detailsPanel.hidden = true;
-  els.detailsContent.replaceChildren();
-}
-
 function renderDetails(node, wiki = null, photos = null) {
   const source = window.PLANT_TREE_DATA.sources[node.source];
-  const children = getChildren(node.id);
-  const wikiBlock = renderWikipediaBlock(wiki);
+  const overviewBlock = renderOverviewBlock(node, wiki);
   const photoBlock = renderPhotoBlock(photos);
-  const anatomyBlock = renderAnatomyBlock(node);
-  const identificationBlock = renderIdentificationBlock(node, wiki);
+  const factsBlock = renderFactsBlock(node);
+  const sourceBlock = renderSourceBlock(node, source, wiki);
 
   els.detailsContent.innerHTML = `
-    <p class="details-kicker">Verifiable plant tree</p>
     <h2>${escapeHtml(node.name)}</h2>
-    <dl class="details-list">
-      <div><dt>Rank</dt><dd>${escapeHtml(capitalize(node.rank))}</dd></div>
-      <div><dt>Children shown</dt><dd>${formatCount(children.length)}</dd></div>
-      <div><dt>Node ID</dt><dd>${escapeHtml(node.id)}</dd></div>
-      <div><dt>Tree path</dt><dd>${escapeHtml(node.pathString || node.name)}</dd></div>
-      <div><dt>Source</dt><dd>${escapeHtml(source?.label || node.source)}</dd></div>
-    </dl>
+    <p class="details-rank">${escapeHtml(capitalize(node.rank))}</p>
+    <p class="details-path">${escapeHtml(node.pathString || node.name)}</p>
+    ${overviewBlock}
+    ${factsBlock}
     ${photoBlock}
-    ${anatomyBlock}
-    ${wikiBlock}
-    ${identificationBlock}
-    <div class="details-copy">
-      ${node.description ? `<p>${escapeHtml(node.description)}</p>` : ""}
-      <p>${escapeHtml(source?.citation || "Source citation missing.")}</p>
-    </div>
-    <div class="details-links">
-      ${source?.url ? `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">Classification source</a>` : ""}
-      ${wiki?.content_urls?.desktop?.page ? `<a href="${escapeHtml(wiki.content_urls.desktop.page)}" target="_blank" rel="noopener">Wikipedia</a>` : ""}
-    </div>
+    ${sourceBlock}
+  `;
+}
+
+function renderFactsBlock(node) {
+  const facts = factsFor(node);
+  if (!facts.length) return "";
+
+  return `
+    <section class="details-section facts-section">
+      <ul class="trait-list">
+        ${facts.map((fact) => {
+          const source = window.PLANT_TREE_DATA.sources[fact.source];
+          return `
+            <li>
+              ${escapeHtml(fact.text)}
+              ${source ? `<a class="inline-source" href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(source.label)}</a>` : ""}
+            </li>
+          `;
+        }).join("")}
+      </ul>
+    </section>
   `;
 }
 
 function renderPhotoBlock(photos) {
   if (!photos) {
     return `
-      <section class="details-section">
-        <h3>Photos</h3>
+      <section class="details-section photo-section">
         <p class="details-muted">Loading research-grade iNaturalist photos when available...</p>
       </section>
     `;
   }
 
   if (!photos.length) {
-    return `
-      <section class="details-section">
-        <h3>Photos</h3>
-        <p class="details-muted">No audited iNaturalist photo match is available for this node yet.</p>
-      </section>
-    `;
+    return "";
   }
 
   return `
-    <section class="details-section">
-      <h3>Photos</h3>
+    <section class="details-section photo-section">
       <div class="photo-grid">
         ${photos.map((photo) => `
           <a href="${escapeHtml(photo.observationUrl)}" target="_blank" rel="noopener" title="${escapeHtml(photo.attribution)}">
@@ -346,67 +282,31 @@ function renderPhotoBlock(photos) {
   `;
 }
 
-function renderAnatomyBlock(node) {
-  const notes = anatomyNotesFor(node);
-  if (!notes.length) return "";
+function renderOverviewBlock(node, wiki) {
+  const paragraphs = [];
+  if (wiki?.extract) paragraphs.push(limitSentences(wiki.extract, 4));
+  if (node.description) paragraphs.push(node.description);
 
-  return `
-    <section class="details-section">
-      <h3>Anatomy Notes</h3>
-      <ul class="trait-list">
-        ${notes.map((note) => {
-          const source = ANATOMY_REFERENCES[note.source];
-          return `
-            <li>
-              ${escapeHtml(note.text)}
-              ${source ? `<a class="inline-source" href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(source.label)}</a>` : ""}
-            </li>
-          `;
-        }).join("")}
-      </ul>
-    </section>
-  `;
-}
-
-function renderWikipediaBlock(wiki) {
-  if (!wiki) {
-    return `
-      <section class="details-section">
-        <h3>Overview</h3>
-        <p class="details-muted">Loading Wikipedia overview when available...</p>
-      </section>
-    `;
+  if (!paragraphs.length) {
+    return `<p class="details-muted">Loading overview when available...</p>`;
   }
 
-  const image = wiki.thumbnail?.source
-    ? `<img class="details-image" src="${escapeHtml(wiki.thumbnail.source)}" alt="">`
-    : "";
-  const extract = wiki.extract
-    ? `<p>${escapeHtml(limitSentences(wiki.extract, 4))}</p>`
-    : `<p class="details-muted">No Wikipedia overview found for this node.</p>`;
-
   return `
-    <section class="details-section">
-      <h3>Overview</h3>
-      <div class="details-copy">${extract}</div>
-      ${image}
-    </section>
+    <div class="details-copy overview-copy">
+      ${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+    </div>
   `;
 }
 
-function renderIdentificationBlock(node, wiki) {
-  const text = `${wiki?.extract || ""} ${node.description || ""}`;
-  const traits = inferIdentificationTraits(text);
-  const traitItems = traits.length
-    ? traits.map((trait) => `<li>${escapeHtml(trait)}</li>`).join("")
-    : "<li>No reliable identification traits found in the current sources.</li>";
-
+function renderSourceBlock(node, source, wiki) {
   return `
-    <section class="details-section">
-      <h3>Identification Notes</h3>
-      <ul class="trait-list">${traitItems}</ul>
-      <p class="details-muted">These notes are extracted from available prose and should be treated as clues, not a diagnostic key.</p>
-    </section>
+    <footer class="details-sources">
+      <p>${escapeHtml(source?.citation || "Source citation missing.")}</p>
+      <div class="details-links">
+        ${source?.url ? `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">Source reference</a>` : ""}
+        ${wiki?.content_urls?.desktop?.page ? `<a href="${escapeHtml(wiki.content_urls.desktop.page)}" target="_blank" rel="noopener">Wikipedia</a>` : ""}
+      </div>
+    </footer>
   `;
 }
 
@@ -474,61 +374,15 @@ function revealNode(nodeId) {
   });
 }
 
-function fitTreeToViewport() {
-  const bounds = measureTreeContent();
-  if (!bounds.width || !bounds.height) return;
-
-  const viewportWidth = Math.max(1, els.treeViewport.clientWidth - FIT_PADDING);
-  const viewportHeight = Math.max(1, els.treeViewport.clientHeight - FIT_PADDING);
-  const nextZoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, Math.min(
-    viewportWidth / bounds.width,
-    viewportHeight / bounds.height
-  )));
-
-  setZoom(nextZoom);
-  requestAnimationFrame(() => {
-    els.treeViewport.scrollTo({
-      left: state.orientation === "vertical"
-        ? Math.max(0, (els.treeSizer.offsetWidth - els.treeViewport.clientWidth) / 2)
-        : 0,
-      top: 0,
-      behavior: "smooth"
-    });
-  });
-}
-
-function setOrientation(nextOrientation) {
-  state.orientation = nextOrientation === "horizontal" ? "horizontal" : "vertical";
+function resetStoredStateIfVersionChanged() {
+  const dataVersion = window.PLANT_TREE_DATA?.version || "unknown-data";
+  const expectedVersion = `${APP_STORAGE_VERSION}:${dataVersion}`;
   try {
-    localStorage.setItem(ORIENTATION_STORAGE_KEY, state.orientation);
+    if (localStorage.getItem(STORAGE_VERSION_KEY) === expectedVersion) return;
+    localStorage.setItem(STORAGE_VERSION_KEY, expectedVersion);
   } catch {
-    // Some privacy modes can block localStorage; orientation still works for the session.
+    // If localStorage is blocked, the app still runs with defaults.
   }
-  syncOrientationControls();
-  render();
-}
-
-function getSavedOrientation() {
-  try {
-    return localStorage.getItem(ORIENTATION_STORAGE_KEY) === "vertical" ? "vertical" : "horizontal";
-  } catch {
-    return "horizontal";
-  }
-}
-
-function syncOrientationControls() {
-  for (const input of els.orientationInputs) input.checked = input.value === state.orientation;
-}
-
-function toggleSettings() {
-  const willOpen = els.settingsPanel.hidden;
-  els.settingsPanel.hidden = !willOpen;
-  els.settingsToggle.setAttribute("aria-expanded", String(willOpen));
-}
-
-function closeSettings() {
-  els.settingsPanel.hidden = true;
-  els.settingsToggle.setAttribute("aria-expanded", "false");
 }
 
 async function fetchWikipediaDetails(node) {
@@ -607,37 +461,6 @@ function photoTaxonFor(node) {
   return null;
 }
 
-function setZoom(nextZoom) {
-  state.zoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, Number(nextZoom.toFixed(2))));
-  applyZoom();
-}
-
-function applyZoom() {
-  els.tree.style.setProperty("--zoom", state.zoom);
-  els.zoomValue.textContent = `${Math.round(state.zoom * 100)}%`;
-  els.zoomOut.disabled = state.zoom <= MIN_ZOOM;
-  els.zoomIn.disabled = state.zoom >= MAX_ZOOM;
-  requestAnimationFrame(() => {
-    syncZoomSize();
-    drawEdges();
-  });
-}
-
-function syncZoomSize() {
-  const bounds = measureTreeContent();
-  els.treeSizer.style.width = `${bounds.width * state.zoom}px`;
-  els.treeSizer.style.height = `${bounds.height * state.zoom}px`;
-}
-
-function measureTreeContent() {
-  const root = els.tree.querySelector(".tree-root");
-  if (!root) return { width: els.tree.scrollWidth, height: els.tree.scrollHeight };
-  return {
-    width: root.scrollWidth,
-    height: root.scrollHeight
-  };
-}
-
 function drawEdges() {
   els.tree.querySelector(".tree-edges")?.remove();
 
@@ -657,31 +480,17 @@ function drawEdges() {
     const childNodes = parentItem.querySelectorAll(":scope > .branch > .tree-item > .node");
     if (!parentNode || !childNodes.length) continue;
 
-    const parentPoint = state.orientation === "horizontal"
-      ? rightCenter(parentNode, treeBox)
-      : bottomCenter(parentNode, treeBox);
+    const parentPoint = rightCenter(parentNode, treeBox);
     for (const childNode of childNodes) {
-      const childPoint = state.orientation === "horizontal"
-        ? leftCenter(childNode, treeBox)
-        : topCenter(childNode, treeBox);
-      const distance = Math.max(54, state.orientation === "horizontal"
-        ? childPoint.x - parentPoint.x
-        : childPoint.y - parentPoint.y);
+      const childPoint = leftCenter(childNode, treeBox);
+      const distance = Math.max(54, childPoint.x - parentPoint.x);
       const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-      const curve = state.orientation === "horizontal"
-        ? [
-            `M ${parentPoint.x} ${parentPoint.y}`,
-            `C ${parentPoint.x + distance * 0.58} ${parentPoint.y}`,
-            `${childPoint.x - distance * 0.58} ${childPoint.y}`,
-            `${childPoint.x} ${childPoint.y}`
-          ]
-        : [
-            `M ${parentPoint.x} ${parentPoint.y}`,
-            `C ${parentPoint.x} ${parentPoint.y + distance * 0.58}`,
-            `${childPoint.x} ${childPoint.y - distance * 0.58}`,
-            `${childPoint.x} ${childPoint.y}`
-          ];
-      path.setAttribute("d", curve.join(" "));
+      path.setAttribute("d", [
+        `M ${parentPoint.x} ${parentPoint.y}`,
+        `C ${parentPoint.x + distance * 0.58} ${parentPoint.y}`,
+        `${childPoint.x - distance * 0.58} ${childPoint.y}`,
+        `${childPoint.x} ${childPoint.y}`
+      ].join(" "));
       svg.append(path);
     }
   }
@@ -728,41 +537,8 @@ function scoreNode(node, query) {
   return 0;
 }
 
-function anatomyNotesFor(node) {
-  const notes = [];
-  const ids = new Set([node.id]);
-  let currentId = node.id;
-  while (state.parentById.has(currentId)) {
-    currentId = state.parentById.get(currentId);
-    ids.add(currentId);
-  }
-
-  if (ids.has("angiosperms")) notes.push(...(ANATOMY_NOTES.angiosperms || []));
-  if (ids.has("monocots")) notes.push(...(ANATOMY_NOTES.monocots || []));
-  if (ids.has("eudicots")) notes.push(...(ANATOMY_NOTES.eudicots || []));
-  if (ids.has("gymnosperms")) notes.push(...(ANATOMY_NOTES.gymnosperms || []));
-  notes.push(...(ANATOMY_NOTES[node.id] || []));
-
-  return [...new Map(notes.map((note) => [note.text, note])).values()].slice(0, 6);
-}
-
-function inferIdentificationTraits(text) {
-  const clean = String(text || "").replace(/\s+/g, " ").trim();
-  if (!clean) return [];
-
-  const keywords = [
-    "flower", "flowers", "inflorescence", "petal", "petals", "sepal", "sepals",
-    "leaf", "leaves", "stem", "stems", "bark", "fruit", "fruits", "seed", "seeds",
-    "cone", "cones", "spore", "spores", "rhizome", "root", "roots", "habit",
-    "tree", "shrub", "herb", "vine", "grass", "aquatic", "woody", "evergreen",
-    "deciduous", "needle", "needles", "pollen"
-  ];
-
-  const sentences = clean.match(/[^.!?]+[.!?]+/g) || [clean];
-  return sentences
-    .map((sentence) => sentence.trim())
-    .filter((sentence) => keywords.some((keyword) => sentence.toLowerCase().includes(keyword)))
-    .slice(0, 5);
+function factsFor(node) {
+  return (node.facts || []).slice(0, 5);
 }
 
 function limitSentences(text, limit) {
@@ -789,35 +565,19 @@ function rankWeight(rank) {
   return weights[rank] || 50;
 }
 
-function bottomCenter(element, treeBox) {
-  const box = element.getBoundingClientRect();
-  return {
-    x: (box.left + box.width / 2 - treeBox.left) / state.zoom,
-    y: (box.bottom - treeBox.top) / state.zoom
-  };
-}
-
-function topCenter(element, treeBox) {
-  const box = element.getBoundingClientRect();
-  return {
-    x: (box.left + box.width / 2 - treeBox.left) / state.zoom,
-    y: (box.top - treeBox.top) / state.zoom
-  };
-}
-
 function rightCenter(element, treeBox) {
   const box = element.getBoundingClientRect();
   return {
-    x: (box.right - treeBox.left) / state.zoom,
-    y: (box.top + box.height / 2 - treeBox.top) / state.zoom
+    x: box.right - treeBox.left,
+    y: box.top + box.height / 2 - treeBox.top
   };
 }
 
 function leftCenter(element, treeBox) {
   const box = element.getBoundingClientRect();
   return {
-    x: (box.left - treeBox.left) / state.zoom,
-    y: (box.top + box.height / 2 - treeBox.top) / state.zoom
+    x: box.left - treeBox.left,
+    y: box.top + box.height / 2 - treeBox.top
   };
 }
 

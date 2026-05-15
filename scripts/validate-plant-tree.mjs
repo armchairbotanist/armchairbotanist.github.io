@@ -43,6 +43,14 @@ for (const node of nodes.values()) {
   if (!node.source) fail(`${node.id} is missing source.`);
   if (node.source && !data.sources[node.source]) fail(`${node.id} references unknown source: ${node.source}`);
   if (node.children && !Array.isArray(node.children)) fail(`${node.id} children must be an array.`);
+  if (node.facts && !Array.isArray(node.facts)) fail(`${node.id} facts must be an array.`);
+  for (const [index, fact] of (node.facts || []).entries()) {
+    if (!fact.text) fail(`${node.id} fact ${index + 1} is missing text.`);
+    if (!fact.source) fail(`${node.id} fact ${index + 1} is missing source.`);
+    if (fact.source && !data.sources[fact.source]) {
+      fail(`${node.id} fact ${index + 1} references unknown source: ${fact.source}`);
+    }
+  }
   if ((node.rank === "clade" || node.rank === "grade") && node.photoTaxon && !node.photoTaxonSource) {
     fail(`${node.id} has photoTaxon but is missing photoTaxonSource.`);
   }

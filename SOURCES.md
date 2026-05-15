@@ -44,11 +44,12 @@ The validator checks internal consistency and source coverage. It does not parse
 
 ## Display Enrichment Sources
 
-These sources enrich the details panel but do not define the tree structure.
+These sources enrich the fact pane but do not define the tree structure.
 
 - iNaturalist API for research-grade observation photos. The app resolves an exact taxon ID before requesting observations; informal labels such as "Bryophytes" do not use loose photo search.
 - iNaturalist API reference: https://www.inaturalist.org/pages/api%2Breference
-- Britannica flower anatomy: https://www.britannica.com/science/flower
-- Britannica angiosperm reproductive structures: https://www.britannica.com/plant/angiosperm/Reproductive-structures
+- Wikipedia REST summary API for short overview text: https://en.wikipedia.org/api/rest_v1/
+- Britannica Asteraceae-related flower-head reference: https://www.britannica.com/science/flower
 - Britannica orchid morphology: https://www.britannica.com/plant/orchid/Characteristic-morphological-features
-- UC Davis LibreTexts monocots/eudicots overview: https://bio.libretexts.org/Courses/University_of_California_Davis/PLS_002%3A_Botany_and_physiology_of_cultivated_plants/03%3A_Origin_and_evolution_of_land_plants/3.02%3A_Biodiversity_%28Organismal_Groups%29/3.2.04%3A_Angiosperm_Diversity/3.2.4.01%3A_Monocots_and_Eudicots
+
+Fact-pane notes should be node-specific. Broad inherited notes such as generic plant anatomy definitions or classroom trait summaries are intentionally excluded.

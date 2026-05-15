@@ -1,5 +1,5 @@
 window.PLANT_TREE_DATA = {
-  version: "2026-05-14-seed",
+  version: "2026-05-15-node-specific-facts",
   rootId: "land-plants",
   sources: {
     apg_iv: {
@@ -31,6 +31,18 @@ window.PLANT_TREE_DATA = {
       title: "High-level land plant teaching scaffold",
       citation: "Used only for broad educational groupings such as land plants, vascular plants, seed plants, bryophyte grade, and flowering plants.",
       url: "https://www.britannica.com/plant/plant"
+    },
+    brit_asteraceae: {
+      label: "Britannica Asteraceae",
+      title: "Flower",
+      citation: "Encyclopaedia Britannica. Flower.",
+      url: "https://www.britannica.com/science/flower"
+    },
+    brit_orchid: {
+      label: "Britannica orchid morphology",
+      title: "Orchid characteristic morphological features",
+      citation: "Encyclopaedia Britannica. Orchid: characteristic morphological features.",
+      url: "https://www.britannica.com/plant/orchid/Characteristic-morphological-features"
     }
   },
   nodes: [
@@ -125,7 +137,9 @@ window.PLANT_TREE_DATA = {
     { id: "cocos", name: "Cocos", rank: "genus", source: "apg_iv" },
     { id: "phoenix", name: "Phoenix", rank: "genus", source: "apg_iv" },
     { id: "asparagales", name: "Asparagales", rank: "order", source: "apg_iv", children: ["orchidaceae", "amaryllidaceae"] },
-    { id: "orchidaceae", name: "Orchidaceae", rank: "family", source: "apg_iv", children: ["vanilla", "orchis"] },
+    { id: "orchidaceae", name: "Orchidaceae", rank: "family", source: "apg_iv", facts: [
+      { text: "Orchid flowers commonly have a specialized petal called the lip, or labellum.", source: "brit_orchid" }
+    ], children: ["vanilla", "orchis"] },
     { id: "vanilla", name: "Vanilla", rank: "genus", source: "apg_iv" },
     { id: "orchis", name: "Orchis", rank: "genus", source: "apg_iv" },
     { id: "amaryllidaceae", name: "Amaryllidaceae", rank: "family", source: "apg_iv", children: ["allium", "narcissus"] },
@@ -238,7 +252,9 @@ window.PLANT_TREE_DATA = {
     { id: "vinca", name: "Vinca", rank: "genus", source: "apg_iv" },
     { id: "campanulids", name: "Campanulids", rank: "clade", source: "apg_iv", children: ["asterales", "apiales", "dipsacales"] },
     { id: "asterales", name: "Asterales", rank: "order", source: "apg_iv", children: ["asteraceae", "campanulaceae"] },
-    { id: "asteraceae", name: "Asteraceae", rank: "family", source: "apg_iv", children: ["helianthus", "taraxacum"] },
+    { id: "asteraceae", name: "Asteraceae", rank: "family", source: "apg_iv", facts: [
+      { text: "Asteraceae flower heads are inflorescences composed of many small flowers rather than a single flower.", source: "brit_asteraceae" }
+    ], children: ["helianthus", "taraxacum"] },
     { id: "helianthus", name: "Helianthus", rank: "genus", source: "apg_iv" },
     { id: "taraxacum", name: "Taraxacum", rank: "genus", source: "apg_iv" },
     { id: "campanulaceae", name: "Campanulaceae", rank: "family", source: "apg_iv", children: ["campanula"] },
