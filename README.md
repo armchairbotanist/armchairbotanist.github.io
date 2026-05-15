@@ -5,7 +5,7 @@ A static, GitHub Pages-friendly explorer for a source-cited plant clade tree.
 ## Features
 
 - Expandable left-to-right plant tree.
-- Search across clades, orders, families, and example genera.
+- Search across clades, orders, families, and curated example genera.
 - Persistent right-side fact pane that updates only when a node's `i` button is clicked.
 - Portrait phone notice recommending landscape mode.
 - Wikipedia overview text when available.
@@ -34,18 +34,18 @@ Clade
 └── Subclade
     └── Order
         └── Family
-            └── Example genera
+            └── Optional example genera
 ```
 
-The genera are examples, not complete family inventories.
+The vascular-plant backbone is complete at order and family level for the selected sources. Genera are optional curated examples, not complete family inventories.
 
 ## Sources
 
 The structural tree currently uses:
 
-- APG IV for flowering plant clades, orders, and families.
-- PPG I for lycophytes and ferns.
-- Christenhusz et al. 2011 for gymnosperms.
+- APG IV for flowering plant clades, all 64 orders, and all 416 families.
+- PPG I for lycophytes and ferns: 3 lycophyte orders/3 families and 11 fern orders/48 families.
+- Christenhusz et al. 2011 for extant gymnosperms: 8 orders and 12 families.
 - Bryophyte Nomenclator and broad botanical consensus for the current bryophyte seed scaffold.
 
 The fact pane can also use Wikipedia summaries, iNaturalist photos, and explicitly cited node-specific facts from sources listed in `plant-tree-data.js`. These enrich the page but do not define the tree structure.
@@ -64,24 +64,15 @@ The fact pane should show:
 
 The fact pane should not show internal data fields, parent/child debug metadata, inherited broad facts, generic textbook anatomy notes, heuristic identification text, or loose photo searches for informal clades.
 
-## Verification
+## Data Checks
 
-Run:
+The repository intentionally keeps the data in `plant-tree-data.js` instead of a generated bundle so it can be read directly. For manual checks, confirm:
 
-```sh
-node scripts/validate-plant-tree.mjs
-```
-
-The validator checks that:
-
-- every node has a valid rank and source
-- every source has a citation and URL
-- every child reference exists
-- the tree has no cycles
-- every node is reachable from the root
-- orders contain family examples
-- families contain example genera
-- genera do not contain children
+- APG IV angiosperms contain 64 orders and 416 families.
+- PPG I lycophytes contain 3 orders and 3 families.
+- PPG I ferns contain 11 orders and 48 families.
+- Christenhusz et al. 2011 gymnosperms contain 8 orders and 12 families.
+- Bryophytes are still a small scaffold, not a complete bryophyte classification.
 
 ## Fact Pane Links
 
@@ -128,4 +119,3 @@ https://armchairbotanist.github.io/
 - `styles.css` contains the visual design.
 - `plant-tree-data.js` contains the source-cited tree data.
 - `app.js` renders and searches the tree.
-- `scripts/validate-plant-tree.mjs` verifies the tree structure.

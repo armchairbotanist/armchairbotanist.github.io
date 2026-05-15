@@ -494,13 +494,14 @@ function getChildren(nodeId) {
 }
 
 function nodeMeta(node, childCount) {
-  const count = childCount ? `${formatCount(childCount)} shown` : "example";
-  return `${capitalize(node.rank)} / ${count}`;
+  if (childCount) return `${capitalize(node.rank)} / ${formatCount(childCount)} shown`;
+  if (node.rank === "genus") return "Genus / example";
+  return capitalize(node.rank);
 }
 
 function nodeLabel(node, isExpanded) {
   const children = getChildren(node.id).length;
-  if (!children) return `${node.name}, ${node.rank}, example node`;
+  if (!children) return `${node.name}, ${node.rank}`;
   return `${node.name}, ${node.rank}, ${children} children, ${isExpanded ? "expanded" : "collapsed"}`;
 }
 

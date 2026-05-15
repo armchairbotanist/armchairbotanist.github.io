@@ -11,8 +11,6 @@
 !styles.css
 !app.js
 !plant-tree-data.js
-!scripts/
-!scripts/validate-plant-tree.mjs
 
 # Keep lightweight documentation.
 !README.md
