@@ -1,4 +1,6 @@
 (function () {
+  const config = window.AB_CONFIG || {};
+
   const state = {
     byId: new Map(),
     childrenByParent: new Map(),
@@ -35,10 +37,18 @@
     imageViewerCaption: document.querySelector("#imageViewerCaption")
   };
 
+  /**
+   * Returns hydrated child node objects for a node id.
+   * Missing or leaf nodes intentionally return an empty array.
+   */
   function getChildren(nodeId) {
     return state.childrenByParent.get(nodeId) || [];
   }
 
+  /**
+   * Converts labels, ids, and aliases into comparable search keys.
+   * The normalization removes accents and punctuation so loose user input still matches.
+   */
   function normalizeSearch(value) {
     return String(value || "")
       .trim()
@@ -49,12 +59,20 @@
       .trim();
   }
 
+  /**
+   * Keeps external summary text short enough for the fact pane.
+   * Falls back to the original text when sentence boundaries are not obvious.
+   */
   function limitSentences(text, limit) {
     const sentences = String(text || "").match(/[^.!?]+[.!?]+/g);
     if (!sentences) return String(text || "");
     return sentences.slice(0, limit).join(" ").trim();
   }
 
+  /**
+   * Sorts nodes in tree order when that order is known, otherwise by rank and name.
+   * Used for predictable search result ordering.
+   */
   function compareNodes(a, b) {
     if (Number.isFinite(a.treeSort) || Number.isFinite(b.treeSort)) {
       return (a.treeSort ?? 9999) - (b.treeSort ?? 9999);
@@ -62,6 +80,9 @@
     return rankWeight(a.rank) - rankWeight(b.rank) || a.name.localeCompare(b.name);
   }
 
+  /**
+   * Assigns broad display/search precedence to each taxonomic rank.
+   */
   function rankWeight(rank) {
     const weights = {
       clade: 1,
@@ -73,6 +94,9 @@
     return weights[rank] || 50;
   }
 
+  /**
+   * Computes the right-middle connection point of an element relative to the tree canvas.
+   */
   function rightCenter(element, treeBox) {
     const box = element.getBoundingClientRect();
     return {
@@ -81,6 +105,9 @@
     };
   }
 
+  /**
+   * Computes the left-middle connection point of an element relative to the tree canvas.
+   */
   function leftCenter(element, treeBox) {
     const box = element.getBoundingClientRect();
     return {
@@ -89,15 +116,24 @@
     };
   }
 
+  /**
+   * Formats child counts in node labels.
+   */
   function formatCount(value) {
     return Number(value || 0).toLocaleString();
   }
 
+  /**
+   * Capitalizes a short rank or label without changing the rest of the text.
+   */
   function capitalize(value) {
     const clean = String(value || "");
     return clean.charAt(0).toUpperCase() + clean.slice(1);
   }
 
+  /**
+   * Escapes text before it is inserted into an HTML string.
+   */
   function escapeHtml(value) {
     return String(value)
       .replaceAll("&", "&amp;")
@@ -108,6 +144,7 @@
   }
 
   window.AB = {
+    config,
     state,
     els,
     getChildren,

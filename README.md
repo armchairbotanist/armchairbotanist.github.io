@@ -95,9 +95,11 @@ The fact pane should make displayed enrichment easy to verify:
 
 - `app.js` is the small startup file.
 - `js/core.js` holds shared state, DOM references, and utilities.
-- `js/tree-view.js` renders the expandable tree and SVG edges.
-- `js/details-pane.js` renders the fact pane, enrichment, source figures, and image viewer.
-- `js/search.js` handles local and taxon-backed search.
+- `js/config.js` holds maintainable app constants such as resize limits, search limits, source IDs, and fallback version.
+- `js/tree-view.js` defines the `TreeView` class for the expandable tree and SVG edges.
+- `js/details-pane.js` defines the `DetailsPane` class for the fact pane, enrichment, source figures, image viewer, and pane resizing.
+- `js/search.js` defines the `SearchController` class for local and taxon-backed search.
+- Design colors live as CSS custom properties at the top of `styles.css`.
 
 ## Local Preview
 

@@ -125,6 +125,7 @@ main {
 
 .node {
   --depth: 0;
+  position: relative;
   display: inline-grid;
   grid-template-columns: minmax(0, 1fr) 24px;
   gap: 6px;

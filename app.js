@@ -1,6 +1,11 @@
 (function () {
   const { state } = window.AB;
 
+  /**
+   * Starts the application after all data and controller scripts have loaded.
+   * This wires controllers, builds the tree indexes, renders the first view,
+   * and falls back to an on-page error if the data shape is invalid.
+   */
   function init() {
     window.AB.tree.init();
     window.AB.details.init();

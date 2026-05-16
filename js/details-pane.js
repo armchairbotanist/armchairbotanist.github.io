@@ -1,484 +1,612 @@
 (function () {
-  const { state, els, utils } = window.AB;
-  const { escapeHtml, capitalize, limitSentences } = utils;
-  const desktopResizeQuery = window.matchMedia("(min-width: 761px)");
-  let resizeDrag = null;
-  let resizeFrame = null;
+  /**
+   * Owns the right-hand fact pane: node details, source figures, enrichment fetches,
+   * image previewing, footer version text, and pane resizing.
+   */
+  class DetailsPane {
+    /**
+     * Stores shared app state and prepares bound handlers that need stable references.
+     */
+    constructor(app) {
+      this.config = app.config;
+      this.state = app.state;
+      this.els = app.els;
+      this.utils = app.utils;
+      this.paneConfig = this.config.detailsPane;
+      this.photoConfig = this.config.photos;
+      this.desktopResizeQuery = window.matchMedia(this.config.media.detailsPaneDesktop);
+      this.resizeDrag = null;
+      this.resizeFrame = null;
 
-  function init() {
-    setupDetailsResize();
-    els.imageViewerClose?.addEventListener("click", closeImageViewer);
-    els.imageViewer?.addEventListener("click", (event) => {
-      if (event.target === els.imageViewer) closeImageViewer();
-    });
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && !els.imageViewer?.hidden) closeImageViewer();
-    });
-  }
-
-  function setupDetailsResize() {
-    if (!els.appShell || !els.detailsPanel || !els.detailsResizeHandle) return;
-
-    applyStoredDetailsSize();
-    els.detailsResizeHandle.addEventListener("pointerdown", startDetailsResize);
-    els.detailsResizeHandle.addEventListener("keydown", handleResizeKeydown);
-    window.addEventListener("resize", clampActiveDetailsSize);
-
-    if (desktopResizeQuery.addEventListener) {
-      desktopResizeQuery.addEventListener("change", applyStoredDetailsSize);
-    } else {
-      desktopResizeQuery.addListener(applyStoredDetailsSize);
+      this.applyStoredDetailsSize = this.applyStoredDetailsSize.bind(this);
+      this.clampActiveDetailsSize = this.clampActiveDetailsSize.bind(this);
+      this.dragDetailsResize = this.dragDetailsResize.bind(this);
+      this.stopDetailsResize = this.stopDetailsResize.bind(this);
     }
-  }
 
-  function activeResizeMode() {
-    return desktopResizeQuery.matches ? "desktop" : "mobile";
-  }
-
-  function storageKey(mode) {
-    const version = window.PLANT_TREE_DATA?.siteVersion || "2.00";
-    return `armchair-botanist:${version}:details-pane:${mode}`;
-  }
-
-  function readStoredSize(mode) {
-    try {
-      const value = Number.parseFloat(window.localStorage.getItem(storageKey(mode)));
-      return Number.isFinite(value) ? value : null;
-    } catch (_error) {
-      return null;
+    /**
+     * Registers fact-pane interactions: resizing, image viewer close actions,
+     * and Escape-to-close behavior.
+     */
+    init() {
+      this.setupDetailsResize();
+      this.els.imageViewerClose?.addEventListener("click", () => this.closeImageViewer());
+      this.els.imageViewer?.addEventListener("click", (event) => {
+        if (event.target === this.els.imageViewer) this.closeImageViewer();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !this.els.imageViewer?.hidden) this.closeImageViewer();
+      });
     }
-  }
 
-  function writeStoredSize(mode, value) {
-    try {
-      window.localStorage.setItem(storageKey(mode), String(Math.round(value)));
-    } catch (_error) {
-      // Private browsing can disable storage; resizing should still work for the session.
+    /**
+     * Enables drag and keyboard resizing for the fact pane.
+     * Desktop resizes horizontally; phone-sized layouts resize vertically.
+     */
+    setupDetailsResize() {
+      if (!this.els.appShell || !this.els.detailsPanel || !this.els.detailsResizeHandle) return;
+
+      this.applyStoredDetailsSize();
+      this.els.detailsResizeHandle.addEventListener("pointerdown", (event) => this.startDetailsResize(event));
+      this.els.detailsResizeHandle.addEventListener("keydown", (event) => this.handleResizeKeydown(event));
+      window.addEventListener("resize", this.clampActiveDetailsSize);
+
+      if (this.desktopResizeQuery.addEventListener) {
+        this.desktopResizeQuery.addEventListener("change", this.applyStoredDetailsSize);
+      } else {
+        this.desktopResizeQuery.addListener(this.applyStoredDetailsSize);
+      }
     }
-  }
 
-  function applyStoredDetailsSize() {
-    const mode = activeResizeMode();
-    const stored = readStoredSize(mode);
-    setDetailsSize(mode, stored || getCurrentPaneSize(mode), false);
-  }
+    /**
+     * Returns which resize axis is active for the current viewport.
+     */
+    activeResizeMode() {
+      return this.desktopResizeQuery.matches ? "desktop" : "mobile";
+    }
 
-  function clampActiveDetailsSize() {
-    const mode = activeResizeMode();
-    setDetailsSize(mode, getCurrentPaneSize(mode), false);
-  }
+    /**
+     * Builds the version-scoped localStorage key for a saved pane size.
+     */
+    storageKey(mode) {
+      return `${this.config.storagePrefix}:${this.siteVersion()}:details-pane:${mode}`;
+    }
 
-  function getCurrentPaneSize(mode) {
-    const box = els.detailsPanel.getBoundingClientRect();
-    return mode === "desktop" ? box.width : box.height;
-  }
+    /**
+     * Reads a saved pane size, returning null when storage is unavailable or empty.
+     */
+    readStoredSize(mode) {
+      try {
+        const value = Number.parseFloat(window.localStorage.getItem(this.storageKey(mode)));
+        return Number.isFinite(value) ? value : null;
+      } catch (_error) {
+        return null;
+      }
+    }
 
-  function getPaneLimits(mode) {
-    const shellBox = els.appShell.getBoundingClientRect();
+    /**
+     * Saves a pane size for the active site version.
+     */
+    writeStoredSize(mode, value) {
+      try {
+        window.localStorage.setItem(this.storageKey(mode), String(Math.round(value)));
+      } catch (_error) {
+        // Private browsing can disable storage; resizing should still work for the session.
+      }
+    }
 
-    if (mode === "desktop") {
-      const min = Math.min(340, Math.max(300, shellBox.width - 280));
-      const max = Math.max(min, Math.min(760, shellBox.width - 260));
+    /**
+     * Restores the saved pane size for the current mode, then clamps it to the viewport.
+     */
+    applyStoredDetailsSize() {
+      const mode = this.activeResizeMode();
+      const stored = this.readStoredSize(mode);
+      this.setDetailsSize(mode, stored || this.getCurrentPaneSize(mode), false);
+    }
+
+    /**
+     * Keeps the current pane size valid after browser resizing or orientation changes.
+     */
+    clampActiveDetailsSize() {
+      const mode = this.activeResizeMode();
+      this.setDetailsSize(mode, this.getCurrentPaneSize(mode), false);
+    }
+
+    /**
+     * Reads the current rendered pane width or height for the active resize mode.
+     */
+    getCurrentPaneSize(mode) {
+      const box = this.els.detailsPanel.getBoundingClientRect();
+      return mode === "desktop" ? box.width : box.height;
+    }
+
+    /**
+     * Calculates min/max pane sizes while preserving enough room for the tree.
+     */
+    getPaneLimits(mode) {
+      const shellBox = this.els.appShell.getBoundingClientRect();
+
+      if (mode === "desktop") {
+        const desktop = this.paneConfig.desktop;
+        const min = Math.min(desktop.minPx, Math.max(desktop.compactMinPx, shellBox.width - desktop.compactTreePx));
+        const max = Math.max(min, Math.min(desktop.maxPx, shellBox.width - desktop.minTreePx));
+        return { min: Math.round(min), max: Math.round(max) };
+      }
+
+      const mobile = this.paneConfig.mobile;
+      const min = Math.max(mobile.minPx, Math.min(mobile.compactMaxPx, shellBox.height * mobile.minRatio));
+      const max = Math.max(min, Math.min(shellBox.height - mobile.maxTreePx, shellBox.height * mobile.maxRatio));
       return { min: Math.round(min), max: Math.round(max) };
     }
 
-    const min = Math.max(210, Math.min(300, shellBox.height * 0.32));
-    const max = Math.max(min, Math.min(shellBox.height - 130, shellBox.height * 0.72));
-    return { min: Math.round(min), max: Math.round(max) };
-  }
-
-  function clamp(value, min, max) {
-    return Math.min(max, Math.max(min, value));
-  }
-
-  function setDetailsSize(mode, value, persist) {
-    const limits = getPaneLimits(mode);
-    const next = Math.round(clamp(value, limits.min, limits.max));
-    const property = mode === "desktop" ? "--details-pane-width" : "--details-pane-height";
-    document.documentElement.style.setProperty(property, `${next}px`);
-    syncResizeHandle(mode, next, limits);
-    if (persist) writeStoredSize(mode, next);
-    scheduleTreeRefresh();
-    return next;
-  }
-
-  function syncResizeHandle(mode, value, limits = getPaneLimits(mode)) {
-    const handle = els.detailsResizeHandle;
-    handle.setAttribute("aria-orientation", mode === "desktop" ? "vertical" : "horizontal");
-    handle.setAttribute("aria-valuemin", String(limits.min));
-    handle.setAttribute("aria-valuemax", String(limits.max));
-    handle.setAttribute("aria-valuenow", String(Math.round(value)));
-    handle.setAttribute("aria-valuetext", `${Math.round(value)} pixels`);
-    handle.title = mode === "desktop"
-      ? "Drag left or right to resize details"
-      : "Drag up or down to resize details";
-  }
-
-  function startDetailsResize(event) {
-    if (event.pointerType === "mouse" && event.button !== 0) return;
-
-    const mode = activeResizeMode();
-    resizeDrag = {
-      mode,
-      pointerId: event.pointerId,
-      startX: event.clientX,
-      startY: event.clientY,
-      startSize: getCurrentPaneSize(mode)
-    };
-
-    event.preventDefault();
-    try {
-      els.detailsResizeHandle.setPointerCapture?.(event.pointerId);
-    } catch (_error) {
-      // Window-level listeners keep dragging reliable even if capture is unavailable.
+    /**
+     * Restricts a numeric value to a min/max range.
+     */
+    clamp(value, min, max) {
+      return Math.min(max, Math.max(min, value));
     }
-    els.detailsPanel.classList.add("is-resizing");
-    document.body.classList.add("is-resizing-details");
-    window.addEventListener("pointermove", dragDetailsResize);
-    window.addEventListener("pointerup", stopDetailsResize);
-    window.addEventListener("pointercancel", stopDetailsResize);
-  }
 
-  function dragDetailsResize(event) {
-    if (!resizeDrag || event.pointerId !== resizeDrag.pointerId) return;
-
-    const delta = resizeDrag.mode === "desktop"
-      ? resizeDrag.startX - event.clientX
-      : resizeDrag.startY - event.clientY;
-    setDetailsSize(resizeDrag.mode, resizeDrag.startSize + delta, false);
-  }
-
-  function stopDetailsResize(event) {
-    if (!resizeDrag || event.pointerId !== resizeDrag.pointerId) return;
-
-    const mode = resizeDrag.mode;
-    resizeDrag = null;
-    try {
-      els.detailsResizeHandle.releasePointerCapture?.(event.pointerId);
-    } catch (_error) {
-      // The pointer may already be released by the browser.
+    /**
+     * Applies a pane size to CSS variables and updates separator ARIA metadata.
+     */
+    setDetailsSize(mode, value, persist) {
+      const limits = this.getPaneLimits(mode);
+      const next = Math.round(this.clamp(value, limits.min, limits.max));
+      const property = mode === "desktop" ? "--details-pane-width" : "--details-pane-height";
+      document.documentElement.style.setProperty(property, `${next}px`);
+      this.syncResizeHandle(mode, next, limits);
+      if (persist) this.writeStoredSize(mode, next);
+      this.scheduleTreeRefresh();
+      return next;
     }
-    window.removeEventListener("pointermove", dragDetailsResize);
-    window.removeEventListener("pointerup", stopDetailsResize);
-    window.removeEventListener("pointercancel", stopDetailsResize);
-    els.detailsPanel.classList.remove("is-resizing");
-    document.body.classList.remove("is-resizing-details");
-    setDetailsSize(mode, getCurrentPaneSize(mode), true);
-  }
 
-  function handleResizeKeydown(event) {
-    const mode = activeResizeMode();
-    const size = getCurrentPaneSize(mode);
-    const limits = getPaneLimits(mode);
-    const step = event.shiftKey ? 48 : 24;
-    let next = null;
-
-    if (event.key === "Home") next = limits.min;
-    if (event.key === "End") next = limits.max;
-    if (mode === "desktop" && event.key === "ArrowLeft") next = size + step;
-    if (mode === "desktop" && event.key === "ArrowRight") next = size - step;
-    if (mode === "mobile" && event.key === "ArrowUp") next = size + step;
-    if (mode === "mobile" && event.key === "ArrowDown") next = size - step;
-
-    if (next === null) return;
-    event.preventDefault();
-    setDetailsSize(mode, next, true);
-  }
-
-  function scheduleTreeRefresh() {
-    if (resizeFrame) cancelAnimationFrame(resizeFrame);
-    resizeFrame = requestAnimationFrame(() => {
-      resizeFrame = null;
-      window.AB.tree?.drawEdges();
-    });
-  }
-
-  function renderSiteFooter(data) {
-    if (!els.siteFooter) return;
-    const year = new Date().getFullYear();
-    const version = data?.siteVersion || "2.00";
-    els.siteFooter.textContent = `Copyright © ${year} Armchair Botanist · Version ${version}`;
-  }
-
-  async function refreshDetails(nodeId) {
-    const node = state.byId.get(nodeId);
-    if (!node) return;
-    renderDetails(node);
-
-    try {
-      const [wiki, photos] = await Promise.all([
-        fetchWikipediaDetails(node),
-        fetchINaturalistPhotos(node)
-      ]);
-      if (state.activeId === nodeId) renderDetails(node, wiki, photos);
-    } catch (error) {
-      console.warn("Details enrichment unavailable", error);
+    /**
+     * Keeps the resize handle's accessibility state in sync with the visual size.
+     */
+    syncResizeHandle(mode, value, limits = this.getPaneLimits(mode)) {
+      const handle = this.els.detailsResizeHandle;
+      handle.setAttribute("aria-orientation", mode === "desktop" ? "vertical" : "horizontal");
+      handle.setAttribute("aria-valuemin", String(limits.min));
+      handle.setAttribute("aria-valuemax", String(limits.max));
+      handle.setAttribute("aria-valuenow", String(Math.round(value)));
+      handle.setAttribute("aria-valuetext", `${Math.round(value)} pixels`);
+      handle.title = mode === "desktop"
+        ? "Drag left or right to resize details"
+        : "Drag up or down to resize details";
     }
-  }
 
-  function renderDetails(node, wiki = null, photos = null) {
-    const source = window.PLANT_TREE_DATA.sources[node.source];
-    const overviewBlock = renderOverviewBlock(node, wiki);
-    const photoBlock = renderPhotoBlock(photos);
-    const factsBlock = renderFactsBlock(node);
-    const figureBlock = renderFigureBlock(node);
-    const sourceBlock = renderSourceBlock(source, wiki);
+    /**
+     * Starts a pointer drag for the resize handle.
+     */
+    startDetailsResize(event) {
+      if (event.pointerType === "mouse" && event.button !== 0) return;
 
-    els.detailsContent.innerHTML = `
-      <h2>${escapeHtml(node.name)}</h2>
-      <p class="details-rank">${escapeHtml(capitalize(node.rank))}</p>
-      <p class="details-path">${escapeHtml(node.pathString || node.name)}</p>
-      ${overviewBlock}
-      ${factsBlock}
-      ${figureBlock}
-      ${photoBlock}
-      ${sourceBlock}
-    `;
-    bindFigureViewer();
-  }
+      const mode = this.activeResizeMode();
+      this.resizeDrag = {
+        mode,
+        pointerId: event.pointerId,
+        startX: event.clientX,
+        startY: event.clientY,
+        startSize: this.getCurrentPaneSize(mode)
+      };
 
-  function renderFactsBlock(node) {
-    const facts = (node.facts || []).slice(0, 5);
-    if (!facts.length) return "";
+      event.preventDefault();
+      try {
+        this.els.detailsResizeHandle.setPointerCapture?.(event.pointerId);
+      } catch (_error) {
+        // Window-level listeners keep dragging reliable even if capture is unavailable.
+      }
+      this.els.detailsPanel.classList.add("is-resizing");
+      document.body.classList.add("is-resizing-details");
+      window.addEventListener("pointermove", this.dragDetailsResize);
+      window.addEventListener("pointerup", this.stopDetailsResize);
+      window.addEventListener("pointercancel", this.stopDetailsResize);
+    }
 
-    return `
-      <section class="details-section facts-section">
-        <ul class="trait-list">
-          ${facts.map((fact) => {
-            const source = window.PLANT_TREE_DATA.sources[fact.source];
-            return `
-              <li>
-                ${escapeHtml(fact.text)}
-                ${renderInlineSource(source)}
-              </li>
-            `;
-          }).join("")}
-        </ul>
-      </section>
-    `;
-  }
+    /**
+     * Updates the pane size as the resize pointer moves.
+     */
+    dragDetailsResize(event) {
+      if (!this.resizeDrag || event.pointerId !== this.resizeDrag.pointerId) return;
 
-  function renderFigureBlock(node) {
-    const figures = figuresForNode(node);
-    if (!figures.length) return "";
+      const delta = this.resizeDrag.mode === "desktop"
+        ? this.resizeDrag.startX - event.clientX
+        : this.resizeDrag.startY - event.clientY;
+      this.setDetailsSize(this.resizeDrag.mode, this.resizeDrag.startSize + delta, false);
+    }
 
-    return `
-      <section class="details-section figure-section">
-        ${figures.map((figure) => {
-          const source = window.PLANT_TREE_DATA.sources[figure.source];
-          return `
-            <figure class="source-figure">
-              <button class="figure-image-button" type="button" aria-label="Open larger image: ${escapeHtml(figure.caption || node.name)}">
-                <img src="${escapeHtml(figure.image)}" alt="${escapeHtml(figure.alt || figure.caption || node.name)}" loading="lazy">
-              </button>
-              <figcaption>
-                <p class="figure-caption-text">
-                  ${escapeHtml(figure.caption || "")}
-                  ${renderInlineSource(source)}
-                </p>
-                ${figure.panels?.length ? `
-                  <ul>
-                    ${figure.panels.map((panel) => `<li>${escapeHtml(panel)}</li>`).join("")}
-                  </ul>
-                ` : ""}
-              </figcaption>
-            </figure>
-          `;
-        }).join("")}
-      </section>
-    `;
-  }
+    /**
+     * Finishes a resize drag, removes global listeners, and persists the final size.
+     */
+    stopDetailsResize(event) {
+      if (!this.resizeDrag || event.pointerId !== this.resizeDrag.pointerId) return;
 
-  function figuresForNode(node) {
-    const catalog = window.PLANT_TREE_DATA.figures || {};
-    const catalogFigures = (node.figureIds || [])
-      .map((figureId) => catalog[figureId])
-      .filter(Boolean);
-    return [...catalogFigures, ...(node.figures || [])];
-  }
+      const mode = this.resizeDrag.mode;
+      this.resizeDrag = null;
+      try {
+        this.els.detailsResizeHandle.releasePointerCapture?.(event.pointerId);
+      } catch (_error) {
+        // The pointer may already be released by the browser.
+      }
+      window.removeEventListener("pointermove", this.dragDetailsResize);
+      window.removeEventListener("pointerup", this.stopDetailsResize);
+      window.removeEventListener("pointercancel", this.stopDetailsResize);
+      this.els.detailsPanel.classList.remove("is-resizing");
+      document.body.classList.remove("is-resizing-details");
+      this.setDetailsSize(mode, this.getCurrentPaneSize(mode), true);
+    }
 
-  function bindFigureViewer() {
-    els.detailsContent.querySelectorAll(".figure-image-button").forEach((button) => {
-      button.addEventListener("click", () => {
-        const image = button.querySelector("img");
-        const figure = button.closest(".source-figure");
-        const caption = figure?.querySelector("figcaption")?.textContent?.replace(/\s+/g, " ").trim() || "";
-        openImageViewer(image?.getAttribute("src"), image?.getAttribute("alt"), caption);
+    /**
+     * Supports keyboard resizing from the separator for accessibility.
+     */
+    handleResizeKeydown(event) {
+      const mode = this.activeResizeMode();
+      const size = this.getCurrentPaneSize(mode);
+      const limits = this.getPaneLimits(mode);
+      const modeConfig = this.paneConfig[mode];
+      const step = event.shiftKey ? modeConfig.keyboardLargeStepPx : modeConfig.keyboardStepPx;
+      let next = null;
+
+      if (event.key === "Home") next = limits.min;
+      if (event.key === "End") next = limits.max;
+      if (mode === "desktop" && event.key === "ArrowLeft") next = size + step;
+      if (mode === "desktop" && event.key === "ArrowRight") next = size - step;
+      if (mode === "mobile" && event.key === "ArrowUp") next = size + step;
+      if (mode === "mobile" && event.key === "ArrowDown") next = size - step;
+
+      if (next === null) return;
+      event.preventDefault();
+      this.setDetailsSize(mode, next, true);
+    }
+
+    /**
+     * Redraws tree edges after pane resizing changes available tree space.
+     */
+    scheduleTreeRefresh() {
+      if (this.resizeFrame) cancelAnimationFrame(this.resizeFrame);
+      this.resizeFrame = requestAnimationFrame(() => {
+        this.resizeFrame = null;
+        window.AB.tree?.drawEdges();
       });
-    });
-  }
-
-  function openImageViewer(src, alt, caption) {
-    if (!src || !els.imageViewer || !els.imageViewerImg || !els.imageViewerCaption) return;
-    els.imageViewerImg.src = src;
-    els.imageViewerImg.alt = alt || caption || "Expanded image";
-    els.imageViewerCaption.textContent = caption || "";
-    els.imageViewer.hidden = false;
-    document.body.classList.add("has-image-viewer");
-    els.imageViewerClose?.focus({ preventScroll: true });
-  }
-
-  function closeImageViewer() {
-    if (!els.imageViewer || els.imageViewer.hidden) return;
-    els.imageViewer.hidden = true;
-    document.body.classList.remove("has-image-viewer");
-    if (els.imageViewerImg) {
-      els.imageViewerImg.removeAttribute("src");
-      els.imageViewerImg.alt = "";
     }
-    if (els.imageViewerCaption) els.imageViewerCaption.textContent = "";
-  }
 
-  function renderInlineSource(source) {
-    if (!source) return "";
-    if (source.url) {
-      return `<a class="inline-source" href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(source.label)}</a>`;
+    /**
+     * Writes the footer copyright/version text.
+     */
+    renderSiteFooter(data) {
+      if (!this.els.siteFooter) return;
+      const year = new Date().getFullYear();
+      this.els.siteFooter.textContent = `Copyright © ${year} Armchair Botanist · Version ${this.siteVersion(data)}`;
     }
-    return `<span class="inline-source">${escapeHtml(source.label)}</span>`;
-  }
 
-  function renderPhotoBlock(photos) {
-    if (!photos) {
+    /**
+     * Reads the visible site version from data, with a config fallback.
+     */
+    siteVersion(data = window.PLANT_TREE_DATA) {
+      return data?.siteVersion || this.config.fallbackSiteVersion;
+    }
+
+    /**
+     * Renders local node details immediately, then refreshes with remote enrichment.
+     */
+    async refreshDetails(nodeId) {
+      const node = this.state.byId.get(nodeId);
+      if (!node) return;
+      this.renderDetails(node);
+
+      try {
+        const [wiki, photos] = await Promise.all([
+          this.fetchWikipediaDetails(node),
+          this.fetchINaturalistPhotos(node)
+        ]);
+        if (this.state.activeId === nodeId) this.renderDetails(node, wiki, photos);
+      } catch (error) {
+        console.warn("Details enrichment unavailable", error);
+      }
+    }
+
+    /**
+     * Writes the complete fact pane markup for one node.
+     */
+    renderDetails(node, wiki = null, photos = null) {
+      const source = window.PLANT_TREE_DATA.sources[node.source];
+      this.els.detailsContent.innerHTML = `
+        <h2>${this.utils.escapeHtml(node.name)}</h2>
+        <p class="details-rank">${this.utils.escapeHtml(this.utils.capitalize(node.rank))}</p>
+        <p class="details-path">${this.utils.escapeHtml(node.pathString || node.name)}</p>
+        ${this.renderOverviewBlock(node, wiki)}
+        ${this.renderFactsBlock(node)}
+        ${this.renderFigureBlock(node)}
+        ${this.renderPhotoBlock(photos)}
+        ${this.renderSourceBlock(source, wiki)}
+      `;
+      this.bindFigureViewer();
+    }
+
+    /**
+     * Renders curated node-specific facts, each with its inline source reference.
+     */
+    renderFactsBlock(node) {
+      const facts = (node.facts || []).slice(0, 5);
+      if (!facts.length) return "";
+
       return `
-        <section class="details-section photo-section">
-          <p class="details-muted">Loading research-grade iNaturalist photos when available...</p>
+        <section class="details-section facts-section">
+          <ul class="trait-list">
+            ${facts.map((fact) => {
+              const source = window.PLANT_TREE_DATA.sources[fact.source];
+              return `
+                <li>
+                  ${this.utils.escapeHtml(fact.text)}
+                  ${this.renderInlineSource(source)}
+                </li>
+              `;
+            }).join("")}
+          </ul>
         </section>
       `;
     }
 
-    if (!photos.length) return "";
+    /**
+     * Renders local source figures and captions connected to the selected node.
+     */
+    renderFigureBlock(node) {
+      const figures = this.figuresForNode(node);
+      if (!figures.length) return "";
 
-    return `
-      <section class="details-section photo-section">
-        <div class="photo-grid">
-          ${photos.map((photo) => `
-            <a href="${escapeHtml(photo.observationUrl)}" target="_blank" rel="noopener" title="${escapeHtml(photo.attribution)}">
-              <img src="${escapeHtml(photo.url)}" alt="${escapeHtml(photo.alt)}" loading="lazy">
-            </a>
-          `).join("")}
-        </div>
-        <p class="details-muted">Photos are from iNaturalist research-grade observations when available. Open a photo for observation and attribution details.</p>
-      </section>
-    `;
-  }
-
-  function renderOverviewBlock(node, wiki) {
-    const paragraphs = [];
-    if (node.description) paragraphs.push(node.description);
-    if (wiki?.extract) paragraphs.push(limitSentences(wiki.extract, 4));
-
-    if (!paragraphs.length) {
-      return `<p class="details-muted">Loading overview when available...</p>`;
+      return `
+        <section class="details-section figure-section">
+          ${figures.map((figure) => {
+            const source = window.PLANT_TREE_DATA.sources[figure.source];
+            return `
+              <figure class="source-figure">
+                <button class="figure-image-button" type="button" aria-label="Open larger image: ${this.utils.escapeHtml(figure.caption || node.name)}">
+                  <img src="${this.utils.escapeHtml(figure.image)}" alt="${this.utils.escapeHtml(figure.alt || figure.caption || node.name)}" loading="lazy">
+                </button>
+                <figcaption>
+                  <p class="figure-caption-text">
+                    ${this.utils.escapeHtml(figure.caption || "")}
+                    ${this.renderInlineSource(source)}
+                  </p>
+                  ${figure.panels?.length ? `
+                    <ul>
+                      ${figure.panels.map((panel) => `<li>${this.utils.escapeHtml(panel)}</li>`).join("")}
+                    </ul>
+                  ` : ""}
+                </figcaption>
+              </figure>
+            `;
+          }).join("")}
+        </section>
+      `;
     }
 
-    return `
-      <div class="details-copy overview-copy">
-        ${paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
-      </div>
-    `;
-  }
+    /**
+     * Resolves a node's figure IDs into full figure records.
+     */
+    figuresForNode(node) {
+      const catalog = window.PLANT_TREE_DATA.figures || {};
+      const catalogFigures = (node.figureIds || [])
+        .map((figureId) => catalog[figureId])
+        .filter(Boolean);
+      return [...catalogFigures, ...(node.figures || [])];
+    }
 
-  function renderSourceBlock(source, wiki) {
-    return `
-      <footer class="details-sources">
-        <p>${escapeHtml(source?.citation || "Source citation missing.")}</p>
-        <div class="details-links">
-          ${source?.url ? `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">Source reference</a>` : ""}
-          ${wiki?.content_urls?.desktop?.page ? `<a href="${escapeHtml(wiki.content_urls.desktop.page)}" target="_blank" rel="noopener">Wikipedia</a>` : ""}
+    /**
+     * Attaches image-viewer click handlers to the newly rendered figure thumbnails.
+     */
+    bindFigureViewer() {
+      this.els.detailsContent.querySelectorAll(".figure-image-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          const image = button.querySelector("img");
+          const figure = button.closest(".source-figure");
+          const caption = figure?.querySelector("figcaption")?.textContent?.replace(/\s+/g, " ").trim() || "";
+          this.openImageViewer(image?.getAttribute("src"), image?.getAttribute("alt"), caption);
+        });
+      });
+    }
+
+    /**
+     * Opens a full-screen image viewer for a source figure.
+     */
+    openImageViewer(src, alt, caption) {
+      if (!src || !this.els.imageViewer || !this.els.imageViewerImg || !this.els.imageViewerCaption) return;
+      this.els.imageViewerImg.src = src;
+      this.els.imageViewerImg.alt = alt || caption || "Expanded image";
+      this.els.imageViewerCaption.textContent = caption || "";
+      this.els.imageViewer.hidden = false;
+      document.body.classList.add("has-image-viewer");
+      this.els.imageViewerClose?.focus({ preventScroll: true });
+    }
+
+    /**
+     * Closes and clears the full-screen image viewer.
+     */
+    closeImageViewer() {
+      if (!this.els.imageViewer || this.els.imageViewer.hidden) return;
+      this.els.imageViewer.hidden = true;
+      document.body.classList.remove("has-image-viewer");
+      if (this.els.imageViewerImg) {
+        this.els.imageViewerImg.removeAttribute("src");
+        this.els.imageViewerImg.alt = "";
+      }
+      if (this.els.imageViewerCaption) this.els.imageViewerCaption.textContent = "";
+    }
+
+    /**
+     * Renders an inline source label as a link when the source has a URL.
+     */
+    renderInlineSource(source) {
+      if (!source) return "";
+      if (source.url) {
+        return `<a class="inline-source" href="${this.utils.escapeHtml(source.url)}" target="_blank" rel="noopener">${this.utils.escapeHtml(source.label)}</a>`;
+      }
+      return `<span class="inline-source">${this.utils.escapeHtml(source.label)}</span>`;
+    }
+
+    /**
+     * Renders iNaturalist photo thumbnails, including the loading placeholder state.
+     */
+    renderPhotoBlock(photos) {
+      if (!photos) {
+        return `
+          <section class="details-section photo-section">
+            <p class="details-muted">Loading research-grade iNaturalist photos when available...</p>
+          </section>
+        `;
+      }
+
+      if (!photos.length) return "";
+
+      return `
+        <section class="details-section photo-section">
+          <div class="photo-grid">
+            ${photos.map((photo) => `
+              <a href="${this.utils.escapeHtml(photo.observationUrl)}" target="_blank" rel="noopener" title="${this.utils.escapeHtml(photo.attribution)}">
+                <img src="${this.utils.escapeHtml(photo.url)}" alt="${this.utils.escapeHtml(photo.alt)}" loading="lazy">
+              </a>
+            `).join("")}
+          </div>
+          <p class="details-muted">Photos are from iNaturalist research-grade observations when available. Open a photo for observation and attribution details.</p>
+        </section>
+      `;
+    }
+
+    /**
+     * Renders the node description plus a shortened Wikipedia extract when available.
+     */
+    renderOverviewBlock(node, wiki) {
+      const paragraphs = [];
+      if (node.description) paragraphs.push(node.description);
+      if (wiki?.extract) paragraphs.push(this.utils.limitSentences(wiki.extract, 4));
+
+      if (!paragraphs.length) {
+        return `<p class="details-muted">Loading overview when available...</p>`;
+      }
+
+      return `
+        <div class="details-copy overview-copy">
+          ${paragraphs.map((paragraph) => `<p>${this.utils.escapeHtml(paragraph)}</p>`).join("")}
         </div>
-      </footer>
-    `;
-  }
+      `;
+    }
 
-  async function fetchWikipediaDetails(node) {
-    if (state.wikiCache.has(node.name)) return state.wikiCache.get(node.name);
+    /**
+     * Renders the source footer for local data and optional Wikipedia enrichment.
+     */
+    renderSourceBlock(source, wiki) {
+      return `
+        <footer class="details-sources">
+          <p>${this.utils.escapeHtml(source?.citation || "Source citation missing.")}</p>
+          <div class="details-links">
+            ${source?.url ? `<a href="${this.utils.escapeHtml(source.url)}" target="_blank" rel="noopener">Source reference</a>` : ""}
+            ${wiki?.content_urls?.desktop?.page ? `<a href="${this.utils.escapeHtml(wiki.content_urls.desktop.page)}" target="_blank" rel="noopener">Wikipedia</a>` : ""}
+          </div>
+        </footer>
+      `;
+    }
 
-    const response = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(node.name)}`);
-    if (!response.ok) {
-      state.wikiCache.set(node.name, null);
+    /**
+     * Fetches and caches a Wikipedia summary for the selected node name.
+     */
+    async fetchWikipediaDetails(node) {
+      if (this.state.wikiCache.has(node.name)) return this.state.wikiCache.get(node.name);
+
+      const response = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(node.name)}`);
+      if (!response.ok) {
+        this.state.wikiCache.set(node.name, null);
+        return null;
+      }
+
+      const data = await response.json();
+      this.state.wikiCache.set(node.name, data);
+      return data;
+    }
+
+    /**
+     * Fetches research-grade iNaturalist observation photos for supported taxon ranks.
+     */
+    async fetchINaturalistPhotos(node) {
+      const photoQuery = this.photoTaxonFor(node);
+      if (!photoQuery) return [];
+      if (this.state.photoCache.has(photoQuery)) return this.state.photoCache.get(photoQuery);
+
+      const taxonId = await this.resolveINaturalistTaxonId(photoQuery);
+      if (!taxonId) {
+        this.state.photoCache.set(photoQuery, []);
+        return [];
+      }
+
+      const params = new URLSearchParams({
+        taxon_id: String(taxonId),
+        photos: "true",
+        quality_grade: this.photoConfig.qualityGrade,
+        verifiable: "true",
+        per_page: String(this.photoConfig.maxPhotos),
+        order_by: this.photoConfig.orderBy
+      });
+      const response = await fetch(`https://api.inaturalist.org/v1/observations?${params.toString()}`);
+      if (!response.ok) {
+        this.state.photoCache.set(photoQuery, []);
+        return [];
+      }
+
+      const data = await response.json();
+      const photos = (data.results || [])
+        .flatMap((observation) => (observation.photos || []).slice(0, 1).map((photo) => ({
+          url: photo.url?.replace("square", "medium"),
+          observationUrl: observation.uri || `https://www.inaturalist.org/observations/${observation.id}`,
+          alt: observation.taxon?.preferred_common_name || observation.taxon?.name || node.name,
+          attribution: [photo.attribution, photo.license_code].filter(Boolean).join(" / ")
+        })))
+        .filter((photo) => photo.url)
+        .slice(0, this.photoConfig.maxPhotos);
+
+      this.state.photoCache.set(photoQuery, photos);
+      return photos;
+    }
+
+    /**
+     * Looks up an exact iNaturalist taxon id for a scientific name.
+     */
+    async resolveINaturalistTaxonId(query) {
+      const params = new URLSearchParams({
+        q: query,
+        is_active: "true",
+        per_page: String(this.photoConfig.taxonAutocompleteLimit)
+      });
+      const response = await fetch(`https://api.inaturalist.org/v1/taxa/autocomplete?${params.toString()}`);
+      if (!response.ok) return null;
+
+      const data = await response.json();
+      const exact = (data.results || []).find((taxon) =>
+        taxon.name?.toLowerCase() === query.toLowerCase()
+      );
+      return exact?.id || null;
+    }
+
+    /**
+     * Chooses which taxon name should be used for photo lookup.
+     */
+    photoTaxonFor(node) {
+      if (node.photoTaxon) return node.photoTaxon;
+      if (node.rank === "order" || node.rank === "family" || node.rank === "genus") return node.name;
       return null;
     }
 
-    const data = await response.json();
-    state.wikiCache.set(node.name, data);
-    return data;
-  }
-
-  async function fetchINaturalistPhotos(node) {
-    const photoQuery = photoTaxonFor(node);
-    if (!photoQuery) return [];
-    if (state.photoCache.has(photoQuery)) return state.photoCache.get(photoQuery);
-
-    const taxonId = await resolveINaturalistTaxonId(photoQuery);
-    if (!taxonId) {
-      state.photoCache.set(photoQuery, []);
-      return [];
+    /**
+     * Shows a readable data-load error inside the tree area.
+     */
+    renderLoadError(error) {
+      this.els.tree.innerHTML = `
+        <div class="load-error">
+          <strong>Could not load plant tree data.</strong>
+          <span>${this.utils.escapeHtml(error.message || "Check plant-tree-data.js.")}</span>
+        </div>
+      `;
     }
-
-    const params = new URLSearchParams({
-      taxon_id: String(taxonId),
-      photos: "true",
-      quality_grade: "research",
-      verifiable: "true",
-      per_page: "6",
-      order_by: "votes"
-    });
-    const response = await fetch(`https://api.inaturalist.org/v1/observations?${params.toString()}`);
-    if (!response.ok) {
-      state.photoCache.set(photoQuery, []);
-      return [];
-    }
-
-    const data = await response.json();
-    const photos = (data.results || [])
-      .flatMap((observation) => (observation.photos || []).slice(0, 1).map((photo) => ({
-        url: photo.url?.replace("square", "medium"),
-        observationUrl: observation.uri || `https://www.inaturalist.org/observations/${observation.id}`,
-        alt: observation.taxon?.preferred_common_name || observation.taxon?.name || node.name,
-        attribution: [photo.attribution, photo.license_code].filter(Boolean).join(" / ")
-      })))
-      .filter((photo) => photo.url)
-      .slice(0, 6);
-
-    state.photoCache.set(photoQuery, photos);
-    return photos;
   }
 
-  async function resolveINaturalistTaxonId(query) {
-    const params = new URLSearchParams({
-      q: query,
-      is_active: "true",
-      per_page: "8"
-    });
-    const response = await fetch(`https://api.inaturalist.org/v1/taxa/autocomplete?${params.toString()}`);
-    if (!response.ok) return null;
-
-    const data = await response.json();
-    const exact = (data.results || []).find((taxon) =>
-      taxon.name?.toLowerCase() === query.toLowerCase()
-    );
-    return exact?.id || null;
-  }
-
-  function photoTaxonFor(node) {
-    if (node.photoTaxon) return node.photoTaxon;
-    if (node.rank === "order" || node.rank === "family" || node.rank === "genus") return node.name;
-    return null;
-  }
-
-  function renderLoadError(error) {
-    els.tree.innerHTML = `
-      <div class="load-error">
-        <strong>Could not load plant tree data.</strong>
-        <span>${escapeHtml(error.message || "Check plant-tree-data.js.")}</span>
-      </div>
-    `;
-  }
-
-  window.AB.details = {
-    init,
-    renderSiteFooter,
-    refreshDetails,
-    renderLoadError
-  };
+  window.AB.DetailsPane = DetailsPane;
+  window.AB.details = new DetailsPane(window.AB);
 })();
