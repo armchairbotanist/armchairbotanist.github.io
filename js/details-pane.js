@@ -1,14 +1,187 @@
 (function () {
   const { state, els, utils } = window.AB;
   const { escapeHtml, capitalize, limitSentences } = utils;
+  const desktopResizeQuery = window.matchMedia("(min-width: 761px)");
+  let resizeDrag = null;
+  let resizeFrame = null;
 
   function init() {
+    setupDetailsResize();
     els.imageViewerClose?.addEventListener("click", closeImageViewer);
     els.imageViewer?.addEventListener("click", (event) => {
       if (event.target === els.imageViewer) closeImageViewer();
     });
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && !els.imageViewer?.hidden) closeImageViewer();
+    });
+  }
+
+  function setupDetailsResize() {
+    if (!els.appShell || !els.detailsPanel || !els.detailsResizeHandle) return;
+
+    applyStoredDetailsSize();
+    els.detailsResizeHandle.addEventListener("pointerdown", startDetailsResize);
+    els.detailsResizeHandle.addEventListener("keydown", handleResizeKeydown);
+    window.addEventListener("resize", clampActiveDetailsSize);
+
+    if (desktopResizeQuery.addEventListener) {
+      desktopResizeQuery.addEventListener("change", applyStoredDetailsSize);
+    } else {
+      desktopResizeQuery.addListener(applyStoredDetailsSize);
+    }
+  }
+
+  function activeResizeMode() {
+    return desktopResizeQuery.matches ? "desktop" : "mobile";
+  }
+
+  function storageKey(mode) {
+    const version = window.PLANT_TREE_DATA?.siteVersion || "1.01";
+    return `armchair-botanist:${version}:details-pane:${mode}`;
+  }
+
+  function readStoredSize(mode) {
+    try {
+      const value = Number.parseFloat(window.localStorage.getItem(storageKey(mode)));
+      return Number.isFinite(value) ? value : null;
+    } catch (_error) {
+      return null;
+    }
+  }
+
+  function writeStoredSize(mode, value) {
+    try {
+      window.localStorage.setItem(storageKey(mode), String(Math.round(value)));
+    } catch (_error) {
+      // Private browsing can disable storage; resizing should still work for the session.
+    }
+  }
+
+  function applyStoredDetailsSize() {
+    const mode = activeResizeMode();
+    const stored = readStoredSize(mode);
+    setDetailsSize(mode, stored || getCurrentPaneSize(mode), false);
+  }
+
+  function clampActiveDetailsSize() {
+    const mode = activeResizeMode();
+    setDetailsSize(mode, getCurrentPaneSize(mode), false);
+  }
+
+  function getCurrentPaneSize(mode) {
+    const box = els.detailsPanel.getBoundingClientRect();
+    return mode === "desktop" ? box.width : box.height;
+  }
+
+  function getPaneLimits(mode) {
+    const shellBox = els.appShell.getBoundingClientRect();
+
+    if (mode === "desktop") {
+      const min = Math.min(340, Math.max(300, shellBox.width - 280));
+      const max = Math.max(min, Math.min(760, shellBox.width - 260));
+      return { min: Math.round(min), max: Math.round(max) };
+    }
+
+    const min = Math.max(210, Math.min(300, shellBox.height * 0.32));
+    const max = Math.max(min, Math.min(shellBox.height - 130, shellBox.height * 0.72));
+    return { min: Math.round(min), max: Math.round(max) };
+  }
+
+  function clamp(value, min, max) {
+    return Math.min(max, Math.max(min, value));
+  }
+
+  function setDetailsSize(mode, value, persist) {
+    const limits = getPaneLimits(mode);
+    const next = Math.round(clamp(value, limits.min, limits.max));
+    const property = mode === "desktop" ? "--details-pane-width" : "--details-pane-height";
+    document.documentElement.style.setProperty(property, `${next}px`);
+    syncResizeHandle(mode, next, limits);
+    if (persist) writeStoredSize(mode, next);
+    scheduleTreeRefresh();
+    return next;
+  }
+
+  function syncResizeHandle(mode, value, limits = getPaneLimits(mode)) {
+    const handle = els.detailsResizeHandle;
+    handle.setAttribute("aria-orientation", mode === "desktop" ? "vertical" : "horizontal");
+    handle.setAttribute("aria-valuemin", String(limits.min));
+    handle.setAttribute("aria-valuemax", String(limits.max));
+    handle.setAttribute("aria-valuenow", String(Math.round(value)));
+    handle.setAttribute("aria-valuetext", `${Math.round(value)} pixels`);
+    handle.title = mode === "desktop"
+      ? "Drag left or right to resize details"
+      : "Drag up or down to resize details";
+  }
+
+  function startDetailsResize(event) {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+
+    const mode = activeResizeMode();
+    resizeDrag = {
+      mode,
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      startSize: getCurrentPaneSize(mode)
+    };
+
+    event.preventDefault();
+    els.detailsResizeHandle.setPointerCapture?.(event.pointerId);
+    els.detailsPanel.classList.add("is-resizing");
+    document.body.classList.add("is-resizing-details");
+    els.detailsResizeHandle.addEventListener("pointermove", dragDetailsResize);
+    els.detailsResizeHandle.addEventListener("pointerup", stopDetailsResize);
+    els.detailsResizeHandle.addEventListener("pointercancel", stopDetailsResize);
+  }
+
+  function dragDetailsResize(event) {
+    if (!resizeDrag || event.pointerId !== resizeDrag.pointerId) return;
+
+    const delta = resizeDrag.mode === "desktop"
+      ? resizeDrag.startX - event.clientX
+      : resizeDrag.startY - event.clientY;
+    setDetailsSize(resizeDrag.mode, resizeDrag.startSize + delta, false);
+  }
+
+  function stopDetailsResize(event) {
+    if (!resizeDrag || event.pointerId !== resizeDrag.pointerId) return;
+
+    const mode = resizeDrag.mode;
+    resizeDrag = null;
+    els.detailsResizeHandle.releasePointerCapture?.(event.pointerId);
+    els.detailsResizeHandle.removeEventListener("pointermove", dragDetailsResize);
+    els.detailsResizeHandle.removeEventListener("pointerup", stopDetailsResize);
+    els.detailsResizeHandle.removeEventListener("pointercancel", stopDetailsResize);
+    els.detailsPanel.classList.remove("is-resizing");
+    document.body.classList.remove("is-resizing-details");
+    setDetailsSize(mode, getCurrentPaneSize(mode), true);
+  }
+
+  function handleResizeKeydown(event) {
+    const mode = activeResizeMode();
+    const size = getCurrentPaneSize(mode);
+    const limits = getPaneLimits(mode);
+    const step = event.shiftKey ? 48 : 24;
+    let next = null;
+
+    if (event.key === "Home") next = limits.min;
+    if (event.key === "End") next = limits.max;
+    if (mode === "desktop" && event.key === "ArrowLeft") next = size + step;
+    if (mode === "desktop" && event.key === "ArrowRight") next = size - step;
+    if (mode === "mobile" && event.key === "ArrowUp") next = size + step;
+    if (mode === "mobile" && event.key === "ArrowDown") next = size - step;
+
+    if (next === null) return;
+    event.preventDefault();
+    setDetailsSize(mode, next, true);
+  }
+
+  function scheduleTreeRefresh() {
+    if (resizeFrame) cancelAnimationFrame(resizeFrame);
+    resizeFrame = requestAnimationFrame(() => {
+      resizeFrame = null;
+      window.AB.tree?.drawEdges();
     });
   }
 

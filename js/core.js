@@ -18,12 +18,15 @@
   };
 
   const els = {
+    appShell: document.querySelector(".app-shell"),
     treeViewport: document.querySelector("#treeViewport"),
     tree: document.querySelector("#tree"),
     searchInput: document.querySelector("#searchInput"),
     clearSearch: document.querySelector("#clearSearch"),
     searchResults: document.querySelector("#searchResults"),
     nodeTemplate: document.querySelector("#nodeTemplate"),
+    detailsPanel: document.querySelector("#detailsPanel"),
+    detailsResizeHandle: document.querySelector("#detailsResizeHandle"),
     detailsContent: document.querySelector("#detailsContent"),
     siteFooter: document.querySelector("#siteFooter"),
     imageViewer: document.querySelector("#imageViewer"),
