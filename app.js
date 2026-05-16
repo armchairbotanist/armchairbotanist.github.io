@@ -22,7 +22,12 @@ const els = {
   clearSearch: document.querySelector("#clearSearch"),
   searchResults: document.querySelector("#searchResults"),
   nodeTemplate: document.querySelector("#nodeTemplate"),
-  detailsContent: document.querySelector("#detailsContent")
+  detailsContent: document.querySelector("#detailsContent"),
+  siteFooter: document.querySelector("#siteFooter"),
+  imageViewer: document.querySelector("#imageViewer"),
+  imageViewerClose: document.querySelector("#imageViewerClose"),
+  imageViewerImg: document.querySelector("#imageViewerImg"),
+  imageViewerCaption: document.querySelector("#imageViewerCaption")
 };
 
 function init() {
@@ -31,11 +36,19 @@ function init() {
   try {
     hydrateTree(window.PLANT_TREE_DATA);
     render();
+    renderSiteFooter(window.PLANT_TREE_DATA);
     refreshDetails(state.rootId);
   } catch (error) {
     console.error(error);
     renderLoadError(error);
   }
+}
+
+function renderSiteFooter(data) {
+  if (!els.siteFooter) return;
+  const year = new Date().getFullYear();
+  const version = data?.siteVersion || "1.00";
+  els.siteFooter.textContent = `Copyright © ${year} Armchair Botanist · Version ${version}`;
 }
 
 function bindEvents() {
@@ -53,6 +66,14 @@ function bindEvents() {
 
   document.addEventListener("click", (event) => {
     if (!event.target.closest(".search-panel")) closeSearch();
+  });
+
+  els.imageViewerClose?.addEventListener("click", closeImageViewer);
+  els.imageViewer?.addEventListener("click", (event) => {
+    if (event.target === els.imageViewer) closeImageViewer();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !els.imageViewer?.hidden) closeImageViewer();
   });
 }
 
@@ -241,6 +262,7 @@ function renderDetails(node, wiki = null, photos = null) {
   const overviewBlock = renderOverviewBlock(node, wiki);
   const photoBlock = renderPhotoBlock(photos);
   const factsBlock = renderFactsBlock(node);
+  const figureBlock = renderFigureBlock(node);
   const sourceBlock = renderSourceBlock(node, source, wiki);
 
   els.detailsContent.innerHTML = `
@@ -249,9 +271,11 @@ function renderDetails(node, wiki = null, photos = null) {
     <p class="details-path">${escapeHtml(node.pathString || node.name)}</p>
     ${overviewBlock}
     ${factsBlock}
+    ${figureBlock}
     ${photoBlock}
     ${sourceBlock}
   `;
+  bindFigureViewer();
 }
 
 function renderFactsBlock(node) {
@@ -266,13 +290,82 @@ function renderFactsBlock(node) {
           return `
             <li>
               ${escapeHtml(fact.text)}
-              ${source ? `<a class="inline-source" href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(source.label)}</a>` : ""}
+              ${renderInlineSource(source)}
             </li>
           `;
         }).join("")}
       </ul>
     </section>
   `;
+}
+
+function renderFigureBlock(node) {
+  const figures = node.figures || [];
+  if (!figures.length) return "";
+
+  return `
+    <section class="details-section figure-section">
+      ${figures.map((figure) => {
+        const source = window.PLANT_TREE_DATA.sources[figure.source];
+        return `
+          <figure class="source-figure">
+            <button class="figure-image-button" type="button" aria-label="Open larger image: ${escapeHtml(figure.caption || node.name)}">
+              <img src="${escapeHtml(figure.image)}" alt="${escapeHtml(figure.alt || figure.caption || node.name)}" loading="lazy">
+            </button>
+            <figcaption>
+              <strong>${escapeHtml(figure.caption || "")}</strong>
+              ${renderInlineSource(source)}
+              ${figure.panels?.length ? `
+                <ul>
+                  ${figure.panels.map((panel) => `<li>${escapeHtml(panel)}</li>`).join("")}
+                </ul>
+              ` : ""}
+            </figcaption>
+          </figure>
+        `;
+      }).join("")}
+    </section>
+  `;
+}
+
+function bindFigureViewer() {
+  els.detailsContent.querySelectorAll(".figure-image-button").forEach((button) => {
+    button.addEventListener("click", () => {
+      const image = button.querySelector("img");
+      const figure = button.closest(".source-figure");
+      const caption = figure?.querySelector("figcaption")?.textContent?.replace(/\s+/g, " ").trim() || "";
+      openImageViewer(image?.getAttribute("src"), image?.getAttribute("alt"), caption);
+    });
+  });
+}
+
+function openImageViewer(src, alt, caption) {
+  if (!src || !els.imageViewer || !els.imageViewerImg || !els.imageViewerCaption) return;
+  els.imageViewerImg.src = src;
+  els.imageViewerImg.alt = alt || caption || "Expanded image";
+  els.imageViewerCaption.textContent = caption || "";
+  els.imageViewer.hidden = false;
+  document.body.classList.add("has-image-viewer");
+  els.imageViewerClose?.focus({ preventScroll: true });
+}
+
+function closeImageViewer() {
+  if (!els.imageViewer || els.imageViewer.hidden) return;
+  els.imageViewer.hidden = true;
+  document.body.classList.remove("has-image-viewer");
+  if (els.imageViewerImg) {
+    els.imageViewerImg.removeAttribute("src");
+    els.imageViewerImg.alt = "";
+  }
+  if (els.imageViewerCaption) els.imageViewerCaption.textContent = "";
+}
+
+function renderInlineSource(source) {
+  if (!source) return "";
+  if (source.url) {
+    return `<a class="inline-source" href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(source.label)}</a>`;
+  }
+  return `<span class="inline-source">${escapeHtml(source.label)}</span>`;
 }
 
 function renderPhotoBlock(photos) {
@@ -304,8 +397,8 @@ function renderPhotoBlock(photos) {
 
 function renderOverviewBlock(node, wiki) {
   const paragraphs = [];
-  if (wiki?.extract) paragraphs.push(limitSentences(wiki.extract, 4));
   if (node.description) paragraphs.push(node.description);
+  if (wiki?.extract) paragraphs.push(limitSentences(wiki.extract, 4));
 
   if (!paragraphs.length) {
     return `<p class="details-muted">Loading overview when available...</p>`;

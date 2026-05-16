@@ -1,4 +1,5 @@
 window.PLANT_TREE_DATA = {
+  siteVersion: "1.00",
   version: "2026-05-15-search-taxon-lookup",
   rootId: "land-plants",
   sources: {
@@ -7,6 +8,11 @@ window.PLANT_TREE_DATA = {
       citation: "Angiosperm Phylogeny Group. 2016. Botanical Journal of the Linnean Society 181: 1-20.",
       url: "https://academic.oup.com/botlinnean/article/181/1/1/2416499",
       scope: "APG IV flowering plant clades, 64 orders, and 416 families."
+    },
+    simpson_2019_ch7: {
+      label: "Simpson 2019",
+      citation: "Simpson, M. G. 2019. Plant Systematics, 3rd ed. Academic Press. Chapter 7, pp. 409-411 and Figure 7.3.",
+      scope: "Prototype Amborellales figure and caption extracted from the local PDF."
     },
     ppg_i: {
       label: "PPG I",
@@ -738,6 +744,21 @@ window.PLANT_TREE_DATA = {
       name: "Amborellales",
       rank: "order",
       source: "apg_iv",
+      figures: [
+        {
+          image: "assets/amborellales/figure-7-3-amborella-trichopoda.jpg",
+          alt: "Four-panel figure of Amborella trichopoda showing the whole plant, leaves, male flowers, and a female flower.",
+          caption: "Figure 7.3. AMBORELLALES. Amborellaceae, Amborella trichopoda.",
+          source: "simpson_2019_ch7",
+          panels: [
+            "A. Whole plant, in cultivation.",
+            "B. Close-up of leaves.",
+            "C. Male flowers, showing laminar stamens.",
+            "D. Female flower close-up, showing spiral perianth and apocarpous gynoecium.",
+            "Image credits in the PDF caption: A and C courtesy of Stephen McCabe; B courtesy of the Arboretum at University of California-Santa Cruz; D courtesy of Sandra K. Floyd."
+          ]
+        }
+      ],
       children: ["amborellaceae"]
     },
     {
@@ -745,13 +766,43 @@ window.PLANT_TREE_DATA = {
       name: "Amborellaceae",
       rank: "family",
       source: "apg_iv",
+      figures: [
+        {
+          image: "assets/amborellales/figure-7-3-amborella-trichopoda.jpg",
+          alt: "Four-panel figure of Amborella trichopoda showing the whole plant, leaves, male flowers, and a female flower.",
+          caption: "Figure 7.3. AMBORELLALES. Amborellaceae, Amborella trichopoda.",
+          source: "simpson_2019_ch7",
+          panels: [
+            "A. Whole plant, in cultivation.",
+            "B. Close-up of leaves.",
+            "C. Male flowers, showing laminar stamens.",
+            "D. Female flower close-up, showing spiral perianth and apocarpous gynoecium.",
+            "Image credits in the PDF caption: A and C courtesy of Stephen McCabe; B courtesy of the Arboretum at University of California-Santa Cruz; D courtesy of Sandra K. Floyd."
+          ]
+        }
+      ],
       children: ["amborella"]
     },
     {
       id: "amborella",
       name: "Amborella",
       rank: "genus",
-      source: "apg_iv"
+      source: "apg_iv",
+      figures: [
+        {
+          image: "assets/amborellales/figure-7-3-amborella-trichopoda.jpg",
+          alt: "Four-panel figure of Amborella trichopoda showing the whole plant, leaves, male flowers, and a female flower.",
+          caption: "Figure 7.3. AMBORELLALES. Amborellaceae, Amborella trichopoda.",
+          source: "simpson_2019_ch7",
+          panels: [
+            "A. Whole plant, in cultivation.",
+            "B. Close-up of leaves.",
+            "C. Male flowers, showing laminar stamens.",
+            "D. Female flower close-up, showing spiral perianth and apocarpous gynoecium.",
+            "Image credits in the PDF caption: A and C courtesy of Stephen McCabe; B courtesy of the Arboretum at University of California-Santa Cruz; D courtesy of Sandra K. Floyd."
+          ]
+        }
+      ]
     },
     {
       id: "nymphaeales",

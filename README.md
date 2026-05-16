@@ -23,6 +23,7 @@ Each node can include:
 - `source`
 - optional `description`
 - optional node-specific `facts`
+- optional source figure blocks with extracted images and panel notes
 - optional explicit `photoTaxon`
 - optional `searchAliases` for source-name mismatches
 - optional `children`
@@ -118,4 +119,5 @@ https://armchairbotanist.github.io/
 - `index.html` contains the page structure.
 - `styles.css` contains the visual design.
 - `plant-tree-data.js` contains the source-cited tree data.
+- `assets/` contains local image assets used by source figure blocks.
 - `app.js` renders and searches the tree.
