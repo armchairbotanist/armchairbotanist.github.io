@@ -1,6 +1,6 @@
 (function () {
   window.AB_CONFIG = {
-    fallbackSiteVersion: "2.00",
+    fallbackSiteVersion: "2.02",
     storagePrefix: "armchair-botanist",
 
     media: {

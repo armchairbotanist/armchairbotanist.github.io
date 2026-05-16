@@ -1,6 +1,6 @@
 window.PLANT_TREE_DATA = {
-  "siteVersion": "2.00",
-  "version": "2026-05-16-simpson-ch8-figures",
+  "siteVersion": "2.02",
+  "version": "2026-05-16-simpson-ch3-6-figures",
   "rootId": "land-plants",
   "sources": {
     "apg_iv": {
@@ -54,6 +54,26 @@ window.PLANT_TREE_DATA = {
       "label": "Simpson 2019",
       "citation": "Simpson, M. G. 2019. Plant Systematics, 3rd ed. Academic Press. Chapter 8, pp. 600-856, Figures 8.1-8.137.",
       "scope": "Local PDF figure and caption extraction for eudicot order and family fact panes."
+    },
+    "simpson_2019_ch3": {
+      "label": "Simpson 2019",
+      "citation": "Simpson, M. G. 2019. Plant Systematics, 3rd ed. Academic Press. Chapter 3, pp. 149-180, Figures 3.1-3.19.",
+      "scope": "Local PDF figure and caption extraction for green plants, land plants, bryophytes, mosses, liverworts, and hornworts."
+    },
+    "simpson_2019_ch4": {
+      "label": "Simpson 2019",
+      "citation": "Simpson, M. G. 2019. Plant Systematics, 3rd ed. Academic Press. Chapter 4, pp. 189-279, Figures 4.1-4.44.",
+      "scope": "Local PDF figure and caption extraction for vascular plants, lycophytes, and ferns."
+    },
+    "simpson_2019_ch5": {
+      "label": "Simpson 2019",
+      "citation": "Simpson, M. G. 2019. Plant Systematics, 3rd ed. Academic Press. Chapter 5, pp. 298-349, Figures 5.1-5.28.",
+      "scope": "Local PDF figure and caption extraction for woody plants, seed plants, gymnosperms, and conifer relatives."
+    },
+    "simpson_2019_ch6": {
+      "label": "Simpson 2019",
+      "citation": "Simpson, M. G. 2019. Plant Systematics, 3rd ed. Academic Press. Chapter 6, pp. 359-389, Figures 6.1-6.19.",
+      "scope": "Local PDF figure and caption extraction for broad flowering plant structure and angiosperm apomorphies."
     }
   },
   "figures": {
@@ -1946,6 +1966,1348 @@ window.PLANT_TREE_DATA = {
       "pdfPage": 854,
       "width": 992,
       "height": 1097
+    },
+    "simpson-2019-figure-3-1": {
+      "id": "simpson-2019-figure-3-1",
+      "figureNumber": "3.1",
+      "image": "assets/simpson-2019/ch3/figure-3-1.jpg",
+      "alt": "Figure 3.1 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.1 Cladogram of the green plants (Viridiplantae), modified from Ruhfel et al. (2014). Important apomorphies discussed in the text are listed beside thick hash marks.",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 149,
+      "width": 1511,
+      "height": 1158
+    },
+    "simpson-2019-figure-3-2": {
+      "id": "simpson-2019-figure-3-2",
+      "figureNumber": "3.2",
+      "image": "assets/simpson-2019/ch3/figure-3-2.jpg",
+      "alt": "Figure 3.2 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.2 A. Elodea, whole leaf in face view, showing apomorphies of the Viridiplantae: a cellulosic cell wall and green plant chloroplasts. B. Diagram of chloroplast structure of green plants, showing thylakoids and grana. C. Electron micrograph of Chlamydomonas reinhardtii, a unicellular “green alga,” showing granum of chloroplast. (Photo courtesy of Rick Bizzoco.)",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 150,
+      "width": 1938,
+      "height": 575
+    },
+    "simpson-2019-figure-3-3": {
+      "id": "simpson-2019-figure-3-3",
+      "figureNumber": "3.3",
+      "image": "assets/simpson-2019/ch3/figure-3-3.jpg",
+      "alt": "Figure 3.3 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.3 Examples of non-land plant Viridiplantae. A,B. Chlorophyceae. A. Chlamydomonas reinhardtii, a unicellular form. (Photo courtesy of Rick Bizzoco.) B. Volvox, a colonial form. C. Ulvophyceae. Ulva, a thalloid form. D. Zygnematophyceae. Spirogyra, a filamentous form. Above: vegetative form, with large, spiral chloroplasts. Below: reproductive conjugation stage, showing + and – mating strains and nonmotile zygotes.",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 151,
+      "width": 1957,
+      "height": 549
+    },
+    "simpson-2019-figure-3-4": {
+      "id": "simpson-2019-figure-3-4",
+      "figureNumber": "3.4",
+      "image": "assets/simpson-2019/ch3/figure-3-4.jpg",
+      "alt": "Figure 3.4 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.4 Haplontic life cycles in some of the green plants. A. Isogamy. B. Oogamy.",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 152,
+      "width": 2079,
+      "height": 769
+    },
+    "simpson-2019-figure-3-5": {
+      "id": "simpson-2019-figure-3-5",
+      "figureNumber": "3.5",
+      "image": "assets/simpson-2019/ch3/figure-3-5.jpg",
+      "alt": "Figure 3.5 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.5 A. Diagram of plasmodesmata in cellulosic cell wall, an apomorphy of some green plants, including the land plants. B. Coleochaete sp., a close relative to the embryophytes. (Photo courtesy of Linda Graham.) B–D. Charales. B,C. Nitella sp. B. Whole plant. C. Oogonia and antheridia. D. Chara sp., oogonium and antheridium. Note spiral tube cells of oogonia. E. Tectochara helicteres, a fossil oogonium from the Eocene, showing remnants of spiral tube cells.",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 153,
+      "width": 1552,
+      "height": 945
+    },
+    "simpson-2019-figure-3-6": {
+      "id": "simpson-2019-figure-3-6",
+      "figureNumber": "3.6",
+      "image": "assets/simpson-2019/ch3/figure-3-6.jpg",
+      "alt": "Figure 3.6 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.6 A. One hypothesis of relationships of the land plants (Embryophyta), with major apomorphies indicated. After Qiu et al. (1997), some apomorphies after Bremer (1985), Mishler and Churchill (1985), and Mishler et al. (1994). B. One of many alternative hypothesis, this showing a monophyletic bryophytes (after Puttick et al. 2018), with different scenarios of the evolution of stomates and some other charac-",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 156,
+      "width": 1146,
+      "height": 1387
+    },
+    "simpson-2019-figure-3-7": {
+      "id": "simpson-2019-figure-3-7",
+      "figureNumber": "3.7",
+      "image": "assets/simpson-2019/ch3/figure-3-7.jpg",
+      "alt": "Figure 3.7 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.7 Haplodiplontic “alternation of generations” in the land plants (Embryophytes).",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 157,
+      "width": 1762,
+      "height": 1082
+    },
+    "simpson-2019-figure-3-8": {
+      "id": "simpson-2019-figure-3-8",
+      "figureNumber": "3.8",
+      "image": "assets/simpson-2019/ch3/figure-3-8.jpg",
+      "alt": "Figure 3.8 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.8 The cuticle, an apomorphy for the land plants.",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 159,
+      "width": 1013,
+      "height": 553
+    },
+    "simpson-2019-figure-3-9": {
+      "id": "simpson-2019-figure-3-9",
+      "figureNumber": "3.9",
+      "image": "assets/simpson-2019/ch3/figure-3-9.jpg",
+      "alt": "Figure 3.9 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.9 Equisetum shoot apex, showing parenchymatous growth form, from an apical meristem.",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 160,
+      "width": 1012,
+      "height": 914
+    },
+    "simpson-2019-figure-3-10": {
+      "id": "simpson-2019-figure-3-10",
+      "figureNumber": "3.10",
+      "image": "assets/simpson-2019/ch3/figure-3-10.jpg",
+      "alt": "Figure 3.10 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.10 A. Antheridia. B. Achegonia. Both are apomorphies of land plants.",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 161,
+      "width": 2043,
+      "height": 850
+    },
+    "simpson-2019-figure-3-11": {
+      "id": "simpson-2019-figure-3-11",
+      "figureNumber": "3.11",
+      "image": "assets/simpson-2019/ch3/figure-3-11.jpg",
+      "alt": "Figure 3.11 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.11 Liverwort morphology and life cycle.",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 164,
+      "width": 1076,
+      "height": 1463
+    },
+    "simpson-2019-figure-3-12": {
+      "id": "simpson-2019-figure-3-12",
+      "figureNumber": "3.12",
+      "image": "assets/simpson-2019/ch3/figure-3-12.jpg",
+      "alt": "Figure 3.12 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.12 Hepaticae – Liverworts. A. Conocephalum sp., a thalloid liverwort. B. Marchantía, thallus with gemma cups and gemmae. Note whitish pores. C. Asterella, a thalloid liverwort with archegoniophores. D–L. Marchantia. D. Thallus with antheridiophores and archegoniophores. E. Antheridiophore, close-up. F. Archegoniophore, showing capsules beneath lobes. G. Antheridiophore, longitudinal section. H. Archegoniophore, longitudinal section. I. Archegonium. J. Capsule, longitudinal section, showing sporogenous tissue. K. Close-up, sporogenous tissue, showing spores and elaters. L. Cross-section of thallus, showing rhizoids and upper pores.",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 165,
+      "width": 728,
+      "height": 888
+    },
+    "simpson-2019-figure-3-13": {
+      "id": "simpson-2019-figure-3-13",
+      "figureNumber": "3.13",
+      "image": "assets/simpson-2019/ch3/figure-3-13.jpg",
+      "alt": "Figure 3.13 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.13 Hepaticae – Leafy liverworts. A. Bazania trilobata, a leafy liverwort. B. Porella, a leafy liverwort, showing third row of reduced leaves at arrows (lower side facing).",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 166,
+      "width": 2101,
+      "height": 639
+    },
+    "simpson-2019-figure-3-14": {
+      "id": "simpson-2019-figure-3-14",
+      "figureNumber": "3.14",
+      "image": "assets/simpson-2019/ch3/figure-3-14.jpg",
+      "alt": "Figure 3.14 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.14 The stomate, an innovation for mosses, hornworts, and vascular plants. A. Face view, slightly open. B. Diagram, face view, open and closed. C. Diagram, cross section.",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 168,
+      "width": 2090,
+      "height": 451
+    },
+    "simpson-2019-figure-3-15": {
+      "id": "simpson-2019-figure-3-15",
+      "figureNumber": "3.15",
+      "image": "assets/simpson-2019/ch3/figure-3-15.jpg",
+      "alt": "Figure 3.15 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.15 Moss spore. Note protective perine layer and trilete mark.",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 169,
+      "width": 1001,
+      "height": 525
+    },
+    "simpson-2019-figure-3-16": {
+      "id": "simpson-2019-figure-3-16",
+      "figureNumber": "3.16",
+      "image": "assets/simpson-2019/ch3/figure-3-16.jpg",
+      "alt": "Figure 3.16 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.16 Moss morphology and life cycle.",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 170,
+      "width": 1115,
+      "height": 1554
+    },
+    "simpson-2019-figure-3-17": {
+      "id": "simpson-2019-figure-3-17",
+      "figureNumber": "3.17",
+      "image": "assets/simpson-2019/ch3/figure-3-17.jpg",
+      "alt": "Figure 3.17 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.17 Mosses. A. Protonema of Sphagnum. B. Atrichum sp. gametophyte. C. Mnium leaf, showing median costa. D. Polytrichum sp. gametophyte, face view, showing antheridia at tips of branches. E,F. Mnium sp. E. Antheridia, longitudinal section, showing external capsule wall (sterile layer) and internal sporogenous tissue. F. Archegonia, showing stalk, egg cell, neck, and neck canal cells. G. Sporophytes of moss, showing capsules. H. Moss sporophyte close-up, showing developmental series (left to right). I. Mnium, capsule (sporangium) longitudinal section, showing operculum, one of several peristome teeth, and spores within sporangium.",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 171,
+      "width": 725,
+      "height": 892
+    },
+    "simpson-2019-figure-3-18": {
+      "id": "simpson-2019-figure-3-18",
+      "figureNumber": "3.18",
+      "image": "assets/simpson-2019/ch3/figure-3-18.jpg",
+      "alt": "Figure 3.18 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.18 Sphagnum, or peat moss. A. Clonal population. B. Individual leaf at center, showing the specialized chlorophyllous and hyaline cells. C. Leaf close-up, showing chlorophyllous cells, hyaline cells, pores, and spiral wall thickenings of hyaline cells.",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 173,
+      "width": 1277,
+      "height": 639
+    },
+    "simpson-2019-figure-3-19": {
+      "id": "simpson-2019-figure-3-19",
+      "figureNumber": "3.19",
+      "image": "assets/simpson-2019/ch3/figure-3-19.jpg",
+      "alt": "Figure 3.19 from Simpson 2019 chapter 3.",
+      "caption": "FIGURE 3.19 Hornworts, Anthoceros sp. A. Population of gametophytes with attached sporophytes. B. Gametophyte with attached, cylindrical sporophyte. C. Close-up of sporophyte base, showing ensheathing collar of gametophytic tissue surrounding intercalary meristem of sporophyte. D. Whole mount of sporophyte base, showing foot embedding within gametophyte. E. Longituidnal section of sporophyte base. Note basal foot and actively dividing cells of intercalary meristem at sporophyte base. F. Sporophyte longitudinal section, showing columella, spores, and pseudo-elaters.",
+      "source": "simpson_2019_ch3",
+      "pdfPage": 174,
+      "width": 1006,
+      "height": 919
+    },
+    "simpson-2019-figure-4-1": {
+      "id": "simpson-2019-figure-4-1",
+      "figureNumber": "4.1",
+      "image": "assets/simpson-2019/ch4/figure-4-1.jpg",
+      "alt": "Figure 4.1 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.1 Phylogeny of the tracheophytes, the vascular plants, modified from Pryer et al. (2001, 2004a,b) and Qiu et al. (2007), and Rothfels et al. (2015), with selected apomorphies.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 191,
+      "width": 1051,
+      "height": 1265
+    },
+    "simpson-2019-figure-4-2": {
+      "id": "simpson-2019-figure-4-2",
+      "figureNumber": "4.2",
+      "image": "assets/simpson-2019/ch4/figure-4-2.jpg",
+      "alt": "Figure 4.2 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.2 Dichotomous (A) and pseudomonopodial (B) branching patterns in vascular plants.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 192,
+      "width": 1785,
+      "height": 444
+    },
+    "simpson-2019-figure-4-3": {
+      "id": "simpson-2019-figure-4-3",
+      "figureNumber": "4.3",
+      "image": "assets/simpson-2019/ch4/figure-4-3.jpg",
+      "alt": "Figure 4.3 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.3 Lignified secondary cell wall of specialized cells of vascular plants. Note pit pair adjacent to primary pit field.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 194,
+      "width": 980,
+      "height": 1201
+    },
+    "simpson-2019-figure-4-4": {
+      "id": "simpson-2019-figure-4-4",
+      "figureNumber": "4.4",
+      "image": "assets/simpson-2019/ch4/figure-4-4.jpg",
+      "alt": "Figure 4.4 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.4 Sclerenchyma. A. Fiber cell. B. Sclereid cells. c. s = cross section.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 196,
+      "width": 882,
+      "height": 2297
+    },
+    "simpson-2019-figure-4-5": {
+      "id": "simpson-2019-figure-4-5",
+      "figureNumber": "4.5",
+      "image": "assets/simpson-2019/ch4/figure-4-5.jpg",
+      "alt": "Figure 4.5 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.5 Conductive cells of vascular plants: tracheary elements. A. Types of tracheary elements. B. Vessel.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 197,
+      "width": 1742,
+      "height": 1046
+    },
+    "simpson-2019-figure-4-6": {
+      "id": "simpson-2019-figure-4-6",
+      "figureNumber": "4.6",
+      "image": "assets/simpson-2019/ch4/figure-4-6.jpg",
+      "alt": "Figure 4.6 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.6 Conductive cells of vascular plants: sieve elements. A. Types of sieve elements. B,C. Sieve tube members.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 199,
+      "width": 1671,
+      "height": 974
+    },
+    "simpson-2019-figure-4-7": {
+      "id": "simpson-2019-figure-4-7",
+      "figureNumber": "4.7",
+      "image": "assets/simpson-2019/ch4/figure-4-7.jpg",
+      "alt": "Figure 4.7 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.7 Example of a protostele, an ancestral vasculature of vascular plants.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 200,
+      "width": 761,
+      "height": 478
+    },
+    "simpson-2019-figure-4-8": {
+      "id": "simpson-2019-figure-4-8",
+      "figureNumber": "4.8",
+      "image": "assets/simpson-2019/ch4/figure-4-8.jpg",
+      "alt": "Figure 4.8 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.8 Endodermis of vascular plants. A,B. Equisetum rhizome. A. Rhizome cross section, showing single layer of endodermal cells. B. Close-up of endodermal cells (in cross section), showing Casparian strip thickenings. C. Diagram of Casparian strip, indicating function.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 201,
+      "width": 1610,
+      "height": 748
+    },
+    "simpson-2019-figure-4-9": {
+      "id": "simpson-2019-figure-4-9",
+      "figureNumber": "4.9",
+      "image": "assets/simpson-2019/ch4/figure-4-9.jpg",
+      "alt": "Figure 4.9 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.9 Anatomy of the root, an apomorphy of the vascular plants. A. Root whole mount. B. Root longitudinal section. C. Whole root cross section. D. Close-up of central vascular cylinder, showing tissues.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 202,
+      "width": 1583,
+      "height": 619
+    },
+    "simpson-2019-figure-4-10": {
+      "id": "simpson-2019-figure-4-10",
+      "figureNumber": "4.10",
+      "image": "assets/simpson-2019/ch4/figure-4-10.jpg",
+      "alt": "Figure 4.10 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.10 Root cross section (Lilium sp.), showing endogenous lateral root, a characteristic of vascular plant roots.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 203,
+      "width": 1013,
+      "height": 840
+    },
+    "simpson-2019-figure-4-11": {
+      "id": "simpson-2019-figure-4-11",
+      "figureNumber": "4.11",
+      "image": "assets/simpson-2019/ch4/figure-4-11.jpg",
+      "alt": "Figure 4.11 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.11 MONILOPHYTA. Spore morphology. A. Spore with trilete scar (Pentagramma triangularis, Pteridaceae). B. Spore with monolete scar (Asplenium nidus, Aspleniaceae).",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 206,
+      "width": 1013,
+      "height": 535
+    },
+    "simpson-2019-figure-4-12": {
+      "id": "simpson-2019-figure-4-12",
+      "figureNumber": "4.12",
+      "image": "assets/simpson-2019/ch4/figure-4-12.jpg",
+      "alt": "Figure 4.12 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.12 A,B. Rhyniophytes. A. Reconstruction of Rhynia major, an early, extinct vascular plant. Note erect, branched stem (without leaves) bearing terminal sporangia. [Reproduced from Kidston, R. and W. H. Lang. 1921. Transactions of the Royal Society of Edinburgh. vol. 52(4):831–902.] B. Rhynia stem axes embedded in “Rhynie” chert. C–E. Lycophytes. C,D. Sigillaria, an extinct, woody lycophyte. C. Stem cross section showing outer wood. D. Fossil impression of lycophyll leaf showing single vein. E. Fossil cast of Lepidodendron, an extinct, woody, tree-sized lycophyte. Note lycophyll scars.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 207,
+      "width": 1813,
+      "height": 779
+    },
+    "simpson-2019-figure-4-13": {
+      "id": "simpson-2019-figure-4-13",
+      "figureNumber": "4.13",
+      "image": "assets/simpson-2019/ch4/figure-4-13.jpg",
+      "alt": "Figure 4.13 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.13 LYCOPODIOPHYTA. Tip of dichopodial root (Selaginella kraussiana), apomorphic for the lycophytes.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 209,
+      "width": 1013,
+      "height": 741
+    },
+    "simpson-2019-figure-4-14": {
+      "id": "simpson-2019-figure-4-14",
+      "figureNumber": "4.14",
+      "image": "assets/simpson-2019/ch4/figure-4-14.jpg",
+      "alt": "Figure 4.14 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.14 A,B. Lycopodium stem cross section showing protoxylem that is exarch (to periphery of stem). C. Lycophyll structure.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 209,
+      "width": 1558,
+      "height": 667
+    },
+    "simpson-2019-figure-4-15": {
+      "id": "simpson-2019-figure-4-15",
+      "figureNumber": "4.15",
+      "image": "assets/simpson-2019/ch4/figure-4-15.jpg",
+      "alt": "Figure 4.15 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.15 LYCOPODIOPHYTA. Lycopodiales. Lycopodiaceae. A. Huperzia lucidula, a species with unspecialized reproductive organs. B. Lycopodium clavatum, a species with strobili. C. Huperzia lucidula, showing sporangia in leaf axils with no specialized cones. D. Lycopodium annotinum, strobilus close-up showing sporophylls. E. Lycopodium clavatum, sporophylls removed from strobilus showing sporangia having lateral dehiscence, adaxial view (left) and abaxial view (right). F,G. Huperzia squarrosa, a large, epiphytic lycopod with pendant branches and specialized strobili (G). H. Phylloglossum drummondii, a small, cormose lycopod.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 210,
+      "width": 779,
+      "height": 888
+    },
+    "simpson-2019-figure-4-16": {
+      "id": "simpson-2019-figure-4-16",
+      "figureNumber": "4.16",
+      "image": "assets/simpson-2019/ch4/figure-4-16.jpg",
+      "alt": "Figure 4.16 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.16 LYCOPODIOPHYTA. Isoetales. A. Longitudinal section of Selaginella strobilus showing sporophyll and ligule. B. Ligule, close-up.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 214,
+      "width": 1013,
+      "height": 639
+    },
+    "simpson-2019-figure-4-17": {
+      "id": "simpson-2019-figure-4-17",
+      "figureNumber": "4.17",
+      "image": "assets/simpson-2019/ch4/figure-4-17.jpg",
+      "alt": "Figure 4.17 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.17 Heterospory, a characteristic of the Isoetales (Isoetaceae and Selaginellaceae) of the lycophytes.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 215,
+      "width": 1619,
+      "height": 1196
+    },
+    "simpson-2019-figure-4-18": {
+      "id": "simpson-2019-figure-4-18",
+      "figureNumber": "4.18",
+      "image": "assets/simpson-2019/ch4/figure-4-18.jpg",
+      "alt": "Figure 4.18 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.18 LYCOPODIOPHYTA. Isoetales—Isoetaceae. A,B. Isoetes howellii. A. Plants growing in vernal pool. B. Close- up of sporangia, megasporangium containing megaspores visible. C. Isoetes orcuttii, showing sporophylls with basal microsporangia or megasporangia. D–I. Isoetes sp., reproductive. D,E. Megasporangium longitudinal section with ligule and spinose megaspores. F,I. Microsporangium longitudinal-section showing trabeculae, ligule, and numerous, smooth microspores.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 216,
+      "width": 812,
+      "height": 931
+    },
+    "simpson-2019-figure-4-19": {
+      "id": "simpson-2019-figure-4-19",
+      "figureNumber": "4.19",
+      "image": "assets/simpson-2019/ch4/figure-4-19.jpg",
+      "alt": "Figure 4.19 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.19 LYCOPODIOPHYTA. Isoetales—Selaginellaceae. A. Selaginella bigelovii, with isomorphic leaves. B. Selaginella apoda, with dimorphic leaves. C. Close-up of vegetative shoot, showing 2 rows of large and 2 rows of small leaves. D. Close-up of ligule, adaxial side of leaf base. E. Cone (strobilus), an axis bearing microsporophylls and megasporophylls. F. Close-up of microsporangium and megasporangium (sporophylls removed). G. Adaxial view of microsporophyll and megasporophyll with axillary microsporangium and megasporangium, respectively. H. Strobilus longitudinal section, showing sporophylls, megasporangia, and microsporangia. I. Close-up of microsporangium, containing numerous microspores. J. Close-up of megasporangium, containing 4 megaspores. K. Dispersed microspores and megaspores, the latter showing trilete mark. Note great size difference.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 217,
+      "width": 855,
+      "height": 947
+    },
+    "simpson-2019-figure-4-20": {
+      "id": "simpson-2019-figure-4-20",
+      "figureNumber": "4.20",
+      "image": "assets/simpson-2019/ch4/figure-4-20.jpg",
+      "alt": "Figure 4.20 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.20 A–C. Apomorphies of Euphyllophyta. A,B. Root with exarch protoxylem. A. Root cross section with central vascular cylinder; insert showing area at “B.” B. Close-up of cylinder. Note protoxylem external to metaxylem. C. 30kb inversion of chloroplast DNA (genes ycf 2- psb M). D. Psilophyton dawsonii reconstruction, a trimerophyte with fertile and sterile branch systems. Reproduced from Banks et al. (1975), with permission from Paleontological Research Institution, Ithaca, New York. E. Hypothetical evolutionary transformation of 3- dimensional branch system into leaf by planation and webbing. F. Euphyll structure and anatomy, showing multiple veins and leaf gap.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 221,
+      "width": 980,
+      "height": 1177
+    },
+    "simpson-2019-figure-4-21": {
+      "id": "simpson-2019-figure-4-21",
+      "figureNumber": "4.21",
+      "image": "assets/simpson-2019/ch4/figure-4-21.jpg",
+      "alt": "Figure 4.21 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.21 A–G. Shoot longitudinal section. A–C. Equisetum, showing single, apical meristem cell. D. Diagram of shoot longitudinal section. E–G. Plectranthus [ Coleus ] shoot. Note complex apical meristem, leaf and bud primordia, and vasculature. H. Cross section of a vascular plant leaf (Ligustrum).",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 224,
+      "width": 824,
+      "height": 1022
+    },
+    "simpson-2019-figure-4-22": {
+      "id": "simpson-2019-figure-4-22",
+      "figureNumber": "4.22",
+      "image": "assets/simpson-2019/ch4/figure-4-22.jpg",
+      "alt": "Figure 4.22 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.22 A–C. Siphonostele types. A. Ectophloic siphonostele, with phloem to outside of xylem. B. Amphiphloic siphonostele, with phloem to outside and inside. C. Dictyostele, a dissected amphiphloic siphonostele. D. Adiantum rhizome, an amphiphloic siphonostele. E. Polypodium rhizome, close-up of vasculature showing mesarch protoxylem, an apomorphy for the monilophytes (ferns).",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 226,
+      "width": 956,
+      "height": 711
+    },
+    "simpson-2019-figure-4-23": {
+      "id": "simpson-2019-figure-4-23",
+      "figureNumber": "4.23",
+      "image": "assets/simpson-2019/ch4/figure-4-23.jpg",
+      "alt": "Figure 4.23 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.23 Calamites, an extinct, tree-sized equisetophyte. A. Fossil impression, showing nodes and stem ridges. B. Fossil cast of stem. C. Fossil impression showing whorled leaves of branch.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 227,
+      "width": 919,
+      "height": 938
+    },
+    "simpson-2019-figure-4-24": {
+      "id": "simpson-2019-figure-4-24",
+      "figureNumber": "4.24",
+      "image": "assets/simpson-2019/ch4/figure-4-24.jpg",
+      "alt": "Figure 4.24 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.24 EQUISETOPSIDA. Equisetaceae. Equisetum, the only extant genus of the equisetophytes. A,B. Equisetum hyemale. A. Vegetative stem. Note ridged stem and whorled microphylls. B. Stem longitudinal section showing central hollow pith and septum at nodes. C. Stem cross section of Equisetum sp., showing central, hollow pith and peripheral, vallecular canals. D,E. Equisetum laevigatum, a “scouring rush,” having photosynthetic, generally unbranched aerial stems. F. Sporangiophore, with several pendant sporangia. G,H. Spores, each with four elaters. G. Elaters coiled. H. Elaters uncoiled. I– L. Equisetum arvense, a “horsetail,” with dimorphic aerial stems. I,J. Sterile, photosynthetic stems with whorls of lateral branches. K. Reproductive, nonphotosynthetic aerial stem, lacking whorls of",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 229,
+      "width": 880,
+      "height": 1042
+    },
+    "simpson-2019-figure-4-25": {
+      "id": "simpson-2019-figure-4-25",
+      "figureNumber": "4.25",
+      "image": "assets/simpson-2019/ch4/figure-4-25.jpg",
+      "alt": "Figure 4.25 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.25 OPHIOGLOSSALES. Ophioglossaceae. A,B. Botrychium species, showing vegetative lamina and fertile segment. A. B. multifidum. B. B. lunaria. C. Ophioglossum californicum, adder’s tongue. Note elongate fertile segment bearing eusporangia.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 232,
+      "width": 1916,
+      "height": 827
+    },
+    "simpson-2019-figure-4-26": {
+      "id": "simpson-2019-figure-4-26",
+      "figureNumber": "4.26",
+      "image": "assets/simpson-2019/ch4/figure-4-26.jpg",
+      "alt": "Figure 4.26 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.26 PSILOTALES. Psilotaceae. A–G. Psilotum nudum. A. Whole plant showing dichotomous branching. B. Close-up of dichotomous aerial shoots. C. Vegetative stem close-up, showing reduced leaves or enations. D. Close-up of synangium, subtended by bifid appendage. E. Synangium cross section. F. Spores, showing monolete aperture. G. Cross section of stem, a protostele with central xylem and peripheral phloem (surrounded by endodermis). H,I. Tmesipteris elongata. H. Epiphytic plant. I. Close-up of dehiscing, 2-lobed synangia. J. Tmesipteris lanceolata. Two-lobed synangia, each subtended by bifid appendage. (Images H–J courtesy of John Braggins.)",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 233,
+      "width": 766,
+      "height": 908
+    },
+    "simpson-2019-figure-4-27": {
+      "id": "simpson-2019-figure-4-27",
+      "figureNumber": "4.27",
+      "image": "assets/simpson-2019/ch4/figure-4-27.jpg",
+      "alt": "Figure 4.27 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.27 A–D. MARATTIALES. Marattiaceae. A– E. Angiopteris sp. A. Plant from stout, erect trunk with bipinnately compound leaves. B. Base of leaves showing swollen (pulvinal) petiole bases and persistent stipules. C. Rhizome cross section with polycyclic siphonostele. D. Sori, each consisting of an ellipse of eusporangia. E. Sori cross section, showing unfused eusporangia. F,G. Danaea sp. F. Pinnately compound leaf with lower, fertile pinnae having numerous synangia on abaxial surface. G. Synangium containing several eusporangia. H– K. Marattia spp. H. Whole plant with large, bipinnately compound leaves. I. Close-up of leaflets. J. Leaflet, abaxial view, showing intramarginal synangia. K. Synangia dehiscing in a bivalvate manner, each valve containing several eusporangia.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 237,
+      "width": 780,
+      "height": 890
+    },
+    "simpson-2019-figure-4-28": {
+      "id": "simpson-2019-figure-4-28",
+      "figureNumber": "4.28",
+      "image": "assets/simpson-2019/ch4/figure-4-28.jpg",
+      "alt": "Figure 4.28 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.28 Leptosporangiate Ferns—Characters. A,B. Rhizomes, the most common type of stem in the group. A. Underground rhizome (Nephrolepis cordifolia, Lomariopsidaceae). B. Above-ground rhizome (Davallia trichomanoides, Davalliaceae). C. Leaf morphology of ferns, illustrating specialized terminology. D. Fern petiole (stipe) covered with scales (Nephrolepis cordifolia, Lomariopsidaceae). E. Croziers or fiddleheads (Polypodium aureum, Polypodiaceae), the result of circinnate vernation, in early (left) and later (right) stages.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 240,
+      "width": 1022,
+      "height": 1203
+    },
+    "simpson-2019-figure-4-29": {
+      "id": "simpson-2019-figure-4-29",
+      "figureNumber": "4.29",
+      "image": "assets/simpson-2019/ch4/figure-4-29.jpg",
+      "alt": "Figure 4.29 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.29 Leptosporangiate Ferns—Characters. A. Open, simple venation (Blechnum [ Lomarea ] procera, Blechnaceae). B. Open, forked venation (Dicranopteris linearis, Gleicheniaceae). C. Reticulate venation (Onoclea sensibilis, Onocleaceae). D. Example of fern scale. E. Clathrate scale (from surface rhizome) with thick adjacent (anticlinal) walls (Asplenium nidus, Aspleniaceae). F. Non-clathrate scale without thickened anticlinal walls (Dryopteris arguta, Dryopteridaceae). G–I. Leptosporangia. G. Sorus, a cluster of leptosporangia. H. Side view of dehiscing leptosporangium showing annulus and stomium. I. Leptosporangium showing stalk, annulus, and paraphysis. J. Leptosporangium dehiscence. (See text.) K. Sorus, longitudinal section, showing receptacle, leptosporangia, and indusium.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 242,
+      "width": 872,
+      "height": 1020
+    },
+    "simpson-2019-figure-4-30": {
+      "id": "simpson-2019-figure-4-30",
+      "figureNumber": "4.30",
+      "image": "assets/simpson-2019/ch4/figure-4-30.jpg",
+      "alt": "Figure 4.30 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.30 Leptosporangiate Ferns—Characters. Sori, indusia, and sporangia. A,B. Exindusiate sorus (Polypodium spp., Polypodiaceae). C. Indusiate sorus, indusium reniform (Nephrolepis cordifolia, Lomariopsidaceae). D. Indusiate sorus, indusium orbicular, peltately attached (Cyrtomium falcatum, Dryopteridaceae). E. Indusiate sorus, indusium linear (Asplenium bulbiferum, Aspleniaceae). F. Acrostichoid sporangia (Platycerium sp., Polypodiaceae). G,H. False indusium (Adiantum spp., Pteridaceae).",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 245,
+      "width": 902,
+      "height": 841
+    },
+    "simpson-2019-figure-4-31": {
+      "id": "simpson-2019-figure-4-31",
+      "figureNumber": "4.31",
+      "image": "assets/simpson-2019/ch4/figure-4-31.jpg",
+      "alt": "Figure 4.31 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.31 Leptosporangiate Ferns—Leptosproangium morphology. A. Osmunda claytoniana (Osmundaceae), with lateral annulus and apical slit. B. Hymenophyllum australe (Hymenophyllaceae), with an oblique annulus. C. Gleichenia pectinata (Gleicheniaceae), with an obliquely transverse annulus. D. Schizaea bifida (Schizaeaceae), with a transverse, subapical, continuous annulus. E. Cyathea medullaris (Cyatheaceae), with oblique annulus. F. Pteridium aquilinum (Dennstaedtiaceae), with oblique annulus. Redrawn from Smith (1955).",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 246,
+      "width": 1538,
+      "height": 751
+    },
+    "simpson-2019-figure-4-32": {
+      "id": "simpson-2019-figure-4-32",
+      "figureNumber": "4.32",
+      "image": "assets/simpson-2019/ch4/figure-4-32.jpg",
+      "alt": "Figure 4.32 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.32 Life cycle of leptosporangiate ferns. Note mechanism of spore dispersal, gametophyte development, fertilization, and sporophyte development.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 248,
+      "width": 1186,
+      "height": 1246
+    },
+    "simpson-2019-figure-4-33": {
+      "id": "simpson-2019-figure-4-33",
+      "figureNumber": "4.33",
+      "image": "assets/simpson-2019/ch4/figure-4-33.jpg",
+      "alt": "Figure 4.33 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.33 Cladogram of families and orders of leptosporangiate ferns (Polypodiopsida/Leptosporangiatae), after Smith et al. (2006), with selected apomorphies added. Families in bold are described in detail.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 249,
+      "width": 1326,
+      "height": 1068
+    },
+    "simpson-2019-figure-4-34": {
+      "id": "simpson-2019-figure-4-34",
+      "figureNumber": "4.34",
+      "image": "assets/simpson-2019/ch4/figure-4-34.jpg",
+      "alt": "Figure 4.34 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.34 Leptosporangiate Ferns–OSMUNDALES. Osmundaceae. A,B. Leptopteris superba, with 2-3-pinnatifid leaves. Note relatively large, globose sporangia. C. Osmunda cinnamomaea, cinnamon fern. D. Osmunda claytoniana, interrupted fern. E. Todea barbara, with bipinnately compound leaves. (Images A, B, & E courtesy of Lawrence Jensen.)",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 250,
+      "width": 743,
+      "height": 849
+    },
+    "simpson-2019-figure-4-35": {
+      "id": "simpson-2019-figure-4-35",
+      "figureNumber": "4.35",
+      "image": "assets/simpson-2019/ch4/figure-4-35.jpg",
+      "alt": "Figure 4.35 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.35 Leptosporangiate Ferns–HYMENOPHYLLALES. Hymenophyllaceae. A–C. Hymenophyllum tunbrigense. A. Plants growing on log. B. Leaf, adaxial surface. C. Leaf, abaxial surface, showing sori with bivalvate indusia. D,E. Hymenophyllum dilatatum, leaf and bivalvate indusium. F. Hymenophyllum flabelliforme, leaf. G,H. Trichomanes reniforme. G. Immature leaf; note open, dichotomous venation. H. Eruptive, elongate receptacles bearing leptosporangia. I,J. Trichomanes endlicherianum, showing elongate receptacles of sori. (Images A –C, courtesy of Vera Svobodova; D,E, H–J courtesy of Lawrence Jensen.)",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 252,
+      "width": 818,
+      "height": 968
+    },
+    "simpson-2019-figure-4-36": {
+      "id": "simpson-2019-figure-4-36",
+      "figureNumber": "4.36",
+      "image": "assets/simpson-2019/ch4/figure-4-36.jpg",
+      "alt": "Figure 4.36 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.36 Leptosporangiate Ferns–GLEICHENIALES. Gleicheniaceae. A,B. Gleichenia microphylla. A. Leaf showing pseudodichotomous branching of segments. B. Close-up of leaf, abaxial surface with dense trichomes. C,D. Sticherus cunninghamii. C. Leaf with pseudodichotomous branching of segments. D. Close up of sori, each with 3-5 sporangia. E,F. Dicranopteris linearis. E. Long, sprawling, pseudodichotomously branching leaf rachis. F. Pinnule close-up, abaxial surface, showing sori, each with numerous sporangia. (Images C,D courtesy of Lawrence Jensen; F courtesy of Gerald Carr.)",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 254,
+      "width": 808,
+      "height": 871
+    },
+    "simpson-2019-figure-4-37": {
+      "id": "simpson-2019-figure-4-37",
+      "figureNumber": "4.37",
+      "image": "assets/simpson-2019/ch4/figure-4-37.jpg",
+      "alt": "Figure 4.37 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.37 Leptosporangiate Ferns-SCHIZAEALES. Lygodiaceae. A,B. Lygodium japonicum, climbing fern. A. Plant climbing by means of elongate, indeterminate leaf rachises. B. Close-up of fertile leaves with sori at tips of ultimate leaf lobes. C –F. Lygodium articulatum. C. Single leaf, the rachis twining around another plant and giving rise to alternate pinnae. D. Fertile leaf segments (at right), bearing abaxial sporangia clusters. E. Ultimate fertile leaf segments, abaxial view, bearing rows of sori. F. Close-up of sori, each one consisting of an indusium-like flange subtending a single leptosporangium. (Images C–F, courtesy of Lawrence Jensen.)",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 256,
+      "width": 769,
+      "height": 908
+    },
+    "simpson-2019-figure-4-38": {
+      "id": "simpson-2019-figure-4-38",
+      "figureNumber": "4.38",
+      "image": "assets/simpson-2019/ch4/figure-4-38.jpg",
+      "alt": "Figure 4.38 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.38 Leptosporangiate Ferns–SALVINIALES. Marsileaceae. A-I. Marsilea sp., clover fern. A. Plant showing rhizome bearing roots and leaves. B,C. Close-ups showing leaves with 4, distal pinnae. D. Young leaf showing coiled circinate vernation. E. Sporocarp, sagittal section, with thick wall and internal microsporangia and megasporangia. F. Sporocarp close-up, showing microsporangia (containing numerous microspores) and megasporangia (each containing one megaspore). G. Female gametophyte, with distal acrolamellae and apical sperm lake. H. Sperm cells, close-up, embedded within acrolamellae. I. Herbarium specimen of Marsilea quadrifolia, bearing sporocarps from rhizome. J,K. Pilularia americana, pillwort. J. Plant in habitat. K. Soil removed, showing subterranean sporocarps.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 259,
+      "width": 860,
+      "height": 984
+    },
+    "simpson-2019-figure-4-39": {
+      "id": "simpson-2019-figure-4-39",
+      "figureNumber": "4.39",
+      "image": "assets/simpson-2019/ch4/figure-4-39.jpg",
+      "alt": "Figure 4.39 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.39 Leptosporangiate Ferns–SALVINIALES. Salviniaceae. A-E. Azolla, mosquito fern. A. Vegetative, prostrate shoots. B. Close-up of 2-ranked (distichous) leaves. C. Underside of shoot, showing lower achlorophyllous and upper chlorophyllous of leaf lobes. D. View illustrating upper leaf lobe cavity housing the cyanobacterium Anabaena azollae. E. Anabaena azollae removed from upper leaf cavity. Note nitrogen- fixing heterocyst (inset) of filaments. F–H. Salvinia. F,G. Close-up of leaves, showing water-repellent trichomes. H. Shoot showing two floating leaves and one submersed and root-like, at each rhizome node.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 261,
+      "width": 847,
+      "height": 882
+    },
+    "simpson-2019-figure-4-40": {
+      "id": "simpson-2019-figure-4-40",
+      "figureNumber": "4.40",
+      "image": "assets/simpson-2019/ch4/figure-4-40.jpg",
+      "alt": "Figure 4.40 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.40 Leptosporangiate Ferns–CYATHEALES. Cyatheaceae. A,B. Cyathea medullaris, black tree fern, one of the tallest in the world. C,D. Cyathea cunninghamii. C. Fern, from below; note trunk covered with remains of leaf bases. D. Pinna, showing dark sori. E,F. Cyathea dealbata, silver fern. E. Leaf. F. Close-up of pinna, abaxial surface, showing sori. G-K. Cyathea australis. G. Close-up of pinna, abaxial surface, showing sori. H. Cut petiole base, showing discontinuous pneumathodes. I. Sorus close-up, prior to sporangial dehiscence. J. Sorus after sporangial dehiscence. Note complex trichomes. K. Single leptosporangium after dehiscence.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 264,
+      "width": 733,
+      "height": 866
+    },
+    "simpson-2019-figure-4-41": {
+      "id": "simpson-2019-figure-4-41",
+      "figureNumber": "4.41",
+      "image": "assets/simpson-2019/ch4/figure-4-41.jpg",
+      "alt": "Figure 4.41 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.41 Leptosporangiate Ferns–POLYPODIALES. Aspleniaceae. A-G. Asplenium nidus, bird’s nest fern. A. Epiphytic plant on high branch of tree (Australia). B. Shoot apical region, the “bird’s nest,” C,D. Cross sections of petiole base. C. Midrib. D. Vascular transition. E. Close-up of abaxial blade surface, showing linear sori and indusia. F,G. Asplenium bulbiferum, mother fern. F. Plantlet (“bulbil”), a vegetative propagule growing from leaf. G. Leaf, abaxial surface, showing linear sori/indusia. H,I. Asplenium oblongifolium, a species with pinnate leaves. J. Asplenium rhizophyllum, showing plantlet formed by leaf tip after contacting a substrate.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 266,
+      "width": 857,
+      "height": 828
+    },
+    "simpson-2019-figure-4-42": {
+      "id": "simpson-2019-figure-4-42",
+      "figureNumber": "4.42",
+      "image": "assets/simpson-2019/ch4/figure-4-42.jpg",
+      "alt": "Figure 4.42 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.42 Leptosporangiate Ferns–POLYPODIALES. Dryopteridaceae. A,B. Dryopteris arguta, wood fern. A. Whole plant with bipinnatifid leaves arising from underground rhizomes. B. Close-up of pinnules, abaxial surface, showing sori with reniform indusia. C,E. Cyrtomiumfalcatum, holly fern. C. Pinnately compound leaf. E. Pinule (leaflet), showing abaxial, circular, indusiate sori. E. Sorus close-up, showing peltate indusium. F– G. Polystichum imbricans, sword fern. F. Pinnately compound leaves, from underground rhizomes. G. Close-up of pinnules (leaflets), abaxial surface, showing subrows of sporangia near the margin.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 268,
+      "width": 848,
+      "height": 855
+    },
+    "simpson-2019-figure-4-43": {
+      "id": "simpson-2019-figure-4-43",
+      "figureNumber": "4.43",
+      "image": "assets/simpson-2019/ch4/figure-4-43.jpg",
+      "alt": "Figure 4.43 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.43 Leptosporangiate Fern–POLYPODIALES. Polypodiaceae. A,B. Polypodium californicum, California Polypody. A. Leaf, abaxial surface, showing circular, exindusiate sori. B. Close-up of sorus. C,D. Polypodium scouleri. C. Whole leaf. D. Close-up of leaf pinna, abaxial surface, showing exindusiate sori. E–G. Platycerium grande, staghorn fern. E. Epiphytic plant. F. Close-up of plant base showing dimorphic leaves, basal leaves clasping and turning brown at maturity and forming a shield that collects plant debris, apical leaves erect, photosynthetic. G. Close-up of erect leaf, abaxial surface, showing acrosticoid leptosporangia.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 270,
+      "width": 880,
+      "height": 886
+    },
+    "simpson-2019-figure-4-44": {
+      "id": "simpson-2019-figure-4-44",
+      "figureNumber": "4.44",
+      "image": "assets/simpson-2019/ch4/figure-4-44.jpg",
+      "alt": "Figure 4.44 from Simpson 2019 chapter 4.",
+      "caption": "FIGURE 4.44 Leptosporangiate Ferns–POLYPODIALES. Pteridaceae. A. Adiantum aleuticum, showing pedate leaf. B. Adiantum sp., showing false indusium. C. Adiantum jordanii, pinnule, abaxial surface, showing false indusium. D. Adiantum capillis-veneris. Close-up of pinnule, abaxial surface, showing false indusia. E,F. Pellaea rotundifolia. E. Whole plant, with pinnately compound leaves. F. Close-up of pinnules, abaxial surface, showing intramarginal leptosporangia. G–I. Pteris vittata. G. Leaf, pinnately compound, abaxial view. H. Close-up of pinnule abaxial surface, showing intramarginal leptosporangia. I. Leptosporangia, close-up.",
+      "source": "simpson_2019_ch4",
+      "pdfPage": 272,
+      "width": 744,
+      "height": 890
+    },
+    "simpson-2019-figure-5-1": {
+      "id": "simpson-2019-figure-5-1",
+      "figureNumber": "5.1",
+      "image": "assets/simpson-2019/ch5/figure-5-1.jpg",
+      "alt": "Figure 5.1 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.1 Cladogram of the woody and seed plants. Major apomorphies are indicated beside a thick hash mark. Families in bold are described in detail. Modified from Bowe et al. (2000), Chaw et al. (2000), Frohlich et al. (2000), and Samigullin et al. (1999).",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 297,
+      "width": 1200,
+      "height": 1269
+    },
+    "simpson-2019-figure-5-2": {
+      "id": "simpson-2019-figure-5-2",
+      "figureNumber": "5.2",
+      "image": "assets/simpson-2019/ch5/figure-5-2.jpg",
+      "alt": "Figure 5.2 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.2 Composite photograph of Sequoiadendron giganteum, a woody conifer that is the most massive, non-clonal organism on Earth, and among the tallest of trees.",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 298,
+      "width": 468,
+      "height": 1489
+    },
+    "simpson-2019-figure-5-3": {
+      "id": "simpson-2019-figure-5-3",
+      "figureNumber": "5.3",
+      "image": "assets/simpson-2019/ch5/figure-5-3.jpg",
+      "alt": "Figure 5.3 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.3 A. Development of the vascular cambium. B. Development of secondary vascular tissue in the stem, illustrated here for a eustelic stem.",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 299,
+      "width": 1191,
+      "height": 1483
+    },
+    "simpson-2019-figure-5-4": {
+      "id": "simpson-2019-figure-5-4",
+      "figureNumber": "5.4",
+      "image": "assets/simpson-2019/ch5/figure-5-4.jpg",
+      "alt": "Figure 5.4 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.4 Woody stem cross section, Pinus. sp. A. One year’s growth. B. Four years’ growth.",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 300,
+      "width": 1164,
+      "height": 394
+    },
+    "simpson-2019-figure-5-5": {
+      "id": "simpson-2019-figure-5-5",
+      "figureNumber": "5.5",
+      "image": "assets/simpson-2019/ch5/figure-5-5.jpg",
+      "alt": "Figure 5.5 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.5 Morphology of a seed. Pinus sp. illustrated here.",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 301,
+      "width": 997,
+      "height": 595
+    },
+    "simpson-2019-figure-5-6": {
+      "id": "simpson-2019-figure-5-6",
+      "figureNumber": "5.6",
+      "image": "assets/simpson-2019/ch5/figure-5-6.jpg",
+      "alt": "Figure 5.6 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.6 Ovule and seed evolution in the spermatophytes (hypothetical, for purpose of illustration).",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 302,
+      "width": 1021,
+      "height": 1299
+    },
+    "simpson-2019-figure-5-7": {
+      "id": "simpson-2019-figure-5-7",
+      "figureNumber": "5.7",
+      "image": "assets/simpson-2019/ch5/figure-5-7.jpg",
+      "alt": "Figure 5.7 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.7 Life cycle of heterosporous seed plants.",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 303,
+      "width": 1699,
+      "height": 1113
+    },
+    "simpson-2019-figure-5-8": {
+      "id": "simpson-2019-figure-5-8",
+      "figureNumber": "5.8",
+      "image": "assets/simpson-2019/ch5/figure-5-8.jpg",
+      "alt": "Figure 5.8 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.8 Pollen grains–immature male gametophytes of seed plants. A. Zamia sp., a cycad. B. Ginkgo biloba. C. Pinus sp., a conifer.",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 305,
+      "width": 2104,
+      "height": 550
+    },
+    "simpson-2019-figure-5-9": {
+      "id": "simpson-2019-figure-5-9",
+      "figureNumber": "5.9",
+      "image": "assets/simpson-2019/ch5/figure-5-9.jpg",
+      "alt": "Figure 5.9 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.9 Male gametophyte morphology and development in the nonflowering spermatophytes; Cycas sp., illustrated. (Reproduced and modified from Swamy, B. G. L. 1948. American Journal of Botany 35: 77–88, by permission.)",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 306,
+      "width": 1757,
+      "height": 702
+    },
+    "simpson-2019-figure-5-10": {
+      "id": "simpson-2019-figure-5-10",
+      "figureNumber": "5.10",
+      "image": "assets/simpson-2019/ch5/figure-5-10.jpg",
+      "alt": "Figure 5.10 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.10 A. Ovule development in the in the nonflowering spermatophytes. B. Seed development.",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 307,
+      "width": 1464,
+      "height": 1240
+    },
+    "simpson-2019-figure-5-11": {
+      "id": "simpson-2019-figure-5-11",
+      "figureNumber": "5.11",
+      "image": "assets/simpson-2019/ch5/figure-5-11.jpg",
+      "alt": "Figure 5.11 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.11 Ovule and seed development, illustrated by Pinus sp. A. Young ovule, longitudinal section, at time of pollination. Pollen grains are pulled into micropyle by resorption of pollination droplet. Meiosis of the megasporocyte has yet to occur. B. Postpollination, showing development of the female gametophyte and haustorial pollen tube growth of the male gametophytes within tissue of megasporangium (nucellus) C. Mature ovule, showing two functional archegonia within female gametophyte. D. Close-up of archegonia, each containing a large egg cell with a surrounding layer of sterile cells and apical neck. E. Seed longitudinal section, seed coat removed, showing embryo and surrounding nutritive layer of female gametophytic tissue.",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 308,
+      "width": 749,
+      "height": 855
+    },
+    "simpson-2019-figure-5-12": {
+      "id": "simpson-2019-figure-5-12",
+      "figureNumber": "5.12",
+      "image": "assets/simpson-2019/ch5/figure-5-12.jpg",
+      "alt": "Figure 5.12 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.12 Eustele. A. Diagram of eustele. Note single ring of vascular bundles, with xylem inside, phloem outside. B. Helianthus stem cross section, an example of a eustele. C. Close-up of vascular bundle, showing xylem, phloem, and associated fibers.",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 310,
+      "width": 1747,
+      "height": 625
+    },
+    "simpson-2019-figure-5-13": {
+      "id": "simpson-2019-figure-5-13",
+      "figureNumber": "5.13",
+      "image": "assets/simpson-2019/ch5/figure-5-13.jpg",
+      "alt": "Figure 5.13 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.13 A,B. Archeopteris, an extinct lignophyte. [Reproduced from: Beck, C. B. 1962. American Journal of Botany 49: 373–382, by permission. A. Reconstruction of plant. B. Branch system, showing leaves and sporangia. C–E. Medullosa (and form genera), an extinct “seed fern.” C. Reconstruction of plant. [Reproduced from: Stewart, W. N., and T. Delevoryas. 1956. Botanical Review 22: 45–80, by permission.] D. Fossil leaf impression (Neuropteris). E. Seed longitudinal section (Pachytesta).",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 311,
+      "width": 1471,
+      "height": 625
+    },
+    "simpson-2019-figure-5-14": {
+      "id": "simpson-2019-figure-5-14",
+      "figureNumber": "5.14",
+      "image": "assets/simpson-2019/ch5/figure-5-14.jpg",
+      "alt": "Figure 5.14 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.14 CYCADOPHYTA. Cycadaceae (Cycas). A–F. Cycas revoluta, sago palm. A. Male individual with pollen cone. B. Leaves with circinate vernation. C. Close-up of pollen cone. D. Microsporophyll with sporangia. E. Female individual, showing aggregate of megasporophylls (cones lacking). F. Megasporophyll with marginal, immature seeds. G. Cycas circinalis, female, showing mature megasporophylls with seeds (cones lacking).",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 314,
+      "width": 841,
+      "height": 802
+    },
+    "simpson-2019-figure-5-15": {
+      "id": "simpson-2019-figure-5-15",
+      "figureNumber": "5.15",
+      "image": "assets/simpson-2019/ch5/figure-5-15.jpg",
+      "alt": "Figure 5.15 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.15 CYCADOPHYTA. Zamiaceae. A. Bowenia spectabilis (Australia), showing a single, bipinnately compound leaf. B. Macrozamia moorei (Australia). C. Encephalartos lebomboens (Africa). D. Lepidozamia peroffskyana (eastern Australia). E. Stangeria eriopus (Africa).",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 315,
+      "width": 870,
+      "height": 701
+    },
+    "simpson-2019-figure-5-16": {
+      "id": "simpson-2019-figure-5-16",
+      "figureNumber": "5.16",
+      "image": "assets/simpson-2019/ch5/figure-5-16.jpg",
+      "alt": "Figure 5.16 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.16 CYCADOPHYTA. Zamiaceae. A,B. Encephalartos altensteinii, pollen cones. C. Encephalartos arenarius, female with cone. D. Encephalartos ferox, female, with bright red cone. E. Encephalartos manikensis, megasporophyll with two attached seeds. F. Ceratozamia mexicana, seed cone. G. Zamia sp., pollen and seed cones. H,I. Ceratozamia sp., seed cone and megasporophyll with ovules.",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 316,
+      "width": 929,
+      "height": 870
+    },
+    "simpson-2019-figure-5-17": {
+      "id": "simpson-2019-figure-5-17",
+      "figureNumber": "5.17",
+      "image": "assets/simpson-2019/ch5/figure-5-17.jpg",
+      "alt": "Figure 5.17 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.17 GINKGOPHYTA. Ginkgoaceae. Ginkgo biloba. A,B. Vegetative growth. Note fan-shaped leaves, clustered into short shoots. C. Leaf close-up, showing dichotomous venation. D. Male tree bearing pollen cones. E. Pollen cone. F,G. Close-up of microsporangia, born in pairs on stalk arising from central axis of pollen cone. H. Female plant bearing stalk with pair of ovules. I. Close-up of ovule pair. Note pollination droplet from micropyle.",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 319,
+      "width": 896,
+      "height": 1131
+    },
+    "simpson-2019-figure-5-18": {
+      "id": "simpson-2019-figure-5-18",
+      "figureNumber": "5.18",
+      "image": "assets/simpson-2019/ch5/figure-5-18.jpg",
+      "alt": "Figure 5.18 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.18 CONIFERAE. Pinaceae. A–G. Pinus spp. A. Shoot with young fascicles. B. Branch, showing scale leaves and fascicles. C. Apex of branch with fascicles and pollen cones. D. Pollen cones, close-up. E. Microsporophylls of pollen cones, each with two microsporangia. F. Male strobilus, longitudinal section, showing microsporangia and subtending microsporophylls. G. Close-up of microsporangium, full of mature pollen grains.",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 322,
+      "width": 720,
+      "height": 858
+    },
+    "simpson-2019-figure-5-19": {
+      "id": "simpson-2019-figure-5-19",
+      "figureNumber": "5.19",
+      "image": "assets/simpson-2019/ch5/figure-5-19.jpg",
+      "alt": "Figure 5.19 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.19 Evolution of the compound conifer cone. A,B. CORDAITALES, Lebachia. A. Compound cone, bearing numerous, spirally arranged bracts, each subtending a fertile short shoot. B. Close-up of bract and axillary fertile shoot system (left = abaxial view, right = side view), bearing spiral leaves and single ovule. C,D. FOSSIL CONIFERS. C. Voltzia, shoot system of compound cone, with 5 sterile leaves and 3 ovules. D. Ulmannia, shoot system of compound cone (left = abaxial view, right = adaxial view), showing outer bract and inner fused shoot system (ovuliferous scale) and ovule. (Redrawn from Florin, 1951.)",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 324,
+      "width": 2081,
+      "height": 576
+    },
+    "simpson-2019-figure-5-20": {
+      "id": "simpson-2019-figure-5-20",
+      "figureNumber": "5.20",
+      "image": "assets/simpson-2019/ch5/figure-5-20.jpg",
+      "alt": "Figure 5.20 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.20 CONIFERAE. Pinaceae. A–F. Pinus spp. A. Young seed cone, at time of pollination. B. Close-up, showing ovuliferous scales and bracts. Note pollen grains. C. One-year-old seed cone. D. Pinus coulteri, coulter pine, mature seed cone (most massive of any species). E. Female pine cones, right in section. F. Close-up of longitudinal section, showing bract and ovuliferous scale. G. Pseudotsuga sp. (Douglas-fir) seed cone. Note elongate bracts and wide ovuliferous scales. H. Immature ovuliferous scale, top view, showing two winged seeds. I. Pinus, mature winged seed.",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 325,
+      "width": 893,
+      "height": 970
+    },
+    "simpson-2019-figure-5-21": {
+      "id": "simpson-2019-figure-5-21",
+      "figureNumber": "5.21",
+      "image": "assets/simpson-2019/ch5/figure-5-21.jpg",
+      "alt": "Figure 5.21 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.21 CONIFERAE. Pinaceae. A,B. Abies bracteata, bristlecone fir. C. Abies concolor, white fir. D. Abies fabri, Faber’s fir, seed cone. E. Abies grandis, grand fir, vegetative shoot. F. Cedrus sp., cedar, with short shoots and erect seed cones. G. Picea orientalis, oriental spruce. H–J. P. sitchensis, sitka spruce. H. Shoot with stiff, pungent leaves. I. Twig with persistent, knob-like, leaf bases (distinctive of spruces). J. Seed cone. K-L. Pinus coulteri, coulter pine, having most massive pine cones. M. Pinus muricata, with serotinous cones, opening only after fire. N. Pinus lambertiana, sugar pine, the tallest pine, with longest cones. O. Pinus sabiniana, gray pine. P. Pseudotsuga menziesii, douglas-fir, with bracts elongated from ovuliferous scales. R,S. Tsuga mertensiana, mountain hemlock, with pendant seed cones.",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 327,
+      "width": 722,
+      "height": 860
+    },
+    "simpson-2019-figure-5-22": {
+      "id": "simpson-2019-figure-5-22",
+      "figureNumber": "5.22",
+      "image": "assets/simpson-2019/ch5/figure-5-22.jpg",
+      "alt": "Figure 5.22 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.22 CONIFERAE Araucariaceae A–D. Agathis australis, kauri A. “Tane Mahuta,” New Zealand, largest kauri in world (51.5 meters / 169 feet tall); note people below. B. Crown of kauri tree, with numerous epiphytes. C. Kauri leaves near tree base, lanceolate. D. Male and seed cones. (Image contributed by John Braggins.). E– G. Araucaria bidwillii, bunya-bunya. E. Vegetative shoot, with coriaceous, spinose leaves. F. Large, dried seed cone. G. Ovuliferous scale from seed cone, bearing single seed. H. Araucaria cunninghamii, vegetative shoot, with small, dense, subulate leaves. I–L. Araucaria heterophylla, Norfolk Island-pine, showing narrow, ultimate branches bearing linear leaves.",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 330,
+      "width": 737,
+      "height": 877
+    },
+    "simpson-2019-figure-5-23": {
+      "id": "simpson-2019-figure-5-23",
+      "figureNumber": "5.23",
+      "image": "assets/simpson-2019/ch5/figure-5-23.jpg",
+      "alt": "Figure 5.23 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.23 CONIFERAE. Cupressaceae. A. Cupressus macrocarpa, Monterey cypress. Inset: seed cones. B,C. Cupressus sempervirens, Italian cypress. B. Shoot with seed cones. C. Detached ovuliferous scale bearing numerous seeds. D,E. Juniperus osterosperma, Utah juniper. D. Vegetative shoot, showing decussate, scale-like leaves. E. Seed cones, with fleshy ovuliferous scales. F. Taxodium distichum, bald cypress, with deciduous branch systems and seed cones. G,H. Metasequoia glyptostroboides, dawn-redwood, showing seed cone and deciduous branch system with opposite, simple leaves. I–K. Sequoia sempervirens, redwood, with evergreen, flattened branch system bearing linear leaves and mature seed cone. L–O. Sequoiadendron giganteum, giant sequoia. L. Tree. M. Branches with subulate leaves. N. Mature seed cones. O. Ovuliferous scale, adaxial surface facing, bearing several winged seeds.",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 332,
+      "width": 733,
+      "height": 872
+    },
+    "simpson-2019-figure-5-24": {
+      "id": "simpson-2019-figure-5-24",
+      "figureNumber": "5.24",
+      "image": "assets/simpson-2019/ch5/figure-5-24.jpg",
+      "alt": "Figure 5.24 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.24 CONIFERAE. A–L. Podocarpaceae. A–C. Dacrydium cupressinum, rimu, with pendulous branches covered with simple leaves. D,E. Dacrycarpus dacrydioides, kahikatea. D. Pollen cones, with numerous, spiral microphylls. E. Seed cones, each bearing one purple seed atop fleshy, red receptacle. F. Halocarpus bidwillii. bog pine, showing seed, covered by black epimatium and carpidium, atop white receptacle. G,H. Podocarpus gracilior. G. Pollen cones. H. Seed cone with single seed enclosed by epimatium. I. Podocarpus macrophyllus, seed cones J–L. Podocarpus totara. J. Trunk. K. Branch. L. Seed cones, red epimatium below seed. M–P. Phyllocladaceae, with flattened branch systems (phyllodes), resembling leaves. M,N. Phyllocladus glaucus. O,P. Phyllocladus trichomanoides. (Images D–F, L courtesy of John Braggins.)",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 335,
+      "width": 772,
+      "height": 919
+    },
+    "simpson-2019-figure-5-25": {
+      "id": "simpson-2019-figure-5-25",
+      "figureNumber": "5.25",
+      "image": "assets/simpson-2019/ch5/figure-5-25.jpg",
+      "alt": "Figure 5.25 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.25 CONIFERAE. Taxaceae, Taxus sp., yew. A. Branch with bearing pollen cones. B. Branch with seed cone of single seed surrounded by red, fleshy aril (open at apex). C. Torreya californica, California-nutmeg, seed surrounded by totally enclosing aril.",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 337,
+      "width": 1977,
+      "height": 587
+    },
+    "simpson-2019-figure-5-26": {
+      "id": "simpson-2019-figure-5-26",
+      "figureNumber": "5.26",
+      "image": "assets/simpson-2019/ch5/figure-5-26.jpg",
+      "alt": "Figure 5.26 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.26 GNETALES. Apomorphies, illustrated by Ephedra. A. Striate pollen grains, face view below, cross section above. B. Vessels with porose perforation plates. (B reproduced from Evert, R. F. 2006. Esau’s Plant Anatomy. 3rd ed. John Wiley and Sons, by permission.)",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 338,
+      "width": 1805,
+      "height": 970
+    },
+    "simpson-2019-figure-5-27": {
+      "id": "simpson-2019-figure-5-27",
+      "figureNumber": "5.27",
+      "image": "assets/simpson-2019/ch5/figure-5-27.jpg",
+      "alt": "Figure 5.27 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.27 GNETALES. A. Gnetaceae. Gnetum sp. Note opposite leaves. B–G. Welwitschiaceae. Welwitschia mirabilis. B. Whole plant, showing two elongate opposite leaves. C. Close-up of central region of plant. D. Pollen cones. E–G. Seed cones. [ B–E. contributed by Mark Olson]",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 339,
+      "width": 987,
+      "height": 970
+    },
+    "simpson-2019-figure-5-28": {
+      "id": "simpson-2019-figure-5-28",
+      "figureNumber": "5.28",
+      "image": "assets/simpson-2019/ch5/figure-5-28.jpg",
+      "alt": "Figure 5.28 from Simpson 2019 chapter 5.",
+      "caption": "FIGURE 5.28 GNETALES. Ephedraceae. A–C. Ephedra sp. A. Whole plant. B. Female plant with cones. C. Male plant with cones. D– P. Ephedra aspera. D–I. Pollen cones, showing bracts and bracteoles subtending microsporangiophore, bearing synangia. J–L. Seed cones. Note bracts. M–P. Seed morphology. Note seed subtended by connate bracteoles and bearing extended micropylar tube.",
+      "source": "simpson_2019_ch5",
+      "pdfPage": 340,
+      "width": 839,
+      "height": 1016
+    },
+    "simpson-2019-figure-6-1": {
+      "id": "simpson-2019-figure-6-1",
+      "figureNumber": "6.1",
+      "image": "assets/simpson-2019/ch6/figure-6-1.jpg",
+      "alt": "Figure 6.1 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.1 Cladogram of the angiosperms, showing apomorphies and major taxonomic groups, the latter largely after APG IV (2016). Carpel apomorphies after Endress and Doyle (2009) and included references.",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 360,
+      "width": 1118,
+      "height": 1196
+    },
+    "simpson-2019-figure-6-2": {
+      "id": "simpson-2019-figure-6-2",
+      "figureNumber": "6.2",
+      "image": "assets/simpson-2019/ch6/figure-6-2.jpg",
+      "alt": "Figure 6.2 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.2 A typical (diagrammatic) flower, illustrating the parts.",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 361,
+      "width": 1817,
+      "height": 908
+    },
+    "simpson-2019-figure-6-3": {
+      "id": "simpson-2019-figure-6-3",
+      "figureNumber": "6.3",
+      "image": "assets/simpson-2019/ch6/figure-6-3.jpg",
+      "alt": "Figure 6.3 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.3 Various perianth types in flowers. A. Perianth of two whorls, dissimilar in appearance: a calyx of sepals and a corolla of petals (Ruta). B. Perianth of two whorls, similar in appearance: outer tepals and inner tepals (Lilium). C. Perianth undifferentiated, spiral (Nymphaea).",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 362,
+      "width": 2099,
+      "height": 633
+    },
+    "simpson-2019-figure-6-4": {
+      "id": "simpson-2019-figure-6-4",
+      "figureNumber": "6.4",
+      "image": "assets/simpson-2019/ch6/figure-6-4.jpg",
+      "alt": "Figure 6.4 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.4 Flower development. A. Early development of sepal/outer tepal (se/ot) primordia and petal/inner tepal (pe/it) primordia. B. Later formation of stamen (st) primordia. C. More mature stamens and early initiation of carpel (c) primordia.",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 363,
+      "width": 1947,
+      "height": 592
+    },
+    "simpson-2019-figure-6-5": {
+      "id": "simpson-2019-figure-6-5",
+      "figureNumber": "6.5",
+      "image": "assets/simpson-2019/ch6/figure-6-5.jpg",
+      "alt": "Figure 6.5 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.5 The “ABC” model of floral development. Within each gene class are specific genes (AP1, AP2, AP3, AG, PI, SEP1, SEP2, SEP3, SEP4), identified in mutant forms in Arabidopsis thalliana. (Diagram modifed from Jack, 2001.)",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 364,
+      "width": 833,
+      "height": 752
+    },
+    "simpson-2019-figure-6-6": {
+      "id": "simpson-2019-figure-6-6",
+      "figureNumber": "6.6",
+      "image": "assets/simpson-2019/ch6/figure-6-6.jpg",
+      "alt": "Figure 6.6 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.6 Flower modifications. A. Ranunculus sp., buttercup, insect-pollinated. B. Calonyction sp., moon flower, moth- pollinated. C. Stapelia sp., star flower, fly-pollinated. D. Selenicereus, night-blooming cereus, bat-pollinated. E. Couroupida guianensis, cannonball tree, bat-pollinated. F. Strelitzia reginae, bird of paradise, bird-pollinated. G. Phyllospadix torreyi, surf-grass, water-pollinated. H. Grass, wind-pollinated.",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 365,
+      "width": 906,
+      "height": 1131
+    },
+    "simpson-2019-figure-6-7": {
+      "id": "simpson-2019-figure-6-7",
+      "figureNumber": "6.7",
+      "image": "assets/simpson-2019/ch6/figure-6-7.jpg",
+      "alt": "Figure 6.7 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.7 Stamen morphology. A. Laminar stamen, Nymphaea. B,C. Filamentous stamen, Aloe. Note anther composed of two thecae, each with two microsporangia. D. Young anther in cross section, showing four microsporangia. E. Cross section of older anther at time of dehiscence. Note that walls between adjacent microsporangia of each theca have broken down. Dehiscence line indicated by arrows.",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 366,
+      "width": 1452,
+      "height": 676
+    },
+    "simpson-2019-figure-6-8": {
+      "id": "simpson-2019-figure-6-8",
+      "figureNumber": "6.8",
+      "image": "assets/simpson-2019/ch6/figure-6-8.jpg",
+      "alt": "Figure 6.8 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.8 Angiosperm male gametophyte. A. Microsporogenesis, the development of haploid microspores via meiosis of a microsporocyte, and microgametogenesis, development of a reduced 3-nucleate male gametophyte (pollen grain) from a microspore. B. Mature binucleate pollen grain, with tube nucleus and generative cell. C. Germinating pollen grain, forming pollen tube. D. Tip of pollen tube, housing nuclear material (nuclei types unclear in this image).",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 368,
+      "width": 1508,
+      "height": 1306
+    },
+    "simpson-2019-figure-6-9": {
+      "id": "simpson-2019-figure-6-9",
+      "figureNumber": "6.9",
+      "image": "assets/simpson-2019/ch6/figure-6-9.jpg",
+      "alt": "Figure 6.9 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.9 The carpel, an apomorphy of the angiosperms. A– C. Scanning electron micrographs of carpel development. A. Early formation of three carpels, showing conduplicate formation. B. Intermediate developmental stage. Note lateral contact of the three carpels. C. Mature stage, in which carpel margins have closed in and adjacent carpels have fused into a syncarpous gynoecium (compound pistil). D. Diagram of carpel development from early stages to mature ovary, adaxial side below. Note dorsal and ventral veins (black = xylem; white = phloem), the latter becoming inverted. E. Diagram (median longitudinal section) of pistil of Austrobaileya (Austrobaileyaceae), an ascidiate carpel type, the ancestral type. F. Diagram illustrating evolutionary sequence of carpel fusion (dashed lines = carpel boundaries).",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 370,
+      "width": 1168,
+      "height": 1062
+    },
+    "simpson-2019-figure-6-10": {
+      "id": "simpson-2019-figure-6-10",
+      "figureNumber": "6.10",
+      "image": "assets/simpson-2019/ch6/figure-6-10.jpg",
+      "alt": "Figure 6.10 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.10 A. Ovary cross section of a taxon with a single carpel per flower (unicarpellate gynoecium). Note outline of carpel boundary (dashed line). Inset diagram: note orientation of xylem (black) and phloem (white) of veins. B. Ovary cross section of a taxon with a 3-carpellate, syncarpous pistil (carpels outlined by dashed lines), showing dorsal and ventral veins. (Note: vascular bundle outside dorsal vein supplies perianth and stamens, this ovary being inferior.)",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 371,
+      "width": 1466,
+      "height": 599
+    },
+    "simpson-2019-figure-6-11": {
+      "id": "simpson-2019-figure-6-11",
+      "figureNumber": "6.11",
+      "image": "assets/simpson-2019/ch6/figure-6-11.jpg",
+      "alt": "Figure 6.11 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.11 Bitegmic ovule, the ancestral condition of the angiosperms. A. Young ovule, showing intiation of inner integument (ii) and outer integument (oi), both growing around the nucellus (nu). B. Older ovule, in which inner and outer integuments have enveloped the nucellus, forming a micropyle (mi).",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 373,
+      "width": 1945,
+      "height": 810
+    },
+    "simpson-2019-figure-6-12": {
+      "id": "simpson-2019-figure-6-12",
+      "figureNumber": "6.12",
+      "image": "assets/simpson-2019/ch6/figure-6-12.jpg",
+      "alt": "Figure 6.12 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.12 Angiosperm ovule development and morphology. Note meiosis of megasporocyte, producing four haploid megaspores, one of which undergoes mitotic divisions and differentiation, resulting in an 8-nucleate female gametophyte.",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 375,
+      "width": 2042,
+      "height": 756
+    },
+    "simpson-2019-figure-6-13": {
+      "id": "simpson-2019-figure-6-13",
+      "figureNumber": "6.13",
+      "image": "assets/simpson-2019/ch6/figure-6-13.jpg",
+      "alt": "Figure 6.13 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.13 A. Reduced, 8-nucleate female gametophyte (Lachnanthes), showing egg apparatus (egg + synergid cells), polar nuclei, and antipodals. B,C. Endosperm formation (Capsella). B. Early stage. C. Later stage, forming seed.",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 375,
+      "width": 1656,
+      "height": 641
+    },
+    "simpson-2019-figure-6-14": {
+      "id": "simpson-2019-figure-6-14",
+      "figureNumber": "6.14",
+      "image": "assets/simpson-2019/ch6/figure-6-14.jpg",
+      "alt": "Figure 6.14 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.14 A. Modular hypothesis of female gametophyte evolution. The monosporic, 4-nucleate Nuphar/Schisandra type may represent the ancestral condition in the angiosperms, independently giving rise to the Amborella type and Polygonum type by duplication of the basic 4-nucleate module. B. Cladogram of angiosperms, showing evolutionary changes according to this modular hypothesis. Note that the Polygonum type is derived within the angiosperms. (After Friedman and Williams, 2004.)",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 376,
+      "width": 2117,
+      "height": 728
+    },
+    "simpson-2019-figure-6-15": {
+      "id": "simpson-2019-figure-6-15",
+      "figureNumber": "6.15",
+      "image": "assets/simpson-2019/ch6/figure-6-15.jpg",
+      "alt": "Figure 6.15 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.15 Angiosperm seed development and morphology. Note fertilization of egg, forming zygote and embryo, and fertilization of polar nuclei, forming triploid endosperm.",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 377,
+      "width": 1896,
+      "height": 812
+    },
+    "simpson-2019-figure-6-16": {
+      "id": "simpson-2019-figure-6-16",
+      "figureNumber": "6.16",
+      "image": "assets/simpson-2019/ch6/figure-6-16.jpg",
+      "alt": "Figure 6.16 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.16 A. Evolutionary change from sieve cells (left) to sieve tube members, the latter an apomorphy of the angiosperms. B. Evolution of vessels in the angiosperms. Note transformation from imperforate tracheid to vessels with perforation plates. Trends within the angiosperms include change from elongate vessels with scalariform perforation plate to short vessels with simple perforation plates.",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 378,
+      "width": 1903,
+      "height": 939
+    },
+    "simpson-2019-figure-6-17": {
+      "id": "simpson-2019-figure-6-17",
+      "figureNumber": "6.17",
+      "image": "assets/simpson-2019/ch6/figure-6-17.jpg",
+      "alt": "Figure 6.17 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.17 Variation in vessel anatomy in the angiosperms. A. Liriodendron tulipifera, with scalariform perforation plates. B,C. Quercus sp., elongate with simple perforation plates. D. Cucurbita sp., short and cylindrical, with simple perforation plates.",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 380,
+      "width": 2100,
+      "height": 770
+    },
+    "simpson-2019-figure-6-18": {
+      "id": "simpson-2019-figure-6-18",
+      "figureNumber": "6.18",
+      "image": "assets/simpson-2019/ch6/figure-6-18.jpg",
+      "alt": "Figure 6.18 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.18 A–C. Caytonia, diagrams redrawn from Thomas (1925). A. Cluster of male reproductive units, each a radially symmetrical synangium of 4 microsporangia. (Cross section = c.s.) B. Reproductive axis, bearing two rows of cupules. C. Cupule, in sagittal section, showing four ovules and opening at base. D–F. Glossopteris, diagrams redrawn from Gould and Delevoryas (1977), by permission. D. Reproductive structure, showing vegetative leaf with reticulate venation and basally adnate reproductive structure, the capitulum. E. Cross section of capitulum, showing several ovules (each bearing branched trichomes) on lower surface. Note incurved margins. F. Ovule longitudinal section, showing single integument with micropyle.",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 383,
+      "width": 1720,
+      "height": 804
+    },
+    "simpson-2019-figure-6-19": {
+      "id": "simpson-2019-figure-6-19",
+      "figureNumber": "6.19",
+      "image": "assets/simpson-2019/ch6/figure-6-19.jpg",
+      "alt": "Figure 6.19 from Simpson 2019 chapter 6.",
+      "caption": "FIGURE 6.19 Archaefructus. A. Reconstruction of Archaefructus sinensis, showing reproductive axis bearing stamens proximally and carpels distally. (Contributed by K. Simons and David Dilcher (©).) B. Fossil impression of carpel units of Archaefructus lianogensis. (Contributed by David Dilcher (©) and Ge Sun.)",
+      "source": "simpson_2019_ch6",
+      "pdfPage": 384,
+      "width": 1288,
+      "height": 901
+    },
+    "simpson-2019-figure-7-1": {
+      "id": "simpson-2019-figure-7-1",
+      "figureNumber": "7.1",
+      "image": "assets/simpson-2019/ch7/figure-7-1.jpg",
+      "alt": "Figure 7.1 from Simpson 2019 chapter 7.",
+      "caption": "FIGURE 7.1 Phylogenetic relationships of major angiosperm clades, after Moore et al. (2011), Soltis et al. (2011), APG IV (2016), Sun et al. (2016), and Givnish et al. (2018), with selected apomorphies.",
+      "source": "simpson_2019_ch7",
+      "pdfPage": 404,
+      "width": 1435,
+      "height": 1204
+    },
+    "simpson-2019-figure-7-2": {
+      "id": "simpson-2019-figure-7-2",
+      "figureNumber": "7.2",
+      "image": "assets/simpson-2019/ch7/figure-7-2.jpg",
+      "alt": "Figure 7.2 from Simpson 2019 chapter 7.",
+      "caption": "FIGURE 7.2 Floral diagrams, illustrating relative relationships among the components of the perianth, androecium, and gynoecium.",
+      "source": "simpson_2019_ch7",
+      "pdfPage": 408,
+      "width": 2095,
+      "height": 817
+    },
+    "simpson-2019-figure-7-17": {
+      "id": "simpson-2019-figure-7-17",
+      "figureNumber": "7.17",
+      "image": "assets/simpson-2019/ch7/figure-7-17.jpg",
+      "alt": "Figure 7.17 from Simpson 2019 chapter 7.",
+      "caption": "FIGURE 7.17 Major clades of the monocotyledon, after Givnish et al. (2018), with selected apomorphies shown.",
+      "source": "simpson_2019_ch7",
+      "pdfPage": 439,
+      "width": 1518,
+      "height": 1397
+    },
+    "simpson-2019-figure-7-18": {
+      "id": "simpson-2019-figure-7-18",
+      "figureNumber": "7.18",
+      "image": "assets/simpson-2019/ch7/figure-7-18.jpg",
+      "alt": "Figure 7.18 from Simpson 2019 chapter 7.",
+      "caption": "FIGURE 7.18 Monocot apomorphies. A. Sieve tube plastids with cuneate proteinaceous inclusions. B. The atactostele. Note numerous vascular bundles; at left: xylem = dark; phloem = stippled. C–E. Parallel venation. C. Parallel venation (left) and penni-parallel venation (right), a modification of parallel venation. D. Elymus condensatus (Poaceae), an example of parallel venation. E. Musa coccinea (Musaceae), exemplifying penni- parallel venation. (from Behnke, H.-D., 1972, by permission)",
+      "source": "simpson_2019_ch7",
+      "pdfPage": 440,
+      "width": 882,
+      "height": 1062
+    },
+    "simpson-2019-figure-7-19": {
+      "id": "simpson-2019-figure-7-19",
+      "figureNumber": "7.19",
+      "image": "assets/simpson-2019/ch7/figure-7-19.jpg",
+      "alt": "Figure 7.19 from Simpson 2019 chapter 7.",
+      "caption": "FIGURE 7.19 A single cotyledon, an apomorphy of the monocotyledons. Left, Zea mays (Poaceae). Right, Xiphidium caeruleum (Haemodoraceae).",
+      "source": "simpson_2019_ch7",
+      "pdfPage": 442,
+      "width": 2097,
+      "height": 659
+    },
+    "simpson-2019-figure-7-42": {
+      "id": "simpson-2019-figure-7-42",
+      "figureNumber": "7.42",
+      "image": "assets/simpson-2019/ch7/figure-7-42.jpg",
+      "alt": "Figure 7.42 from Simpson 2019 chapter 7.",
+      "caption": "FIGURE 7.42 Major clades of the commelinid monocotyledons, modified from APG IV (2016) and Givnish et al. (2018), with selected apomorphies shown.",
+      "source": "simpson_2019_ch7",
+      "pdfPage": 487,
+      "width": 1585,
+      "height": 1234
+    },
+    "simpson-2019-figure-8-1": {
+      "id": "simpson-2019-figure-8-1",
+      "figureNumber": "8.1",
+      "image": "assets/simpson-2019/ch8/figure-8-1.jpg",
+      "alt": "Figure 8.1 from Simpson 2019 chapter 8.",
+      "caption": "FIGURE 8.1 Cladogram of the orders of the Eudicots, after Moore et al. (2011), Soltis et al. (2011), APG IV (2016), and Sun et al. (2016). *=Position of Dilleniales uncertain.",
+      "source": "simpson_2019_ch8",
+      "pdfPage": 601,
+      "width": 1617,
+      "height": 1026
+    },
+    "simpson-2019-figure-8-2": {
+      "id": "simpson-2019-figure-8-2",
+      "figureNumber": "8.2",
+      "image": "assets/simpson-2019/ch8/figure-8-2.jpg",
+      "alt": "Figure 8.2 from Simpson 2019 chapter 8.",
+      "caption": "FIGURE 8.2 Transformation from monosulcate to tricolpate pollen grain, the latter an apomorphy of the Eudicots.",
+      "source": "simpson_2019_ch8",
+      "pdfPage": 601,
+      "width": 1749,
+      "height": 923
+    },
+    "simpson-2019-figure-8-16": {
+      "id": "simpson-2019-figure-8-16",
+      "figureNumber": "8.16",
+      "image": "assets/simpson-2019/ch8/figure-8-16.jpg",
+      "alt": "Figure 8.16 from Simpson 2019 chapter 8.",
+      "caption": "FIGURE 8.16 Cladogram of the orders of the Rosids, after Moore et al. (2011), Soltis et al. (2011), APG IV (2016), and Sun et al. (2016). Note Vitales are included in Rosids in some studies.",
+      "source": "simpson_2019_ch8",
+      "pdfPage": 632,
+      "width": 991,
+      "height": 788
+    },
+    "simpson-2019-figure-8-37": {
+      "id": "simpson-2019-figure-8-37",
+      "figureNumber": "8.37",
+      "image": "assets/simpson-2019/ch8/figure-8-37.jpg",
+      "alt": "Figure 8.37 from Simpson 2019 chapter 8.",
+      "caption": "FIGURE 8.37 Cladogram of “Urticalean Rosids, after Sytsma (2002).",
+      "source": "simpson_2019_ch8",
+      "pdfPage": 673,
+      "width": 1008,
+      "height": 667
+    },
+    "simpson-2019-figure-8-84": {
+      "id": "simpson-2019-figure-8-84",
+      "figureNumber": "8.84",
+      "image": "assets/simpson-2019/ch8/figure-8-84.jpg",
+      "alt": "Figure 8.84 from Simpson 2019 chapter 8.",
+      "caption": "FIGURE 8.84 Cladogram of the major Asterid orders, after APG IV (2016).",
+      "source": "simpson_2019_ch8",
+      "pdfPage": 757,
+      "width": 1022,
+      "height": 842
+    },
+    "simpson-2019-figure-8-85": {
+      "id": "simpson-2019-figure-8-85",
+      "figureNumber": "8.85",
+      "image": "assets/simpson-2019/ch8/figure-8-85.jpg",
+      "alt": "Figure 8.85 from Simpson 2019 chapter 8.",
+      "caption": "FIGURE 8.85 Putative apomorphies of the Asterids. A. Cornin, an iridoid compound. B. Unitegmic, tenuinucellate ovule. C. Sympetalous corolla.",
+      "source": "simpson_2019_ch8",
+      "pdfPage": 758,
+      "width": 2077,
+      "height": 725
     }
   },
   "nodes": [
@@ -1958,6 +3320,18 @@ window.PLANT_TREE_DATA = {
       "children": [
         "bryophyte-grade",
         "vascular-plants"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-3-1",
+        "simpson-2019-figure-3-2",
+        "simpson-2019-figure-3-3",
+        "simpson-2019-figure-3-4",
+        "simpson-2019-figure-3-5",
+        "simpson-2019-figure-3-6",
+        "simpson-2019-figure-3-7",
+        "simpson-2019-figure-3-8",
+        "simpson-2019-figure-3-9",
+        "simpson-2019-figure-3-10"
       ]
     },
     {
@@ -1970,6 +3344,9 @@ window.PLANT_TREE_DATA = {
         "mosses",
         "liverworts",
         "hornworts"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-3-6"
       ]
     },
     {
@@ -1980,6 +3357,13 @@ window.PLANT_TREE_DATA = {
       "children": [
         "bryales",
         "sphagnales"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-3-14",
+        "simpson-2019-figure-3-15",
+        "simpson-2019-figure-3-16",
+        "simpson-2019-figure-3-17",
+        "simpson-2019-figure-3-18"
       ]
     },
     {
@@ -2020,6 +3404,10 @@ window.PLANT_TREE_DATA = {
       "source": "bryophyta_nomenclator",
       "children": [
         "sphagnaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-3-17",
+        "simpson-2019-figure-3-18"
       ]
     },
     {
@@ -2029,13 +3417,21 @@ window.PLANT_TREE_DATA = {
       "source": "bryophyta_nomenclator",
       "children": [
         "sphagnum"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-3-17",
+        "simpson-2019-figure-3-18"
       ]
     },
     {
       "id": "sphagnum",
       "name": "Sphagnum",
       "rank": "genus",
-      "source": "bryophyta_nomenclator"
+      "source": "bryophyta_nomenclator",
+      "figureIds": [
+        "simpson-2019-figure-3-17",
+        "simpson-2019-figure-3-18"
+      ]
     },
     {
       "id": "liverworts",
@@ -2044,6 +3440,11 @@ window.PLANT_TREE_DATA = {
       "source": "broad_consensus",
       "children": [
         "marchantiales"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-3-11",
+        "simpson-2019-figure-3-12",
+        "simpson-2019-figure-3-13"
       ]
     },
     {
@@ -2053,6 +3454,10 @@ window.PLANT_TREE_DATA = {
       "source": "broad_consensus",
       "children": [
         "marchantiaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-3-11",
+        "simpson-2019-figure-3-12"
       ]
     },
     {
@@ -2062,13 +3467,21 @@ window.PLANT_TREE_DATA = {
       "source": "broad_consensus",
       "children": [
         "marchantia"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-3-11",
+        "simpson-2019-figure-3-12"
       ]
     },
     {
       "id": "marchantia",
       "name": "Marchantia",
       "rank": "genus",
-      "source": "broad_consensus"
+      "source": "broad_consensus",
+      "figureIds": [
+        "simpson-2019-figure-3-11",
+        "simpson-2019-figure-3-12"
+      ]
     },
     {
       "id": "hornworts",
@@ -2077,6 +3490,10 @@ window.PLANT_TREE_DATA = {
       "source": "broad_consensus",
       "children": [
         "anthocerotales"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-3-14",
+        "simpson-2019-figure-3-19"
       ]
     },
     {
@@ -2086,6 +3503,9 @@ window.PLANT_TREE_DATA = {
       "source": "broad_consensus",
       "children": [
         "anthocerotaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-3-19"
       ]
     },
     {
@@ -2095,13 +3515,19 @@ window.PLANT_TREE_DATA = {
       "source": "broad_consensus",
       "children": [
         "anthoceros"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-3-19"
       ]
     },
     {
       "id": "anthoceros",
       "name": "Anthoceros",
       "rank": "genus",
-      "source": "broad_consensus"
+      "source": "broad_consensus",
+      "figureIds": [
+        "simpson-2019-figure-3-19"
+      ]
     },
     {
       "id": "vascular-plants",
@@ -2113,6 +3539,22 @@ window.PLANT_TREE_DATA = {
         "lycophytes",
         "ferns",
         "seed-plants"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-3-14",
+        "simpson-2019-figure-4-1",
+        "simpson-2019-figure-4-2",
+        "simpson-2019-figure-4-3",
+        "simpson-2019-figure-4-4",
+        "simpson-2019-figure-4-5",
+        "simpson-2019-figure-4-6",
+        "simpson-2019-figure-4-7",
+        "simpson-2019-figure-4-8",
+        "simpson-2019-figure-4-9",
+        "simpson-2019-figure-4-10",
+        "simpson-2019-figure-4-12",
+        "simpson-2019-figure-4-20",
+        "simpson-2019-figure-4-21"
       ]
     },
     {
@@ -2124,6 +3566,14 @@ window.PLANT_TREE_DATA = {
         "lycopodiales",
         "isoetales",
         "selaginellales"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-1",
+        "simpson-2019-figure-4-12",
+        "simpson-2019-figure-4-13",
+        "simpson-2019-figure-4-14",
+        "simpson-2019-figure-4-16",
+        "simpson-2019-figure-4-17"
       ]
     },
     {
@@ -2133,6 +3583,10 @@ window.PLANT_TREE_DATA = {
       "source": "ppg_i",
       "children": [
         "lycopodiaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-14",
+        "simpson-2019-figure-4-15"
       ]
     },
     {
@@ -2143,19 +3597,30 @@ window.PLANT_TREE_DATA = {
       "children": [
         "lycopodium",
         "huperzia"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-14",
+        "simpson-2019-figure-4-15"
       ]
     },
     {
       "id": "lycopodium",
       "name": "Lycopodium",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-14",
+        "simpson-2019-figure-4-15"
+      ]
     },
     {
       "id": "huperzia",
       "name": "Huperzia",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-15"
+      ]
     },
     {
       "id": "isoetales",
@@ -2164,6 +3629,10 @@ window.PLANT_TREE_DATA = {
       "source": "ppg_i",
       "children": [
         "isoetaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-17",
+        "simpson-2019-figure-4-18"
       ]
     },
     {
@@ -2173,13 +3642,20 @@ window.PLANT_TREE_DATA = {
       "source": "ppg_i",
       "children": [
         "isoetes"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-17",
+        "simpson-2019-figure-4-18"
       ]
     },
     {
       "id": "isoetes",
       "name": "Isoetes",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-18"
+      ]
     },
     {
       "id": "selaginellales",
@@ -2188,6 +3664,12 @@ window.PLANT_TREE_DATA = {
       "source": "ppg_i",
       "children": [
         "selaginellaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-13",
+        "simpson-2019-figure-4-16",
+        "simpson-2019-figure-4-17",
+        "simpson-2019-figure-4-19"
       ]
     },
     {
@@ -2197,13 +3679,24 @@ window.PLANT_TREE_DATA = {
       "source": "ppg_i",
       "children": [
         "selaginella"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-13",
+        "simpson-2019-figure-4-16",
+        "simpson-2019-figure-4-17",
+        "simpson-2019-figure-4-19"
       ]
     },
     {
       "id": "selaginella",
       "name": "Selaginella",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-13",
+        "simpson-2019-figure-4-16",
+        "simpson-2019-figure-4-19"
+      ]
     },
     {
       "id": "ferns",
@@ -2222,6 +3715,18 @@ window.PLANT_TREE_DATA = {
         "salviniales",
         "cyatheales",
         "polypodiales"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-1",
+        "simpson-2019-figure-4-11",
+        "simpson-2019-figure-4-20",
+        "simpson-2019-figure-4-22",
+        "simpson-2019-figure-4-28",
+        "simpson-2019-figure-4-29",
+        "simpson-2019-figure-4-30",
+        "simpson-2019-figure-4-31",
+        "simpson-2019-figure-4-32",
+        "simpson-2019-figure-4-33"
       ]
     },
     {
@@ -2231,6 +3736,11 @@ window.PLANT_TREE_DATA = {
       "source": "ppg_i",
       "children": [
         "equisetaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-21",
+        "simpson-2019-figure-4-23",
+        "simpson-2019-figure-4-24"
       ]
     },
     {
@@ -2240,13 +3750,21 @@ window.PLANT_TREE_DATA = {
       "source": "ppg_i",
       "children": [
         "equisetum"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-21",
+        "simpson-2019-figure-4-24"
       ]
     },
     {
       "id": "equisetum",
       "name": "Equisetum",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-21",
+        "simpson-2019-figure-4-24"
+      ]
     },
     {
       "id": "psilotales",
@@ -2255,6 +3773,9 @@ window.PLANT_TREE_DATA = {
       "source": "ppg_i",
       "children": [
         "psilotaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-26"
       ]
     },
     {
@@ -2265,19 +3786,28 @@ window.PLANT_TREE_DATA = {
       "children": [
         "psilotum",
         "tmesipteris"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-26"
       ]
     },
     {
       "id": "psilotum",
       "name": "Psilotum",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-26"
+      ]
     },
     {
       "id": "tmesipteris",
       "name": "Tmesipteris",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-26"
+      ]
     },
     {
       "id": "ophioglossales",
@@ -2286,6 +3816,9 @@ window.PLANT_TREE_DATA = {
       "source": "ppg_i",
       "children": [
         "ophioglossaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-25"
       ]
     },
     {
@@ -2296,19 +3829,28 @@ window.PLANT_TREE_DATA = {
       "children": [
         "ophioglossum",
         "botrychium"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-25"
       ]
     },
     {
       "id": "ophioglossum",
       "name": "Ophioglossum",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-25"
+      ]
     },
     {
       "id": "botrychium",
       "name": "Botrychium",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-25"
+      ]
     },
     {
       "id": "marattiales",
@@ -2317,6 +3859,9 @@ window.PLANT_TREE_DATA = {
       "source": "ppg_i",
       "children": [
         "marattiaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-27"
       ]
     },
     {
@@ -2327,19 +3872,28 @@ window.PLANT_TREE_DATA = {
       "children": [
         "marattia",
         "angiopteris"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-27"
       ]
     },
     {
       "id": "marattia",
       "name": "Marattia",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-27"
+      ]
     },
     {
       "id": "angiopteris",
       "name": "Angiopteris",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-27"
+      ]
     },
     {
       "id": "osmundales",
@@ -2348,6 +3902,11 @@ window.PLANT_TREE_DATA = {
       "source": "ppg_i",
       "children": [
         "osmundaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-31",
+        "simpson-2019-figure-4-33",
+        "simpson-2019-figure-4-34"
       ]
     },
     {
@@ -2358,13 +3917,21 @@ window.PLANT_TREE_DATA = {
       "children": [
         "osmunda",
         "osmundastrum"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-31",
+        "simpson-2019-figure-4-34"
       ]
     },
     {
       "id": "osmunda",
       "name": "Osmunda",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-31",
+        "simpson-2019-figure-4-34"
+      ]
     },
     {
       "id": "osmundastrum",
@@ -2379,6 +3946,11 @@ window.PLANT_TREE_DATA = {
       "source": "ppg_i",
       "children": [
         "hymenophyllaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-31",
+        "simpson-2019-figure-4-33",
+        "simpson-2019-figure-4-35"
       ]
     },
     {
@@ -2389,19 +3961,30 @@ window.PLANT_TREE_DATA = {
       "children": [
         "hymenophyllum",
         "trichomanes"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-31",
+        "simpson-2019-figure-4-35"
       ]
     },
     {
       "id": "hymenophyllum",
       "name": "Hymenophyllum",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-31",
+        "simpson-2019-figure-4-35"
+      ]
     },
     {
       "id": "trichomanes",
       "name": "Trichomanes",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-35"
+      ]
     },
     {
       "id": "gleicheniales",
@@ -2412,6 +3995,12 @@ window.PLANT_TREE_DATA = {
         "matoniaceae",
         "dipteridaceae",
         "gleicheniaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-29",
+        "simpson-2019-figure-4-31",
+        "simpson-2019-figure-4-33",
+        "simpson-2019-figure-4-36"
       ]
     },
     {
@@ -2466,19 +4055,32 @@ window.PLANT_TREE_DATA = {
       "children": [
         "gleichenia",
         "dicranopteris"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-29",
+        "simpson-2019-figure-4-31",
+        "simpson-2019-figure-4-36"
       ]
     },
     {
       "id": "gleichenia",
       "name": "Gleichenia",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-31",
+        "simpson-2019-figure-4-36"
+      ]
     },
     {
       "id": "dicranopteris",
       "name": "Dicranopteris",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-29",
+        "simpson-2019-figure-4-36"
+      ]
     },
     {
       "id": "schizaeales",
@@ -2489,6 +4091,11 @@ window.PLANT_TREE_DATA = {
         "lygodiaceae",
         "schizaeaceae",
         "anemiaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-31",
+        "simpson-2019-figure-4-33",
+        "simpson-2019-figure-4-37"
       ]
     },
     {
@@ -2498,13 +4105,19 @@ window.PLANT_TREE_DATA = {
       "source": "ppg_i",
       "children": [
         "lygodium"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-37"
       ]
     },
     {
       "id": "lygodium",
       "name": "Lygodium",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-37"
+      ]
     },
     {
       "id": "schizaeaceae",
@@ -2514,13 +4127,19 @@ window.PLANT_TREE_DATA = {
       "children": [
         "schizaea",
         "actinostachys"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-31"
       ]
     },
     {
       "id": "schizaea",
       "name": "Schizaea",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-31"
+      ]
     },
     {
       "id": "actinostachys",
@@ -2551,6 +4170,11 @@ window.PLANT_TREE_DATA = {
       "children": [
         "salviniaceae",
         "marsileaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-33",
+        "simpson-2019-figure-4-38",
+        "simpson-2019-figure-4-39"
       ]
     },
     {
@@ -2561,19 +4185,28 @@ window.PLANT_TREE_DATA = {
       "children": [
         "salvinia",
         "azolla"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-39"
       ]
     },
     {
       "id": "salvinia",
       "name": "Salvinia",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-39"
+      ]
     },
     {
       "id": "azolla",
       "name": "Azolla",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-39"
+      ]
     },
     {
       "id": "marsileaceae",
@@ -2583,19 +4216,28 @@ window.PLANT_TREE_DATA = {
       "children": [
         "marsilea",
         "pilularia"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-38"
       ]
     },
     {
       "id": "marsilea",
       "name": "Marsilea",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-38"
+      ]
     },
     {
       "id": "pilularia",
       "name": "Pilularia",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-38"
+      ]
     },
     {
       "id": "cyatheales",
@@ -2611,6 +4253,11 @@ window.PLANT_TREE_DATA = {
         "metaxyaceae",
         "dicksoniaceae",
         "cyatheaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-31",
+        "simpson-2019-figure-4-33",
+        "simpson-2019-figure-4-40"
       ]
     },
     {
@@ -2740,13 +4387,21 @@ window.PLANT_TREE_DATA = {
       "children": [
         "cyathea",
         "alsophila"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-31",
+        "simpson-2019-figure-4-40"
       ]
     },
     {
       "id": "cyathea",
       "name": "Cyathea",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-31",
+        "simpson-2019-figure-4-40"
+      ]
     },
     {
       "id": "alsophila",
@@ -2786,6 +4441,17 @@ window.PLANT_TREE_DATA = {
         "oleandraceae",
         "davalliaceae",
         "polypodiaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-28",
+        "simpson-2019-figure-4-29",
+        "simpson-2019-figure-4-30",
+        "simpson-2019-figure-4-31",
+        "simpson-2019-figure-4-33",
+        "simpson-2019-figure-4-41",
+        "simpson-2019-figure-4-42",
+        "simpson-2019-figure-4-43",
+        "simpson-2019-figure-4-44"
       ]
     },
     {
@@ -2856,19 +4522,31 @@ window.PLANT_TREE_DATA = {
       "children": [
         "pteris",
         "adiantum"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-11",
+        "simpson-2019-figure-4-30",
+        "simpson-2019-figure-4-44"
       ]
     },
     {
       "id": "pteris",
       "name": "Pteris",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-44"
+      ]
     },
     {
       "id": "adiantum",
       "name": "Adiantum",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-30",
+        "simpson-2019-figure-4-44"
+      ]
     },
     {
       "id": "dennstaedtiaceae",
@@ -2878,6 +4556,9 @@ window.PLANT_TREE_DATA = {
       "children": [
         "dennstaedtia",
         "pteridium"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-31"
       ]
     },
     {
@@ -2890,7 +4571,10 @@ window.PLANT_TREE_DATA = {
       "id": "pteridium",
       "name": "Pteridium",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-31"
+      ]
     },
     {
       "id": "cystopteridaceae",
@@ -2988,13 +4672,25 @@ window.PLANT_TREE_DATA = {
       "source": "ppg_i",
       "children": [
         "asplenium"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-11",
+        "simpson-2019-figure-4-29",
+        "simpson-2019-figure-4-30",
+        "simpson-2019-figure-4-41"
       ]
     },
     {
       "id": "asplenium",
       "name": "Asplenium",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-11",
+        "simpson-2019-figure-4-29",
+        "simpson-2019-figure-4-30",
+        "simpson-2019-figure-4-41"
+      ]
     },
     {
       "id": "woodsiaceae",
@@ -3019,13 +4715,19 @@ window.PLANT_TREE_DATA = {
       "children": [
         "onoclea",
         "matteuccia"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-29"
       ]
     },
     {
       "id": "onoclea",
       "name": "Onoclea",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-29"
+      ]
     },
     {
       "id": "matteuccia",
@@ -3041,13 +4743,19 @@ window.PLANT_TREE_DATA = {
       "children": [
         "blechnum",
         "woodwardia"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-29"
       ]
     },
     {
       "id": "blechnum",
       "name": "Blechnum",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-29"
+      ]
     },
     {
       "id": "woodwardia",
@@ -3144,19 +4852,30 @@ window.PLANT_TREE_DATA = {
       "children": [
         "dryopteris",
         "polystichum"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-29",
+        "simpson-2019-figure-4-42"
       ]
     },
     {
       "id": "dryopteris",
       "name": "Dryopteris",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-29",
+        "simpson-2019-figure-4-42"
+      ]
     },
     {
       "id": "polystichum",
       "name": "Polystichum",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-42"
+      ]
     },
     {
       "id": "nephrolepidaceae",
@@ -3165,13 +4884,20 @@ window.PLANT_TREE_DATA = {
       "source": "ppg_i",
       "children": [
         "nephrolepis"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-30"
       ]
     },
     {
       "id": "nephrolepis",
       "name": "Nephrolepis",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-28",
+        "simpson-2019-figure-4-30"
+      ]
     },
     {
       "id": "lomariopsidaceae",
@@ -3180,6 +4906,10 @@ window.PLANT_TREE_DATA = {
       "source": "ppg_i",
       "children": [
         "lomariopsis"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-28",
+        "simpson-2019-figure-4-30"
       ]
     },
     {
@@ -3225,13 +4955,19 @@ window.PLANT_TREE_DATA = {
       "source": "ppg_i",
       "children": [
         "davallia"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-28"
       ]
     },
     {
       "id": "davallia",
       "name": "Davallia",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-28"
+      ]
     },
     {
       "id": "polypodiaceae",
@@ -3241,19 +4977,33 @@ window.PLANT_TREE_DATA = {
       "children": [
         "polypodium",
         "platycerium"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-28",
+        "simpson-2019-figure-4-30",
+        "simpson-2019-figure-4-43"
       ]
     },
     {
       "id": "polypodium",
       "name": "Polypodium",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-28",
+        "simpson-2019-figure-4-30",
+        "simpson-2019-figure-4-43"
+      ]
     },
     {
       "id": "platycerium",
       "name": "Platycerium",
       "rank": "genus",
-      "source": "ppg_i"
+      "source": "ppg_i",
+      "figureIds": [
+        "simpson-2019-figure-4-30",
+        "simpson-2019-figure-4-43"
+      ]
     },
     {
       "id": "seed-plants",
@@ -3263,6 +5013,20 @@ window.PLANT_TREE_DATA = {
       "children": [
         "gymnosperms",
         "angiosperms"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-4-1",
+        "simpson-2019-figure-4-20",
+        "simpson-2019-figure-5-1",
+        "simpson-2019-figure-5-3",
+        "simpson-2019-figure-5-4",
+        "simpson-2019-figure-5-5",
+        "simpson-2019-figure-5-6",
+        "simpson-2019-figure-5-7",
+        "simpson-2019-figure-5-8",
+        "simpson-2019-figure-5-10",
+        "simpson-2019-figure-5-12",
+        "simpson-2019-figure-5-13"
       ]
     },
     {
@@ -3275,6 +5039,11 @@ window.PLANT_TREE_DATA = {
         "ginkgos",
         "gnetophytes",
         "conifers"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-1",
+        "simpson-2019-figure-5-8",
+        "simpson-2019-figure-5-10"
       ]
     },
     {
@@ -3284,6 +5053,14 @@ window.PLANT_TREE_DATA = {
       "source": "gymnosperms_2011",
       "children": [
         "cycadales"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-1",
+        "simpson-2019-figure-5-8",
+        "simpson-2019-figure-5-9",
+        "simpson-2019-figure-5-14",
+        "simpson-2019-figure-5-15",
+        "simpson-2019-figure-5-16"
       ]
     },
     {
@@ -3294,6 +5071,12 @@ window.PLANT_TREE_DATA = {
       "children": [
         "cycadaceae",
         "zamiaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-9",
+        "simpson-2019-figure-5-14",
+        "simpson-2019-figure-5-15",
+        "simpson-2019-figure-5-16"
       ]
     },
     {
@@ -3303,13 +5086,21 @@ window.PLANT_TREE_DATA = {
       "source": "gymnosperms_2011",
       "children": [
         "cycas"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-9",
+        "simpson-2019-figure-5-14"
       ]
     },
     {
       "id": "cycas",
       "name": "Cycas",
       "rank": "genus",
-      "source": "gymnosperms_2011"
+      "source": "gymnosperms_2011",
+      "figureIds": [
+        "simpson-2019-figure-5-9",
+        "simpson-2019-figure-5-14"
+      ]
     },
     {
       "id": "zamiaceae",
@@ -3319,19 +5110,32 @@ window.PLANT_TREE_DATA = {
       "children": [
         "zamia",
         "dioon"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-8",
+        "simpson-2019-figure-5-15",
+        "simpson-2019-figure-5-16"
       ]
     },
     {
       "id": "zamia",
       "name": "Zamia",
       "rank": "genus",
-      "source": "gymnosperms_2011"
+      "source": "gymnosperms_2011",
+      "figureIds": [
+        "simpson-2019-figure-5-8",
+        "simpson-2019-figure-5-15",
+        "simpson-2019-figure-5-16"
+      ]
     },
     {
       "id": "dioon",
       "name": "Dioon",
       "rank": "genus",
-      "source": "gymnosperms_2011"
+      "source": "gymnosperms_2011",
+      "figureIds": [
+        "simpson-2019-figure-5-15"
+      ]
     },
     {
       "id": "ginkgos",
@@ -3340,6 +5144,11 @@ window.PLANT_TREE_DATA = {
       "source": "gymnosperms_2011",
       "children": [
         "ginkgoales"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-1",
+        "simpson-2019-figure-5-8",
+        "simpson-2019-figure-5-17"
       ]
     },
     {
@@ -3349,6 +5158,10 @@ window.PLANT_TREE_DATA = {
       "source": "gymnosperms_2011",
       "children": [
         "ginkgoaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-8",
+        "simpson-2019-figure-5-17"
       ]
     },
     {
@@ -3358,13 +5171,21 @@ window.PLANT_TREE_DATA = {
       "source": "gymnosperms_2011",
       "children": [
         "ginkgo"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-8",
+        "simpson-2019-figure-5-17"
       ]
     },
     {
       "id": "ginkgo",
       "name": "Ginkgo",
       "rank": "genus",
-      "source": "gymnosperms_2011"
+      "source": "gymnosperms_2011",
+      "figureIds": [
+        "simpson-2019-figure-5-8",
+        "simpson-2019-figure-5-17"
+      ]
     },
     {
       "id": "gnetophytes",
@@ -3375,6 +5196,12 @@ window.PLANT_TREE_DATA = {
         "welwitschiales",
         "gnetales",
         "ephedrales"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-1",
+        "simpson-2019-figure-5-26",
+        "simpson-2019-figure-5-27",
+        "simpson-2019-figure-5-28"
       ]
     },
     {
@@ -3384,6 +5211,9 @@ window.PLANT_TREE_DATA = {
       "source": "gymnosperms_2011",
       "children": [
         "welwitschiaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-27"
       ]
     },
     {
@@ -3393,13 +5223,19 @@ window.PLANT_TREE_DATA = {
       "source": "gymnosperms_2011",
       "children": [
         "welwitschia"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-27"
       ]
     },
     {
       "id": "welwitschia",
       "name": "Welwitschia",
       "rank": "genus",
-      "source": "gymnosperms_2011"
+      "source": "gymnosperms_2011",
+      "figureIds": [
+        "simpson-2019-figure-5-27"
+      ]
     },
     {
       "id": "gnetales",
@@ -3408,6 +5244,9 @@ window.PLANT_TREE_DATA = {
       "source": "gymnosperms_2011",
       "children": [
         "gnetaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-27"
       ]
     },
     {
@@ -3417,13 +5256,19 @@ window.PLANT_TREE_DATA = {
       "source": "gymnosperms_2011",
       "children": [
         "gnetum"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-27"
       ]
     },
     {
       "id": "gnetum",
       "name": "Gnetum",
       "rank": "genus",
-      "source": "gymnosperms_2011"
+      "source": "gymnosperms_2011",
+      "figureIds": [
+        "simpson-2019-figure-5-27"
+      ]
     },
     {
       "id": "ephedrales",
@@ -3432,6 +5277,10 @@ window.PLANT_TREE_DATA = {
       "source": "gymnosperms_2011",
       "children": [
         "ephedraceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-26",
+        "simpson-2019-figure-5-28"
       ]
     },
     {
@@ -3441,13 +5290,21 @@ window.PLANT_TREE_DATA = {
       "source": "gymnosperms_2011",
       "children": [
         "ephedra"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-26",
+        "simpson-2019-figure-5-28"
       ]
     },
     {
       "id": "ephedra",
       "name": "Ephedra",
       "rank": "genus",
-      "source": "gymnosperms_2011"
+      "source": "gymnosperms_2011",
+      "figureIds": [
+        "simpson-2019-figure-5-26",
+        "simpson-2019-figure-5-28"
+      ]
     },
     {
       "id": "conifers",
@@ -3458,6 +5315,22 @@ window.PLANT_TREE_DATA = {
         "pinales",
         "araucariales",
         "cupressales"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-1",
+        "simpson-2019-figure-5-2",
+        "simpson-2019-figure-5-4",
+        "simpson-2019-figure-5-5",
+        "simpson-2019-figure-5-8",
+        "simpson-2019-figure-5-11",
+        "simpson-2019-figure-5-18",
+        "simpson-2019-figure-5-19",
+        "simpson-2019-figure-5-20",
+        "simpson-2019-figure-5-21",
+        "simpson-2019-figure-5-22",
+        "simpson-2019-figure-5-23",
+        "simpson-2019-figure-5-24",
+        "simpson-2019-figure-5-25"
       ]
     },
     {
@@ -3467,6 +5340,15 @@ window.PLANT_TREE_DATA = {
       "source": "gymnosperms_2011",
       "children": [
         "pinaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-4",
+        "simpson-2019-figure-5-5",
+        "simpson-2019-figure-5-8",
+        "simpson-2019-figure-5-11",
+        "simpson-2019-figure-5-18",
+        "simpson-2019-figure-5-20",
+        "simpson-2019-figure-5-21"
       ]
     },
     {
@@ -3477,19 +5359,40 @@ window.PLANT_TREE_DATA = {
       "children": [
         "pinus",
         "picea"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-4",
+        "simpson-2019-figure-5-5",
+        "simpson-2019-figure-5-8",
+        "simpson-2019-figure-5-11",
+        "simpson-2019-figure-5-18",
+        "simpson-2019-figure-5-20",
+        "simpson-2019-figure-5-21"
       ]
     },
     {
       "id": "pinus",
       "name": "Pinus",
       "rank": "genus",
-      "source": "gymnosperms_2011"
+      "source": "gymnosperms_2011",
+      "figureIds": [
+        "simpson-2019-figure-5-4",
+        "simpson-2019-figure-5-5",
+        "simpson-2019-figure-5-8",
+        "simpson-2019-figure-5-11",
+        "simpson-2019-figure-5-18",
+        "simpson-2019-figure-5-20",
+        "simpson-2019-figure-5-21"
+      ]
     },
     {
       "id": "picea",
       "name": "Picea",
       "rank": "genus",
-      "source": "gymnosperms_2011"
+      "source": "gymnosperms_2011",
+      "figureIds": [
+        "simpson-2019-figure-5-21"
+      ]
     },
     {
       "id": "araucariales",
@@ -3499,6 +5402,10 @@ window.PLANT_TREE_DATA = {
       "children": [
         "araucariaceae",
         "podocarpaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-22",
+        "simpson-2019-figure-5-24"
       ]
     },
     {
@@ -3509,19 +5416,28 @@ window.PLANT_TREE_DATA = {
       "children": [
         "araucaria",
         "agathis"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-22"
       ]
     },
     {
       "id": "araucaria",
       "name": "Araucaria",
       "rank": "genus",
-      "source": "gymnosperms_2011"
+      "source": "gymnosperms_2011",
+      "figureIds": [
+        "simpson-2019-figure-5-22"
+      ]
     },
     {
       "id": "agathis",
       "name": "Agathis",
       "rank": "genus",
-      "source": "gymnosperms_2011"
+      "source": "gymnosperms_2011",
+      "figureIds": [
+        "simpson-2019-figure-5-22"
+      ]
     },
     {
       "id": "podocarpaceae",
@@ -3531,19 +5447,28 @@ window.PLANT_TREE_DATA = {
       "children": [
         "podocarpus",
         "phyllocladus"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-24"
       ]
     },
     {
       "id": "podocarpus",
       "name": "Podocarpus",
       "rank": "genus",
-      "source": "gymnosperms_2011"
+      "source": "gymnosperms_2011",
+      "figureIds": [
+        "simpson-2019-figure-5-24"
+      ]
     },
     {
       "id": "phyllocladus",
       "name": "Phyllocladus",
       "rank": "genus",
-      "source": "gymnosperms_2011"
+      "source": "gymnosperms_2011",
+      "figureIds": [
+        "simpson-2019-figure-5-24"
+      ]
     },
     {
       "id": "cupressales",
@@ -3554,6 +5479,11 @@ window.PLANT_TREE_DATA = {
         "sciadopityaceae",
         "cupressaceae",
         "taxaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-2",
+        "simpson-2019-figure-5-23",
+        "simpson-2019-figure-5-25"
       ]
     },
     {
@@ -3579,19 +5509,29 @@ window.PLANT_TREE_DATA = {
       "children": [
         "juniperus",
         "sequoia"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-2",
+        "simpson-2019-figure-5-23"
       ]
     },
     {
       "id": "juniperus",
       "name": "Juniperus",
       "rank": "genus",
-      "source": "gymnosperms_2011"
+      "source": "gymnosperms_2011",
+      "figureIds": [
+        "simpson-2019-figure-5-23"
+      ]
     },
     {
       "id": "sequoia",
       "name": "Sequoia",
       "rank": "genus",
-      "source": "gymnosperms_2011"
+      "source": "gymnosperms_2011",
+      "figureIds": [
+        "simpson-2019-figure-5-23"
+      ]
     },
     {
       "id": "taxaceae",
@@ -3601,13 +5541,19 @@ window.PLANT_TREE_DATA = {
       "children": [
         "taxus",
         "cephalotaxus"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-5-25"
       ]
     },
     {
       "id": "taxus",
       "name": "Taxus",
       "rank": "genus",
-      "source": "gymnosperms_2011"
+      "source": "gymnosperms_2011",
+      "figureIds": [
+        "simpson-2019-figure-5-25"
+      ]
     },
     {
       "id": "cephalotaxus",
@@ -3628,6 +5574,29 @@ window.PLANT_TREE_DATA = {
         "monocots",
         "ceratophyllales",
         "eudicots"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-6-1",
+        "simpson-2019-figure-6-2",
+        "simpson-2019-figure-6-3",
+        "simpson-2019-figure-6-4",
+        "simpson-2019-figure-6-5",
+        "simpson-2019-figure-6-6",
+        "simpson-2019-figure-6-7",
+        "simpson-2019-figure-6-8",
+        "simpson-2019-figure-6-9",
+        "simpson-2019-figure-6-10",
+        "simpson-2019-figure-6-11",
+        "simpson-2019-figure-6-12",
+        "simpson-2019-figure-6-13",
+        "simpson-2019-figure-6-14",
+        "simpson-2019-figure-6-15",
+        "simpson-2019-figure-6-16",
+        "simpson-2019-figure-6-17",
+        "simpson-2019-figure-6-18",
+        "simpson-2019-figure-6-19",
+        "simpson-2019-figure-7-1",
+        "simpson-2019-figure-7-2"
       ]
     },
     {
@@ -3639,6 +5608,9 @@ window.PLANT_TREE_DATA = {
         "amborellales",
         "nymphaeales",
         "austrobaileyales"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-7-1"
       ]
     },
     {
@@ -3650,7 +5622,8 @@ window.PLANT_TREE_DATA = {
         "amborellaceae"
       ],
       "figureIds": [
-        "simpson-2019-figure-7-3"
+        "simpson-2019-figure-7-3",
+        "simpson-2019-figure-6-14"
       ]
     },
     {
@@ -3662,7 +5635,8 @@ window.PLANT_TREE_DATA = {
         "amborella"
       ],
       "figureIds": [
-        "simpson-2019-figure-7-3"
+        "simpson-2019-figure-7-3",
+        "simpson-2019-figure-6-14"
       ]
     },
     {
@@ -3671,7 +5645,8 @@ window.PLANT_TREE_DATA = {
       "rank": "genus",
       "source": "apg_iv",
       "figureIds": [
-        "simpson-2019-figure-7-3"
+        "simpson-2019-figure-7-3",
+        "simpson-2019-figure-6-14"
       ]
     },
     {
@@ -3686,7 +5661,9 @@ window.PLANT_TREE_DATA = {
       ],
       "figureIds": [
         "simpson-2019-figure-7-4",
-        "simpson-2019-figure-7-5"
+        "simpson-2019-figure-7-5",
+        "simpson-2019-figure-6-3",
+        "simpson-2019-figure-6-7"
       ]
     },
     {
@@ -3723,7 +5700,9 @@ window.PLANT_TREE_DATA = {
         "victoria"
       ],
       "figureIds": [
-        "simpson-2019-figure-7-5"
+        "simpson-2019-figure-7-5",
+        "simpson-2019-figure-6-3",
+        "simpson-2019-figure-6-7"
       ]
     },
     {
@@ -3732,7 +5711,9 @@ window.PLANT_TREE_DATA = {
       "rank": "genus",
       "source": "apg_iv",
       "figureIds": [
-        "simpson-2019-figure-7-5"
+        "simpson-2019-figure-7-5",
+        "simpson-2019-figure-6-3",
+        "simpson-2019-figure-6-7"
       ]
     },
     {
@@ -3756,14 +5737,19 @@ window.PLANT_TREE_DATA = {
       ],
       "figureIds": [
         "simpson-2019-figure-7-6",
-        "simpson-2019-figure-7-7"
+        "simpson-2019-figure-7-7",
+        "simpson-2019-figure-6-9",
+        "simpson-2019-figure-6-14"
       ]
     },
     {
       "id": "austrobaileyaceae",
       "name": "Austrobaileyaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "figureIds": [
+        "simpson-2019-figure-6-9"
+      ]
     },
     {
       "id": "schisandraceae",
@@ -3779,14 +5765,18 @@ window.PLANT_TREE_DATA = {
       ],
       "figureIds": [
         "simpson-2019-figure-7-6",
-        "simpson-2019-figure-7-7"
+        "simpson-2019-figure-7-7",
+        "simpson-2019-figure-6-14"
       ]
     },
     {
       "id": "schisandra",
       "name": "Schisandra",
       "rank": "genus",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "figureIds": [
+        "simpson-2019-figure-6-14"
+      ]
     },
     {
       "id": "illicium",
@@ -3829,6 +5819,9 @@ window.PLANT_TREE_DATA = {
         "piperales",
         "magnoliales",
         "laurales"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-7-1"
       ]
     },
     {
@@ -3933,7 +5926,8 @@ window.PLANT_TREE_DATA = {
       "figureIds": [
         "simpson-2019-figure-7-10",
         "simpson-2019-figure-7-11",
-        "simpson-2019-figure-7-12"
+        "simpson-2019-figure-7-12",
+        "simpson-2019-figure-6-17"
       ]
     },
     {
@@ -3986,7 +5980,8 @@ window.PLANT_TREE_DATA = {
       ],
       "figureIds": [
         "simpson-2019-figure-7-11",
-        "simpson-2019-figure-7-12"
+        "simpson-2019-figure-7-12",
+        "simpson-2019-figure-6-17"
       ]
     },
     {
@@ -4004,7 +5999,8 @@ window.PLANT_TREE_DATA = {
       "rank": "genus",
       "source": "apg_iv",
       "figureIds": [
-        "simpson-2019-figure-7-11"
+        "simpson-2019-figure-7-11",
+        "simpson-2019-figure-6-17"
       ]
     },
     {
@@ -4122,6 +6118,13 @@ window.PLANT_TREE_DATA = {
         "commelinales",
         "zingiberales",
         "poales"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-7-1",
+        "simpson-2019-figure-7-17",
+        "simpson-2019-figure-7-18",
+        "simpson-2019-figure-7-19",
+        "simpson-2019-figure-7-42"
       ]
     },
     {
@@ -4133,7 +6136,8 @@ window.PLANT_TREE_DATA = {
         "acoraceae"
       ],
       "figureIds": [
-        "simpson-2019-figure-7-20"
+        "simpson-2019-figure-7-20",
+        "simpson-2019-figure-7-17"
       ]
     },
     {
@@ -4170,7 +6174,8 @@ window.PLANT_TREE_DATA = {
         "simpson-2019-figure-7-21",
         "simpson-2019-figure-7-22",
         "simpson-2019-figure-7-23",
-        "simpson-2019-figure-7-24"
+        "simpson-2019-figure-7-24",
+        "simpson-2019-figure-7-17"
       ]
     },
     {
@@ -4283,6 +6288,9 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "children": [
         "petrosaviaceae"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-7-17"
       ]
     },
     {
@@ -4305,7 +6313,8 @@ window.PLANT_TREE_DATA = {
         "Dioscorales"
       ],
       "figureIds": [
-        "simpson-2019-figure-7-25"
+        "simpson-2019-figure-7-25",
+        "simpson-2019-figure-7-17"
       ]
     },
     {
@@ -4345,7 +6354,8 @@ window.PLANT_TREE_DATA = {
         "velloziaceae"
       ],
       "figureIds": [
-        "simpson-2019-figure-7-26"
+        "simpson-2019-figure-7-26",
+        "simpson-2019-figure-7-17"
       ]
     },
     {
@@ -4403,7 +6413,8 @@ window.PLANT_TREE_DATA = {
       ],
       "figureIds": [
         "simpson-2019-figure-7-27",
-        "simpson-2019-figure-7-28"
+        "simpson-2019-figure-7-28",
+        "simpson-2019-figure-7-17"
       ]
     },
     {
@@ -4518,7 +6529,8 @@ window.PLANT_TREE_DATA = {
         "simpson-2019-figure-7-38",
         "simpson-2019-figure-7-39",
         "simpson-2019-figure-7-40",
-        "simpson-2019-figure-7-41"
+        "simpson-2019-figure-7-41",
+        "simpson-2019-figure-7-17"
       ]
     },
     {
@@ -4707,7 +6719,9 @@ window.PLANT_TREE_DATA = {
       ],
       "figureIds": [
         "simpson-2019-figure-7-45",
-        "simpson-2019-figure-7-46"
+        "simpson-2019-figure-7-46",
+        "simpson-2019-figure-7-17",
+        "simpson-2019-figure-7-42"
       ]
     },
     {
@@ -4766,7 +6780,10 @@ window.PLANT_TREE_DATA = {
         "simpson-2019-figure-7-48",
         "simpson-2019-figure-7-49",
         "simpson-2019-figure-7-50",
-        "simpson-2019-figure-7-51"
+        "simpson-2019-figure-7-51",
+        "simpson-2019-figure-7-17",
+        "simpson-2019-figure-7-19",
+        "simpson-2019-figure-7-42"
       ]
     },
     {
@@ -4786,7 +6803,8 @@ window.PLANT_TREE_DATA = {
       "figureIds": [
         "simpson-2019-figure-7-43",
         "simpson-2019-figure-7-48",
-        "simpson-2019-figure-7-49"
+        "simpson-2019-figure-7-49",
+        "simpson-2019-figure-7-19"
       ]
     },
     {
@@ -4834,7 +6852,9 @@ window.PLANT_TREE_DATA = {
         "simpson-2019-figure-7-56",
         "simpson-2019-figure-7-58",
         "simpson-2019-figure-7-59",
-        "simpson-2019-figure-7-60"
+        "simpson-2019-figure-7-60",
+        "simpson-2019-figure-7-17",
+        "simpson-2019-figure-7-42"
       ]
     },
     {
@@ -4961,7 +6981,10 @@ window.PLANT_TREE_DATA = {
         "simpson-2019-figure-7-61",
         "simpson-2019-figure-7-62",
         "simpson-2019-figure-7-63",
-        "simpson-2019-figure-7-64"
+        "simpson-2019-figure-7-64",
+        "simpson-2019-figure-7-17",
+        "simpson-2019-figure-7-19",
+        "simpson-2019-figure-7-42"
       ]
     },
     {
@@ -5049,6 +7072,9 @@ window.PLANT_TREE_DATA = {
       "children": [
         "zea",
         "oryza"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-7-19"
       ]
     },
     {
@@ -5116,6 +7142,11 @@ window.PLANT_TREE_DATA = {
       "children": [
         "early-eudicots",
         "core-eudicots"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-7-1",
+        "simpson-2019-figure-8-1",
+        "simpson-2019-figure-8-2"
       ]
     },
     {
@@ -5226,7 +7257,8 @@ window.PLANT_TREE_DATA = {
       "rank": "genus",
       "source": "apg_iv",
       "figureIds": [
-        "simpson-2019-figure-8-5"
+        "simpson-2019-figure-8-5",
+        "simpson-2019-figure-6-6"
       ]
     },
     {
@@ -5347,6 +7379,9 @@ window.PLANT_TREE_DATA = {
         "dilleniales",
         "superrosids",
         "superasterids"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-8-1"
       ]
     },
     {
@@ -5407,6 +7442,9 @@ window.PLANT_TREE_DATA = {
         "saxifragales",
         "vitales",
         "rosids"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-8-1"
       ]
     },
     {
@@ -5576,6 +7614,11 @@ window.PLANT_TREE_DATA = {
         "zygophyllales",
         "fabids",
         "malvids"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-8-1",
+        "simpson-2019-figure-8-16",
+        "simpson-2019-figure-8-37"
       ]
     },
     {
@@ -5623,6 +7666,9 @@ window.PLANT_TREE_DATA = {
         "oxalidales",
         "malpighiales",
         "celastrales"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-8-16"
       ]
     },
     {
@@ -5720,7 +7766,8 @@ window.PLANT_TREE_DATA = {
         "simpson-2019-figure-8-36",
         "simpson-2019-figure-8-38",
         "simpson-2019-figure-8-39",
-        "simpson-2019-figure-8-40"
+        "simpson-2019-figure-8-40",
+        "simpson-2019-figure-8-37"
       ]
     },
     {
@@ -5733,7 +7780,10 @@ window.PLANT_TREE_DATA = {
       "id": "cannabaceae",
       "name": "Cannabaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "figureIds": [
+        "simpson-2019-figure-8-37"
+      ]
     },
     {
       "id": "dirachmaceae",
@@ -5757,7 +7807,8 @@ window.PLANT_TREE_DATA = {
         "morus"
       ],
       "figureIds": [
-        "simpson-2019-figure-8-38"
+        "simpson-2019-figure-8-38",
+        "simpson-2019-figure-8-37"
       ]
     },
     {
@@ -5826,7 +7877,8 @@ window.PLANT_TREE_DATA = {
       "rank": "family",
       "source": "apg_iv",
       "figureIds": [
-        "simpson-2019-figure-8-39"
+        "simpson-2019-figure-8-39",
+        "simpson-2019-figure-8-37"
       ]
     },
     {
@@ -5835,7 +7887,8 @@ window.PLANT_TREE_DATA = {
       "rank": "family",
       "source": "apg_iv",
       "figureIds": [
-        "simpson-2019-figure-8-40"
+        "simpson-2019-figure-8-40",
+        "simpson-2019-figure-8-37"
       ]
     },
     {
@@ -5856,7 +7909,8 @@ window.PLANT_TREE_DATA = {
         "simpson-2019-figure-8-44",
         "simpson-2019-figure-8-45",
         "simpson-2019-figure-8-46",
-        "simpson-2019-figure-8-47"
+        "simpson-2019-figure-8-47",
+        "simpson-2019-figure-6-17"
       ]
     },
     {
@@ -5911,7 +7965,8 @@ window.PLANT_TREE_DATA = {
         "fagus"
       ],
       "figureIds": [
-        "simpson-2019-figure-8-46"
+        "simpson-2019-figure-8-46",
+        "simpson-2019-figure-6-17"
       ]
     },
     {
@@ -5920,7 +7975,8 @@ window.PLANT_TREE_DATA = {
       "rank": "genus",
       "source": "apg_iv",
       "figureIds": [
-        "simpson-2019-figure-8-46"
+        "simpson-2019-figure-8-46",
+        "simpson-2019-figure-6-17"
       ]
     },
     {
@@ -5983,7 +8039,8 @@ window.PLANT_TREE_DATA = {
       "figureIds": [
         "simpson-2019-figure-8-41",
         "simpson-2019-figure-8-42",
-        "simpson-2019-figure-8-43"
+        "simpson-2019-figure-8-43",
+        "simpson-2019-figure-6-17"
       ]
     },
     {
@@ -6032,7 +8089,8 @@ window.PLANT_TREE_DATA = {
         "cucumis"
       ],
       "figureIds": [
-        "simpson-2019-figure-8-43"
+        "simpson-2019-figure-8-43",
+        "simpson-2019-figure-6-17"
       ]
     },
     {
@@ -6041,7 +8099,8 @@ window.PLANT_TREE_DATA = {
       "rank": "genus",
       "source": "apg_iv",
       "figureIds": [
-        "simpson-2019-figure-8-43"
+        "simpson-2019-figure-8-43",
+        "simpson-2019-figure-6-17"
       ]
     },
     {
@@ -6494,6 +8553,9 @@ window.PLANT_TREE_DATA = {
         "huerteales",
         "brassicales",
         "malvales"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-8-16"
       ]
     },
     {
@@ -6952,7 +9014,10 @@ window.PLANT_TREE_DATA = {
       "id": "arabidopsis",
       "name": "Arabidopsis",
       "rank": "genus",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "figureIds": [
+        "simpson-2019-figure-6-5"
+      ]
     },
     {
       "id": "capparaceae",
@@ -7195,6 +9260,9 @@ window.PLANT_TREE_DATA = {
         "santalales",
         "caryophyllales",
         "asterids"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-8-1"
       ]
     },
     {
@@ -7684,6 +9752,11 @@ window.PLANT_TREE_DATA = {
         "ericales",
         "lamiids",
         "campanulids"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-8-1",
+        "simpson-2019-figure-8-84",
+        "simpson-2019-figure-8-85"
       ]
     },
     {
@@ -8005,6 +10078,9 @@ window.PLANT_TREE_DATA = {
         "lamiales",
         "icacinales",
         "metteniusales"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-8-84"
       ]
     },
     {
@@ -8571,6 +10647,9 @@ window.PLANT_TREE_DATA = {
         "paracryphiales",
         "dipsacales",
         "apiales"
+      ],
+      "figureIds": [
+        "simpson-2019-figure-8-84"
       ]
     },
     {

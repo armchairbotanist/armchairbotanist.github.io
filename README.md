@@ -11,7 +11,7 @@ A static, GitHub Pages-friendly explorer for a source-cited plant clade tree.
 - Wikipedia overview text when available.
 - Research-grade iNaturalist photos when an exact order, family, genus, or explicit `photoTaxon` match is available.
 - Node-specific cited facts only.
-- Simpson 2019 Chapter 7 and Chapter 8 figure/caption blocks for the angiosperm orders and families covered by the local PDF excerpts.
+- Simpson 2019 Chapter 3 through Chapter 8 figure/caption blocks for covered plant clades, orders, families, and selected example genera.
 - Clickable figure thumbnails that open in a larger viewer.
 - Search-result clicks reveal and highlight the matched tree node.
 
@@ -55,7 +55,7 @@ The structural tree currently uses:
 
 The fact pane can also use Wikipedia summaries, iNaturalist photos, and explicitly cited node-specific facts from sources listed in `plant-tree-data.js`. These enrich the page but do not define the tree structure.
 
-The Simpson 2019 PDF excerpts are represented as local images in `assets/simpson-2019/ch7/` and `assets/simpson-2019/ch8/` plus caption metadata in the top-level `figures` catalog. APG IV name changes are handled with explicit `searchAliases`, for example `Illiciaceae` mapping to APG IV `Schisandraceae`, `Agavaceae` and `Themidaceae` mapping to `Asparagaceae`, `Myrsinaceae` mapping to `Primulaceae`, and `Dipsacaceae`/`Valerianaceae` mapping to `Caprifoliaceae`.
+The Simpson 2019 PDF excerpts are represented as local images in `assets/simpson-2019/ch3/` through `assets/simpson-2019/ch8/` plus caption metadata in the top-level `figures` catalog. APG IV name changes are handled with explicit `searchAliases`, for example `Illiciaceae` mapping to APG IV `Schisandraceae`, `Agavaceae` and `Themidaceae` mapping to `Asparagaceae`, `Myrsinaceae` mapping to `Primulaceae`, and `Dipsacaceae`/`Valerianaceae` mapping to `Caprifoliaceae`.
 
 ## Fact Pane Rules
 
@@ -141,4 +141,4 @@ https://armchairbotanist.github.io/
 - `js/` contains the modular browser code.
 - `app.js` starts the app.
 
-Current visible site version: `2.00`.
+Current visible site version: `2.02`.
