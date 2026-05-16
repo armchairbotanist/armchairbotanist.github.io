@@ -1,5 +1,5 @@
 window.PLANT_TREE_DATA = {
-  "siteVersion": "1.01",
+  "siteVersion": "2.00",
   "version": "2026-05-16-simpson-ch8-figures",
   "rootId": "land-plants",
   "sources": {

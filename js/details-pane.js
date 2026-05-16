@@ -36,7 +36,7 @@
   }
 
   function storageKey(mode) {
-    const version = window.PLANT_TREE_DATA?.siteVersion || "1.01";
+    const version = window.PLANT_TREE_DATA?.siteVersion || "2.00";
     return `armchair-botanist:${version}:details-pane:${mode}`;
   }
 
@@ -127,12 +127,16 @@
     };
 
     event.preventDefault();
-    els.detailsResizeHandle.setPointerCapture?.(event.pointerId);
+    try {
+      els.detailsResizeHandle.setPointerCapture?.(event.pointerId);
+    } catch (_error) {
+      // Window-level listeners keep dragging reliable even if capture is unavailable.
+    }
     els.detailsPanel.classList.add("is-resizing");
     document.body.classList.add("is-resizing-details");
-    els.detailsResizeHandle.addEventListener("pointermove", dragDetailsResize);
-    els.detailsResizeHandle.addEventListener("pointerup", stopDetailsResize);
-    els.detailsResizeHandle.addEventListener("pointercancel", stopDetailsResize);
+    window.addEventListener("pointermove", dragDetailsResize);
+    window.addEventListener("pointerup", stopDetailsResize);
+    window.addEventListener("pointercancel", stopDetailsResize);
   }
 
   function dragDetailsResize(event) {
@@ -149,10 +153,14 @@
 
     const mode = resizeDrag.mode;
     resizeDrag = null;
-    els.detailsResizeHandle.releasePointerCapture?.(event.pointerId);
-    els.detailsResizeHandle.removeEventListener("pointermove", dragDetailsResize);
-    els.detailsResizeHandle.removeEventListener("pointerup", stopDetailsResize);
-    els.detailsResizeHandle.removeEventListener("pointercancel", stopDetailsResize);
+    try {
+      els.detailsResizeHandle.releasePointerCapture?.(event.pointerId);
+    } catch (_error) {
+      // The pointer may already be released by the browser.
+    }
+    window.removeEventListener("pointermove", dragDetailsResize);
+    window.removeEventListener("pointerup", stopDetailsResize);
+    window.removeEventListener("pointercancel", stopDetailsResize);
     els.detailsPanel.classList.remove("is-resizing");
     document.body.classList.remove("is-resizing-details");
     setDetailsSize(mode, getCurrentPaneSize(mode), true);
@@ -188,7 +196,7 @@
   function renderSiteFooter(data) {
     if (!els.siteFooter) return;
     const year = new Date().getFullYear();
-    const version = data?.siteVersion || "1.01";
+    const version = data?.siteVersion || "2.00";
     els.siteFooter.textContent = `Copyright © ${year} Armchair Botanist · Version ${version}`;
   }
 

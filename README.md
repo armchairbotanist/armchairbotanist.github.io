@@ -7,6 +7,7 @@ A static, GitHub Pages-friendly explorer for a source-cited plant clade tree.
 - Expandable left-to-right plant tree.
 - Search across clades, orders, families, curated example genera, and broader taxon lookups for typed genus/species names.
 - Persistent right-side fact pane that updates only when a node's `i` button is clicked.
+- Resizable fact pane: drag the divider left/right on desktop or up/down on phone-sized layouts.
 - Wikipedia overview text when available.
 - Research-grade iNaturalist photos when an exact order, family, genus, or explicit `photoTaxon` match is available.
 - Node-specific cited facts only.
@@ -138,4 +139,4 @@ https://armchairbotanist.github.io/
 - `js/` contains the modular browser code.
 - `app.js` starts the app.
 
-Current visible site version: `1.01`.
+Current visible site version: `2.00`.
