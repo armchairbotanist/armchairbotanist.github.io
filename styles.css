@@ -163,6 +163,25 @@ main {
   transform: translateY(-1px);
 }
 
+.node.is-search-highlight {
+  box-shadow: 0 0 0 4px rgba(255, 245, 174, 0.96), 0 0 0 8px rgba(76, 114, 61, 0.22), 3px 5px 11px rgba(41, 44, 27, 0.32);
+  animation: search-highlight-pulse 900ms ease-out 1;
+}
+
+@keyframes search-highlight-pulse {
+  0% {
+    transform: scale(0.96);
+  }
+
+  55% {
+    transform: scale(1.04);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
 .node-main {
   display: grid;
   gap: 2px;
@@ -360,9 +379,8 @@ main {
   line-height: 1.35;
 }
 
-.source-figure figcaption strong {
-  display: inline;
-  font-weight: 900;
+.figure-caption-text {
+  margin: 0;
 }
 
 .source-figure ul {

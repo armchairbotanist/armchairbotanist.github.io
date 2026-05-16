@@ -10,6 +10,9 @@ A static, GitHub Pages-friendly explorer for a source-cited plant clade tree.
 - Wikipedia overview text when available.
 - Research-grade iNaturalist photos when an exact order, family, genus, or explicit `photoTaxon` match is available.
 - Node-specific cited facts only.
+- Simpson 2019 Chapter 7 and Chapter 8 figure/caption blocks for the angiosperm orders and families covered by the local PDF excerpts.
+- Clickable figure thumbnails that open in a larger viewer.
+- Search-result clicks reveal and highlight the matched tree node.
 
 ## Data
 
@@ -23,7 +26,7 @@ Each node can include:
 - `source`
 - optional `description`
 - optional node-specific `facts`
-- optional source figure blocks with extracted images and panel notes
+- optional `figureIds` pointing to source figure blocks in the top-level `figures` catalog
 - optional explicit `photoTaxon`
 - optional `searchAliases` for source-name mismatches
 - optional `children`
@@ -51,6 +54,8 @@ The structural tree currently uses:
 
 The fact pane can also use Wikipedia summaries, iNaturalist photos, and explicitly cited node-specific facts from sources listed in `plant-tree-data.js`. These enrich the page but do not define the tree structure.
 
+The Simpson 2019 PDF excerpts are represented as local images in `assets/simpson-2019/ch7/` and `assets/simpson-2019/ch8/` plus caption metadata in the top-level `figures` catalog. APG IV name changes are handled with explicit `searchAliases`, for example `Illiciaceae` mapping to APG IV `Schisandraceae`, `Agavaceae` and `Themidaceae` mapping to `Asparagaceae`, `Myrsinaceae` mapping to `Primulaceae`, and `Dipsacaceae`/`Valerianaceae` mapping to `Caprifoliaceae`.
+
 ## Fact Pane Rules
 
 The fact pane should show:
@@ -60,6 +65,7 @@ The fact pane should show:
 - tree path
 - overview text
 - optional curated node-specific facts
+- optional source figures and extracted captions
 - optional photos
 - sources at the bottom
 
@@ -82,6 +88,15 @@ The fact pane should make displayed enrichment easy to verify:
 - Wikipedia overview text links to its Wikipedia page.
 - Photo thumbnails link to their iNaturalist observation pages.
 - Curated facts link to their source pages.
+- Simpson figure captions cite the local Simpson 2019 source record.
+
+## Code Layout
+
+- `app.js` is the small startup file.
+- `js/core.js` holds shared state, DOM references, and utilities.
+- `js/tree-view.js` renders the expandable tree and SVG edges.
+- `js/details-pane.js` renders the fact pane, enrichment, source figures, and image viewer.
+- `js/search.js` handles local and taxon-backed search.
 
 ## Local Preview
 
@@ -120,4 +135,7 @@ https://armchairbotanist.github.io/
 - `styles.css` contains the visual design.
 - `plant-tree-data.js` contains the source-cited tree data.
 - `assets/` contains local image assets used by source figure blocks.
-- `app.js` renders and searches the tree.
+- `js/` contains the modular browser code.
+- `app.js` starts the app.
+
+Current visible site version: `1.01`.
