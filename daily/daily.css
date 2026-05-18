@@ -75,6 +75,16 @@
   color: #fff8ec;
 }
 
+.game-actions button:first-child:hover:not(:disabled),
+.game-actions button:first-child:focus:not(:disabled),
+.game-actions button:first-child:active:not(:disabled) {
+  border-color: var(--root-border);
+  background: var(--root);
+  color: #fff8ec;
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(255, 253, 240, 0.66);
+}
+
 .game-actions button:disabled {
   cursor: default;
   opacity: 0.48;
@@ -112,8 +122,8 @@
     top: 10px;
     left: 10px;
     width: calc(100vw - 20px);
-    max-height: 112px;
-    padding: 6px;
+    max-height: 130px;
+    padding: 8px;
   }
 
   .challenge-row {
@@ -123,7 +133,7 @@
   }
 
   .daily-game-panel h1 {
-    font-size: 1rem;
+    font-size: 1.18rem;
   }
 
   .selected-card {
@@ -133,7 +143,7 @@
 
   .selected-card strong {
     text-align: right;
-    font-size: 0.86rem;
+    font-size: 1rem;
   }
 
   .game-actions {
@@ -145,15 +155,15 @@
   }
 
   .game-actions button {
-    min-height: 26px;
-    padding: 4px 6px;
-    font-size: 0.76rem;
+    min-height: 32px;
+    padding: 5px 7px;
+    font-size: 0.9rem;
   }
 
   .feedback-box {
     margin-top: 5px;
     padding-top: 5px;
-    font-size: 0.76rem;
+    font-size: 0.82rem;
     line-height: 1.22;
   }
 }
