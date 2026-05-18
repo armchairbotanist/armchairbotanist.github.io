@@ -1,6 +1,12 @@
 (function () {
+  const scriptUrl = document.currentScript?.src || "";
+  const appBaseUrl = scriptUrl
+    ? new URL("../", scriptUrl).toString()
+    : new URL("./", window.location.href).toString();
+
   window.AB_CONFIG = {
-    fallbackSiteVersion: "2.03",
+    fallbackSiteVersion: "2.17",
+    appBaseUrl,
     storagePrefix: "armchair-botanist",
 
     media: {
@@ -9,20 +15,20 @@
 
     detailsPane: {
       desktop: {
-        minPx: 340,
+        minPx: 220,
         maxPx: 760,
         minTreePx: 260,
-        compactMinPx: 300,
+        compactMinPx: 220,
         compactTreePx: 280,
         keyboardStepPx: 24,
         keyboardLargeStepPx: 48
       },
       mobile: {
-        minPx: 210,
+        minPx: 128,
         maxTreePx: 130,
-        minRatio: 0.32,
+        minRatio: 0.18,
         maxRatio: 0.72,
-        compactMaxPx: 300,
+        compactMaxPx: 180,
         keyboardStepPx: 24,
         keyboardLargeStepPx: 48
       }

@@ -180,17 +180,27 @@
       this.state.searchHighlightId = null;
       if (!this.getChildren(nodeId).length) {
         this.render();
+        this.afterNodeMainClick(node);
         return;
       }
 
       if (this.state.expanded.has(nodeId)) {
         this.collapseSubtree(nodeId);
         this.render();
+        this.afterNodeMainClick(node);
       } else {
         this.state.expanded.add(nodeId);
         this.render();
+        this.afterNodeMainClick(node);
         this.scrollExpandedChildrenIntoView(nodeId);
       }
+    }
+
+    /**
+     * Lets page-specific experiences react to node-body clicks without forking tree rendering.
+     */
+    afterNodeMainClick(node) {
+      if (typeof this.onNodeMainClick === "function") this.onNodeMainClick(node);
     }
 
     /**

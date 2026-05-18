@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Guess the family for a common plant in the Armchair Botanist tree.">
+    <title>Armchair Botanist Daily Game</title>
+    <link rel="stylesheet" href="../styles.css?v=20260517-v2.17-feedback-casing-1">
+    <link rel="stylesheet" href="./daily.css?v=20260517-v2.17-feedback-casing-1">
+  </head>
+  <body class="daily-page details-pane-hidden">
+    <main class="app-shell">
+      <section class="tree-pane" aria-label="Daily game plant tree">
+        <div id="treeViewport" class="tree-viewport">
+          <div id="tree" class="tree" role="tree" aria-label="Guess the plant family"></div>
+        </div>
+      </section>
+
+      <aside id="detailsPanel" class="details-panel" aria-live="polite" aria-label="Taxon details">
+        <div
+          id="detailsResizeHandle"
+          class="details-resize-handle"
+          role="separator"
+          aria-controls="detailsContent"
+          aria-label="Resize details pane"
+          tabindex="0"
+        ></div>
+        <div id="detailsContent"></div>
+      </aside>
+    </main>
+
+    <section class="daily-game-panel" aria-label="Guess the plant family" aria-live="polite">
+      <div class="challenge-row">
+        <div class="challenge-prompt">
+          <h1 id="plantPrompt">Loading...</h1>
+        </div>
+
+        <div class="selected-card" aria-label="Selected family">
+          <strong id="selectedFamily">Pick family</strong>
+        </div>
+
+        <div class="game-actions">
+          <button id="submitGuess" type="button" disabled>Guess</button>
+          <button id="hintButton" type="button">Hint</button>
+          <button id="newRandomButton" type="button" aria-label="New random plant">Random</button>
+        </div>
+      </div>
+
+      <div id="hintBox" class="feedback-box" hidden></div>
+      <div id="feedbackBox" class="feedback-box result-box" hidden></div>
+    </section>
+
+    <footer id="siteFooter" class="site-footer" aria-label="Site copyright"></footer>
+
+    <div id="imageViewer" class="image-viewer" role="dialog" aria-modal="true" aria-label="Expanded image" hidden>
+      <button id="imageViewerClose" class="image-viewer-close" type="button" aria-label="Close image">×</button>
+      <figure class="image-viewer-figure">
+        <img id="imageViewerImg" alt="">
+        <figcaption id="imageViewerCaption"></figcaption>
+      </figure>
+    </div>
+
+    <template id="nodeTemplate">
+      <li class="tree-item" role="treeitem">
+        <div class="node">
+          <button class="node-main" type="button">
+            <span class="node-text">
+              <span class="node-name"></span>
+              <span class="node-meta"></span>
+            </span>
+          </button>
+          <button class="info-button" type="button" aria-label="Show more details">i</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="../plant-tree-data.js?v=20260517-v2.17-feedback-casing-1"></script>
+    <script src="../js/config.js?v=20260517-v2.17-feedback-casing-1"></script>
+    <script src="../js/core.js?v=20260517-v2.17-feedback-casing-1"></script>
+    <script src="../js/tree-view.js?v=20260517-v2.17-feedback-casing-1"></script>
+    <script src="../js/details-pane.js?v=20260517-v2.17-feedback-casing-1"></script>
+    <script src="./daily-plants.js?v=20260517-v2.17-feedback-casing-1"></script>
+    <script src="./daily.js?v=20260517-v2.17-feedback-casing-1"></script>
+  </body>
+</html>

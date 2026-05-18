@@ -46,7 +46,7 @@ main {
 
 .app-shell {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(340px, var(--details-pane-width));
+  grid-template-columns: minmax(0, 1fr) minmax(220px, var(--details-pane-width));
   height: 100vh;
   min-height: 100vh;
   overflow: hidden;
@@ -554,12 +554,22 @@ body.is-resizing-details {
   box-shadow: var(--shadow);
 }
 
-.search-panel {
+.top-controls {
   position: fixed;
   top: 18px;
   left: 18px;
   z-index: 24;
-  width: min(360px, calc(100vw - 36px));
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: min(412px, calc(100vw - 36px));
+}
+
+.search-panel {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 360px;
   margin: 0;
   padding: 0;
   background: transparent;
@@ -568,6 +578,7 @@ body.is-resizing-details {
 .search-field {
   display: flex;
   align-items: center;
+  height: 38px;
   border: 1px solid rgba(77, 70, 46, 0.28);
   border-radius: 4px;
   background: rgba(255, 253, 240, 0.94);
@@ -577,6 +588,7 @@ body.is-resizing-details {
 
 .search-field input {
   width: 100%;
+  height: 100%;
   min-width: 0;
   border: 0;
   outline: 0;
@@ -588,7 +600,7 @@ body.is-resizing-details {
 
 .search-field button {
   width: 32px;
-  height: 32px;
+  height: 100%;
   border: 0;
   background: transparent;
   color: #554a31;
@@ -616,6 +628,31 @@ body.is-resizing-details {
 
 .search-results.is-open {
   display: block;
+}
+
+.daily-game-link {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(77, 70, 46, 0.34);
+  border-radius: 4px;
+  background: rgba(255, 253, 240, 0.94);
+  color: #46240b;
+  box-shadow: 2px 3px 6px rgba(41, 44, 27, 0.12);
+  font-size: 1.05rem;
+  font-weight: 900;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.daily-game-link:hover,
+.daily-game-link:focus {
+  background: #fffdf0;
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.72), 2px 3px 6px rgba(41, 44, 27, 0.16);
 }
 
 .search-result {
@@ -754,10 +791,20 @@ body.is-resizing-details {
     cursor: ns-resize;
   }
 
-  .search-panel {
+  .top-controls {
     top: 10px;
     left: 10px;
-    width: min(330px, calc(100vw - 20px));
+    width: min(380px, calc(100vw - 20px));
+  }
+
+  .daily-game-link {
+    width: 34px;
+    height: 34px;
+    font-size: 0.98rem;
+  }
+
+  .search-field {
+    height: 34px;
   }
 
   .site-footer {

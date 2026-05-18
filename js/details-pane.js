@@ -292,6 +292,8 @@
     async refreshDetails(nodeId) {
       const node = this.state.byId.get(nodeId);
       if (!node) return;
+      document.body.classList.remove("details-pane-hidden");
+      this.scheduleTreeRefresh();
       this.renderDetails(node);
 
       try {
@@ -358,10 +360,11 @@
         <section class="details-section figure-section">
           ${figures.map((figure) => {
             const source = window.PLANT_TREE_DATA.sources[figure.source];
+            const imageSrc = this.utils.resolveAssetUrl(figure.image);
             return `
               <figure class="source-figure">
                 <button class="figure-image-button" type="button" aria-label="Open larger image: ${this.utils.escapeHtml(figure.caption || node.name)}">
-                  <img src="${this.utils.escapeHtml(figure.image)}" alt="${this.utils.escapeHtml(figure.alt || figure.caption || node.name)}" loading="lazy">
+                  <img src="${this.utils.escapeHtml(imageSrc)}" alt="${this.utils.escapeHtml(figure.alt || figure.caption || node.name)}" loading="lazy">
                 </button>
                 <figcaption>
                   <p class="figure-caption-text">

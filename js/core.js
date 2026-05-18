@@ -132,6 +132,18 @@
   }
 
   /**
+   * Resolves project-relative asset paths from shared data against the app root.
+   * This keeps figure URLs correct from nested pages such as /daily/.
+   */
+  function resolveAssetUrl(value) {
+    const raw = String(value || "").trim();
+    if (!raw) return "";
+    if (/^(?:[a-z][a-z0-9+.-]*:|\/\/|#)/i.test(raw)) return raw;
+    if (raw.startsWith("/")) return raw;
+    return new URL(raw, config.appBaseUrl || new URL("./", window.location.href)).toString();
+  }
+
+  /**
    * Escapes text before it is inserted into an HTML string.
    */
   function escapeHtml(value) {
@@ -157,6 +169,7 @@
       leftCenter,
       formatCount,
       capitalize,
+      resolveAssetUrl,
       escapeHtml
     }
   };
