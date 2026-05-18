@@ -2,19 +2,6 @@
   padding-top: clamp(128px, 12vw, 170px);
 }
 
-.daily-page.details-pane-hidden .app-shell {
-  grid-template-columns: 1fr;
-}
-
-.daily-page.details-pane-hidden .details-panel {
-  display: none;
-}
-
-.daily-page.details-pane-hidden .site-footer {
-  right: 22px;
-  max-width: min(360px, calc(100vw - 70px));
-}
-
 .daily-game-panel {
   position: fixed;
   top: 18px;
@@ -117,10 +104,6 @@
 }
 
 @media (max-width: 760px) {
-  .daily-page.details-pane-hidden .app-shell {
-    grid-template-rows: 1fr;
-  }
-
   .daily-page .tree-viewport {
     padding-top: 116px;
   }
