@@ -20,14 +20,6 @@
 assets/amborellales/
 assets/amborellales/**
 
-# Extracted broad chapter figures that are not attached to order/family panes yet.
-assets/simpson-2019/ch7/figure-7-1.jpg
-assets/simpson-2019/ch7/figure-7-2.jpg
-assets/simpson-2019/ch7/figure-7-17.jpg
-assets/simpson-2019/ch7/figure-7-18.jpg
-assets/simpson-2019/ch7/figure-7-19.jpg
-assets/simpson-2019/ch7/figure-7-42.jpg
-
 # Keep local macOS metadata on disk, but do not publish it.
 .DS_Store
 **/.DS_Store

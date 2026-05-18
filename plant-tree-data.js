@@ -1,5 +1,5 @@
 window.PLANT_TREE_DATA = {
-  "siteVersion": "2.02",
+  "siteVersion": "2.03",
   "version": "2026-05-16-simpson-ch3-6-figures",
   "rootId": "land-plants",
   "sources": {
