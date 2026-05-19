@@ -5,7 +5,8 @@
     selectedFamilyId: null,
     target: null,
     mode: "daily",
-    hintLevel: 0
+    hintLevel: 0,
+    answered: false
   };
 
   const els = {
@@ -62,10 +63,33 @@
   }
 
   /**
-   * Returns a non-deterministic plant index for random mode reloads.
+   * Returns a weighted random plant index, favoring plants missed in random mode.
    */
   function randomIndex() {
-    return Math.floor(Math.random() * plants.length);
+    const stats = readRandomStats();
+    const weights = plants.map((plant) => randomPlantWeight(plant, stats[plantKey(plant)]));
+    const total = weights.reduce((sum, weight) => sum + weight, 0);
+    let pick = Math.random() * total;
+
+    for (let index = 0; index < weights.length; index += 1) {
+      pick -= weights[index];
+      if (pick <= 0) return index;
+    }
+
+    return plants.length - 1;
+  }
+
+  /**
+   * Calculates how likely a plant is to appear in random mode.
+   * Misses raise the weight; later correct answers gradually pull it back down.
+   */
+  function randomPlantWeight(plant, stats = {}) {
+    const misses = Number(stats.misses || 0);
+    const corrects = Number(stats.corrects || 0);
+    const missWeight = app.config.dailyGame?.randomMissWeight ?? 3;
+    const recovery = app.config.dailyGame?.randomCorrectRecovery ?? 1;
+    const weakScore = Math.max(0, misses - corrects * recovery);
+    return 1 + weakScore * missWeight;
   }
 
   /**
@@ -86,6 +110,7 @@
     const targetFamily = app.state.byId.get(game.target.targetFamilyId);
     els.plantPrompt.textContent = displayPlantName(game.target.commonName);
     game.selectedFamilyId = null;
+    game.answered = false;
     els.selectedFamily.textContent = "Pick family";
     els.submitGuess.disabled = true;
     els.hintBox.hidden = true;
@@ -108,6 +133,7 @@
    */
   function handleTreeNodeClick(node) {
     if (node.rank !== "family") return;
+    if (game.answered) return;
 
     game.selectedFamilyId = node.id;
     app.state.searchHighlightId = node.id;
@@ -138,7 +164,7 @@
    * Scores the selected family and reveals the correct family in the shared tree.
    */
   function submitGuess() {
-    if (!game.selectedFamilyId) return;
+    if (!game.selectedFamilyId || game.answered) return;
 
     const selected = app.state.byId.get(game.selectedFamilyId);
     const target = app.state.byId.get(game.target.targetFamilyId);
@@ -155,8 +181,74 @@
       ? `<strong>Correct.</strong> ${escapeHtml(plantName)} is in ${escapeHtml(target.name)}.<br>${escapeHtml(formatPath(targetPath))}`
       : `<strong>Not quite.</strong> You chose ${escapeHtml(selected.name)}. Closest shared branch: ${escapeHtml(commonAncestor.name)}.<br>Answer: ${escapeHtml(formatPath(targetPath))}`;
 
+    game.answered = true;
+    els.submitGuess.disabled = true;
+    recordRandomResult(isCorrect);
     app.tree.revealNode(target.id, { highlight: true });
     app.details.refreshDetails(target.id);
+  }
+
+  /**
+   * Records one random-mode result so future random prompts favor weak plants.
+   */
+  function recordRandomResult(isCorrect) {
+    if (game.mode !== "random") return;
+
+    const key = plantKey(game.target);
+    const stats = readRandomStats();
+    const entry = stats[key] || {
+      commonName: game.target.commonName,
+      targetFamilyId: game.target.targetFamilyId,
+      attempts: 0,
+      misses: 0,
+      corrects: 0
+    };
+
+    entry.attempts += 1;
+    entry.corrects += isCorrect ? 1 : 0;
+    entry.misses += isCorrect ? 0 : 1;
+    entry.lastResult = isCorrect ? "correct" : "miss";
+    entry.updatedAt = new Date().toISOString();
+    stats[key] = entry;
+    writeRandomStats(stats);
+  }
+
+  /**
+   * Builds a stable key for a daily-game plant.
+   */
+  function plantKey(plant) {
+    return app.utils.normalizeSearch(plant.commonName || plant.scientificName || plant.targetFamilyId);
+  }
+
+  /**
+   * Returns the version-scoped storage key for random-mode performance.
+   */
+  function randomStatsStorageKey() {
+    const version = window.PLANT_TREE_DATA?.siteVersion || app.config.fallbackSiteVersion || "unknown";
+    return `${app.config.storagePrefix}:${version}:daily-random-performance`;
+  }
+
+  /**
+   * Reads random-mode performance data, tolerating unavailable or stale storage.
+   */
+  function readRandomStats() {
+    try {
+      const parsed = JSON.parse(window.localStorage.getItem(randomStatsStorageKey()) || "{}");
+      return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed : {};
+    } catch (_error) {
+      return {};
+    }
+  }
+
+  /**
+   * Persists random-mode performance data when browser storage is available.
+   */
+  function writeRandomStats(stats) {
+    try {
+      window.localStorage.setItem(randomStatsStorageKey(), JSON.stringify(stats));
+    } catch (_error) {
+      // Private browsing or storage limits should not block the game.
+    }
   }
 
   /**

@@ -143,4 +143,4 @@ https://armchairbotanist.github.io/
 - `js/` contains the modular browser code.
 - `app.js` starts the app.
 
-Current visible site version: `2.19`.
+Current visible site version: `2.20`.
