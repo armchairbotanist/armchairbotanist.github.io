@@ -5,7 +5,7 @@
     : new URL("./", window.location.href).toString();
 
   window.AB_CONFIG = {
-    fallbackSiteVersion: "2.20",
+    fallbackSiteVersion: "2.21",
     appBaseUrl,
     storagePrefix: "armchair-botanist",
 
@@ -41,11 +41,6 @@
       plantAncestorTaxonId: 47126,
       taxonAutocompleteLimit: 8,
       ancestorLimit: 12
-    },
-
-    dailyGame: {
-      randomMissWeight: 3,
-      randomCorrectRecovery: 1
     },
 
     photos: {

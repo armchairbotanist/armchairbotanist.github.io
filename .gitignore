@@ -12,8 +12,8 @@
 !app.js
 !js/
 !js/**
-!daily/
-!daily/**
+!game/
+!game/**
 !plant-tree-data.js
 !assets/
 !assets/**

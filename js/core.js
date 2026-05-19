@@ -133,7 +133,7 @@
 
   /**
    * Resolves project-relative asset paths from shared data against the app root.
-   * This keeps figure URLs correct from nested pages such as /daily/.
+   * This keeps figure URLs correct from nested pages such as /game/.
    */
   function resolveAssetUrl(value) {
     const raw = String(value || "").trim();

@@ -1,8 +1,8 @@
-.daily-page .tree-viewport {
+.game-page .tree-viewport {
   padding-top: clamp(128px, 12vw, 170px);
 }
 
-.daily-game-panel {
+.game-panel {
   position: fixed;
   top: 18px;
   left: 18px;
@@ -29,7 +29,7 @@
   min-width: 0;
 }
 
-.daily-game-panel h1 {
+.game-panel h1 {
   margin: 0;
   overflow-wrap: anywhere;
   font-size: clamp(1.1rem, 2.4vw, 1.45rem);
@@ -51,6 +51,15 @@
   line-height: 1.15;
 }
 
+.progress-label {
+  display: block;
+  margin-top: 2px;
+  color: rgba(70, 36, 11, 0.72);
+  font-size: 0.74rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
 .game-actions {
   display: flex;
   flex: 0 0 auto;
@@ -58,7 +67,8 @@
   margin-left: auto;
 }
 
-.game-actions button {
+.game-actions button,
+.level-control select {
   min-height: 28px;
   border: 1px solid rgba(77, 70, 46, 0.32);
   border-radius: 4px;
@@ -70,14 +80,23 @@
   line-height: 1;
 }
 
-.game-actions button:first-child {
+.level-control {
+  display: flex;
+}
+
+.level-control select {
+  min-width: 78px;
+  appearance: auto;
+}
+
+.game-actions button:first-of-type {
   background: var(--root);
   color: #fff8ec;
 }
 
-.game-actions button:first-child:hover:not(:disabled),
-.game-actions button:first-child:focus:not(:disabled),
-.game-actions button:first-child:active:not(:disabled) {
+.game-actions button:first-of-type:hover:not(:disabled),
+.game-actions button:first-of-type:focus:not(:disabled),
+.game-actions button:first-of-type:active:not(:disabled) {
   border-color: var(--root-border);
   background: var(--root);
   color: #fff8ec;
@@ -91,7 +110,9 @@
 }
 
 .game-actions button:hover:not(:disabled),
-.game-actions button:focus:not(:disabled) {
+.game-actions button:focus:not(:disabled),
+.level-control select:hover,
+.level-control select:focus {
   background: #fffdf0;
   outline: 0;
 }
@@ -114,11 +135,11 @@
 }
 
 @media (max-width: 760px) {
-  .daily-page .tree-viewport {
+  .game-page .tree-viewport {
     padding-top: 116px;
   }
 
-  .daily-game-panel {
+  .game-panel {
     top: 10px;
     left: 10px;
     width: calc(100vw - 20px);
@@ -132,7 +153,7 @@
     gap: 5px 7px;
   }
 
-  .daily-game-panel h1 {
+  .game-panel h1 {
     font-size: 1.18rem;
   }
 
@@ -146,18 +167,29 @@
     font-size: 1rem;
   }
 
+  .progress-label {
+    text-align: right;
+    font-size: 0.78rem;
+  }
+
   .game-actions {
     display: grid;
     grid-column: 1 / -1;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 5px;
     margin-left: 0;
   }
 
-  .game-actions button {
+  .game-actions button,
+  .level-control select {
+    width: 100%;
     min-height: 32px;
-    padding: 5px 7px;
+    padding: 5px 6px;
     font-size: 0.9rem;
+  }
+
+  .level-control select {
+    min-width: 0;
   }
 
   .feedback-box {

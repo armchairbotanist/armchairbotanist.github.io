@@ -14,7 +14,7 @@ A static, GitHub Pages-friendly explorer for a source-cited plant clade tree.
 - Simpson 2019 Chapter 3 through Chapter 8 figure/caption blocks for covered plant clades, orders, families, and selected example genera.
 - Clickable figure thumbnails that open in a larger viewer.
 - Search-result clicks reveal and highlight the matched tree node.
-- Daily and random phylogeny guessing game at `/daily/`.
+- Level-based plant family guessing game at `/game/`: choose a level, then move through that level's common plants one by one.
 
 ## Data
 
@@ -100,6 +100,7 @@ The fact pane should make displayed enrichment easy to verify:
 - `js/tree-view.js` defines the `TreeView` class for the expandable tree and SVG edges.
 - `js/details-pane.js` defines the `DetailsPane` class for the fact pane, enrichment, source figures, image viewer, and pane resizing.
 - `js/search.js` defines the `SearchController` class for local and taxon-backed search.
+- `game/plant-game-data.js` defines the common-plant levels used by the guessing game.
 - Design colors live as CSS custom properties at the top of `styles.css`.
 
 ## Local Preview
@@ -138,9 +139,9 @@ https://armchairbotanist.github.io/
 - `index.html` contains the page structure.
 - `styles.css` contains the visual design.
 - `plant-tree-data.js` contains the source-cited tree data.
-- `daily/` contains the family-level plant guessing game.
+- `game/` contains the level-based family guessing game.
 - `assets/` contains local image assets used by source figure blocks.
 - `js/` contains the modular browser code.
 - `app.js` starts the app.
 
-Current visible site version: `2.20`.
+Current visible site version: `2.21`.

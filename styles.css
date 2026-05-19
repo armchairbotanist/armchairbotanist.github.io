@@ -638,7 +638,7 @@ body.is-resizing-details {
   display: block;
 }
 
-.daily-game-link {
+.game-link {
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
@@ -656,8 +656,8 @@ body.is-resizing-details {
   text-decoration: none;
 }
 
-.daily-game-link:hover,
-.daily-game-link:focus {
+.game-link:hover,
+.game-link:focus {
   background: #fffdf0;
   outline: 0;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.72), 2px 3px 6px rgba(41, 44, 27, 0.16);
@@ -814,7 +814,7 @@ body.is-resizing-details {
     width: min(380px, calc(100vw - 20px));
   }
 
-  .daily-game-link {
+  .game-link {
     width: 34px;
     height: 34px;
     font-size: 0.98rem;
