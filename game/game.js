@@ -245,18 +245,49 @@
    */
   function showNextHint() {
     const targetPath = pathToRoot(game.target.targetFamilyId);
-    const order = [...targetPath].reverse().find((node) => node.rank === "order");
-    const family = [...targetPath].reverse().find((node) => node.rank === "family");
-    const major = targetPath.find((node) => ["Monocots", "Magnoliids", "Rosids", "Asterids"].includes(node.name));
+    const hintPath = hintPathFromTargetPath(targetPath);
+    const pathHints = hintPath.map((node, index) => {
+      const path = hintPath.slice(0, index + 1);
+      return `${app.utils.capitalize(node.rank)}: ${formatPath(path)}`;
+    });
     const hints = [
-      major ? `Major group: ${major.name}` : `High-level group: ${targetPath[0]?.name || "Land plants"}`,
-      order ? `Order: ${order.name}` : "The target is a family in the visible tree.",
-      family ? `Family: ${family.name}` : "Family: not available",
-      `Scientific name: ${game.target.scientificName}`
+      ...pathHints,
+      ...scientificNameHints(game.target.scientificName)
     ];
     els.hintBox.hidden = false;
     els.hintBox.textContent = hints[Math.min(game.hintLevel, hints.length - 1)];
     game.hintLevel += 1;
+  }
+
+  /**
+   * Converts the target scientific name into genus and species-level hints when possible.
+   */
+  function scientificNameHints(scientificName) {
+    const cleanName = String(scientificName || "").trim().replace(/\s+/g, " ");
+    if (!cleanName) return [];
+
+    const parts = cleanName.split(" ");
+    if (parts.length === 1) {
+      const rank = cleanName.endsWith("aceae") ? "Target taxon" : "Genus";
+      return [`${rank}: ${cleanName}`];
+    }
+
+    const genus = parts[0];
+    const species = parts.slice(0, 2).join(" ");
+    const hints = [`Genus: ${genus}`, `Species: ${species}`];
+    if (parts.length > 2) hints.push(`Scientific name: ${cleanName}`);
+    return hints;
+  }
+
+  /**
+   * Builds the hint path, starting angiosperm targets just below Angiosperms.
+   */
+  function hintPathFromTargetPath(targetPath) {
+    const angiospermIndex = targetPath.findIndex((node) => node.id === "angiosperms" || node.name === "Angiosperms");
+    if (angiospermIndex >= 0 && angiospermIndex < targetPath.length - 1) {
+      return targetPath.slice(angiospermIndex + 1);
+    }
+    return targetPath;
   }
 
   /**
