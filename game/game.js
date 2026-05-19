@@ -246,10 +246,12 @@
   function showNextHint() {
     const targetPath = pathToRoot(game.target.targetFamilyId);
     const order = [...targetPath].reverse().find((node) => node.rank === "order");
+    const family = [...targetPath].reverse().find((node) => node.rank === "family");
     const major = targetPath.find((node) => ["Monocots", "Magnoliids", "Rosids", "Asterids"].includes(node.name));
     const hints = [
       major ? `Major group: ${major.name}` : `High-level group: ${targetPath[0]?.name || "Land plants"}`,
       order ? `Order: ${order.name}` : "The target is a family in the visible tree.",
+      family ? `Family: ${family.name}` : "Family: not available",
       `Scientific name: ${game.target.scientificName}`
     ];
     els.hintBox.hidden = false;
