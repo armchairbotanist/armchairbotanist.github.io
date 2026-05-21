@@ -13,7 +13,11 @@
       this.els = app.els;
       this.getChildren = app.getChildren;
       this.utils = app.utils;
+      this.viewportPan = null;
       this.drawEdges = this.drawEdges.bind(this);
+      this.startViewportPan = this.startViewportPan.bind(this);
+      this.updateViewportPan = this.updateViewportPan.bind(this);
+      this.stopViewportPan = this.stopViewportPan.bind(this);
     }
 
     /**
@@ -22,6 +26,11 @@
      */
     init() {
       window.addEventListener("resize", this.drawEdges);
+      this.els.treeViewport.addEventListener("pointerdown", this.startViewportPan);
+      this.els.treeViewport.addEventListener("pointermove", this.updateViewportPan);
+      this.els.treeViewport.addEventListener("pointerup", this.stopViewportPan);
+      this.els.treeViewport.addEventListener("pointercancel", this.stopViewportPan);
+      this.els.treeViewport.addEventListener("lostpointercapture", this.stopViewportPan);
     }
 
     /**
@@ -141,6 +150,7 @@
       nodeCard.classList.toggle("is-active", this.state.activeId === node.id);
       nodeCard.classList.toggle("is-search-highlight", this.state.searchHighlightId === node.id);
       nodeCard.classList.toggle("has-children", hasChildren);
+      nodeCard.classList.add(`rank-${this.rankClassName(node.rank)}`);
       nodeCard.style.setProperty("--depth", level - 1);
 
       button.setAttribute("aria-label", this.nodeLabel(node, isExpanded));
@@ -214,6 +224,38 @@
     }
 
     /**
+     * Returns the tree to a controlled reset state.
+     * Pass expandedIds to keep a known branch open after a game round reset.
+     */
+    resetView(options = {}) {
+      if (!this.state.rootId) return;
+      this.state.expanded = new Set([this.state.rootId, ...(options.expandedIds || [])]);
+      this.state.activeId = options.activeId ?? this.state.rootId;
+      this.state.searchHighlightId = null;
+      this.render();
+      requestAnimationFrame(() => {
+        if (options.scrollToId) {
+          this.scrollNodeIntoView(options.scrollToId, options.behavior || "auto");
+          return;
+        }
+
+        this.els.treeViewport.scrollTo({
+          left: 0,
+          top: 0,
+          behavior: options.behavior || "auto"
+        });
+      });
+    }
+
+    /**
+     * Scrolls one visible node to a comfortable position in the viewport.
+     */
+    scrollNodeIntoView(nodeId, behavior = "smooth") {
+      const nodeButton = this.els.tree.querySelector(`[data-id="${CSS.escape(nodeId)}"] .node-main`);
+      nodeButton?.scrollIntoView({ behavior, block: "center", inline: "center" });
+    }
+
+    /**
      * Scrolls newly revealed children near the center of the tree viewport.
      */
     scrollExpandedChildrenIntoView(nodeId) {
@@ -256,7 +298,7 @@
 
       requestAnimationFrame(() => {
         const active = this.els.tree.querySelector(`[data-id="${CSS.escape(nodeId)}"] .node-main`);
-        active?.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+        this.scrollNodeIntoView(nodeId);
         active?.focus({ preventScroll: true });
       });
     }
@@ -306,8 +348,71 @@
      */
     nodeMeta(node, childCount) {
       if (childCount) return `${this.utils.capitalize(node.rank)} / ${this.utils.formatCount(childCount)} shown`;
-      if (node.rank === "genus") return "Genus / example";
+      if (node.rank === "genus") return "Genus";
       return this.utils.capitalize(node.rank);
+    }
+
+    /**
+     * Normalizes rank names so CSS can target stable rank classes.
+     */
+    rankClassName(rank) {
+      return String(rank || "unknown")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "") || "unknown";
+    }
+
+    /**
+     * Starts drag-to-pan only when the pointer begins on tree background.
+     */
+    startViewportPan(event) {
+      if (!this.canStartViewportPan(event)) return;
+      this.viewportPan = {
+        pointerId: event.pointerId,
+        startX: event.clientX,
+        startY: event.clientY,
+        scrollLeft: this.els.treeViewport.scrollLeft,
+        scrollTop: this.els.treeViewport.scrollTop,
+        didMove: false
+      };
+      this.els.treeViewport.classList.add("is-panning");
+      this.els.treeViewport.setPointerCapture?.(event.pointerId);
+    }
+
+    /**
+     * Moves the scroll position while background drag-to-pan is active.
+     */
+    updateViewportPan(event) {
+      if (!this.viewportPan || event.pointerId !== this.viewportPan.pointerId) return;
+      const deltaX = event.clientX - this.viewportPan.startX;
+      const deltaY = event.clientY - this.viewportPan.startY;
+      if (Math.abs(deltaX) + Math.abs(deltaY) > 3) this.viewportPan.didMove = true;
+      if (!this.viewportPan.didMove) return;
+
+      event.preventDefault();
+      this.els.treeViewport.scrollLeft = this.viewportPan.scrollLeft - deltaX;
+      this.els.treeViewport.scrollTop = this.viewportPan.scrollTop - deltaY;
+    }
+
+    /**
+     * Ends an active background drag-to-pan gesture.
+     */
+    stopViewportPan(event) {
+      if (!this.viewportPan || event.pointerId !== this.viewportPan.pointerId) return;
+      if (this.els.treeViewport.hasPointerCapture?.(event.pointerId)) {
+        this.els.treeViewport.releasePointerCapture(event.pointerId);
+      }
+      this.els.treeViewport.classList.remove("is-panning");
+      this.viewportPan = null;
+    }
+
+    /**
+     * Keeps node clicks and form controls from becoming drag gestures.
+     */
+    canStartViewportPan(event) {
+      if (!event.isPrimary) return false;
+      if (event.pointerType === "mouse" && event.button !== 0) return false;
+      return !event.target.closest(".node, button, input, select, textarea, a");
     }
 
     /**

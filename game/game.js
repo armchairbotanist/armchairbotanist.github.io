@@ -1,6 +1,13 @@
 (function () {
   const app = window.AB;
   const ALL_LEVELS_ID = "all";
+  const GAME_START_BRANCH_IDS = [
+    "bryophyte-grade",
+    "lycophytes",
+    "ferns",
+    "gymnosperms",
+    "angiosperms"
+  ];
   const levels = normalizeLevelData(window.PLANT_GAME_LEVELS || [], window.PLANT_GAME_PLANTS || []);
   const game = {
     levelId: null,
@@ -183,10 +190,38 @@
     game.hintLevel = 0;
     game.answered = false;
     app.state.searchHighlightId = null;
-    app.state.activeId = null;
     document.body.classList.add("details-pane-hidden");
-    app.tree.render();
+    resetTreeForTarget();
     renderChallenge();
+  }
+
+  /**
+   * Resets the game tree to the broad branch that contains the current plant.
+   */
+  function resetTreeForTarget() {
+    const startBranchId = startBranchIdForTarget(game.target?.targetFamilyId);
+    const expandedIds = expandedIdsForBranch(startBranchId);
+    app.tree.resetView({
+      behavior: "auto",
+      activeId: startBranchId || app.state.rootId,
+      expandedIds,
+      scrollToId: startBranchId
+    });
+  }
+
+  /**
+   * Finds the familiar high-level branch for a target family path.
+   */
+  function startBranchIdForTarget(targetId) {
+    const targetPath = pathToRoot(targetId);
+    return targetPath.find((node) => GAME_START_BRANCH_IDS.includes(node.id))?.id || app.state.rootId;
+  }
+
+  /**
+   * Opens the full path to the high-level start branch, plus the branch itself.
+   */
+  function expandedIdsForBranch(branchId) {
+    return pathToRoot(branchId).map((node) => node.id);
   }
 
   /**

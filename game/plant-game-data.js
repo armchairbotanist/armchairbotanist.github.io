@@ -101,12 +101,6 @@
           acceptedNames: ["tomatoes"]
         },
         {
-          commonName: "potato",
-          scientificName: "Solanum tuberosum",
-          targetFamilyId: "solanaceae",
-          acceptedNames: ["potatoes"]
-        },
-        {
           commonName: "cucumber",
           scientificName: "Cucumis sativus",
           targetFamilyId: "cucurbitaceae",

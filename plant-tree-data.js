@@ -1,5 +1,5 @@
 window.PLANT_TREE_DATA = {
-  "siteVersion": "2.23",
+  "siteVersion": "2.30",
   "version": "2026-05-16-simpson-ch3-6-figures",
   "rootId": "land-plants",
   "sources": {
@@ -74,6 +74,12 @@ window.PLANT_TREE_DATA = {
       "label": "Simpson 2019",
       "citation": "Simpson, M. G. 2019. Plant Systematics, 3rd ed. Academic Press. Chapter 6, pp. 359-389, Figures 6.1-6.19.",
       "scope": "Local PDF figure and caption extraction for broad flowering plant structure and angiosperm apomorphies."
+    },
+    "genus_examples": {
+      "label": "Curated genus examples",
+      "citation": "Example genera selected from Royal Botanic Gardens, Kew, Plants of the World Online accepted genus records, with APG IV family context where needed.",
+      "url": "https://powo.science.kew.org/",
+      "scope": "Non-exhaustive example genera used to ensure each family branch has at least one genus child."
     }
   },
   "figures": {
@@ -3337,7 +3343,7 @@ window.PLANT_TREE_DATA = {
     {
       "id": "bryophyte-grade",
       "name": "Bryophytes",
-      "rank": "grade",
+      "rank": "clade",
       "source": "broad_consensus",
       "description": "Non-vascular land plant lineages, represented here by mosses, liverworts, and hornworts.",
       "children": [
@@ -5032,7 +5038,7 @@ window.PLANT_TREE_DATA = {
     {
       "id": "gymnosperms",
       "name": "Gymnosperms",
-      "rank": "grade",
+      "rank": "clade",
       "source": "gymnosperms_2011",
       "children": [
         "cycads",
@@ -5688,7 +5694,16 @@ window.PLANT_TREE_DATA = {
       "id": "hydatellaceae",
       "name": "Hydatellaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "hydatellaceae-trithuria"
+      ]
+    },
+    {
+      "id": "hydatellaceae-trithuria",
+      "name": "Trithuria",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "nymphaeaceae",
@@ -5749,7 +5764,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-6-9"
+      ],
+      "children": [
+        "austrobaileyaceae-austrobaileya"
       ]
+    },
+    {
+      "id": "austrobaileyaceae-austrobaileya",
+      "name": "Austrobaileya",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "schisandraceae",
@@ -5792,7 +5816,16 @@ window.PLANT_TREE_DATA = {
       "id": "trimeniaceae",
       "name": "Trimeniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "trimeniaceae-trimenia"
+      ]
+    },
+    {
+      "id": "trimeniaceae-trimenia",
+      "name": "Trimenia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "chloranthales",
@@ -5807,7 +5840,16 @@ window.PLANT_TREE_DATA = {
       "id": "chloranthaceae",
       "name": "Chloranthaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "chloranthaceae-chloranthus"
+      ]
+    },
+    {
+      "id": "chloranthaceae-chloranthus",
+      "name": "Chloranthus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "magnoliids",
@@ -5844,7 +5886,16 @@ window.PLANT_TREE_DATA = {
       "id": "canellaceae",
       "name": "Canellaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "canellaceae-canella"
+      ]
+    },
+    {
+      "id": "canellaceae-canella",
+      "name": "Canella",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "winteraceae",
@@ -5853,7 +5904,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-13"
+      ],
+      "children": [
+        "winteraceae-drimys"
       ]
+    },
+    {
+      "id": "winteraceae-drimys",
+      "name": "Drimys",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "piperales",
@@ -5878,7 +5938,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-14"
+      ],
+      "children": [
+        "aristolochiaceae-aristolochia"
       ]
+    },
+    {
+      "id": "aristolochiaceae-aristolochia",
+      "name": "Aristolochia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "piperaceae",
@@ -5908,7 +5977,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-16"
+      ],
+      "children": [
+        "saururaceae-saururus"
       ]
+    },
+    {
+      "id": "saururaceae-saururus",
+      "name": "Saururus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "magnoliales",
@@ -5955,19 +6033,46 @@ window.PLANT_TREE_DATA = {
       "id": "degeneriaceae",
       "name": "Degeneriaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "degeneriaceae-degeneria"
+      ]
+    },
+    {
+      "id": "degeneriaceae-degeneria",
+      "name": "Degeneria",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "eupomatiaceae",
       "name": "Eupomatiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "eupomatiaceae-eupomatia"
+      ]
+    },
+    {
+      "id": "eupomatiaceae-eupomatia",
+      "name": "Eupomatia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "himantandraceae",
       "name": "Himantandraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "himantandraceae-galbulimima"
+      ]
+    },
+    {
+      "id": "himantandraceae-galbulimima",
+      "name": "Galbulimima",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "magnoliaceae",
@@ -6007,7 +6112,16 @@ window.PLANT_TREE_DATA = {
       "id": "myristicaceae",
       "name": "Myristicaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "myristicaceae-myristica"
+      ]
+    },
+    {
+      "id": "myristicaceae-myristica",
+      "name": "Myristica",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "laurales",
@@ -6035,7 +6149,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-8"
+      ],
+      "children": [
+        "atherospermataceae-atherosperma"
       ]
+    },
+    {
+      "id": "atherospermataceae-atherosperma",
+      "name": "Atherosperma",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "calycanthaceae",
@@ -6044,19 +6167,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-8"
+      ],
+      "children": [
+        "calycanthaceae-calycanthus"
       ]
+    },
+    {
+      "id": "calycanthaceae-calycanthus",
+      "name": "Calycanthus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "gomortegaceae",
       "name": "Gomortegaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "gomortegaceae-gomortega"
+      ]
+    },
+    {
+      "id": "gomortegaceae-gomortega",
+      "name": "Gomortega",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "hernandiaceae",
       "name": "Hernandiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "hernandiaceae-hernandia"
+      ]
+    },
+    {
+      "id": "hernandiaceae-hernandia",
+      "name": "Hernandia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "lauraceae",
@@ -6093,13 +6243,31 @@ window.PLANT_TREE_DATA = {
       "id": "monimiaceae",
       "name": "Monimiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "monimiaceae-monimia"
+      ]
+    },
+    {
+      "id": "monimiaceae-monimia",
+      "name": "Monimia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "siparunaceae",
       "name": "Siparunaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "siparunaceae-siparuna"
+      ]
+    },
+    {
+      "id": "siparunaceae-siparuna",
+      "name": "Siparuna",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "monocots",
@@ -6147,7 +6315,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-20"
+      ],
+      "children": [
+        "acoraceae-acorus"
       ]
+    },
+    {
+      "id": "acoraceae-acorus",
+      "name": "Acorus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "alismatales",
@@ -6185,13 +6362,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-24"
+      ],
+      "children": [
+        "alismataceae-alisma"
       ]
+    },
+    {
+      "id": "alismataceae-alisma",
+      "name": "Alisma",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "aponogetonaceae",
       "name": "Aponogetonaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "aponogetonaceae-aponogeton"
+      ]
+    },
+    {
+      "id": "aponogetonaceae-aponogeton",
+      "name": "Aponogeton",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "araceae",
@@ -6201,19 +6396,46 @@ window.PLANT_TREE_DATA = {
       "figureIds": [
         "simpson-2019-figure-7-22",
         "simpson-2019-figure-7-23"
+      ],
+      "children": [
+        "araceae-arum"
       ]
+    },
+    {
+      "id": "araceae-arum",
+      "name": "Arum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "butomaceae",
       "name": "Butomaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "butomaceae-butomus"
+      ]
+    },
+    {
+      "id": "butomaceae-butomus",
+      "name": "Butomus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "cymodoceaceae",
       "name": "Cymodoceaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "cymodoceaceae-cymodocea"
+      ]
+    },
+    {
+      "id": "cymodoceaceae-cymodocea",
+      "name": "Cymodocea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "hydrocharitaceae",
@@ -6222,7 +6444,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-21"
+      ],
+      "children": [
+        "hydrocharitaceae-hydrilla"
       ]
+    },
+    {
+      "id": "hydrocharitaceae-hydrilla",
+      "name": "Hydrilla",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "juncaginaceae",
@@ -6231,19 +6462,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-21"
+      ],
+      "children": [
+        "juncaginaceae-cycnogeton"
       ]
+    },
+    {
+      "id": "juncaginaceae-cycnogeton",
+      "name": "Cycnogeton",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "maundiaceae",
       "name": "Maundiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "maundiaceae-maundia"
+      ]
+    },
+    {
+      "id": "maundiaceae-maundia",
+      "name": "Maundia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "posidoniaceae",
       "name": "Posidoniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "posidoniaceae-posidonia"
+      ]
+    },
+    {
+      "id": "posidoniaceae-posidonia",
+      "name": "Posidonia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "potamogetonaceae",
@@ -6252,25 +6510,61 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-21"
+      ],
+      "children": [
+        "potamogetonaceae-potamogeton"
       ]
+    },
+    {
+      "id": "potamogetonaceae-potamogeton",
+      "name": "Potamogeton",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "ruppiaceae",
       "name": "Ruppiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "ruppiaceae-ruppia"
+      ]
+    },
+    {
+      "id": "ruppiaceae-ruppia",
+      "name": "Ruppia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "scheuchzeriaceae",
       "name": "Scheuchzeriaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "scheuchzeriaceae-scheuchzeria"
+      ]
+    },
+    {
+      "id": "scheuchzeriaceae-scheuchzeria",
+      "name": "Scheuchzeria",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "tofieldiaceae",
       "name": "Tofieldiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "tofieldiaceae-tofieldia"
+      ]
+    },
+    {
+      "id": "tofieldiaceae-tofieldia",
+      "name": "Tofieldia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "zosteraceae",
@@ -6279,7 +6573,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-21"
+      ],
+      "children": [
+        "zosteraceae-zostera"
       ]
+    },
+    {
+      "id": "zosteraceae-zostera",
+      "name": "Zostera",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "petrosaviales",
@@ -6297,7 +6600,16 @@ window.PLANT_TREE_DATA = {
       "id": "petrosaviaceae",
       "name": "Petrosaviaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "petrosaviaceae-petrosavia"
+      ]
+    },
+    {
+      "id": "petrosaviaceae-petrosavia",
+      "name": "Petrosavia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "dioscoreales",
@@ -6321,7 +6633,16 @@ window.PLANT_TREE_DATA = {
       "id": "burmanniaceae",
       "name": "Burmanniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "burmanniaceae-burmannia"
+      ]
+    },
+    {
+      "id": "burmanniaceae-burmannia",
+      "name": "Burmannia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "dioscoreaceae",
@@ -6333,13 +6654,31 @@ window.PLANT_TREE_DATA = {
       ],
       "figureIds": [
         "simpson-2019-figure-7-25"
+      ],
+      "children": [
+        "dioscoreaceae-dioscorea"
       ]
+    },
+    {
+      "id": "dioscoreaceae-dioscorea",
+      "name": "Dioscorea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "nartheciaceae",
       "name": "Nartheciaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "nartheciaceae-narthecium"
+      ]
+    },
+    {
+      "id": "nartheciaceae-narthecium",
+      "name": "Narthecium",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "pandanales",
@@ -6362,7 +6701,16 @@ window.PLANT_TREE_DATA = {
       "id": "cyclanthaceae",
       "name": "Cyclanthaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "cyclanthaceae-cyclanthus"
+      ]
+    },
+    {
+      "id": "cyclanthaceae-cyclanthus",
+      "name": "Cyclanthus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "pandanaceae",
@@ -6374,25 +6722,61 @@ window.PLANT_TREE_DATA = {
       ],
       "figureIds": [
         "simpson-2019-figure-7-26"
+      ],
+      "children": [
+        "pandanaceae-pandanus"
       ]
+    },
+    {
+      "id": "pandanaceae-pandanus",
+      "name": "Pandanus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "stemonaceae",
       "name": "Stemonaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "stemonaceae-stemona"
+      ]
+    },
+    {
+      "id": "stemonaceae-stemona",
+      "name": "Stemona",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "triuridaceae",
       "name": "Triuridaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "triuridaceae-triuridopsis"
+      ]
+    },
+    {
+      "id": "triuridaceae-triuridopsis",
+      "name": "Triuridopsis",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "velloziaceae",
       "name": "Velloziaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "velloziaceae-vellozia"
+      ]
+    },
+    {
+      "id": "velloziaceae-vellozia",
+      "name": "Vellozia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "liliales",
@@ -6424,13 +6808,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-27"
+      ],
+      "children": [
+        "alstroemeriaceae-alstroemeria"
       ]
+    },
+    {
+      "id": "alstroemeriaceae-alstroemeria",
+      "name": "Alstroemeria",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "campynemataceae",
       "name": "Campynemataceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "campynemataceae-campynema"
+      ]
+    },
+    {
+      "id": "campynemataceae-campynema",
+      "name": "Campynema",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "colchicaceae",
@@ -6439,13 +6841,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-27"
+      ],
+      "children": [
+        "colchicaceae-colchicum"
       ]
+    },
+    {
+      "id": "colchicaceae-colchicum",
+      "name": "Colchicum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "corsiaceae",
       "name": "Corsiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "corsiaceae-corsia"
+      ]
+    },
+    {
+      "id": "corsiaceae-corsia",
+      "name": "Corsia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "liliaceae",
@@ -6454,7 +6874,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-28"
+      ],
+      "children": [
+        "liliaceae-lilium"
       ]
+    },
+    {
+      "id": "liliaceae-lilium",
+      "name": "Lilium",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "melanthiaceae",
@@ -6463,13 +6892,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-27"
+      ],
+      "children": [
+        "melanthiaceae-melanthium"
       ]
+    },
+    {
+      "id": "melanthiaceae-melanthium",
+      "name": "Melanthium",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "petermanniaceae",
       "name": "Petermanniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "petermanniaceae-petermannia"
+      ]
+    },
+    {
+      "id": "petermanniaceae-petermannia",
+      "name": "Petermannia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "philesiaceae",
@@ -6478,13 +6925,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-27"
+      ],
+      "children": [
+        "philesiaceae-philesia"
       ]
+    },
+    {
+      "id": "philesiaceae-philesia",
+      "name": "Philesia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "ripogonaceae",
       "name": "Ripogonaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "ripogonaceae-ripogonum"
+      ]
+    },
+    {
+      "id": "ripogonaceae-ripogonum",
+      "name": "Ripogonum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "smilacaceae",
@@ -6493,7 +6958,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-27"
+      ],
+      "children": [
+        "smilacaceae-smilax"
       ]
+    },
+    {
+      "id": "smilacaceae-smilax",
+      "name": "Smilax",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "asparagales",
@@ -6585,7 +7059,16 @@ window.PLANT_TREE_DATA = {
         "simpson-2019-figure-7-32",
         "simpson-2019-figure-7-33",
         "simpson-2019-figure-7-41"
+      ],
+      "children": [
+        "asparagaceae-asparagus"
       ]
+    },
+    {
+      "id": "asparagaceae-asparagus",
+      "name": "Asparagus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "asphodelaceae",
@@ -6598,13 +7081,31 @@ window.PLANT_TREE_DATA = {
       "figureIds": [
         "simpson-2019-figure-7-31",
         "simpson-2019-figure-7-36"
+      ],
+      "children": [
+        "asphodelaceae-asphodelus"
       ]
+    },
+    {
+      "id": "asphodelaceae-asphodelus",
+      "name": "Asphodelus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "asteliaceae",
       "name": "Asteliaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "asteliaceae-astelia"
+      ]
+    },
+    {
+      "id": "asteliaceae-astelia",
+      "name": "Astelia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "blandfordiaceae",
@@ -6613,13 +7114,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-31"
+      ],
+      "children": [
+        "blandfordiaceae-blandfordia"
       ]
+    },
+    {
+      "id": "blandfordiaceae-blandfordia",
+      "name": "Blandfordia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "boryaceae",
       "name": "Boryaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "boryaceae-borya"
+      ]
+    },
+    {
+      "id": "boryaceae-borya",
+      "name": "Borya",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "doryanthaceae",
@@ -6628,7 +7147,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-31"
+      ],
+      "children": [
+        "doryanthaceae-doryanthes"
       ]
+    },
+    {
+      "id": "doryanthaceae-doryanthes",
+      "name": "Doryanthes",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "hypoxidaceae",
@@ -6637,7 +7165,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-31"
+      ],
+      "children": [
+        "hypoxidaceae-hypoxis"
       ]
+    },
+    {
+      "id": "hypoxidaceae-hypoxis",
+      "name": "Hypoxis",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "iridaceae",
@@ -6646,19 +7183,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-37"
+      ],
+      "children": [
+        "iridaceae-devia"
       ]
+    },
+    {
+      "id": "iridaceae-devia",
+      "name": "Devia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "ixioliriaceae",
       "name": "Ixioliriaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "ixioliriaceae-ixiolirion"
+      ]
+    },
+    {
+      "id": "ixioliriaceae-ixiolirion",
+      "name": "Ixiolirion",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "lanariaceae",
       "name": "Lanariaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "lanariaceae-lanaria"
+      ]
+    },
+    {
+      "id": "lanariaceae-lanaria",
+      "name": "Lanaria",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "orchidaceae",
@@ -6700,13 +7264,31 @@ window.PLANT_TREE_DATA = {
       "id": "tecophilaeaceae",
       "name": "Tecophilaeaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "tecophilaeaceae-tecophilaea"
+      ]
+    },
+    {
+      "id": "tecophilaeaceae-tecophilaea",
+      "name": "Tecophilaea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "xeronemataceae",
       "name": "Xeronemataceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "xeronemataceae-xeronema"
+      ]
+    },
+    {
+      "id": "xeronemataceae-xeronema",
+      "name": "Xeronema",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "arecales",
@@ -6761,7 +7343,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-44"
+      ],
+      "children": [
+        "dasypogonaceae-dasypogon"
       ]
+    },
+    {
+      "id": "dasypogonaceae-dasypogon",
+      "name": "Dasypogon",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "commelinales",
@@ -6793,7 +7384,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-47"
+      ],
+      "children": [
+        "commelinaceae-commelina"
       ]
+    },
+    {
+      "id": "commelinaceae-commelina",
+      "name": "Commelina",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "haemodoraceae",
@@ -6805,19 +7405,46 @@ window.PLANT_TREE_DATA = {
         "simpson-2019-figure-7-48",
         "simpson-2019-figure-7-49",
         "simpson-2019-figure-7-19"
+      ],
+      "children": [
+        "haemodoraceae-haemodorum"
       ]
+    },
+    {
+      "id": "haemodoraceae-haemodorum",
+      "name": "Haemodorum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "hanguanaceae",
       "name": "Hanguanaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "hanguanaceae-hanguana"
+      ]
+    },
+    {
+      "id": "hanguanaceae-hanguana",
+      "name": "Hanguana",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "philydraceae",
       "name": "Philydraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "philydraceae-philydrum"
+      ]
+    },
+    {
+      "id": "philydraceae-philydrum",
+      "name": "Philydrum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "pontederiaceae",
@@ -6827,7 +7454,16 @@ window.PLANT_TREE_DATA = {
       "figureIds": [
         "simpson-2019-figure-7-50",
         "simpson-2019-figure-7-51"
+      ],
+      "children": [
+        "pontederiaceae-pontederia"
       ]
+    },
+    {
+      "id": "pontederiaceae-pontederia",
+      "name": "Pontederia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "zingiberales",
@@ -6864,7 +7500,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-60"
+      ],
+      "children": [
+        "cannaceae-canna"
       ]
+    },
+    {
+      "id": "cannaceae-canna",
+      "name": "Canna",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "costaceae",
@@ -6873,7 +7518,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-55"
+      ],
+      "children": [
+        "costaceae-costus"
       ]
+    },
+    {
+      "id": "costaceae-costus",
+      "name": "Costus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "heliconiaceae",
@@ -6882,13 +7536,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-55"
+      ],
+      "children": [
+        "heliconiaceae-heliconia"
       ]
+    },
+    {
+      "id": "heliconiaceae-heliconia",
+      "name": "Heliconia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "lowiaceae",
       "name": "Lowiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "lowiaceae-orchidantha"
+      ]
+    },
+    {
+      "id": "lowiaceae-orchidantha",
+      "name": "Orchidantha",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "marantaceae",
@@ -6897,7 +7569,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-55"
+      ],
+      "children": [
+        "marantaceae-maranta"
       ]
+    },
+    {
+      "id": "marantaceae-maranta",
+      "name": "Maranta",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "musaceae",
@@ -6928,7 +7609,16 @@ window.PLANT_TREE_DATA = {
       "figureIds": [
         "simpson-2019-figure-7-57",
         "simpson-2019-figure-7-58"
+      ],
+      "children": [
+        "strelitziaceae-strelitzia"
       ]
+    },
+    {
+      "id": "strelitziaceae-strelitzia",
+      "name": "Strelitzia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "zingiberaceae",
@@ -6994,7 +7684,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-7-62"
+      ],
+      "children": [
+        "bromeliaceae-bromelia"
       ]
+    },
+    {
+      "id": "bromeliaceae-bromelia",
+      "name": "Bromelia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "cyperaceae",
@@ -7032,37 +7731,91 @@ window.PLANT_TREE_DATA = {
       "id": "ecdeiocoleaceae",
       "name": "Ecdeiocoleaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "ecdeiocoleaceae-ecdeiocolea"
+      ]
+    },
+    {
+      "id": "ecdeiocoleaceae-ecdeiocolea",
+      "name": "Ecdeiocolea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "eriocaulaceae",
       "name": "Eriocaulaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "eriocaulaceae-eriocaulon"
+      ]
+    },
+    {
+      "id": "eriocaulaceae-eriocaulon",
+      "name": "Eriocaulon",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "flagellariaceae",
       "name": "Flagellariaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "flagellariaceae-flagellaria"
+      ]
+    },
+    {
+      "id": "flagellariaceae-flagellaria",
+      "name": "Flagellaria",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "joinvilleaceae",
       "name": "Joinvilleaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "joinvilleaceae-joinvillea"
+      ]
+    },
+    {
+      "id": "joinvilleaceae-joinvillea",
+      "name": "Joinvillea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "juncaceae",
       "name": "Juncaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "juncaceae-juncus"
+      ]
+    },
+    {
+      "id": "juncaceae-juncus",
+      "name": "Juncus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "mayacaceae",
       "name": "Mayacaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "mayacaceae-mayaca"
+      ]
+    },
+    {
+      "id": "mayacaceae-mayaca",
+      "name": "Mayaca",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "poaceae",
@@ -7093,31 +7846,76 @@ window.PLANT_TREE_DATA = {
       "id": "rapateaceae",
       "name": "Rapateaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "rapateaceae-rapatea"
+      ]
+    },
+    {
+      "id": "rapateaceae-rapatea",
+      "name": "Rapatea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "restionaceae",
       "name": "Restionaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "restionaceae-restio"
+      ]
+    },
+    {
+      "id": "restionaceae-restio",
+      "name": "Restio",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "thurniaceae",
       "name": "Thurniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "thurniaceae-thurnia"
+      ]
+    },
+    {
+      "id": "thurniaceae-thurnia",
+      "name": "Thurnia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "typhaceae",
       "name": "Typhaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "typhaceae-typha"
+      ]
+    },
+    {
+      "id": "typhaceae-typha",
+      "name": "Typha",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "xyridaceae",
       "name": "Xyridaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "xyridaceae-xyris"
+      ]
+    },
+    {
+      "id": "xyridaceae-xyris",
+      "name": "Xyris",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "ceratophyllales",
@@ -7132,7 +7930,16 @@ window.PLANT_TREE_DATA = {
       "id": "ceratophyllaceae",
       "name": "Ceratophyllaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "ceratophyllaceae-ceratophyllum"
+      ]
+    },
+    {
+      "id": "ceratophyllaceae-ceratophyllum",
+      "name": "Ceratophyllum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "eudicots",
@@ -7188,31 +7995,76 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-3"
+      ],
+      "children": [
+        "berberidaceae-berberis"
       ]
+    },
+    {
+      "id": "berberidaceae-berberis",
+      "name": "Berberis",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "circaeasteraceae",
       "name": "Circaeasteraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "circaeasteraceae-circaeaster"
+      ]
+    },
+    {
+      "id": "circaeasteraceae-circaeaster",
+      "name": "Circaeaster",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "eupteleaceae",
       "name": "Eupteleaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "eupteleaceae-euptelea"
+      ]
+    },
+    {
+      "id": "eupteleaceae-euptelea",
+      "name": "Euptelea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "lardizabalaceae",
       "name": "Lardizabalaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "lardizabalaceae-lardizabala"
+      ]
+    },
+    {
+      "id": "lardizabalaceae-lardizabala",
+      "name": "Lardizabala",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "menispermaceae",
       "name": "Menispermaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "menispermaceae-menispermum"
+      ]
+    },
+    {
+      "id": "menispermaceae-menispermum",
+      "name": "Menispermum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "papaveraceae",
@@ -7294,7 +8146,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-6"
+      ],
+      "children": [
+        "nelumbonaceae-nelumbo"
       ]
+    },
+    {
+      "id": "nelumbonaceae-nelumbo",
+      "name": "Nelumbo",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "platanaceae",
@@ -7303,7 +8164,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-7"
+      ],
+      "children": [
+        "platanaceae-platanus"
       ]
+    },
+    {
+      "id": "platanaceae-platanus",
+      "name": "Platanus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "proteaceae",
@@ -7337,7 +8207,16 @@ window.PLANT_TREE_DATA = {
       "id": "sabiaceae",
       "name": "Sabiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "sabiaceae-sabia"
+      ]
+    },
+    {
+      "id": "sabiaceae-sabia",
+      "name": "Sabia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "trochodendrales",
@@ -7352,7 +8231,16 @@ window.PLANT_TREE_DATA = {
       "id": "trochodendraceae",
       "name": "Trochodendraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "trochodendraceae-trochodendron"
+      ]
+    },
+    {
+      "id": "trochodendraceae-trochodendron",
+      "name": "Trochodendron",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "buxales",
@@ -7367,7 +8255,16 @@ window.PLANT_TREE_DATA = {
       "id": "buxaceae",
       "name": "Buxaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "buxaceae-buxus"
+      ]
+    },
+    {
+      "id": "buxaceae-buxus",
+      "name": "Buxus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "core-eudicots",
@@ -7404,13 +8301,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-9"
+      ],
+      "children": [
+        "gunneraceae-gunnera"
       ]
+    },
+    {
+      "id": "gunneraceae-gunnera",
+      "name": "Gunnera",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "myrothamnaceae",
       "name": "Myrothamnaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "myrothamnaceae-myrothamnus"
+      ]
+    },
+    {
+      "id": "myrothamnaceae-myrothamnus",
+      "name": "Myrothamnus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "dilleniales",
@@ -7431,7 +8346,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-10"
+      ],
+      "children": [
+        "dilleniaceae-dillenia"
       ]
+    },
+    {
+      "id": "dilleniaceae-dillenia",
+      "name": "Dillenia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "superrosids",
@@ -7483,19 +8407,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-11"
+      ],
+      "children": [
+        "altingiaceae-liquidambar"
       ]
+    },
+    {
+      "id": "altingiaceae-liquidambar",
+      "name": "Liquidambar",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "aphanopetalaceae",
       "name": "Aphanopetalaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "aphanopetalaceae-aphanopetalum"
+      ]
+    },
+    {
+      "id": "aphanopetalaceae-aphanopetalum",
+      "name": "Aphanopetalum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "cercidiphyllaceae",
       "name": "Cercidiphyllaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "cercidiphyllaceae-cercidiphyllum"
+      ]
+    },
+    {
+      "id": "cercidiphyllaceae-cercidiphyllum",
+      "name": "Cercidiphyllum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "crassulaceae",
@@ -7504,19 +8455,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-12"
+      ],
+      "children": [
+        "crassulaceae-crassula"
       ]
+    },
+    {
+      "id": "crassulaceae-crassula",
+      "name": "Crassula",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "cynomoriaceae",
       "name": "Cynomoriaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "cynomoriaceae-cynomorium"
+      ]
+    },
+    {
+      "id": "cynomoriaceae-cynomorium",
+      "name": "Cynomorium",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "daphniphyllaceae",
       "name": "Daphniphyllaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "daphniphyllaceae-daphniphyllum"
+      ]
+    },
+    {
+      "id": "daphniphyllaceae-daphniphyllum",
+      "name": "Daphniphyllum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "grossulariaceae",
@@ -7525,13 +8503,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-11"
+      ],
+      "children": [
+        "grossulariaceae-ribes"
       ]
+    },
+    {
+      "id": "grossulariaceae-ribes",
+      "name": "Ribes",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "haloragaceae",
       "name": "Haloragaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "haloragaceae-haloragis"
+      ]
+    },
+    {
+      "id": "haloragaceae-haloragis",
+      "name": "Haloragis",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "hamamelidaceae",
@@ -7540,13 +8536,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-13"
+      ],
+      "children": [
+        "hamamelidaceae-hamamelis"
       ]
+    },
+    {
+      "id": "hamamelidaceae-hamamelis",
+      "name": "Hamamelis",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "iteaceae",
       "name": "Iteaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "iteaceae-itea"
+      ]
+    },
+    {
+      "id": "iteaceae-itea",
+      "name": "Itea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "paeoniaceae",
@@ -7555,19 +8569,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-11"
+      ],
+      "children": [
+        "paeoniaceae-paeonia"
       ]
+    },
+    {
+      "id": "paeoniaceae-paeonia",
+      "name": "Paeonia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "penthoraceae",
       "name": "Penthoraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "penthoraceae-penthorum"
+      ]
+    },
+    {
+      "id": "penthoraceae-penthorum",
+      "name": "Penthorum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "peridiscaceae",
       "name": "Peridiscaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "peridiscaceae-peridiscus"
+      ]
+    },
+    {
+      "id": "peridiscaceae-peridiscus",
+      "name": "Peridiscus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "saxifragaceae",
@@ -7576,13 +8617,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-14"
+      ],
+      "children": [
+        "saxifragaceae-saxifraga"
       ]
+    },
+    {
+      "id": "saxifragaceae-saxifraga",
+      "name": "Saxifraga",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "tetracarpaeaceae",
       "name": "Tetracarpaeaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "tetracarpaeaceae-tetracarpaea"
+      ]
+    },
+    {
+      "id": "tetracarpaeaceae-tetracarpaea",
+      "name": "Tetracarpaea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "vitales",
@@ -7603,7 +8662,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-15"
+      ],
+      "children": [
+        "vitaceae-vitis"
       ]
+    },
+    {
+      "id": "vitaceae-vitis",
+      "name": "Vitis",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "rosids",
@@ -7642,7 +8710,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-17"
+      ],
+      "children": [
+        "krameriaceae-krameria"
       ]
+    },
+    {
+      "id": "krameriaceae-krameria",
+      "name": "Krameria",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "zygophyllaceae",
@@ -7651,7 +8728,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-18"
+      ],
+      "children": [
+        "zygophyllaceae-zygophyllum"
       ]
+    },
+    {
+      "id": "zygophyllaceae-zygophyllum",
+      "name": "Zygophyllum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "fabids",
@@ -7727,7 +8813,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-33"
+      ],
+      "children": [
+        "polygalaceae-polygala"
       ]
+    },
+    {
+      "id": "polygalaceae-polygala",
+      "name": "Polygala",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "quillajaceae",
@@ -7736,13 +8831,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-29"
+      ],
+      "children": [
+        "quillajaceae-quillaja"
       ]
+    },
+    {
+      "id": "quillajaceae-quillaja",
+      "name": "Quillaja",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "surianaceae",
       "name": "Surianaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "surianaceae-suriana"
+      ]
+    },
+    {
+      "id": "surianaceae-suriana",
+      "name": "Suriana",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "rosales",
@@ -7774,7 +8887,16 @@ window.PLANT_TREE_DATA = {
       "id": "barbeyaceae",
       "name": "Barbeyaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "barbeyaceae-barbeya"
+      ]
+    },
+    {
+      "id": "barbeyaceae-barbeya",
+      "name": "Barbeya",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "cannabaceae",
@@ -7783,19 +8905,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-37"
+      ],
+      "children": [
+        "cannabaceae-cannabis"
       ]
+    },
+    {
+      "id": "cannabaceae-cannabis",
+      "name": "Cannabis",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "dirachmaceae",
       "name": "Dirachmaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "dirachmaceae-dirachma"
+      ]
+    },
+    {
+      "id": "dirachmaceae-dirachma",
+      "name": "Dirachma",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "elaeagnaceae",
       "name": "Elaeagnaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "elaeagnaceae-elaeagnus"
+      ]
+    },
+    {
+      "id": "elaeagnaceae-elaeagnus",
+      "name": "Elaeagnus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "moraceae",
@@ -7836,7 +8985,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-34"
+      ],
+      "children": [
+        "rhamnaceae-noltea"
       ]
+    },
+    {
+      "id": "rhamnaceae-noltea",
+      "name": "Noltea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "rosaceae",
@@ -7879,7 +9037,16 @@ window.PLANT_TREE_DATA = {
       "figureIds": [
         "simpson-2019-figure-8-39",
         "simpson-2019-figure-8-37"
+      ],
+      "children": [
+        "ulmaceae-ulmus"
       ]
+    },
+    {
+      "id": "ulmaceae-ulmus",
+      "name": "Ulmus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "urticaceae",
@@ -7889,7 +9056,16 @@ window.PLANT_TREE_DATA = {
       "figureIds": [
         "simpson-2019-figure-8-40",
         "simpson-2019-figure-8-37"
+      ],
+      "children": [
+        "urticaceae-gibbsia"
       ]
+    },
+    {
+      "id": "urticaceae-gibbsia",
+      "name": "Gibbsia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "fagales",
@@ -7953,7 +9129,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-44"
+      ],
+      "children": [
+        "casuarinaceae-casuarina"
       ]
+    },
+    {
+      "id": "casuarinaceae-casuarina",
+      "name": "Casuarina",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "fagaceae",
@@ -7992,7 +9177,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-47"
+      ],
+      "children": [
+        "juglandaceae-juglans"
       ]
+    },
+    {
+      "id": "juglandaceae-juglans",
+      "name": "Juglans",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "myricaceae",
@@ -8001,7 +9195,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-44"
+      ],
+      "children": [
+        "myricaceae-myrica"
       ]
+    },
+    {
+      "id": "myricaceae-myrica",
+      "name": "Myrica",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "nothofagaceae",
@@ -8010,7 +9213,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-44"
+      ],
+      "children": [
+        "nothofagaceae-nothofagus"
       ]
+    },
+    {
+      "id": "nothofagaceae-nothofagus",
+      "name": "Nothofagus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "ticodendraceae",
@@ -8019,7 +9231,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-44"
+      ],
+      "children": [
+        "ticodendraceae-ticodendron"
       ]
+    },
+    {
+      "id": "ticodendraceae-ticodendron",
+      "name": "Ticodendron",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "cucurbitales",
@@ -8047,7 +9268,16 @@ window.PLANT_TREE_DATA = {
       "id": "anisophylleaceae",
       "name": "Anisophylleaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "anisophylleaceae-anisophyllea"
+      ]
+    },
+    {
+      "id": "anisophylleaceae-anisophyllea",
+      "name": "Anisophyllea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "apodanthaceae",
@@ -8056,7 +9286,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-41"
+      ],
+      "children": [
+        "apodanthaceae-apodanthes"
       ]
+    },
+    {
+      "id": "apodanthaceae-apodanthes",
+      "name": "Apodanthes",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "begoniaceae",
@@ -8065,19 +9304,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-42"
+      ],
+      "children": [
+        "begoniaceae-begonia"
       ]
+    },
+    {
+      "id": "begoniaceae-begonia",
+      "name": "Begonia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "coriariaceae",
       "name": "Coriariaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "coriariaceae-coriaria"
+      ]
+    },
+    {
+      "id": "coriariaceae-coriaria",
+      "name": "Coriaria",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "corynocarpaceae",
       "name": "Corynocarpaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "corynocarpaceae-corynocarpus"
+      ]
+    },
+    {
+      "id": "corynocarpaceae-corynocarpus",
+      "name": "Corynocarpus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "cucurbitaceae",
@@ -8119,13 +9385,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-41"
+      ],
+      "children": [
+        "datiscaceae-datisca"
       ]
+    },
+    {
+      "id": "datiscaceae-datisca",
+      "name": "Datisca",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "tetramelaceae",
       "name": "Tetramelaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "tetramelaceae-tetrameles"
+      ]
+    },
+    {
+      "id": "tetramelaceae-tetrameles",
+      "name": "Tetrameles",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "oxalidales",
@@ -8150,7 +9434,16 @@ window.PLANT_TREE_DATA = {
       "id": "brunelliaceae",
       "name": "Brunelliaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "brunelliaceae-brunellia"
+      ]
+    },
+    {
+      "id": "brunelliaceae-brunellia",
+      "name": "Brunellia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "cephalotaceae",
@@ -8159,13 +9452,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-27"
+      ],
+      "children": [
+        "cephalotaceae-cephalotus"
       ]
+    },
+    {
+      "id": "cephalotaceae-cephalotus",
+      "name": "Cephalotus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "connaraceae",
       "name": "Connaraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "connaraceae-connarus"
+      ]
+    },
+    {
+      "id": "connaraceae-connarus",
+      "name": "Connarus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "cunoniaceae",
@@ -8174,7 +9485,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-27"
+      ],
+      "children": [
+        "cunoniaceae-cunonia"
       ]
+    },
+    {
+      "id": "cunoniaceae-cunonia",
+      "name": "Cunonia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "elaeocarpaceae",
@@ -8183,13 +9503,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-27"
+      ],
+      "children": [
+        "elaeocarpaceae-elaeocarpus"
       ]
+    },
+    {
+      "id": "elaeocarpaceae-elaeocarpus",
+      "name": "Elaeocarpus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "huaceae",
       "name": "Huaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "huaceae-hua"
+      ]
+    },
+    {
+      "id": "huaceae-hua",
+      "name": "Hua",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "oxalidaceae",
@@ -8198,7 +9536,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-28"
+      ],
+      "children": [
+        "oxalidaceae-oxalis"
       ]
+    },
+    {
+      "id": "oxalidaceae-oxalis",
+      "name": "Oxalis",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "malpighiales",
@@ -8257,37 +9604,91 @@ window.PLANT_TREE_DATA = {
       "id": "achariaceae",
       "name": "Achariaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "achariaceae-acharia"
+      ]
+    },
+    {
+      "id": "achariaceae-acharia",
+      "name": "Acharia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "balanopaceae",
       "name": "Balanopaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "balanopaceae-balanops"
+      ]
+    },
+    {
+      "id": "balanopaceae-balanops",
+      "name": "Balanops",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "bonnetiaceae",
       "name": "Bonnetiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "bonnetiaceae-bonnetia"
+      ]
+    },
+    {
+      "id": "bonnetiaceae-bonnetia",
+      "name": "Bonnetia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "calophyllaceae",
       "name": "Calophyllaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "calophyllaceae-calophyllum"
+      ]
+    },
+    {
+      "id": "calophyllaceae-calophyllum",
+      "name": "Calophyllum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "caryocaraceae",
       "name": "Caryocaraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "caryocaraceae-caryocar"
+      ]
+    },
+    {
+      "id": "caryocaraceae-caryocar",
+      "name": "Caryocar",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "centroplacaceae",
       "name": "Centroplacaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "centroplacaceae-centroplacus"
+      ]
+    },
+    {
+      "id": "centroplacaceae-centroplacus",
+      "name": "Centroplacus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "chrysobalanaceae",
@@ -8296,7 +9697,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-20"
+      ],
+      "children": [
+        "chrysobalanaceae-chrysobalanus"
       ]
+    },
+    {
+      "id": "chrysobalanaceae-chrysobalanus",
+      "name": "Chrysobalanus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "clusiaceae",
@@ -8305,19 +9715,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-20"
+      ],
+      "children": [
+        "clusiaceae-clusia"
       ]
+    },
+    {
+      "id": "clusiaceae-clusia",
+      "name": "Clusia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "ctenolophonaceae",
       "name": "Ctenolophonaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "ctenolophonaceae-ctenolophon"
+      ]
+    },
+    {
+      "id": "ctenolophonaceae-ctenolophon",
+      "name": "Ctenolophon",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "dichapetalaceae",
       "name": "Dichapetalaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "dichapetalaceae-dichapetalum"
+      ]
+    },
+    {
+      "id": "dichapetalaceae-dichapetalum",
+      "name": "Dichapetalum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "elatinaceae",
@@ -8329,13 +9766,31 @@ window.PLANT_TREE_DATA = {
       ],
       "figureIds": [
         "simpson-2019-figure-8-20"
+      ],
+      "children": [
+        "elatinaceae-elatine"
       ]
+    },
+    {
+      "id": "elatinaceae-elatine",
+      "name": "Elatine",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "erythroxylaceae",
       "name": "Erythroxylaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "erythroxylaceae-erythroxylum"
+      ]
+    },
+    {
+      "id": "erythroxylaceae-erythroxylum",
+      "name": "Erythroxylum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "euphorbiaceae",
@@ -8344,25 +9799,61 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-21"
+      ],
+      "children": [
+        "euphorbiaceae-adelia"
       ]
+    },
+    {
+      "id": "euphorbiaceae-adelia",
+      "name": "Adelia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "euphroniaceae",
       "name": "Euphroniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "euphroniaceae-euphronia"
+      ]
+    },
+    {
+      "id": "euphroniaceae-euphronia",
+      "name": "Euphronia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "goupiaceae",
       "name": "Goupiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "goupiaceae-goupia"
+      ]
+    },
+    {
+      "id": "goupiaceae-goupia",
+      "name": "Goupia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "humiriaceae",
       "name": "Humiriaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "humiriaceae-humiria"
+      ]
+    },
+    {
+      "id": "humiriaceae-humiria",
+      "name": "Humiria",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "hypericaceae",
@@ -8371,25 +9862,61 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-22"
+      ],
+      "children": [
+        "hypericaceae-hypericum"
       ]
+    },
+    {
+      "id": "hypericaceae-hypericum",
+      "name": "Hypericum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "irvingiaceae",
       "name": "Irvingiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "irvingiaceae-irvingia"
+      ]
+    },
+    {
+      "id": "irvingiaceae-irvingia",
+      "name": "Irvingia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "ixonanthaceae",
       "name": "Ixonanthaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "ixonanthaceae-ixonanthes"
+      ]
+    },
+    {
+      "id": "ixonanthaceae-ixonanthes",
+      "name": "Ixonanthes",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "lacistemataceae",
       "name": "Lacistemataceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "lacistemataceae-lacistema"
+      ]
+    },
+    {
+      "id": "lacistemataceae-lacistema",
+      "name": "Lacistema",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "linaceae",
@@ -8398,13 +9925,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-20"
+      ],
+      "children": [
+        "linaceae-linum"
       ]
+    },
+    {
+      "id": "linaceae-linum",
+      "name": "Linum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "lophopyxidaceae",
       "name": "Lophopyxidaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "lophopyxidaceae-lophopyxis"
+      ]
+    },
+    {
+      "id": "lophopyxidaceae-lophopyxis",
+      "name": "Lophopyxis",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "malpighiaceae",
@@ -8413,19 +9958,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-23"
+      ],
+      "children": [
+        "malpighiaceae-malpighia"
       ]
+    },
+    {
+      "id": "malpighiaceae-malpighia",
+      "name": "Malpighia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "ochnaceae",
       "name": "Ochnaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "ochnaceae-ochna"
+      ]
+    },
+    {
+      "id": "ochnaceae-ochna",
+      "name": "Ochna",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "pandaceae",
       "name": "Pandaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "pandaceae-panda"
+      ]
+    },
+    {
+      "id": "pandaceae-panda",
+      "name": "Panda",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "passifloraceae",
@@ -8434,13 +10006,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-24"
+      ],
+      "children": [
+        "passifloraceae-passiflora"
       ]
+    },
+    {
+      "id": "passifloraceae-passiflora",
+      "name": "Passiflora",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "peraceae",
       "name": "Peraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "peraceae-pera"
+      ]
+    },
+    {
+      "id": "peraceae-pera",
+      "name": "Pera",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "phyllanthaceae",
@@ -8449,31 +10039,76 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-20"
+      ],
+      "children": [
+        "phyllanthaceae-amanoa"
       ]
+    },
+    {
+      "id": "phyllanthaceae-amanoa",
+      "name": "Amanoa",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "picrodendraceae",
       "name": "Picrodendraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "picrodendraceae-picrodendron"
+      ]
+    },
+    {
+      "id": "picrodendraceae-picrodendron",
+      "name": "Picrodendron",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "podostemaceae",
       "name": "Podostemaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "podostemaceae-podostemum"
+      ]
+    },
+    {
+      "id": "podostemaceae-podostemum",
+      "name": "Podostemum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "putranjivaceae",
       "name": "Putranjivaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "putranjivaceae-putranjiva"
+      ]
+    },
+    {
+      "id": "putranjivaceae-putranjiva",
+      "name": "Putranjiva",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "rafflesiaceae",
       "name": "Rafflesiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "rafflesiaceae-rafflesia"
+      ]
+    },
+    {
+      "id": "rafflesiaceae-rafflesia",
+      "name": "Rafflesia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "rhizophoraceae",
@@ -8482,7 +10117,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-20"
+      ],
+      "children": [
+        "rhizophoraceae-rhizophora"
       ]
+    },
+    {
+      "id": "rhizophoraceae-rhizophora",
+      "name": "Rhizophora",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "salicaceae",
@@ -8491,13 +10135,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-25"
+      ],
+      "children": [
+        "salicaceae-itoa"
       ]
+    },
+    {
+      "id": "salicaceae-itoa",
+      "name": "Itoa",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "trigoniaceae",
       "name": "Trigoniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "trigoniaceae-trigonia"
+      ]
+    },
+    {
+      "id": "trigoniaceae-trigonia",
+      "name": "Trigonia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "violaceae",
@@ -8506,7 +10168,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-26"
+      ],
+      "children": [
+        "violaceae-viola"
       ]
+    },
+    {
+      "id": "violaceae-viola",
+      "name": "Viola",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "celastrales",
@@ -8531,13 +10202,31 @@ window.PLANT_TREE_DATA = {
       ],
       "figureIds": [
         "simpson-2019-figure-8-19"
+      ],
+      "children": [
+        "celastraceae-celastrus"
       ]
+    },
+    {
+      "id": "celastraceae-celastrus",
+      "name": "Celastrus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "lepidobotryaceae",
       "name": "Lepidobotryaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "lepidobotryaceae-lepidobotrys"
+      ]
+    },
+    {
+      "id": "lepidobotryaceae-lepidobotrys",
+      "name": "Lepidobotrys",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "malvids",
@@ -8575,7 +10264,16 @@ window.PLANT_TREE_DATA = {
       "id": "francoaceae",
       "name": "Francoaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "francoaceae-francoa"
+      ]
+    },
+    {
+      "id": "francoaceae-francoa",
+      "name": "Francoa",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "geraniaceae",
@@ -8584,7 +10282,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-49"
+      ],
+      "children": [
+        "geraniaceae-geranium"
       ]
+    },
+    {
+      "id": "geraniaceae-geranium",
+      "name": "Geranium",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "myrtales",
@@ -8615,7 +10322,16 @@ window.PLANT_TREE_DATA = {
       "id": "alzateaceae",
       "name": "Alzateaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "alzateaceae-alzatea"
+      ]
+    },
+    {
+      "id": "alzateaceae-alzatea",
+      "name": "Alzatea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "combretaceae",
@@ -8624,13 +10340,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-50"
+      ],
+      "children": [
+        "combretaceae-combretum"
       ]
+    },
+    {
+      "id": "combretaceae-combretum",
+      "name": "Combretum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "crypteroniaceae",
       "name": "Crypteroniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "crypteroniaceae-crypteronia"
+      ]
+    },
+    {
+      "id": "crypteroniaceae-crypteronia",
+      "name": "Crypteronia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "lythraceae",
@@ -8640,7 +10374,16 @@ window.PLANT_TREE_DATA = {
       "figureIds": [
         "simpson-2019-figure-8-51",
         "simpson-2019-figure-8-52"
+      ],
+      "children": [
+        "lythraceae-lythrum"
       ]
+    },
+    {
+      "id": "lythraceae-lythrum",
+      "name": "Lythrum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "melastomataceae",
@@ -8649,7 +10392,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-53"
+      ],
+      "children": [
+        "melastomataceae-benna"
       ]
+    },
+    {
+      "id": "melastomataceae-benna",
+      "name": "Benna",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "myrtaceae",
@@ -8689,19 +10441,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-55"
+      ],
+      "children": [
+        "onagraceae-hauya"
       ]
+    },
+    {
+      "id": "onagraceae-hauya",
+      "name": "Hauya",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "penaeaceae",
       "name": "Penaeaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "penaeaceae-penaea"
+      ]
+    },
+    {
+      "id": "penaeaceae-penaea",
+      "name": "Penaea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "vochysiaceae",
       "name": "Vochysiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "vochysiaceae-vochysia"
+      ]
+    },
+    {
+      "id": "vochysiaceae-vochysia",
+      "name": "Vochysia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "crossosomatales",
@@ -8728,7 +10507,16 @@ window.PLANT_TREE_DATA = {
       "id": "aphloiaceae",
       "name": "Aphloiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "aphloiaceae-aphloia"
+      ]
+    },
+    {
+      "id": "aphloiaceae-aphloia",
+      "name": "Aphloia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "crossosomataceae",
@@ -8737,37 +10525,91 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-48"
+      ],
+      "children": [
+        "crossosomataceae-crossosoma"
       ]
+    },
+    {
+      "id": "crossosomataceae-crossosoma",
+      "name": "Crossosoma",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "geissolomataceae",
       "name": "Geissolomataceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "geissolomataceae-geissoloma"
+      ]
+    },
+    {
+      "id": "geissolomataceae-geissoloma",
+      "name": "Geissoloma",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "guamatelaceae",
       "name": "Guamatelaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "guamatelaceae-guamatela"
+      ]
+    },
+    {
+      "id": "guamatelaceae-guamatela",
+      "name": "Guamatela",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "stachyuraceae",
       "name": "Stachyuraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "stachyuraceae-stachyurus"
+      ]
+    },
+    {
+      "id": "stachyuraceae-stachyurus",
+      "name": "Stachyurus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "staphyleaceae",
       "name": "Staphyleaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "staphyleaceae-staphylea"
+      ]
+    },
+    {
+      "id": "staphyleaceae-staphylea",
+      "name": "Staphylea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "strasburgeriaceae",
       "name": "Strasburgeriaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "strasburgeriaceae-strasburgeria"
+      ]
+    },
+    {
+      "id": "strasburgeriaceae-strasburgeria",
+      "name": "Strasburgeria",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "picramniales",
@@ -8782,7 +10624,16 @@ window.PLANT_TREE_DATA = {
       "id": "picramniaceae",
       "name": "Picramniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "picramniaceae-picramnia"
+      ]
+    },
+    {
+      "id": "picramniaceae-picramnia",
+      "name": "Picramnia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "sapindales",
@@ -8814,37 +10665,91 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-66"
+      ],
+      "children": [
+        "anacardiaceae-anacardium"
       ]
+    },
+    {
+      "id": "anacardiaceae-anacardium",
+      "name": "Anacardium",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "biebersteiniaceae",
       "name": "Biebersteiniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "biebersteiniaceae-biebersteinia"
+      ]
+    },
+    {
+      "id": "biebersteiniaceae-biebersteinia",
+      "name": "Biebersteinia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "burseraceae",
       "name": "Burseraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "burseraceae-bursera"
+      ]
+    },
+    {
+      "id": "burseraceae-bursera",
+      "name": "Bursera",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "kirkiaceae",
       "name": "Kirkiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "kirkiaceae-kirkia"
+      ]
+    },
+    {
+      "id": "kirkiaceae-kirkia",
+      "name": "Kirkia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "meliaceae",
       "name": "Meliaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "meliaceae-melia"
+      ]
+    },
+    {
+      "id": "meliaceae-melia",
+      "name": "Melia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "nitrariaceae",
       "name": "Nitrariaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "nitrariaceae-nitraria"
+      ]
+    },
+    {
+      "id": "nitrariaceae-nitraria",
+      "name": "Nitraria",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "rutaceae",
@@ -8903,7 +10808,16 @@ window.PLANT_TREE_DATA = {
       "id": "simaroubaceae",
       "name": "Simaroubaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "simaroubaceae-simarouba"
+      ]
+    },
+    {
+      "id": "simaroubaceae-simarouba",
+      "name": "Simarouba",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "huerteales",
@@ -8921,25 +10835,61 @@ window.PLANT_TREE_DATA = {
       "id": "dipentodontaceae",
       "name": "Dipentodontaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "dipentodontaceae-dipentodon"
+      ]
+    },
+    {
+      "id": "dipentodontaceae-dipentodon",
+      "name": "Dipentodon",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "gerrardinaceae",
       "name": "Gerrardinaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "gerrardinaceae-gerrardina"
+      ]
+    },
+    {
+      "id": "gerrardinaceae-gerrardina",
+      "name": "Gerrardina",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "petenaeaceae",
       "name": "Petenaeaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "petenaeaceae-petenaea"
+      ]
+    },
+    {
+      "id": "petenaeaceae-petenaea",
+      "name": "Petenaea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "tapisciaceae",
       "name": "Tapisciaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "tapisciaceae-tapiscia"
+      ]
+    },
+    {
+      "id": "tapisciaceae-tapiscia",
+      "name": "Tapiscia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "brassicales",
@@ -8977,7 +10927,16 @@ window.PLANT_TREE_DATA = {
       "id": "akaniaceae",
       "name": "Akaniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "akaniaceae-akania"
+      ]
+    },
+    {
+      "id": "akaniaceae-akania",
+      "name": "Akania",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "bataceae",
@@ -8986,7 +10945,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-57"
+      ],
+      "children": [
+        "bataceae-batis"
       ]
+    },
+    {
+      "id": "bataceae-batis",
+      "name": "Batis",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "brassicaceae",
@@ -9023,7 +10991,16 @@ window.PLANT_TREE_DATA = {
       "id": "capparaceae",
       "name": "Capparaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "capparaceae-capparis"
+      ]
+    },
+    {
+      "id": "capparaceae-capparis",
+      "name": "Capparis",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "caricaceae",
@@ -9032,7 +11009,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-57"
+      ],
+      "children": [
+        "caricaceae-carica"
       ]
+    },
+    {
+      "id": "caricaceae-carica",
+      "name": "Carica",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "cleomaceae",
@@ -9041,19 +11027,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-58"
+      ],
+      "children": [
+        "cleomaceae-cleome"
       ]
+    },
+    {
+      "id": "cleomaceae-cleome",
+      "name": "Cleome",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "emblingiaceae",
       "name": "Emblingiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "emblingiaceae-emblingia"
+      ]
+    },
+    {
+      "id": "emblingiaceae-emblingia",
+      "name": "Emblingia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "gyrostemonaceae",
       "name": "Gyrostemonaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "gyrostemonaceae-gyrostemon"
+      ]
+    },
+    {
+      "id": "gyrostemonaceae-gyrostemon",
+      "name": "Gyrostemon",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "koeberliniaceae",
@@ -9062,7 +11075,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-57"
+      ],
+      "children": [
+        "koeberliniaceae-koeberlinia"
       ]
+    },
+    {
+      "id": "koeberliniaceae-koeberlinia",
+      "name": "Koeberlinia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "limnanthaceae",
@@ -9071,7 +11093,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-57"
+      ],
+      "children": [
+        "limnanthaceae-limnanthes"
       ]
+    },
+    {
+      "id": "limnanthaceae-limnanthes",
+      "name": "Limnanthes",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "moringaceae",
@@ -9080,37 +11111,91 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-57"
+      ],
+      "children": [
+        "moringaceae-moringa"
       ]
+    },
+    {
+      "id": "moringaceae-moringa",
+      "name": "Moringa",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "pentadiplandraceae",
       "name": "Pentadiplandraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "pentadiplandraceae-pentadiplandra"
+      ]
+    },
+    {
+      "id": "pentadiplandraceae-pentadiplandra",
+      "name": "Pentadiplandra",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "resedaceae",
       "name": "Resedaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "resedaceae-reseda"
+      ]
+    },
+    {
+      "id": "resedaceae-reseda",
+      "name": "Reseda",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "salvadoraceae",
       "name": "Salvadoraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "salvadoraceae-salvadora"
+      ]
+    },
+    {
+      "id": "salvadoraceae-salvadora",
+      "name": "Salvadora",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "setchellanthaceae",
       "name": "Setchellanthaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "setchellanthaceae-setchellanthus"
+      ]
+    },
+    {
+      "id": "setchellanthaceae-setchellanthus",
+      "name": "Setchellanthus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "tovariaceae",
       "name": "Tovariaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "tovariaceae-tovaria"
+      ]
+    },
+    {
+      "id": "tovariaceae-tovaria",
+      "name": "Tovaria",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "tropaeolaceae",
@@ -9119,7 +11204,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-60"
+      ],
+      "children": [
+        "tropaeolaceae-tropaeolum"
       ]
+    },
+    {
+      "id": "tropaeolaceae-tropaeolum",
+      "name": "Tropaeolum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "malvales",
@@ -9153,7 +11247,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-61"
+      ],
+      "children": [
+        "bixaceae-bixa"
       ]
+    },
+    {
+      "id": "bixaceae-bixa",
+      "name": "Bixa",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "cistaceae",
@@ -9162,19 +11265,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-61"
+      ],
+      "children": [
+        "cistaceae-cistus"
       ]
+    },
+    {
+      "id": "cistaceae-cistus",
+      "name": "Cistus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "cytinaceae",
       "name": "Cytinaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "cytinaceae-cytinus"
+      ]
+    },
+    {
+      "id": "cytinaceae-cytinus",
+      "name": "Cytinus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "dipterocarpaceae",
       "name": "Dipterocarpaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "dipterocarpaceae-dipterocarpus"
+      ]
+    },
+    {
+      "id": "dipterocarpaceae-dipterocarpus",
+      "name": "Dipterocarpus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "malvaceae",
@@ -9218,25 +11348,61 @@ window.PLANT_TREE_DATA = {
       "id": "muntingiaceae",
       "name": "Muntingiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "muntingiaceae-muntingia"
+      ]
+    },
+    {
+      "id": "muntingiaceae-muntingia",
+      "name": "Muntingia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "neuradaceae",
       "name": "Neuradaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "neuradaceae-neurada"
+      ]
+    },
+    {
+      "id": "neuradaceae-neurada",
+      "name": "Neurada",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "sarcolaenaceae",
       "name": "Sarcolaenaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "sarcolaenaceae-sarcolaena"
+      ]
+    },
+    {
+      "id": "sarcolaenaceae-sarcolaena",
+      "name": "Sarcolaena",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "sphaerosepalaceae",
       "name": "Sphaerosepalaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "sphaerosepalaceae-dialyceras"
+      ]
+    },
+    {
+      "id": "sphaerosepalaceae-dialyceras",
+      "name": "Dialyceras",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "thymelaeaceae",
@@ -9248,7 +11414,16 @@ window.PLANT_TREE_DATA = {
       ],
       "figureIds": [
         "simpson-2019-figure-8-61"
+      ],
+      "children": [
+        "thymelaeaceae-dais"
       ]
+    },
+    {
+      "id": "thymelaeaceae-dais",
+      "name": "Dais",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "superasterids",
@@ -9279,13 +11454,31 @@ window.PLANT_TREE_DATA = {
       "id": "aextoxicaceae",
       "name": "Aextoxicaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "aextoxicaceae-aextoxicon"
+      ]
+    },
+    {
+      "id": "aextoxicaceae-aextoxicon",
+      "name": "Aextoxicon",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "berberidopsidaceae",
       "name": "Berberidopsidaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "berberidopsidaceae-berberidopsis"
+      ]
+    },
+    {
+      "id": "berberidopsidaceae-berberidopsis",
+      "name": "Berberidopsis",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "santalales",
@@ -9312,31 +11505,76 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-70"
+      ],
+      "children": [
+        "balanophoraceae-balanophora"
       ]
+    },
+    {
+      "id": "balanophoraceae-balanophora",
+      "name": "Balanophora",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "loranthaceae",
       "name": "Loranthaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "loranthaceae-loranthus"
+      ]
+    },
+    {
+      "id": "loranthaceae-loranthus",
+      "name": "Loranthus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "misodendraceae",
       "name": "Misodendraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "misodendraceae-misodendrum"
+      ]
+    },
+    {
+      "id": "misodendraceae-misodendrum",
+      "name": "Misodendrum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "olacaceae",
       "name": "Olacaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "olacaceae-olax"
+      ]
+    },
+    {
+      "id": "olacaceae-olax",
+      "name": "Olax",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "opiliaceae",
       "name": "Opiliaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "opiliaceae-opilia"
+      ]
+    },
+    {
+      "id": "opiliaceae-opilia",
+      "name": "Opilia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "santalaceae",
@@ -9349,13 +11587,31 @@ window.PLANT_TREE_DATA = {
       ],
       "figureIds": [
         "simpson-2019-figure-8-70"
+      ],
+      "children": [
+        "santalaceae-santalum"
       ]
+    },
+    {
+      "id": "santalaceae-santalum",
+      "name": "Santalum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "schoepfiaceae",
       "name": "Schoepfiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "schoepfiaceae-schoepfia"
+      ]
+    },
+    {
+      "id": "schoepfiaceae-schoepfia",
+      "name": "Schoepfia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "caryophyllales",
@@ -9422,7 +11678,16 @@ window.PLANT_TREE_DATA = {
       "id": "achatocarpaceae",
       "name": "Achatocarpaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "achatocarpaceae-achatocarpus"
+      ]
+    },
+    {
+      "id": "achatocarpaceae-achatocarpus",
+      "name": "Achatocarpus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "aizoaceae",
@@ -9431,7 +11696,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-75"
+      ],
+      "children": [
+        "aizoaceae-aizoon"
       ]
+    },
+    {
+      "id": "aizoaceae-aizoon",
+      "name": "Aizoon",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "amaranthaceae",
@@ -9468,31 +11742,76 @@ window.PLANT_TREE_DATA = {
       "id": "anacampserotaceae",
       "name": "Anacampserotaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "anacampserotaceae-anacampseros"
+      ]
+    },
+    {
+      "id": "anacampserotaceae-anacampseros",
+      "name": "Anacampseros",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "ancistrocladaceae",
       "name": "Ancistrocladaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "ancistrocladaceae-ancistrocladus"
+      ]
+    },
+    {
+      "id": "ancistrocladaceae-ancistrocladus",
+      "name": "Ancistrocladus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "asteropeiaceae",
       "name": "Asteropeiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "asteropeiaceae-asteropeia"
+      ]
+    },
+    {
+      "id": "asteropeiaceae-asteropeia",
+      "name": "Asteropeia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "barbeuiaceae",
       "name": "Barbeuiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "barbeuiaceae-barbeuia"
+      ]
+    },
+    {
+      "id": "barbeuiaceae-barbeuia",
+      "name": "Barbeuia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "basellaceae",
       "name": "Basellaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "basellaceae-basella"
+      ]
+    },
+    {
+      "id": "basellaceae-basella",
+      "name": "Basella",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "cactaceae",
@@ -9533,7 +11852,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-79"
+      ],
+      "children": [
+        "caryophyllaceae-cerdia"
       ]
+    },
+    {
+      "id": "caryophyllaceae-cerdia",
+      "name": "Cerdia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "didiereaceae",
@@ -9542,13 +11870,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-73"
+      ],
+      "children": [
+        "didiereaceae-didierea"
       ]
+    },
+    {
+      "id": "didiereaceae-didierea",
+      "name": "Didierea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "dioncophyllaceae",
       "name": "Dioncophyllaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "dioncophyllaceae-dioncophyllum"
+      ]
+    },
+    {
+      "id": "dioncophyllaceae-dioncophyllum",
+      "name": "Dioncophyllum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "droseraceae",
@@ -9557,13 +11903,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-80"
+      ],
+      "children": [
+        "droseraceae-drosera"
       ]
+    },
+    {
+      "id": "droseraceae-drosera",
+      "name": "Drosera",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "drosophyllaceae",
       "name": "Drosophyllaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "drosophyllaceae-drosophyllum"
+      ]
+    },
+    {
+      "id": "drosophyllaceae-drosophyllum",
+      "name": "Drosophyllum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "frankeniaceae",
@@ -9572,49 +11936,121 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-73"
+      ],
+      "children": [
+        "frankeniaceae-frankenia"
       ]
+    },
+    {
+      "id": "frankeniaceae-frankenia",
+      "name": "Frankenia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "gisekiaceae",
       "name": "Gisekiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "gisekiaceae-gisekia"
+      ]
+    },
+    {
+      "id": "gisekiaceae-gisekia",
+      "name": "Gisekia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "halophytaceae",
       "name": "Halophytaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "halophytaceae-halophytum"
+      ]
+    },
+    {
+      "id": "halophytaceae-halophytum",
+      "name": "Halophytum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "kewaceae",
       "name": "Kewaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "kewaceae-kewa"
+      ]
+    },
+    {
+      "id": "kewaceae-kewa",
+      "name": "Kewa",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "limeaceae",
       "name": "Limeaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "limeaceae-limeum"
+      ]
+    },
+    {
+      "id": "limeaceae-limeum",
+      "name": "Limeum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "lophiocarpaceae",
       "name": "Lophiocarpaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "lophiocarpaceae-lophiocarpus"
+      ]
+    },
+    {
+      "id": "lophiocarpaceae-lophiocarpus",
+      "name": "Lophiocarpus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "macarthuriaceae",
       "name": "Macarthuriaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "macarthuriaceae-macarthuria"
+      ]
+    },
+    {
+      "id": "macarthuriaceae-macarthuria",
+      "name": "Macarthuria",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "microteaceae",
       "name": "Microteaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "microteaceae-microtea"
+      ]
+    },
+    {
+      "id": "microteaceae-microtea",
+      "name": "Microtea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "molluginaceae",
@@ -9623,7 +12059,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-73"
+      ],
+      "children": [
+        "molluginaceae-mollugo"
       ]
+    },
+    {
+      "id": "molluginaceae-mollugo",
+      "name": "Mollugo",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "montiaceae",
@@ -9632,7 +12077,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-73"
+      ],
+      "children": [
+        "montiaceae-montia"
       ]
+    },
+    {
+      "id": "montiaceae-montia",
+      "name": "Montia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "nepenthaceae",
@@ -9641,7 +12095,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-73"
+      ],
+      "children": [
+        "nepenthaceae-nepenthes"
       ]
+    },
+    {
+      "id": "nepenthaceae-nepenthes",
+      "name": "Nepenthes",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "nyctaginaceae",
@@ -9650,19 +12113,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-81"
+      ],
+      "children": [
+        "nyctaginaceae-nyctaginia"
       ]
+    },
+    {
+      "id": "nyctaginaceae-nyctaginia",
+      "name": "Nyctaginia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "petiveriaceae",
       "name": "Petiveriaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "petiveriaceae-petiveria"
+      ]
+    },
+    {
+      "id": "petiveriaceae-petiveria",
+      "name": "Petiveria",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "physenaceae",
       "name": "Physenaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "physenaceae-physena"
+      ]
+    },
+    {
+      "id": "physenaceae-physena",
+      "name": "Physena",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "phytolaccaceae",
@@ -9671,7 +12161,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-74"
+      ],
+      "children": [
+        "phytolaccaceae-phytolacca"
       ]
+    },
+    {
+      "id": "phytolaccaceae-phytolacca",
+      "name": "Phytolacca",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "plumbaginaceae",
@@ -9680,7 +12179,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-82"
+      ],
+      "children": [
+        "plumbaginaceae-plumbago"
       ]
+    },
+    {
+      "id": "plumbaginaceae-plumbago",
+      "name": "Plumbago",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "polygonaceae",
@@ -9689,7 +12197,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-83"
+      ],
+      "children": [
+        "polygonaceae-duma"
       ]
+    },
+    {
+      "id": "polygonaceae-duma",
+      "name": "Duma",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "portulacaceae",
@@ -9698,19 +12215,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-74"
+      ],
+      "children": [
+        "portulacaceae-portulaca"
       ]
+    },
+    {
+      "id": "portulacaceae-portulaca",
+      "name": "Portulaca",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "rhabdodendraceae",
       "name": "Rhabdodendraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "rhabdodendraceae-rhabdodendron"
+      ]
+    },
+    {
+      "id": "rhabdodendraceae-rhabdodendron",
+      "name": "Rhabdodendron",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "sarcobataceae",
       "name": "Sarcobataceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "sarcobataceae-sarcobatus"
+      ]
+    },
+    {
+      "id": "sarcobataceae-sarcobatus",
+      "name": "Sarcobatus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "simmondsiaceae",
@@ -9719,19 +12263,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-74"
+      ],
+      "children": [
+        "simmondsiaceae-simmondsia"
       ]
+    },
+    {
+      "id": "simmondsiaceae-simmondsia",
+      "name": "Simmondsia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "stegnospermataceae",
       "name": "Stegnospermataceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "stegnospermataceae-stegnosperma"
+      ]
+    },
+    {
+      "id": "stegnospermataceae-stegnosperma",
+      "name": "Stegnosperma",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "talinaceae",
       "name": "Talinaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "talinaceae-talinum"
+      ]
+    },
+    {
+      "id": "talinaceae-talinum",
+      "name": "Talinum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "tamaricaceae",
@@ -9740,7 +12311,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-74"
+      ],
+      "children": [
+        "tamaricaceae-tamarix"
       ]
+    },
+    {
+      "id": "tamaricaceae-tamarix",
+      "name": "Tamarix",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "asterids",
@@ -9786,19 +12366,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-87"
+      ],
+      "children": [
+        "cornaceae-cornus"
       ]
+    },
+    {
+      "id": "cornaceae-cornus",
+      "name": "Cornus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "curtisiaceae",
       "name": "Curtisiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "curtisiaceae-curtisia"
+      ]
+    },
+    {
+      "id": "curtisiaceae-curtisia",
+      "name": "Curtisia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "grubbiaceae",
       "name": "Grubbiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "grubbiaceae-grubbia"
+      ]
+    },
+    {
+      "id": "grubbiaceae-grubbia",
+      "name": "Grubbia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "hydrangeaceae",
@@ -9807,13 +12414,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-86"
+      ],
+      "children": [
+        "hydrangeaceae-hydrangea"
       ]
+    },
+    {
+      "id": "hydrangeaceae-hydrangea",
+      "name": "Hydrangea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "hydrostachyaceae",
       "name": "Hydrostachyaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "hydrostachyaceae-hydrostachys"
+      ]
+    },
+    {
+      "id": "hydrostachyaceae-hydrostachys",
+      "name": "Hydrostachys",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "loasaceae",
@@ -9822,13 +12447,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-88"
+      ],
+      "children": [
+        "loasaceae-loasa"
       ]
+    },
+    {
+      "id": "loasaceae-loasa",
+      "name": "Loasa",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "nyssaceae",
       "name": "Nyssaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "nyssaceae-nyssa"
+      ]
+    },
+    {
+      "id": "nyssaceae-nyssa",
+      "name": "Nyssa",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "ericales",
@@ -9875,7 +12518,16 @@ window.PLANT_TREE_DATA = {
       "id": "actinidiaceae",
       "name": "Actinidiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "actinidiaceae-actinidia"
+      ]
+    },
+    {
+      "id": "actinidiaceae-actinidia",
+      "name": "Actinidia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "balsaminaceae",
@@ -9884,31 +12536,76 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-89"
+      ],
+      "children": [
+        "balsaminaceae-hydrocera"
       ]
+    },
+    {
+      "id": "balsaminaceae-hydrocera",
+      "name": "Hydrocera",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "clethraceae",
       "name": "Clethraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "clethraceae-clethra"
+      ]
+    },
+    {
+      "id": "clethraceae-clethra",
+      "name": "Clethra",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "cyrillaceae",
       "name": "Cyrillaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "cyrillaceae-cyrilla"
+      ]
+    },
+    {
+      "id": "cyrillaceae-cyrilla",
+      "name": "Cyrilla",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "diapensiaceae",
       "name": "Diapensiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "diapensiaceae-diapensia"
+      ]
+    },
+    {
+      "id": "diapensiaceae-diapensia",
+      "name": "Diapensia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "ebenaceae",
       "name": "Ebenaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "ebenaceae-euclea"
+      ]
+    },
+    {
+      "id": "ebenaceae-euclea",
+      "name": "Euclea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "ericaceae",
@@ -9949,31 +12646,76 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-92"
+      ],
+      "children": [
+        "fouquieriaceae-fouquieria"
       ]
+    },
+    {
+      "id": "fouquieriaceae-fouquieria",
+      "name": "Fouquieria",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "lecythidaceae",
       "name": "Lecythidaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "lecythidaceae-lecythis"
+      ]
+    },
+    {
+      "id": "lecythidaceae-lecythis",
+      "name": "Lecythis",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "marcgraviaceae",
       "name": "Marcgraviaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "marcgraviaceae-marcgravia"
+      ]
+    },
+    {
+      "id": "marcgraviaceae-marcgravia",
+      "name": "Marcgravia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "mitrastemonaceae",
       "name": "Mitrastemonaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "mitrastemonaceae-mitrastemon"
+      ]
+    },
+    {
+      "id": "mitrastemonaceae-mitrastemon",
+      "name": "Mitrastemon",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "pentaphylacaceae",
       "name": "Pentaphylacaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "pentaphylacaceae-pentaphylax"
+      ]
+    },
+    {
+      "id": "pentaphylacaceae-pentaphylax",
+      "name": "Pentaphylax",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "polemoniaceae",
@@ -9982,7 +12724,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-95"
+      ],
+      "children": [
+        "polemoniaceae-polemonium"
       ]
+    },
+    {
+      "id": "polemoniaceae-polemonium",
+      "name": "Polemonium",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "primulaceae",
@@ -9996,19 +12747,46 @@ window.PLANT_TREE_DATA = {
         "simpson-2019-figure-8-93",
         "simpson-2019-figure-8-94",
         "simpson-2019-figure-8-96"
+      ],
+      "children": [
+        "primulaceae-coris"
       ]
+    },
+    {
+      "id": "primulaceae-coris",
+      "name": "Coris",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "roridulaceae",
       "name": "Roridulaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "roridulaceae-roridula"
+      ]
+    },
+    {
+      "id": "roridulaceae-roridula",
+      "name": "Roridula",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "sapotaceae",
       "name": "Sapotaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "sapotaceae-abebaia"
+      ]
+    },
+    {
+      "id": "sapotaceae-abebaia",
+      "name": "Abebaia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "sarraceniaceae",
@@ -10017,31 +12795,76 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-97"
+      ],
+      "children": [
+        "sarraceniaceae-sarracenia"
       ]
+    },
+    {
+      "id": "sarraceniaceae-sarracenia",
+      "name": "Sarracenia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "sladeniaceae",
       "name": "Sladeniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "sladeniaceae-sladenia"
+      ]
+    },
+    {
+      "id": "sladeniaceae-sladenia",
+      "name": "Sladenia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "styracaceae",
       "name": "Styracaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "styracaceae-styrax"
+      ]
+    },
+    {
+      "id": "styracaceae-styrax",
+      "name": "Styrax",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "symplocaceae",
       "name": "Symplocaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "symplocaceae-symplocos"
+      ]
+    },
+    {
+      "id": "symplocaceae-symplocos",
+      "name": "Symplocos",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "tetrameristaceae",
       "name": "Tetrameristaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "tetrameristaceae-tetramerista"
+      ]
+    },
+    {
+      "id": "tetrameristaceae-tetramerista",
+      "name": "Tetramerista",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "theaceae",
@@ -10100,7 +12923,16 @@ window.PLANT_TREE_DATA = {
       "id": "eucommiaceae",
       "name": "Eucommiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "eucommiaceae-eucommia"
+      ]
+    },
+    {
+      "id": "eucommiaceae-eucommia",
+      "name": "Eucommia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "garryaceae",
@@ -10109,7 +12941,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-99"
+      ],
+      "children": [
+        "garryaceae-garrya"
       ]
+    },
+    {
+      "id": "garryaceae-garrya",
+      "name": "Garrya",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "gentianales",
@@ -10163,7 +13004,16 @@ window.PLANT_TREE_DATA = {
       "id": "gelsemiaceae",
       "name": "Gelsemiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "gelsemiaceae-gelsemium"
+      ]
+    },
+    {
+      "id": "gelsemiaceae-gelsemium",
+      "name": "Gelsemium",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "gentianaceae",
@@ -10172,13 +13022,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-106"
+      ],
+      "children": [
+        "gentianaceae-faroa"
       ]
+    },
+    {
+      "id": "gentianaceae-faroa",
+      "name": "Faroa",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "loganiaceae",
       "name": "Loganiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "loganiaceae-logania"
+      ]
+    },
+    {
+      "id": "loganiaceae-logania",
+      "name": "Logania",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "rubiaceae",
@@ -10241,7 +13109,16 @@ window.PLANT_TREE_DATA = {
         "simpson-2019-figure-8-101",
         "simpson-2019-figure-8-102",
         "simpson-2019-figure-8-103"
+      ],
+      "children": [
+        "boraginaceae-borago"
       ]
+    },
+    {
+      "id": "boraginaceae-borago",
+      "name": "Borago",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "vahliales",
@@ -10256,7 +13133,16 @@ window.PLANT_TREE_DATA = {
       "id": "vahliaceae",
       "name": "Vahliaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "vahliaceae-vahlia"
+      ]
+    },
+    {
+      "id": "vahliaceae-vahlia",
+      "name": "Vahlia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "solanales",
@@ -10282,19 +13168,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-120"
+      ],
+      "children": [
+        "convolvulaceae-convolvulus"
       ]
+    },
+    {
+      "id": "convolvulaceae-convolvulus",
+      "name": "Convolvulus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "hydroleaceae",
       "name": "Hydroleaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "hydroleaceae-hydrolea"
+      ]
+    },
+    {
+      "id": "hydroleaceae-hydrolea",
+      "name": "Hydrolea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "montiniaceae",
       "name": "Montiniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "montiniaceae-montinia"
+      ]
+    },
+    {
+      "id": "montiniaceae-montinia",
+      "name": "Montinia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "solanaceae",
@@ -10328,7 +13241,16 @@ window.PLANT_TREE_DATA = {
       "id": "sphenocleaceae",
       "name": "Sphenocleaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "sphenocleaceae-sphenoclea"
+      ]
+    },
+    {
+      "id": "sphenocleaceae-sphenoclea",
+      "name": "Sphenoclea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "lamiales",
@@ -10383,7 +13305,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-109"
+      ],
+      "children": [
+        "acanthaceae-acanthus"
       ]
+    },
+    {
+      "id": "acanthaceae-acanthus",
+      "name": "Acanthus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "bignoniaceae",
@@ -10393,13 +13324,31 @@ window.PLANT_TREE_DATA = {
       "figureIds": [
         "simpson-2019-figure-8-110",
         "simpson-2019-figure-8-111"
+      ],
+      "children": [
+        "bignoniaceae-bignonia"
       ]
+    },
+    {
+      "id": "bignoniaceae-bignonia",
+      "name": "Bignonia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "byblidaceae",
       "name": "Byblidaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "byblidaceae-byblis"
+      ]
+    },
+    {
+      "id": "byblidaceae-byblis",
+      "name": "Byblis",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "calceolariaceae",
@@ -10408,13 +13357,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-108"
+      ],
+      "children": [
+        "calceolariaceae-calceolaria"
       ]
+    },
+    {
+      "id": "calceolariaceae-calceolaria",
+      "name": "Calceolaria",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "carlemanniaceae",
       "name": "Carlemanniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "carlemanniaceae-carlemannia"
+      ]
+    },
+    {
+      "id": "carlemanniaceae-carlemannia",
+      "name": "Carlemannia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "gesneriaceae",
@@ -10423,7 +13390,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-108"
+      ],
+      "children": [
+        "gesneriaceae-anna"
       ]
+    },
+    {
+      "id": "gesneriaceae-anna",
+      "name": "Anna",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "lamiaceae",
@@ -10459,25 +13435,61 @@ window.PLANT_TREE_DATA = {
       "id": "lentibulariaceae",
       "name": "Lentibulariaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "lentibulariaceae-genlisea"
+      ]
+    },
+    {
+      "id": "lentibulariaceae-genlisea",
+      "name": "Genlisea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "linderniaceae",
       "name": "Linderniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "linderniaceae-lindernia"
+      ]
+    },
+    {
+      "id": "linderniaceae-lindernia",
+      "name": "Lindernia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "martyniaceae",
       "name": "Martyniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "martyniaceae-martynia"
+      ]
+    },
+    {
+      "id": "martyniaceae-martynia",
+      "name": "Martynia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "mazaceae",
       "name": "Mazaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "mazaceae-mazus"
+      ]
+    },
+    {
+      "id": "mazaceae-mazus",
+      "name": "Mazus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "oleaceae",
@@ -10517,19 +13529,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-115"
+      ],
+      "children": [
+        "orobanchaceae-baumia"
       ]
+    },
+    {
+      "id": "orobanchaceae-baumia",
+      "name": "Baumia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "paulowniaceae",
       "name": "Paulowniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "paulowniaceae-paulownia"
+      ]
+    },
+    {
+      "id": "paulowniaceae-paulownia",
+      "name": "Paulownia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "pedaliaceae",
       "name": "Pedaliaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "pedaliaceae-pedalium"
+      ]
+    },
+    {
+      "id": "pedaliaceae-pedalium",
+      "name": "Pedalium",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "phrymaceae",
@@ -10538,7 +13577,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-116"
+      ],
+      "children": [
+        "phrymaceae-phryma"
       ]
+    },
+    {
+      "id": "phrymaceae-phryma",
+      "name": "Phryma",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "plantaginaceae",
@@ -10547,19 +13595,46 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-117"
+      ],
+      "children": [
+        "plantaginaceae-aragoa"
       ]
+    },
+    {
+      "id": "plantaginaceae-aragoa",
+      "name": "Aragoa",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "plocospermataceae",
       "name": "Plocospermataceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "plocospermataceae-plocosperma"
+      ]
+    },
+    {
+      "id": "plocospermataceae-plocosperma",
+      "name": "Plocosperma",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "schlegeliaceae",
       "name": "Schlegeliaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "schlegeliaceae-schlegelia"
+      ]
+    },
+    {
+      "id": "schlegeliaceae-schlegelia",
+      "name": "Schlegelia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "scrophulariaceae",
@@ -10568,25 +13643,61 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-118"
+      ],
+      "children": [
+        "scrophulariaceae-bontia"
       ]
+    },
+    {
+      "id": "scrophulariaceae-bontia",
+      "name": "Bontia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "stilbaceae",
       "name": "Stilbaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "stilbaceae-stilbe"
+      ]
+    },
+    {
+      "id": "stilbaceae-stilbe",
+      "name": "Stilbe",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "tetrachondraceae",
       "name": "Tetrachondraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "tetrachondraceae-tetrachondra"
+      ]
+    },
+    {
+      "id": "tetrachondraceae-tetrachondra",
+      "name": "Tetrachondra",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "thomandersiaceae",
       "name": "Thomandersiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "thomandersiaceae-thomandersia"
+      ]
+    },
+    {
+      "id": "thomandersiaceae-thomandersia",
+      "name": "Thomandersia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "verbenaceae",
@@ -10595,7 +13706,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-119"
+      ],
+      "children": [
+        "verbenaceae-verbena"
       ]
+    },
+    {
+      "id": "verbenaceae-verbena",
+      "name": "Verbena",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "icacinales",
@@ -10611,13 +13731,31 @@ window.PLANT_TREE_DATA = {
       "id": "icacinaceae",
       "name": "Icacinaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "icacinaceae-icacina"
+      ]
+    },
+    {
+      "id": "icacinaceae-icacina",
+      "name": "Icacina",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "oncothecaceae",
       "name": "Oncothecaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "oncothecaceae-oncotheca"
+      ]
+    },
+    {
+      "id": "oncothecaceae-oncotheca",
+      "name": "Oncotheca",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "metteniusales",
@@ -10632,7 +13770,16 @@ window.PLANT_TREE_DATA = {
       "id": "metteniusaceae",
       "name": "Metteniusaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "metteniusaceae-metteniusa"
+      ]
+    },
+    {
+      "id": "metteniusaceae-metteniusa",
+      "name": "Metteniusa",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "campanulids",
@@ -10675,31 +13822,76 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-122"
+      ],
+      "children": [
+        "aquifoliaceae-ilex"
       ]
+    },
+    {
+      "id": "aquifoliaceae-ilex",
+      "name": "Ilex",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "cardiopteridaceae",
       "name": "Cardiopteridaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "cardiopteridaceae-cardiopteris"
+      ]
+    },
+    {
+      "id": "cardiopteridaceae-cardiopteris",
+      "name": "Cardiopteris",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "helwingiaceae",
       "name": "Helwingiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "helwingiaceae-helwingia"
+      ]
+    },
+    {
+      "id": "helwingiaceae-helwingia",
+      "name": "Helwingia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "phyllonomaceae",
       "name": "Phyllonomaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "phyllonomaceae-phyllonoma"
+      ]
+    },
+    {
+      "id": "phyllonomaceae-phyllonoma",
+      "name": "Phyllonoma",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "stemonuraceae",
       "name": "Stemonuraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "stemonuraceae-stemonurus"
+      ]
+    },
+    {
+      "id": "stemonuraceae-stemonurus",
+      "name": "Stemonurus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "asterales",
@@ -10734,13 +13926,31 @@ window.PLANT_TREE_DATA = {
       "id": "alseuosmiaceae",
       "name": "Alseuosmiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "alseuosmiaceae-alseuosmia"
+      ]
+    },
+    {
+      "id": "alseuosmiaceae-alseuosmia",
+      "name": "Alseuosmia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "argophyllaceae",
       "name": "Argophyllaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "argophyllaceae-argophyllum"
+      ]
+    },
+    {
+      "id": "argophyllaceae-argophyllum",
+      "name": "Argophyllum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "asteraceae",
@@ -10781,7 +13991,16 @@ window.PLANT_TREE_DATA = {
       "id": "calyceraceae",
       "name": "Calyceraceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "calyceraceae-calycera"
+      ]
+    },
+    {
+      "id": "calyceraceae-calycera",
+      "name": "Calycera",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "campanulaceae",
@@ -10814,31 +14033,76 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-137"
+      ],
+      "children": [
+        "goodeniaceae-goodenia"
       ]
+    },
+    {
+      "id": "goodeniaceae-goodenia",
+      "name": "Goodenia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "menyanthaceae",
       "name": "Menyanthaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "menyanthaceae-menyanthes"
+      ]
+    },
+    {
+      "id": "menyanthaceae-menyanthes",
+      "name": "Menyanthes",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "pentaphragmataceae",
       "name": "Pentaphragmataceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "pentaphragmataceae-pentaphragma"
+      ]
+    },
+    {
+      "id": "pentaphragmataceae-pentaphragma",
+      "name": "Pentaphragma",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "phellinaceae",
       "name": "Phellinaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "phellinaceae-phelline"
+      ]
+    },
+    {
+      "id": "phellinaceae-phelline",
+      "name": "Phelline",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "rousseaceae",
       "name": "Rousseaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "rousseaceae-roussea"
+      ]
+    },
+    {
+      "id": "rousseaceae-roussea",
+      "name": "Roussea",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "stylidiaceae",
@@ -10847,7 +14111,16 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-130"
+      ],
+      "children": [
+        "stylidiaceae-stylidium"
       ]
+    },
+    {
+      "id": "stylidiaceae-stylidium",
+      "name": "Stylidium",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "escalloniales",
@@ -10862,7 +14135,16 @@ window.PLANT_TREE_DATA = {
       "id": "escalloniaceae",
       "name": "Escalloniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "escalloniaceae-escallonia"
+      ]
+    },
+    {
+      "id": "escalloniaceae-escallonia",
+      "name": "Escallonia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "bruniales",
@@ -10878,13 +14160,31 @@ window.PLANT_TREE_DATA = {
       "id": "bruniaceae",
       "name": "Bruniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "bruniaceae-brunia"
+      ]
+    },
+    {
+      "id": "bruniaceae-brunia",
+      "name": "Brunia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "columelliaceae",
       "name": "Columelliaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "columelliaceae-columellia"
+      ]
+    },
+    {
+      "id": "columelliaceae-columellia",
+      "name": "Columellia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "paracryphiales",
@@ -10899,7 +14199,16 @@ window.PLANT_TREE_DATA = {
       "id": "paracryphiaceae",
       "name": "Paracryphiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "paracryphiaceae-paracryphia"
+      ]
+    },
+    {
+      "id": "paracryphiaceae-paracryphia",
+      "name": "Paracryphia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "dipsacales",
@@ -10926,7 +14235,16 @@ window.PLANT_TREE_DATA = {
       ],
       "figureIds": [
         "simpson-2019-figure-8-127"
+      ],
+      "children": [
+        "adoxaceae-viburnum"
       ]
+    },
+    {
+      "id": "adoxaceae-viburnum",
+      "name": "Viburnum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "caprifoliaceae",
@@ -11048,19 +14366,46 @@ window.PLANT_TREE_DATA = {
       "id": "griseliniaceae",
       "name": "Griseliniaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "griseliniaceae-griselinia"
+      ]
+    },
+    {
+      "id": "griseliniaceae-griselinia",
+      "name": "Griselinia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "myodocarpaceae",
       "name": "Myodocarpaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "myodocarpaceae-myodocarpus"
+      ]
+    },
+    {
+      "id": "myodocarpaceae-myodocarpus",
+      "name": "Myodocarpus",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "pennantiaceae",
       "name": "Pennantiaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "pennantiaceae-pennantia"
+      ]
+    },
+    {
+      "id": "pennantiaceae-pennantia",
+      "name": "Pennantia",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "pittosporaceae",
@@ -11069,13 +14414,31 @@ window.PLANT_TREE_DATA = {
       "source": "apg_iv",
       "figureIds": [
         "simpson-2019-figure-8-126"
+      ],
+      "children": [
+        "pittosporaceae-pittosporum"
       ]
+    },
+    {
+      "id": "pittosporaceae-pittosporum",
+      "name": "Pittosporum",
+      "rank": "genus",
+      "source": "genus_examples"
     },
     {
       "id": "torricelliaceae",
       "name": "Torricelliaceae",
       "rank": "family",
-      "source": "apg_iv"
+      "source": "apg_iv",
+      "children": [
+        "torricelliaceae-torricellia"
+      ]
+    },
+    {
+      "id": "torricelliaceae-torricellia",
+      "name": "Torricellia",
+      "rank": "genus",
+      "source": "genus_examples"
     }
   ]
 };

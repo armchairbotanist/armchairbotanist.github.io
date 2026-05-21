@@ -12,6 +12,16 @@
   --branch: #9a6200;
   --branch-border: #b88214;
   --leaf: #167b30;
+  --rank-clade-bg: #9a6200;
+  --rank-clade-border: #b88214;
+  --rank-grade-bg: #9a6200;
+  --rank-grade-border: #b88214;
+  --rank-order-bg: #9a6200;
+  --rank-order-border: #b88214;
+  --rank-family-bg: #9a6200;
+  --rank-family-border: #b88214;
+  --rank-genus-bg: #fffdf0;
+  --rank-genus-border: #4b8a53;
   --shadow: 5px 6px 12px rgba(31, 38, 20, 0.24);
   --details-pane-width: 430px;
   --details-pane-height: 45svh;
@@ -70,7 +80,13 @@ main {
   height: 100vh;
   overflow: auto;
   padding: clamp(118px, 11vw, 150px) clamp(170px, 16vw, 260px) clamp(34px, 5vw, 70px) clamp(34px, 5vw, 70px);
+  cursor: grab;
   touch-action: pan-x pan-y;
+}
+
+.tree-viewport.is-panning {
+  cursor: grabbing;
+  user-select: none;
 }
 
 .tree {
@@ -151,9 +167,9 @@ main {
 }
 
 .tree-root > .tree-item > .node {
-  border-color: var(--root-border);
-  background: var(--root);
-  color: #fff8ec;
+  border-color: var(--rank-clade-border);
+  background: var(--rank-clade-bg);
+  color: #fff9dc;
 }
 
 .node.has-children {
@@ -164,6 +180,36 @@ main {
 
 .node:not(.has-children) {
   border-color: #4b8a53;
+  color: var(--leaf);
+}
+
+.node.rank-clade {
+  border-color: var(--rank-clade-border);
+  background: var(--rank-clade-bg);
+  color: #fff9dc;
+}
+
+.node.rank-grade {
+  border-color: var(--rank-grade-border);
+  background: var(--rank-grade-bg);
+  color: #fff9dc;
+}
+
+.node.rank-order {
+  border-color: var(--rank-order-border);
+  background: var(--rank-order-bg);
+  color: #fff9dc;
+}
+
+.node.rank-family {
+  border-color: var(--rank-family-border);
+  background: var(--rank-family-bg);
+  color: #fff9dc;
+}
+
+.node.rank-genus {
+  border-color: var(--rank-genus-border);
+  background: var(--rank-genus-bg);
   color: var(--leaf);
 }
 
