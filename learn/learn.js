@@ -61,6 +61,7 @@
       {
         id: "level-1",
         label: "Level 1",
+        showUnpagedContext: false,
         orderIds: [
           "amborellales",
           "nymphaeales",
@@ -93,6 +94,7 @@
       {
         id: "level-2",
         label: "Level 2",
+        showUnpagedContext: true,
         orderIds: "pdf-covered"
       }
     ]
@@ -445,19 +447,19 @@
     }
 
     /**
-     * Returns visible child groups/orders. Group nodes always stay visible; order nodes may
-     * be clickable pages or pale context nodes depending on the selected learning level.
+     * Returns visible child groups/orders for the active level.
+     * Level 1 hides unpaged context; fuller levels can keep it as pale context nodes.
      */
     visibleChildren(node) {
       const visible = [];
       for (const child of this.childNodes(node)) {
         if (child.rank === this.config.terminalRank) {
-          visible.push(child);
+          if (this.hasPage(child) || this.activeLevel.showUnpagedContext) visible.push(child);
           continue;
         }
 
         if (!this.groupRanks.has(child.rank)) continue;
-        visible.push(child);
+        if (this.hasPage(child) || this.activeLevel.showUnpagedContext) visible.push(child);
       }
       return visible;
     }

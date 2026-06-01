@@ -5,7 +5,7 @@
     : new URL("./", window.location.href).toString();
 
   window.AB_CONFIG = {
-    fallbackSiteVersion: "2.39",
+    fallbackSiteVersion: "2.41",
     appBaseUrl,
     storagePrefix: "armchair-botanist",
 

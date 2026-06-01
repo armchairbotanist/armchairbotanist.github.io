@@ -629,6 +629,16 @@ body.is-resizing-details {
   background: transparent;
 }
 
+.mode-nav {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 26;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
 .search-field {
   display: flex;
   align-items: center;
@@ -684,7 +694,7 @@ body.is-resizing-details {
   display: block;
 }
 
-.game-link {
+.mode-link {
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
@@ -702,11 +712,17 @@ body.is-resizing-details {
   text-decoration: none;
 }
 
-.game-link:hover,
-.game-link:focus {
+.mode-link:hover,
+.mode-link:focus {
   background: #fffdf0;
   outline: 0;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.72), 2px 3px 6px rgba(41, 44, 27, 0.16);
+}
+
+.mode-link.is-active {
+  border-color: var(--root-border);
+  background: var(--root);
+  color: #fff9dc;
 }
 
 .search-result {
@@ -860,7 +876,13 @@ body.is-resizing-details {
     width: min(380px, calc(100vw - 20px));
   }
 
-  .game-link {
+  .mode-nav {
+    top: 10px;
+    right: 10px;
+    gap: 5px;
+  }
+
+  .mode-link {
     width: 34px;
     height: 34px;
     font-size: 0.98rem;

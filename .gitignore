@@ -5,6 +5,7 @@
 # Keep repository config files.
 !.gitignore
 !.nojekyll
+!manifest.webmanifest
 
 # Keep the published site.
 !index.html

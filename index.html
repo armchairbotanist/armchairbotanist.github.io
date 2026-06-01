@@ -4,9 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Explore a source-cited, expandable plant clade tree.">
+    <meta name="theme-color" content="#d9cdae">
+    <meta name="apple-mobile-web-app-title" content="Armchair Botanist">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Armchair Botanist</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%2329795c' d='M50 8C28 9 13 21 13 39c0 10 7 17 17 17 19 0 28-22 20-48Z'/%3E%3Cpath fill='%23eff7ea' d='M21 48C28 33 37 23 49 13 37 28 29 39 25 55Z'/%3E%3C/svg%3E">
-    <link rel="stylesheet" href="./styles.css?v=20260531-v2.39-common-order-examples-1">
+    <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="stylesheet" href="./styles.css?v=20260531-v2.41-global-nav-1">
   </head>
   <body class="details-pane-hidden">
     <main class="app-shell">
@@ -38,14 +44,13 @@
         <div id="searchResults" class="search-results" aria-live="polite"></div>
       </form>
 
-      <a class="game-link" href="./game/index.html" aria-label="Plant family game" title="Plant family game">
-        <span aria-hidden="true">G</span>
-      </a>
-
-      <a class="game-link" href="./learn/index.html" aria-label="Plant tree learning" title="Plant tree learning">
-        <span aria-hidden="true">L</span>
-      </a>
     </div>
+
+    <nav class="mode-nav" aria-label="Site sections">
+      <a class="mode-link is-active" href="./index.html" aria-label="Tree" title="Tree" aria-current="page">T</a>
+      <a class="mode-link" href="./game/index.html" aria-label="Game" title="Game">G</a>
+      <a class="mode-link" href="./learn/index.html" aria-label="Learn" title="Learn">L</a>
+    </nav>
 
     <footer id="siteFooter" class="site-footer" aria-label="Site copyright"></footer>
 
@@ -71,12 +76,12 @@
       </li>
     </template>
 
-    <script src="./plant-tree-data.js?v=20260531-v2.39-common-order-examples-1"></script>
-    <script src="./js/config.js?v=20260531-v2.39-common-order-examples-1"></script>
-    <script src="./js/core.js?v=20260531-v2.39-common-order-examples-1"></script>
-    <script src="./js/tree-view.js?v=20260531-v2.39-common-order-examples-1"></script>
-    <script src="./js/details-pane.js?v=20260531-v2.39-common-order-examples-1"></script>
-    <script src="./js/search.js?v=20260531-v2.39-common-order-examples-1"></script>
-    <script src="./app.js?v=20260531-v2.39-common-order-examples-1"></script>
+    <script src="./plant-tree-data.js?v=20260531-v2.41-global-nav-1"></script>
+    <script src="./js/config.js?v=20260531-v2.41-global-nav-1"></script>
+    <script src="./js/core.js?v=20260531-v2.41-global-nav-1"></script>
+    <script src="./js/tree-view.js?v=20260531-v2.41-global-nav-1"></script>
+    <script src="./js/details-pane.js?v=20260531-v2.41-global-nav-1"></script>
+    <script src="./js/search.js?v=20260531-v2.41-global-nav-1"></script>
+    <script src="./app.js?v=20260531-v2.41-global-nav-1"></script>
   </body>
 </html>
