@@ -15,7 +15,7 @@ A static, GitHub Pages-friendly explorer for a source-cited plant clade tree.
 - Clickable figure thumbnails that open in a larger viewer.
 - Search-result clicks reveal and highlight the matched tree node.
 - Level-based plant family guessing game at `/game/`: choose a level, then move through that level's common plants one by one.
-- Angiosperm learning prototype at `/learn/`, currently showing level-based heading-plus-tree pages with all clade/grade backbone nodes, level-selected order pages, and curated common plant examples for orders; Level 1 hides unpaged context nodes, while fuller levels can show them as pale context nodes.
+- Angiosperm learning prototype at `/learn/`, currently showing level-based heading-plus-tree pages with all clade/grade backbone nodes, level-selected order pages, and curated common plant examples for orders; Level 1 hides unpaged context nodes and simplifies Eudicots directly to Rosids/Asterids, while fuller levels can show the technical scaffold as pale context nodes.
 - Home Screen web-app metadata for iPhone/iPad, including a web manifest and touch icons.
 
 ## Data
@@ -149,4 +149,4 @@ https://armchairbotanist.github.io/
 - `js/` contains the modular browser code.
 - `app.js` starts the app.
 
-Current visible site version: `2.42`.
+Current visible site version: `2.44`.

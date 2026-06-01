@@ -62,6 +62,9 @@
         id: "level-1",
         label: "Level 1",
         showUnpagedContext: false,
+        childOverrides: {
+          eudicots: ["rosids", "asterids"]
+        },
         orderIds: [
           "amborellales",
           "nymphaeales",
@@ -80,6 +83,7 @@
           "fabales",
           "rosales",
           "fagales",
+          "cucurbitales",
           "myrtales",
           "sapindales",
           "brassicales",
@@ -452,7 +456,7 @@
      */
     visibleChildren(node) {
       const visible = [];
-      for (const child of this.childNodes(node)) {
+      for (const child of this.childNodesForActiveLevel(node)) {
         if (child.rank === this.config.terminalRank) {
           if (this.hasPage(child) || this.activeLevel.showUnpagedContext) visible.push(child);
           continue;
@@ -462,6 +466,15 @@
         if (this.hasPage(child) || this.activeLevel.showUnpagedContext) visible.push(child);
       }
       return visible;
+    }
+
+    /**
+     * Returns direct children, with optional display-only shortcuts for the active level.
+     */
+    childNodesForActiveLevel(node) {
+      const overrideIds = this.activeLevel.childOverrides?.[node.id];
+      if (!overrideIds) return this.childNodes(node);
+      return overrideIds.map((id) => this.byId.get(id)).filter(Boolean);
     }
 
     /**
