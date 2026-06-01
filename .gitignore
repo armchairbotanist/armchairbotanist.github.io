@@ -14,6 +14,8 @@
 !js/**
 !game/
 !game/**
+!learn/
+!learn/**
 !plant-tree-data.js
 !assets/
 !assets/**

@@ -15,6 +15,7 @@ A static, GitHub Pages-friendly explorer for a source-cited plant clade tree.
 - Clickable figure thumbnails that open in a larger viewer.
 - Search-result clicks reveal and highlight the matched tree node.
 - Level-based plant family guessing game at `/game/`: choose a level, then move through that level's common plants one by one.
+- Angiosperm learning prototype at `/learn/`, currently showing level-based heading-plus-tree pages with all clade/grade backbone nodes, level-selected order pages, and curated common plant examples for orders; orders outside the active level remain visible as pale context nodes.
 
 ## Data
 
@@ -101,6 +102,7 @@ The fact pane should make displayed enrichment easy to verify:
 - `js/details-pane.js` defines the `DetailsPane` class for the fact pane, enrichment, source figures, image viewer, and pane resizing.
 - `js/search.js` defines the `SearchController` class for local and taxon-backed search.
 - `game/plant-game-data.js` defines the common-plant levels used by the guessing game.
+- `learn/` contains the order-by-order learning prototype.
 - Design colors live as CSS custom properties at the top of `styles.css`.
 
 ## Local Preview
@@ -144,4 +146,4 @@ https://armchairbotanist.github.io/
 - `js/` contains the modular browser code.
 - `app.js` starts the app.
 
-Current visible site version: `2.30`.
+Current visible site version: `2.39`.
